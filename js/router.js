@@ -1,7 +1,6 @@
 // Hash router: "#/services/custom-software-development?x=1" → { name, params }.
 
 export const ROUTES = [
-  { pattern: '/', name: 'index', label: 'Site map', group: 'Wireframe' },
   { pattern: '/home', name: 'home', label: 'Home', group: 'Home' },
   { pattern: '/company', name: 'company', label: 'Company', group: 'Company' },
   { pattern: '/services', name: 'services', label: 'Services', group: 'Services' },
@@ -37,7 +36,7 @@ export function parseRoute(hash) {
       return { name: r.name, params };
     }
   }
-  return { name: 'index', params: {} };
+  return { name: 'home', params }; // '/' and unknown paths open Home directly
 }
 
 export function href(name, params = {}) {

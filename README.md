@@ -10,7 +10,7 @@ It is a static site (plain ES modules, no build step). Serve the folder and open
 python3 -m http.server 5180
 ```
 
-Then visit <http://localhost:5180/#/home>. Use the **Template** picker (bottom right) to jump between pages and **Notes** to show the content annotations.
+Then visit <http://localhost:5180/>. The site opens straight on Home; use the **Template** picker (bottom right) to jump between pages and **Notes** to show the content annotations.
 
 ## Structure
 

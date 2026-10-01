@@ -16,7 +16,6 @@ function viewer(current) {
     <label for="route-pick">Template</label>
     <select id="route-pick" data-route-pick>${ROUTES.map((r) => html`<option value="${href(r.name, r.name === 'service' ? { slug: 'custom-software-development' } : {})}"${r.name === current ? ' selected' : ''}>${r.group === r.label ? r.label : `${r.group} · ${r.label}`}</option>`)}</select>
     <button type="button" data-annot-toggle aria-pressed="${annot}">${icon('push-pin')}<span>Notes</span></button>
-    <a href="#/" aria-label="Site map">${icon('tree-structure')}</a>
   </div>`;
 }
 
@@ -33,7 +32,7 @@ function setAnnot(v) {
 
 function render() {
   const { name, params } = parseRoute(location.hash);
-  const page = PAGES[name] || PAGES.index;
+  const page = PAGES[name] || PAGES.home;
   let body;
   try {
     body = page(docs, params);
@@ -42,7 +41,7 @@ function render() {
     body = html`<section class="s"><div class="w"><h1 class="display display--2">This template failed to render.</h1><p class="lead">${String(err.message)}</p></div></section>`;
   }
   app.innerHTML = `${nav(docs.structure, ACTIVE_MENU[name])}<main id="main" tabindex="-1">${body}</main>${footer(docs.structure)}${dialogs()}${viewer(name)}`;
-  const label = ROUTES.find((r) => r.name === name)?.label || 'Site map';
+  const label = ROUTES.find((r) => r.name === name)?.label || 'Home';
   document.title = `${label} · PTN Global wireframe`;
   bind(app);
   app.querySelectorAll('[data-annot-toggle]').forEach((b) => b.addEventListener('click', () => setAnnot(!annot)));
