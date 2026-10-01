@@ -1,0 +1,58 @@
+/* Zero GEL — typography tokens (from Design Tokens ▸ Typography)
+   Single family: Roboto. Headings use Medium/Regular; UI labels use Medium. */
+
+:root {
+  --zero-font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  /* Roboto Mono webfont not yet uploaded — fallback stack renders until the
+     file is added to fonts/ and an @font-face is declared in fonts.css. */
+  --zero-font-mono: "Roboto Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Headings */
+  --zero-type-h1-size: 56px;       /* 3.5rem · LH 120% · spacing 0% · Medium/Regular */
+  --zero-type-h1-line: 1.2;
+  --zero-type-h2-size: 34px;       /* 2.125rem · LH 140% */
+  --zero-type-h2-line: 1.4;
+  --zero-type-h3-size: 24px;       /* 1.5rem · LH 140% */
+  --zero-type-h3-line: 1.4;
+
+  /* Titles */
+  --zero-type-title-size: 20px;        /* LH 150% · spacing 1% */
+  --zero-type-title-line: 1.5;
+  --zero-type-title-spacing: 0.01em;
+  --zero-type-title-sm-size: 16px;     /* LH 150% · spacing 2% */
+
+  /* Body */
+  --zero-type-body-size: 16px;         /* default · LH 150% · spacing 2% */
+  --zero-type-body-line: 1.5;
+  --zero-type-body-spacing: 0.02em;
+  --zero-type-body-sm-size: 14px;      /* LH 140% · spacing 1% */
+  --zero-type-body-sm-line: 1.4;
+  --zero-type-body-sm-spacing: 0.01em;
+  --zero-type-body-tiny-size: 12px;    /* LH 130% · avoid where possible */
+  --zero-type-body-tiny-line: 1.3;
+
+  /* Labels */
+  --zero-type-label-size: 11.2px;      /* 0.7rem overline · LH 140% · spacing 7% · Medium */
+  --zero-type-label-line: 1.4;
+  --zero-type-label-spacing: 0.07em;
+  --zero-type-label-status-size: 12px; /* status bold · LH 130% · spacing 7% */
+
+  /* Weights */
+  --zero-weight-regular: 400;
+  --zero-weight-medium: 500;
+  --zero-weight-bold: 700;
+}
+
+/* Optional helper classes (match Figma text styles) */
+.zero-h1 { font: var(--zero-weight-medium) var(--zero-type-h1-size)/var(--zero-type-h1-line) var(--zero-font-family); color: var(--zero-text-primary); letter-spacing: 0; }
+.zero-h2 { font: var(--zero-weight-regular) var(--zero-type-h2-size)/var(--zero-type-h2-line) var(--zero-font-family); color: var(--zero-text-primary); }
+.zero-h3 { font: var(--zero-weight-regular) var(--zero-type-h3-size)/var(--zero-type-h3-line) var(--zero-font-family); color: var(--zero-text-primary); }
+.zero-title { font: var(--zero-weight-medium) var(--zero-type-title-size)/var(--zero-type-title-line) var(--zero-font-family); letter-spacing: var(--zero-type-title-spacing); color: var(--zero-text-primary); }
+.zero-body { font: var(--zero-weight-regular) var(--zero-type-body-size)/var(--zero-type-body-line) var(--zero-font-family); letter-spacing: var(--zero-type-body-spacing); color: var(--zero-text-primary); }
+.zero-body-sm { font: var(--zero-weight-regular) var(--zero-type-body-sm-size)/var(--zero-type-body-sm-line) var(--zero-font-family); letter-spacing: var(--zero-type-body-sm-spacing); color: var(--zero-text-primary); }
+.zero-label {
+  font: var(--zero-weight-medium) var(--zero-type-label-size)/var(--zero-type-label-line) var(--zero-font-family);
+  letter-spacing: var(--zero-type-label-spacing);
+  text-transform: uppercase;
+  color: var(--zero-text-primary);
+}

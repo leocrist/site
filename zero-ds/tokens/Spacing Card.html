@@ -1,0 +1,119 @@
+<!-- @dsCard group="Spacing" viewport="880x760" name="Spacing · radii · elevation" subtitle="Spacing scale, corner radii, shadows & control heights" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zero GEL — Spacing, radii & elevation</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body {
+    margin: 0;
+    padding: 36px 40px;
+    background: var(--zero-bg-system-secondary, #FFFFFF);
+    color: var(--zero-text-primary, #022034);
+    font-family: var(--zero-font-family);
+  }
+  h2.group {
+    font: var(--zero-weight-medium) 11.2px/1.4 var(--zero-font-family);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--zero-text-tertiary, #596983);
+    margin: 0 0 16px 0;
+  }
+  section { margin: 0 0 36px 0; }
+  .mono { font-family: var(--zero-font-mono); }
+
+  /* spacing scale */
+  .sp-row { display: flex; align-items: center; gap: 16px; margin: 0 0 10px 0; }
+  .sp-token { width: 96px; font-family: var(--zero-font-mono); font-size: 11px; color: var(--zero-text-secondary, #273957); }
+  .sp-bar { height: 16px; background: var(--zero-button-green, #19A55F); border-radius: 2px; }
+  .sp-px { font-family: var(--zero-font-mono); font-size: 11px; color: var(--zero-text-tertiary, #596983); }
+
+  /* radii */
+  .radii { display: flex; gap: 22px; flex-wrap: wrap; }
+  .radius-item { text-align: center; }
+  .radius-box {
+    width: 96px; height: 64px;
+    background: var(--zero-bg-subtle, #ECF0F3);
+    border: 1.5px solid var(--zero-border-grey, #CED8E2);
+    margin-bottom: 9px;
+  }
+  .radius-item .name { font-size: 12.5px; font-weight: 500; margin: 0; }
+  .radius-item .val { font-family: var(--zero-font-mono); font-size: 10.5px; color: var(--zero-text-tertiary, #596983); margin: 2px 0 0; }
+
+  /* elevation */
+  .elev { display: flex; gap: 28px; }
+  .elev-item { text-align: center; }
+  .elev-box {
+    width: 150px; height: 84px;
+    background: #fff; border-radius: var(--zero-radius-card, 8px);
+    margin-bottom: 12px;
+  }
+  .elev-item .name { font-size: 12.5px; font-weight: 500; margin: 0; }
+
+  /* control heights */
+  .ctrl { display: flex; align-items: flex-end; gap: 18px; }
+  .ctrl-item { text-align: center; }
+  .ctrl-pill {
+    width: 120px; border-radius: var(--zero-radius-button, 90px);
+    background: var(--zero-button-primary, #FAD74B);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500; color: var(--zero-button-text, #022034);
+    margin-bottom: 10px;
+  }
+  .ctrl-item .val { font-family: var(--zero-font-mono); font-size: 10.5px; color: var(--zero-text-tertiary, #596983); margin: 0; }
+</style>
+</head>
+<body>
+
+  <section>
+    <h2 class="group">Spacing scale</h2>
+    <div id="spacing"></div>
+  </section>
+
+  <section>
+    <h2 class="group">Corner radii</h2>
+    <div class="radii">
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--zero-radius-input)"></div><p class="name">Input</p><p class="val">4px</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--zero-radius-card)"></div><p class="name">Card</p><p class="val">8px</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--zero-radius-tip)"></div><p class="name">Tip</p><p class="val">12px</p></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:var(--zero-radius-button)"></div><p class="name">Button</p><p class="val">90px · pill</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="group">Elevation</h2>
+    <div class="elev">
+      <div class="elev-item"><div class="elev-box" style="box-shadow:var(--zero-elevation-1)"></div><p class="name">Elevation 1 · cards</p></div>
+      <div class="elev-item"><div class="elev-box" style="box-shadow:var(--zero-elevation-2)"></div><p class="name">Elevation 2 · popovers</p></div>
+      <div class="elev-item"><div class="elev-box" style="box-shadow:var(--zero-elevation-3)"></div><p class="name">Elevation 3 · modals</p></div>
+    </div>
+  </section>
+
+  <section style="margin-bottom:0">
+    <h2 class="group">Control heights</h2>
+    <div class="ctrl">
+      <div class="ctrl-item"><div class="ctrl-pill" style="height:var(--zero-control-height-lg)">Large</div><p class="val">48px</p></div>
+      <div class="ctrl-item"><div class="ctrl-pill" style="height:var(--zero-control-height-md)">Medium</div><p class="val">40px</p></div>
+      <div class="ctrl-item"><div class="ctrl-pill" style="height:var(--zero-control-height-sm)">Small</div><p class="val">32px</p></div>
+    </div>
+  </section>
+
+  <script>
+    const scale = [
+      ['--zero-size-2',2],['--zero-size-4',4],['--zero-size-8',8],['--zero-size-12',12],
+      ['--zero-size-16',16],['--zero-size-24',24],['--zero-size-32',32],['--zero-size-40',40],
+      ['--zero-size-48',48],['--zero-size-72',72]
+    ];
+    const host = document.getElementById('spacing');
+    for (const [name, px] of scale) {
+      const row = document.createElement('div'); row.className = 'sp-row';
+      row.innerHTML =
+        '<span class="sp-token">'+name.replace('--zero-','')+'</span>' +
+        '<span class="sp-bar" style="width:'+px+'px"></span>' +
+        '<span class="sp-px">'+px+'px</span>';
+      host.appendChild(row);
+    }
+  </script>
+</body>
+</html>

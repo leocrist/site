@@ -1,0 +1,80 @@
+/* Zero GEL — semantic colour tokens (values match the published DS manifest, _ds_manifest.json) */
+
+:root {
+  /* ---- Text ---- */
+  --zero-text-inclusive: #030313;
+  --zero-text-primary: #022034;
+  --zero-text-secondary: #273957;
+  --zero-text-tertiary: #596983;
+  --zero-text-on-dark: #FFFFFF;
+  --zero-text-label-on-dark: #F3F5F7;
+
+  /* ---- Links ---- */
+  --zero-link: #19A55F;
+  --zero-link-hover: #00723F;
+  --zero-link-visited: #5A4ACF;
+
+  /* ---- Backgrounds ---- */
+  --zero-bg-system-primary: #FAFBFC;
+  --zero-bg-system-secondary: #FFFFFF;
+  --zero-bg-presentation-mode-primary: #FFFFFF;
+  --zero-bg-presentation-mode-secondary: #FAFBFC;
+  --zero-bg-header: #022034;
+  --zero-bg-subtle: #ECF0F3;
+
+  /* ---- Borders ---- */
+  --zero-border-grey: #CED8E2;
+  --zero-border-subtle: #ECF0F3;
+
+  /* ---- Buttons ---- */
+  --zero-button-primary: #FAD74B;
+  --zero-button-primary-active: #F8CA19;
+  --zero-button-secondary-stroke: #19A55F;
+  --zero-button-secondary-hover: #00723F;
+  --zero-button-subtle: #FFFFFF;
+  --zero-button-subtle-active: #ECF0F3;
+  --zero-button-green: #19A55F;
+  --zero-button-green-active: #00723F;
+  --zero-button-text: #022034;
+  --zero-button-disabled-bg: #ECF0F3;
+  --zero-button-disabled-text: #8292A6;
+
+  /* ---- Focus / selection ---- */
+  --zero-focus-ring: #1E86FC;
+
+  /* Form fields (Input, Select, Checkbox): focus, open and checked states are green */
+  --zero-field-focus: var(--zero-button-green);          /* #19A55F — border when focused / open */
+  --zero-field-focus-halo: rgba(25, 165, 95, 0.18);      /* soft ring around a focused field */
+  --zero-field-hover: var(--base-colours-green-green-50);/* border on hover */
+  --zero-field-checked: var(--zero-button-green);        /* checked box, chosen option */
+  --zero-selected: #016EE9;
+
+  /* ---- Status / feedback ---- */
+  --zero-status-success: #19A55F;
+  --zero-status-success-bg: #D1FCE6;
+  --zero-status-error: #DD0951;
+  --zero-status-error-text: var(--base-colours-red-red-300);   /* error copy at small sizes · 7.2:1 on white */
+  --zero-status-error-bg: #FEE0E9;
+  --zero-error-halo: rgba(221, 9, 81, 0.16);         /* ring around a focused control in error */
+  --zero-status-warning: #E97307;
+  --zero-status-warning-bg: #FFF2E6;
+  --zero-status-info: #1E86FC;
+  --zero-status-info-bg: #EDF6FF;
+
+  /* ---- Clinical indicators (variant classification) ---- */
+  --zero-indicator-red: #FEE0E9;
+  --zero-indicator-red-text: #B00047;
+  --zero-indicator-green: #D1FCE6;
+  --zero-indicator-green-text: #015831;
+  --zero-indicator-grey: #ECF0F3;
+  --zero-indicator-grey-text: #022034;
+  --zero-indicator-loh: #9A8DFF;
+
+  /* ---- Tabs ---- */
+  --zero-tab-active-accent: #5DFCA8;
+  --zero-tab-active-bg: #FAFBFC;
+
+  /* ---- Logo ---- */
+  --zero-logo-zero: #F9D51A;
+  --zero-logo-line: #DC67CE;
+}

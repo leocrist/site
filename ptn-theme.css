@@ -1,0 +1,77 @@
+/* PTN theme layer: TestSprite-inspired skin over Zero DS tokens.
+   Every tint derives from the PTN accent #008FC4. Loaded after src/styles.css. */
+
+:root {
+  /* Accent family (#008FC4) */
+  --ptn-accent: #008FC4;
+  --ptn-accent-hover: #0074A0;
+  --ptn-accent-deep: #005A7C;
+  --ptn-accent-tint: rgba(0, 143, 196, 0.10);
+  --ptn-accent-tint-2: rgba(0, 143, 196, 0.18);
+  --ptn-accent-on-dark: #4FC3EC;
+
+  /* Surfaces */
+  --ptn-paper: #F2F8FB;
+  --ptn-paper-2: #E7F1F6;
+  --ptn-surface: #FFFFFF;
+  --ptn-night: #0C1418;
+  --ptn-night-2: #121D22;
+
+  /* Ink */
+  --ptn-ink: #030303;
+  --ptn-ink-2: #56626A;
+  --ptn-ink-3: #7A868D;
+  --ptn-ink-on-dark: #EEF6F9;
+  --ptn-ink-2-on-dark: #9FB3BC;
+
+  /* Rules */
+  --ptn-rule: rgba(3, 20, 28, 0.08);
+  --ptn-rule-strong: rgba(3, 20, 28, 0.16);
+  --ptn-night-rule: rgba(255, 255, 255, 0.09);
+  --ptn-grid: rgba(3, 20, 28, 0.035);
+  --ptn-night-grid: rgba(255, 255, 255, 0.045);
+
+  /* Type */
+  --ptn-font-display: "Sentient", "Iowan Old Style", Georgia, serif;
+  --ptn-font-body: "Satoshi", "Helvetica Neue", Arial, sans-serif;
+  --ptn-font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Layout */
+  --ptn-container: 1400px;
+  --ptn-gutter: clamp(16px, 2vw, 24px);  /* content sits 24px inside the container rails (TestSprite spacing) */
+  --ptn-section-y: clamp(72px, 9vw, 128px);
+  --ptn-nav-h: 64px;
+  --ptn-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Zero DS overrides: marketing skin */
+  --zero-font-family: var(--ptn-font-body);
+  --zero-radius-input: 0;
+  --zero-radius-card: 0;
+  --zero-radius-tip: 0;
+  --zero-radius-button: 0;
+  --zero-radius-chip: 0;
+  --zero-text-primary: var(--ptn-ink);
+  --zero-text-secondary: var(--ptn-ink-2);
+  --zero-link: var(--ptn-accent);
+  --zero-link-hover: var(--ptn-accent-hover);
+  --zero-field-focus: var(--ptn-accent);
+  --zero-field-focus-halo: rgba(0, 143, 196, 0.18);
+  --zero-field-checked: var(--ptn-accent);
+  --zero-focus-ring: var(--ptn-accent);
+}
+
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--ptn-paper);
+  color: var(--ptn-ink);
+  font-family: var(--ptn-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--ptn-accent); color: #fff; }
+:focus-visible { outline: 2px solid var(--ptn-accent); outline-offset: 3px; }

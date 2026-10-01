@@ -1,0 +1,84 @@
+<!-- @dsCard group="Type" viewport="760x640" name="Typography" subtitle="Roboto Variable — self-hosted, normal + italic axes" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Zero GEL — Typography</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body {
+    margin: 0;
+    padding: 40px 44px;
+    background: var(--zero-bg-system-secondary, #FFFFFF);
+    color: var(--zero-text-primary, #022034);
+    font-family: var(--zero-font-family);
+  }
+  .spec {
+    font-family: var(--zero-font-mono);
+    font-size: 11px;
+    color: var(--zero-text-tertiary, #596983);
+    letter-spacing: 0.02em;
+    margin: 0 0 4px 0;
+  }
+  .row { margin: 0 0 26px 0; }
+  .row p, .row h1, .row h2, .row h3 { margin: 0; }
+  .family-note {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 22px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--zero-border-subtle, #ECF0F3);
+  }
+  .family-note strong { font-size: 18px; font-weight: 500; }
+  .family-note span {
+    font-family: var(--zero-font-mono);
+    font-size: 11px;
+    color: var(--zero-text-tertiary, #596983);
+  }
+</style>
+</head>
+<body>
+
+  <div class="family-note">
+    <strong>Roboto Variable</strong>
+    <span>wght 100–900 · wdth 75–125% · normal + italic</span>
+  </div>
+
+  <div class="row">
+    <p class="spec">H1 · 56/120 · Medium</p>
+    <h1 class="zero-h1">Heading one</h1>
+  </div>
+
+  <div class="row">
+    <p class="spec">H2 · 34/140 · Regular</p>
+    <h2 class="zero-h2">Heading two</h2>
+  </div>
+
+  <div class="row">
+    <p class="spec">H3 · 24/140 · Regular</p>
+    <h3 class="zero-h3">Heading three</h3>
+  </div>
+
+  <div class="row">
+    <p class="spec">Title · 20/150 · Medium · +1%</p>
+    <p class="zero-title">Title — section and card headers</p>
+  </div>
+
+  <div class="row">
+    <p class="spec">Body · 16/150 · Regular · +2% · with italic</p>
+    <p class="zero-body">Default body text for the Zero GEL platform, with <em>true italics from the uploaded variable file</em> and <strong>bold for emphasis</strong>.</p>
+  </div>
+
+  <div class="row">
+    <p class="spec">Body small · 14/140 · Regular · +1%</p>
+    <p class="zero-body-sm">Small body for dense tables and secondary descriptions.</p>
+  </div>
+
+  <div class="row" style="margin-bottom: 0;">
+    <p class="spec">Label · 11.2/140 · Medium · +7% · uppercase</p>
+    <p class="zero-label">Overline label</p>
+  </div>
+
+</body>
+</html>

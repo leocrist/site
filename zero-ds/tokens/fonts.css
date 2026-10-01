@@ -1,0 +1,21 @@
+/* Zero GEL — webfonts
+   Roboto Variable (uploaded brand files). Roboto is the single UI family
+   for the Zero GEL platform; weights 300–900 come from the variable axis. */
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-VariableFont_wdth_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Italic-VariableFont_wdth_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: italic;
+  font-display: swap;
+}

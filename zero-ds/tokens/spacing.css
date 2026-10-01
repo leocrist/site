@@ -1,0 +1,28 @@
+/* Zero GEL — spacing, radii, elevation (Zero GEL, from the published DS manifest) */
+
+:root {
+  /* Spacing scale */
+  --zero-size-2: 2px;
+  --zero-size-4: 4px;
+  --zero-size-8: 8px;
+  --zero-size-12: 12px;
+  --zero-size-16: 16px;
+  --zero-size-24: 24px;
+  --zero-size-32: 32px;
+  --zero-size-40: 40px;
+  --zero-size-48: 48px;
+  --zero-size-72: 72px;
+  --zero-radius-input: 4px;
+  --zero-radius-card: 8px;
+  --zero-radius-tip: 12px;
+  --zero-radius-button: 90px;
+  --zero-radius-chip: 100px;
+  --zero-elevation-1: 0px 1px 4px 0px rgba(39,57,87,0.12), 0px 1px 2px 0px rgba(39,57,87,0.08), 0px 0px 8px 0px rgba(39,57,87,0.08);
+  --zero-elevation-2: 0px 12px 24px 0px rgba(18,47,92,0.12);
+  --zero-elevation-3: 0px 0px 16px 0px rgba(39,57,87,0.08), 0px 16px 32px 0px rgba(39,57,87,0.16);
+
+  /* Component heights */
+  --zero-control-height-lg: 48px;
+  --zero-control-height-md: 40px;
+  --zero-control-height-sm: 32px;
+}
