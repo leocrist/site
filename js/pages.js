@@ -268,9 +268,7 @@ function company(docs) {
 
   ${section({ pin: c.pin(), row: lead, id: 'leadership' }, html`
     ${head({ eyebrow: 'Leadership', title: lead.parsed.title, accent: 'Leadership Team', lead: lead.parsed.subtitle })}
-    <div class="people">${leaders.slice(0, 6).map((p) => html`<article class="person">${monogram(p.name)}<div><h3 class="h4">${p.name}</h3><p>${p.role}</p></div></article>`)}</div>
-    <h3 class="h3" style="margin:64px 0 20px">Group leads</h3>
-    ${ruledGrid(leaders.slice(6).map((p) => ({ name: p.name, text: p.role })), { cols: 4, cls: 'rgrid--plain' })}`)}
+    <div class="people">${leaders.slice(0, 6).map((p) => html`<article class="person">${monogram(p.name)}<div><h3 class="h4">${p.name}</h3><p>${p.role}</p></div></article>`)}</div>`)}
 
   ${section({ pin: c.pin(), row: culture, dark: true }, html`
     ${head({ title: culture.parsed.title, accent: 'Cultural Diversity', lead: culture.parsed.subtitle })}
