@@ -216,6 +216,8 @@ function company(docs) {
   const values = pick(core.content, ['Honesty', 'Transparency', 'Trust & Mutual Respect', 'Teamwork', 'Listen & Learn']);
   const methods = pick(meth.content, ['Agile: Flexibility for Rapid Innovation', 'Scrum: Structured, High-Quality Delivery', 'Kanban: Transparent, Efficient Workflows', 'DevOps: Continuous Integration & Deployment', 'Lean: Efficiency and Maximum Value', 'SAFe: Scaling Agile Across Teams', 'XP: Technical Excellence & Speed']);
   const leaders = lead.content.split(/Section\s*\d+\s*:/).slice(1).map((s) => s.replace(/\s-\s*$/, '').trim()).map((s) => { const [n, r] = firstClause(s); return { name: n.trim(), role: r.trim() }; });
+  // "H.3T.L" is shown as "Core values" everywhere on the page
+  const coreValues = (t = '') => t.replace(/Why H\.3T\.L Defines PTN/g, 'Why our core values define PTN').replace(/H\.3T\.L represents/g, 'Our core values represent').replace(/our values are rooted in H\.3T\.L\s*\S?\s*/g, 'our core values are ').replace(/H\.3T\.L/g, 'our core values');
   const cultures = pick(culture.content, ['Business Philosophy: Customer-Centric', 'People-Centric Culture', 'Why H.3T.L Defines PTN']);
   const procSteps = pick(process.content, ['Contact with Us', 'Explore Solutions and Team Setup', 'Kick Off and Monitor the Project']);
   if (procSteps[1].text.trim() === 'Explore Solutions and Team Setup' || !procSteps[1].text) procSteps[1].text = 'Step description awaiting (the doc repeats the step title).';
@@ -254,7 +256,7 @@ function company(docs) {
     ${ruledGrid(beliefs, { cols: 3, iconFor: (_, i) => ['coins', 'handshake', 'eye', 'megaphone-simple', 'heart', 'scales'][i] })}`)}
 
   ${section({ pin: c.pin(), row: core }, html`
-    ${head({ eyebrow: 'H.3T.L', title: core.parsed.title, accent: 'unite us', lead: core.parsed.subtitle })}
+    ${head({ eyebrow: 'Core values', title: core.parsed.title, accent: 'unite us', lead: coreValues(core.parsed.subtitle) })}
     <ol class="values">${values.map((v) => html`<li class="value"><span class="value-letter" aria-hidden="true">${v.name[0]}</span><h3 class="h4">${v.name}</h3><p>${v.text}</p></li>`)}</ol>`)}
 
   ${section({ pin: c.pin(), row: awards, id: 'awards' }, html`
@@ -272,7 +274,7 @@ function company(docs) {
 
   ${section({ pin: c.pin(), row: culture, dark: true }, html`
     ${head({ title: culture.parsed.title, accent: 'Cultural Diversity', lead: culture.parsed.subtitle })}
-    ${ruledGrid(cultures.map((x) => ({ name: x.name, text: x.text })), { cols: 3, iconFor: (_, i) => ['users-three', 'user-circle-plus', 'compass'][i] })}`)}
+    ${ruledGrid(cultures.map((x) => ({ name: coreValues(x.name), text: coreValues(x.text) })), { cols: 3, iconFor: (_, i) => ['users-three', 'user-circle-plus', 'compass'][i] })}`)}
 
   ${section({ pin: c.pin(), row: people, id: 'people', extra: 'Show all PTN photos. The NZ address is still requested.' }, html`
     ${head({ title: people.parsed.title, accent: 'Dedicated Team', lead: 'In Australia, New Zealand, and Vietnam. Dedicated to doing their life’s work.' })}
