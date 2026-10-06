@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Sản phẩm & Dịch vụ – Minh Group ST</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&amp;display=swap">
+<style>
+body{margin:0;background:#ffffff;color:#201e1d;font-family:'Inter',system-ui,sans-serif}
+a{color:#ca4d25}a:hover{color:#bf4420}
+h1,h2,h3,p,ul{margin:0}h1,h2,h3{font-weight:600}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+.card{background:#fff;border:1px solid #ebebeb;border-radius:14px;box-shadow:0 1px 2px rgb(32 30 29 / 8%);padding:24px;box-sizing:border-box}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:10px;font-family:inherit;font-size:15px;font-weight:500;text-decoration:none;box-sizing:border-box;cursor:pointer;white-space:nowrap}
+.btn-p{background:#ca4d25;color:#fff;border:1px solid #ca4d25}.btn-p:hover{background:#bf4420;color:#fff}
+.btn-s{background:#fff;color:#201e1d;border:1px solid #dcdcdc}.btn-s:hover{color:#ca4d25;border-color:#ca4d25}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#ca4d25}
+.en{color:#5c5c5c;font-size:14px;font-style:italic}
+.ph{background:repeating-linear-gradient(135deg,#f4f4f5 0 10px,#fafafa 10px 20px);border:1px dashed #d4d4d4;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#5c5c5c;font-size:13px;text-align:center;padding:12px;box-sizing:border-box}
+.nav a{color:#201e1d;text-decoration:none;font-size:15px;padding:12px 2px}.nav a:hover{color:#ca4d25}.nav a.on{color:#ca4d25;font-weight:600}
+.lang{display:flex;border:1px solid #ebebeb;border-radius:10px;overflow:hidden}.lang button{min-width:44px;min-height:40px;border:0;background:#fff;font-family:inherit;font-size:13px;font-weight:600;color:#5c5c5c;cursor:pointer}.lang button[aria-pressed="true"]{background:#201e1d;color:#fff}
+.dk{width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid #ebebeb;display:flex;align-items:center;justify-content:center;color:#201e1d;box-shadow:0 4px 12px rgb(32 30 29 / 14%);text-decoration:none;font-size:12px;font-weight:600}
+.crumb{font-size:13px;color:#5c5c5c}.crumb a{color:#5c5c5c}
+.tab{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:72px;padding:14px 18px;border-radius:12px;border:1px solid #ebebeb;background:#fff;color:#201e1d;font-family:inherit;text-align:left;cursor:pointer;width:100%;box-sizing:border-box}
+.tab:hover{border-color:#ca4d25}
+.tab.on{background:#ca4d25;border-color:#ca4d25;color:#fff}
+.tab .t1{font-size:15px;font-weight:600;line-height:1.35}.tab .t2{font-size:12px;opacity:.8}
+.chip{display:inline-flex;align-items:center;min-height:32px;padding:0 12px;border-radius:999px;background:#ffffff;border:1px solid #ebebeb;font-size:13px}
+.badge{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:#fbeee8;color:#a63c1b;font-size:12px;font-weight:600}
+.li{font-size:15px;line-height:1.7;color:#5c5c5c;padding-left:18px}
+body{-webkit-font-smoothing:antialiased}
+header{background:rgb(255 255 255 / 86%) !important;backdrop-filter:blur(14px)}
+.nav a{position:relative}.nav a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:#ca4d25;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}.nav a:hover::after,.nav a.on::after{transform:scaleX(1)}.nav a.on{font-weight:500 !important}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;letter-spacing:.14em !important;font-size:12px !important}.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;flex-shrink:0}
+.card{border-radius:18px}
+.tab{transition:background .25s ease,border-color .25s ease,transform .25s ease}.tab:hover{transform:translateY(-2px)}.tab .t1{font-size:16px}
+[role="tabpanel"]{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}
+.btn{transition:background .25s ease,border-color .25s ease,color .25s ease}
+.ph{border-radius:14px}
+h2{letter-spacing:-0.01em}
+section:has(> .wrap > .crumb){position:relative;overflow:hidden;background:#201e1d radial-gradient(circle at 92% -30%, rgb(202 77 37 / 38%), rgb(202 77 37 / 0%) 45%);color:#fff;padding:96px 0 80px !important;margin-bottom:64px;border-bottom:2px solid #ca4d25}
+section:has(> .wrap > .crumb) h1{font-size:68px !important;line-height:1.02;letter-spacing:-0.01em;font-weight:600 !important;max-width:900px;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+section:has(> .wrap > .crumb) .en{color:#a3a3a3;font-size:15px}
+.crumb,.crumb a{color:#a3a3a3 !important;letter-spacing:.04em}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (max-width:900px){section:has(> .wrap > .crumb) h1{font-size:42px !important}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+.ft a{color:#d4d4d4;text-decoration:none;font-size:14px}.ft a:hover{color:#fff}
+</style>
+</helmet>
+<div style="min-height: 100vh">
+<header style="background: #fff; border-bottom: 1px solid #ebebeb; position: sticky; top: 0; z-index: 5">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px; flex-wrap: wrap">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #201e1d">
+<img src="../assets/logo-mgst.png" alt="Logo Minh Group ST" width="44" height="44" style="width: 44px; height: 44px; object-fit: contain; mix-blend-mode: multiply">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600; font-size: 16px; letter-spacing: .02em">MINH GROUP ST</span><span style="font-size: 12px; color: #5c5c5c">Tiên phong số hóa – Hiệu quả bứt phá</span></span>
+</a>
+<nav class="nav" aria-label="Điều hướng chính" style="display: flex; gap: 24px; flex-wrap: wrap">
+<a href="Main.dc.html">Trang chủ</a>
+<a href="About.dc.html">Giới thiệu</a>
+<a href="Services.dc.html" class="on">Dịch vụ</a>
+<a href="News.dc.html">Tin tức</a>
+<a href="Gallery.dc.html">Thư viện</a>
+<a href="Contact.dc.html">Liên hệ</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<div class="lang" role="group" aria-label="Ngôn ngữ / Language"><button type="button" aria-pressed="true">VI</button><button type="button" aria-pressed="false">EN</button></div>
+<a class="btn btn-p" href="Contact.dc.html">Liên hệ hợp tác</a>
+</div>
+</div>
+</header>
+
+<section style="padding: 48px 0 32px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 10px">
+<p class="crumb"><a href="Main.dc.html">Trang chủ</a> / Sản phẩm &amp; Dịch vụ</p>
+<h1 style="font-size: 44px">Sản phẩm &amp; Dịch vụ</h1>
+<p class="en">Products &amp; Services</p>
+</div>
+</section>
+
+<section style="padding-bottom: 96px">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 20px">
+<div role="tablist" aria-label="4 trụ cột dịch vụ" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px">
+<sc-for list="{{tabs}}" as="tab" hint-placeholder-count="4">
+<sc-if value="{{tab.selected}}" hint-placeholder-val="{{ false }}">
+<button type="button" role="tab" aria-selected="true" class="tab on" onClick="{{tab.pick}}"><span class="t1">{{tab.label}}</span><span class="t2">{{tab.en}}</span></button>
+</sc-if>
+<sc-if value="{{tab.idle}}" hint-placeholder-val="{{ true }}">
+<button type="button" role="tab" aria-selected="false" class="tab" onClick="{{tab.pick}}"><span class="t1">{{tab.label}}</span><span class="t2">{{tab.en}}</span></button>
+</sc-if>
+</sc-for>
+</div>
+
+<sc-if value="{{show0}}" hint-placeholder-val="{{ true }}">
+<div role="tabpanel" class="card" style="padding: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span class="eyebrow">Trụ cột 01</span>
+<h2 style="font-size: 30px; line-height: 1.25">Chuyển đổi số &amp; Phát triển thị trường Tài chính</h2>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 14px; padding: 16px; border: 1px solid #ebebeb; border-radius: 10px"><span style="font-weight: 600; color: #ca4d25">01</span><span style="font-size: 15px; line-height: 1.6">Phổ cập mở tài khoản và giải pháp thanh toán không dùng tiền mặt.</span></div>
+<div style="display: flex; gap: 14px; padding: 16px; border: 1px solid #ebebeb; border-radius: 10px"><span style="font-weight: 600; color: #ca4d25">02</span><span style="font-size: 15px; line-height: 1.6">Hướng dẫn đăng ký, tích hợp eTax Mobile và định danh điện tử VNeID.</span></div>
+<div style="display: flex; gap: 14px; padding: 16px; border: 1px solid #ebebeb; border-radius: 10px"><span style="font-weight: 600; color: #ca4d25">03</span><span style="font-size: 15px; line-height: 1.6">Hỗ trợ giải pháp tài chính vi mô, tín dụng tiêu dùng an toàn, minh bạch.</span></div>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap"><a class="btn btn-p" href="Contact.dc.html">Đăng ký tư vấn</a><a class="btn btn-s" href="News.dc.html">Xem hướng dẫn</a></div>
+</div>
+<div class="ph" style="min-height: 360px">[Ảnh] Nhân viên hướng dẫn cài VNeID / eTax Mobile tại chợ dân sinh</div>
+</div>
+</sc-if>
+
+<sc-if value="{{show1}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" class="card" style="padding: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span class="eyebrow">Trụ cột 02 · Đại lý tổ chức PVI · PTI</span>
+<h2 style="font-size: 30px; line-height: 1.25">Phân phối Bảo hiểm Phi Nhân Thọ</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<div style="padding: 18px; border: 1px solid #ebebeb; border-radius: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Xe cơ giới</span><span style="font-size: 14px; line-height: 1.55; color: #5c5c5c">TNDS bắt buộc xe máy, ô tô &amp; bảo hiểm thân vỏ.</span></div>
+<div style="padding: 18px; border: 1px solid #ebebeb; border-radius: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Con người</span><span style="font-size: 14px; line-height: 1.55; color: #5c5c5c">Tai nạn, sức khỏe cá nhân &amp; gia đình.</span></div>
+<div style="padding: 18px; border: 1px solid #ebebeb; border-radius: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-weight: 600">Tài sản</span><span style="font-size: 14px; line-height: 1.55; color: #5c5c5c">Cháy nổ doanh nghiệp và hộ kinh doanh.</span></div>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap"><a class="btn btn-p" href="Contact.dc.html">Nhận báo giá</a><a class="btn btn-s" href="News.dc.html">Hướng dẫn bồi thường</a></div>
+</div>
+<div class="ph" style="min-height: 360px">[Ảnh] Tư vấn bảo hiểm xe máy tại điểm bán</div>
+</div>
+</sc-if>
+
+<sc-if value="{{show2}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" class="card" style="padding: 36px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="badge">Dịch vụ mới</span><h2 style="font-size: 30px; line-height: 1.25">Xuất khẩu Lao động Châu Âu</h2><p style="font-size: 13px; color: #5c5c5c">Giấy phép hoạt động dịch vụ đưa NLĐ đi làm việc ở nước ngoài số: [Số GP] – cấp ngày [ngày/tháng/năm]</p></div>
+<a class="btn btn-p" href="Contact.dc.html">Đăng ký tuyển chọn</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 12px"><h3 style="font-size: 17px">Thị trường</h3><div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="chip">Đức</span><span class="chip">Ba Lan</span><span class="chip">Hungary</span><span class="chip">Romania</span><span class="chip">Slovakia</span></div>
+<h3 style="font-size: 17px; margin-top: 10px">Ngành nghề</h3><div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="chip">Cơ khí – hàn</span><span class="chip">Điều dưỡng / chăm sóc sức khỏe</span><span class="chip">Chế biến thực phẩm</span><span class="chip">Xây dựng</span><span class="chip">Nhà hàng – khách sạn</span></div></div>
+<div style="background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 10px"><h3 style="font-size: 17px">Cam kết</h3><ul class="li"><li>Pháp lý minh bạch</li><li>Tỷ lệ ra visa cao</li><li>Chi phí rõ ràng, công khai từng khoản</li><li>Hỗ trợ việc làm ổn định &amp; đời sống tại nước sở tại</li></ul></div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{show3}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" class="card" style="padding: 36px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="badge">Dịch vụ mới</span><h2 style="font-size: 30px; line-height: 1.25">Trường Đào tạo &amp; Sát hạch Lái xe</h2><p style="font-size: 13px; color: #5c5c5c">Hạng GPLX theo Luật Trật tự, an toàn giao thông đường bộ 2024 (hiệu lực 01/01/2025)</p></div>
+<a class="btn btn-p" href="Contact.dc.html">Đăng ký học</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+<div style="padding: 20px; border: 1px solid #ebebeb; border-radius: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 28px; font-weight: 600; color: #ca4d25">A1</span><span style="font-size: 14px; color: #5c5c5c">Mô tô đến 125 cm³</span><span style="font-size: 14px; font-weight: 500">Học phí: [giá]</span></div>
+<div style="padding: 20px; border: 1px solid #ebebeb; border-radius: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 28px; font-weight: 600; color: #ca4d25">A</span><span style="font-size: 14px; color: #5c5c5c">Mô tô trên 125 cm³</span><span style="font-size: 14px; font-weight: 500">Học phí: [giá]</span></div>
+<div style="padding: 20px; border: 1px solid #ebebeb; border-radius: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 28px; font-weight: 600; color: #ca4d25">B</span><span style="font-size: 14px; color: #5c5c5c">Ô tô số tự động / số sàn</span><span style="font-size: 14px; font-weight: 500">Học phí: [giá]</span></div>
+<div style="padding: 20px; border: 1px solid #ebebeb; border-radius: 10px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 28px; font-weight: 600; color: #ca4d25">C1</span><span style="font-size: 14px; color: #5c5c5c">Xe tải 3,5 – 7,5 tấn</span><span style="font-size: 14px; font-weight: 500">Học phí: [giá]</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div style="background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 10px"><h3 style="font-size: 17px">Cơ sở vật chất</h3><ul class="li"><li>Sân tập chuẩn thi sát hạch</li><li>Xe tập đời mới, thiết bị giám sát hành trình DAT</li><li>Phòng học mô phỏng 3D / cabin điện tử</li></ul></div>
+<div style="background: #ffffff; border: 1px solid #ebebeb; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 10px"><h3 style="font-size: 17px">Học phí &amp; Lịch học</h3><ul class="li"><li>Học phí trọn gói, không phát sinh</li><li>Lịch học linh hoạt ngoài giờ</li></ul></div>
+</div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<footer style="background: #201e1d; color: #d4d4d4; padding: 56px 0 32px">
+<div class="wrap ft" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="color: #fff; font-weight: 600; font-size: 16px">CÔNG TY TNHH MINH GROUP ST</span><span style="font-size: 14px; line-height: 1.6">Trụ sở: [Địa chỉ chi tiết], TP. Cần Thơ<br>MST: [Mã số thuế]</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="color: #fff; font-weight: 600">Giới thiệu</span><a href="About.dc.html">Thông tin công ty</a><a href="History.dc.html">Lịch sử &amp; Cột mốc</a><a href="Organization.dc.html">Cơ cấu tổ chức</a><a href="Leadership.dc.html">Ban lãnh đạo</a><a href="Market.dc.html">Năng lực cạnh tranh</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="color: #fff; font-weight: 600">Dịch vụ</span><a href="Services.dc.html">Chuyển đổi số &amp; Tài chính</a><a href="Services.dc.html">Bảo hiểm phi nhân thọ</a><a href="Services.dc.html">XKLĐ Châu Âu</a><a href="Services.dc.html">Đào tạo lái xe</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="color: #fff; font-weight: 600">Liên hệ</span><a href="tel:0939980090">0939 980 090</a><a href="mailto:minhgroupst@mgst.com.vn">minhgroupst@mgst.com.vn</a><a href="https://mgst.com.vn">mgst.com.vn</a></div>
+</div>
+<div class="wrap" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #3a3634; font-size: 13px; color: #a3a3a3">© 2026 Minh Group ST. All rights reserved.</div>
+</footer>
+
+<div aria-label="Liên hệ nhanh" style="position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9">
+<a class="dk" href="https://zalo.me/" aria-label="Zalo OA" style="color: #0068ff">Zalo</a>
+<a class="dk" href="https://m.me/" aria-label="Facebook Messenger"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.6 3 11.2c0 2.5 1.2 4.7 3.1 6.2V21l3-1.7c.9.3 1.9.4 2.9.4 5 0 9-3.6 9-8.3S17 3 12 3z"></path><path d="M7.5 13l3-3 2.5 2 3.5-3"></path></svg></a>
+<a class="dk" href="mailto:minhgroupst@mgst.com.vn" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a>
+<a class="dk" href="tel:0939980090" aria-label="Gọi hotline 0939 980 090" style="background: #ca4d25; border-color: #ca4d25; color: #fff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const cur = (this.state && this.state.tab) || 0;
+    const defs = [
+      { label: 'Chuyển đổi số & Tài chính', en: 'Digital & Finance' },
+      { label: 'Bảo hiểm Phi Nhân Thọ', en: 'Non-life Insurance' },
+      { label: 'XKLĐ Châu Âu', en: 'EU Labour Export · New' },
+      { label: 'Đào tạo Lái xe', en: 'Driving School · New' }
+    ];
+    const tabs = defs.map((d, i) => ({ ...d, selected: i === cur, idle: i !== cur, pick: () => this.setState({ tab: i }) }));
+    return { tabs, show0: cur === 0, show1: cur === 1, show2: cur === 2, show3: cur === 3 };
+  }
+}
+</script>
+</body>
+</html>
