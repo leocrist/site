@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Brochure 05 · Lĩnh vực 02 · Tài chính</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap">
+<style>
+body{margin:0}
+
+
+:root{
+  --or:#ca4d25;--or-d:#a93d1b;--or-s:#f7e6dd;
+  --ink:#1c1a17;--mut:#6f685f;--paper:#faf8f4;--dk:#161412;--dk2:#211e1b;
+  --ln:rgba(28,26,23,.10);--lnd:rgba(255,255,255,.08);
+  --u:15mm;--top:13.5mm;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"ss01","cv11","tnum"}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;background-color:var(--paper);
+  background-image:linear-gradient(to right,var(--ln) .18mm,transparent .18mm),linear-gradient(to bottom,var(--ln) .18mm,transparent .18mm);
+  background-size:var(--u) var(--u);background-position:0 var(--top);break-after:page;margin:0 auto}
+.page.dark{background-color:var(--dk);color:#f3efe9;
+  background-image:linear-gradient(to right,var(--lnd) .18mm,transparent .18mm),linear-gradient(to bottom,var(--lnd) .18mm,transparent .18mm)}
+
+/* grid placement: --c col (0..13), --r row (0..18), --w, --h in cells */
+.g{position:absolute;left:calc(var(--c)*var(--u));top:calc(var(--top) + var(--r)*var(--u));
+   width:calc(var(--w,1)*var(--u));height:calc(var(--h,1)*var(--u))}
+.fill{background:var(--paper)}
+.dark .fill{background:var(--dk)}
+.pad{padding:3.2mm 3.4mm}
+
+/* crosshair at intersection */
+.x{position:absolute;left:calc(var(--c)*var(--u) - 2mm);top:calc(var(--top) + var(--r)*var(--u) - 2mm);width:4mm;height:4mm}
+.x:before,.x:after{content:"";position:absolute;background:var(--or)}
+.x:before{left:1.9mm;top:0;width:.22mm;height:4mm}
+.x:after{top:1.9mm;left:0;height:.22mm;width:4mm}
+
+.mono{font-family:'JetBrains Mono',monospace;font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase}
+.lbl{color:var(--or)}
+.mut{color:var(--mut)}
+.dark .mut{color:#a59d93}
+h1,h2,h3{font-weight:300;letter-spacing:-.02em}
+.h2{font-size:25pt;line-height:1.08;font-weight:300;letter-spacing:-.025em}
+.h2 b{font-weight:600;color:var(--or)}
+.h3{font-size:10.5pt;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.p{font-size:8.4pt;line-height:1.5;font-weight:400}
+.ps{font-size:7.4pt;line-height:1.45}
+.ic{width:6mm;height:6mm;stroke:var(--or);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.img{object-fit:cover;display:block}
+.cr{position:absolute;right:1.6mm;bottom:1.4mm;font-family:'JetBrains Mono',monospace;font-size:4.6pt;color:#fff;background:rgba(0,0,0,.45);padding:.5mm 1.2mm;letter-spacing:.04em}
+.hatch{background:repeating-linear-gradient(135deg,var(--or) 0 .3mm,transparent .3mm 2.2mm)}
+.hatch-w{background:repeating-linear-gradient(135deg,rgba(255,255,255,.55) 0 .3mm,transparent .3mm 2.2mm)}
+
+/* running header / footer */
+.hd{display:flex;align-items:center;justify-content:space-between;padding:0 0 0 0}
+.brand{display:flex;align-items:center;gap:2.4mm;font-weight:600;font-size:8pt;letter-spacing:.02em}
+.brand img{height:6.4mm;width:auto;display:block}
+.ft{display:flex;align-items:center;justify-content:space-between}
+.pg{font-family:'JetBrains Mono',monospace;font-size:6.2pt;letter-spacing:.08em}
+.pg b{color:var(--or);font-weight:400}
+
+.big{font-weight:200;font-size:96pt;line-height:.8;letter-spacing:-.06em;color:var(--or)}
+.num{font-weight:600;font-size:34pt;line-height:1;letter-spacing:-.04em;color:var(--or)}
+.chip{display:inline-flex;align-items:center;gap:1.4mm;border:.2mm solid currentColor;border-radius:10mm;padding:1mm 2.6mm;font-size:7pt;font-weight:500}
+.flex{display:flex}.col{flex-direction:column}.jb{justify-content:space-between}.ae{align-items:flex-end}.ac{align-items:center}
+.sv{display:flex;gap:3mm}
+.sv .ib{flex:none;width:var(--u);height:var(--u);background:var(--or-s);display:grid;place-items:center}
+.dark .sv .ib{background:var(--dk2)}
+.tobottom{height:calc(297mm - var(--top) - var(--r)*var(--u))!important}
+.arrow{color:var(--or);font-weight:300}
+
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+  <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+  <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"></path></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 14.5h4"></path></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"></path><circle cx="12" cy="11" r="2.6"></circle><path d="M8 16.5c1-2 7-2 8 0"></path></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"></path></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"></path><circle cx="8" cy="16.5" r="1.6"></circle><circle cx="16" cy="16.5" r="1.6"></circle><path d="M4 12h16"></path></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"></path><path d="M10 20v-5h4v5"></path></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 8h14M5 8l-2.5 6a2.8 2.8 0 0 0 5 0zM19 8l-2.5 6a2.8 2.8 0 0 0 5 0z"></path></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"></path></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.6-4.6"></path></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"></rect><path d="M4 12h16M12 4v16"></path></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"></path></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+</svg>
+<section style="margin:0" class="page">
+  <div class="g fill hd" style="--c:1;--r:0;--w:12;--h:1">
+    <div class="brand"><img src="../assets/logo/mgst-logo.svg" alt="Minh Group ST"></div>
+    <div class="pg"><b>05</b> / 08</div>
+  </div>
+  <div class="g fill" style="--c:1;--r:1;--w:3;--h:3;display:flex;align-items:flex-end;padding-bottom:3mm"><div class="big">02</div></div>
+  <div class="g fill" style="--c:4;--r:1;--w:9;--h:3;padding:4mm 0 0 3.4mm">
+    <div class="mono lbl">Phát triển thị trường</div>
+    <h2 class="h2" style="margin-top:4mm">Tài chính –<br><b>ngân hàng</b></h2>
+    <p class="p mut" style="margin-top:3mm">Cầu nối giữa ngân hàng và thị trường miền Tây, qua Phòng Kinh doanh Tổng hợp.</p>
+  </div>
+
+  <!-- network illustration: 12 banks -> MG ST -> đô thị / nông thôn -->
+  <div class="g" style="--c:1;--r:4;--w:12;--h:6">
+    <svg viewBox="0 0 180 90" width="100%" height="100%" style="overflow:visible">
+      <g id="banks"><rect x="3" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="4.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="18" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="19.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="33" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="34.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="48" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="49.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="63" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="64.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="78" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="79.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="93" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="94.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="108" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="109.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="123" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="124.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="138" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="139.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="153" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="154.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use><rect x="168" y="3" width="9" height="9" fill="none" stroke="#1c1a17" stroke-width="0.25"></rect><use href="#i-bank" x="169.5" y="4.5" width="6" height="6" style="stroke: rgb(202, 77, 37); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round;"></use></g>
+      <g id="flow" fill="none" stroke="#ca4d25" stroke-width=".25"><path d="M7.5 12 V24 C7.5 36 81.2 33 81.2 45"></path><path d="M22.5 12 V24 C22.5 36 82.8 33 82.8 45"></path><path d="M37.5 12 V24 C37.5 36 84.4 33 84.4 45"></path><path d="M52.5 12 V24 C52.5 36 86 33 86 45"></path><path d="M67.5 12 V24 C67.5 36 87.6 33 87.6 45"></path><path d="M82.5 12 V24 C82.5 36 89.2 33 89.2 45"></path><path d="M97.5 12 V24 C97.5 36 90.8 33 90.8 45"></path><path d="M112.5 12 V24 C112.5 36 92.4 33 92.4 45"></path><path d="M127.5 12 V24 C127.5 36 94 33 94 45"></path><path d="M142.5 12 V24 C142.5 36 95.6 33 95.6 45"></path><path d="M157.5 12 V24 C157.5 36 97.2 33 97.2 45"></path><path d="M172.5 12 V24 C172.5 36 98.8 33 98.8 45"></path><path d="M80 60 V64 C80 70 37.5 68 37.5 74"></path><path d="M100 60 V64 C100 70 142.5 68 142.5 74"></path></g>
+      <rect x="67.5" y="45" width="45" height="15" fill="#ca4d25"></rect>
+      <text x="90" y="53.6" text-anchor="middle" fill="#fff" font-family="Inter" font-weight="600" font-size="4.2">MINH GROUP ST</text>
+      <rect x="15" y="74" width="45" height="14" fill="#faf8f4" stroke="#1c1a17" stroke-width=".25"></rect>
+      <rect x="120" y="74" width="45" height="14" fill="#faf8f4" stroke="#1c1a17" stroke-width=".25"></rect>
+      <text x="37.5" y="82.4" text-anchor="middle" fill="#1c1a17" font-family="Inter" font-weight="500" font-size="4">Khu vực đô thị</text>
+      <text x="142.5" y="82.4" text-anchor="middle" fill="#1c1a17" font-family="Inter" font-weight="500" font-size="4">Khu vực nông thôn</text>
+          </svg>
+  </div>
+  <div class="x" style="--c:1;--r:4"></div><div class="x" style="--c:13;--r:4"></div>
+
+  <div class="g fill" style="--c:1;--r:10;--w:5;--h:3;padding-top:4mm">
+    <div class="num" style="font-size:64pt;font-weight:200;letter-spacing:-.06em">12+</div>
+    <p class="p" style="margin-top:2mm;max-width:66mm">ngân hàng thương mại hàng đầu Việt Nam coi Minh Group ST là đối tác chiến lược.</p>
+  </div>
+  <div class="g" style="--c:7;--r:10;--w:6;--h:3">
+    <img class="img" src="../assets/photos/mg-f.jpg" style="width:100%;height:100%;object-position:50% 60%" alt="">
+    <span class="cr">Ảnh: Dragfyre · CC BY-SA 3.0</span>
+  </div>
+
+  <div class="g fill pad" style="--c:1;--r:13;--w:4;--h:4;padding-left:0;padding-top:4mm">
+    <div class="flex jb ac"><span class="mono lbl">01</span><svg class="ic"><use href="#i-card"></use></svg></div>
+    <div class="h3" style="margin-top:3mm">Mở rộng mạng lưới khách hàng</div>
+    <p class="ps mut" style="margin-top:1.6mm;padding-right:3mm">Đưa tài khoản, thẻ, tín dụng, giải pháp thanh toán đến nhanh cả đô thị lẫn nông thôn.</p>
+  </div>
+  <div class="g fill pad" style="--c:5;--r:13;--w:4;--h:4;padding-top:4mm">
+    <div class="flex jb ac"><span class="mono lbl">02</span><svg class="ic"><use href="#i-scan"></use></svg></div>
+    <div class="h3" style="margin-top:3mm">Hỗ trợ ngân hàng chuyển đổi số</div>
+    <p class="ps mut" style="margin-top:1.6mm">Chiến dịch ra quân mở tài khoản số, chuẩn hóa thông tin sinh trắc học tại địa phương.</p>
+  </div>
+  <div class="g fill pad" style="--c:9;--r:13;--w:4;--h:4;padding-top:4mm">
+    <div class="flex jb ac"><span class="mono lbl">03</span><svg class="ic"><use href="#i-chart"></use></svg></div>
+    <div class="h3" style="margin-top:3mm">Tư vấn giải pháp tài chính</div>
+    <p class="ps mut" style="margin-top:1.6mm">Tư vấn độc lập, giúp khách hàng chọn giải pháp vốn và quản lý tài chính phù hợp năng lực thực tế.</p>
+  </div>
+  <div class="g fill ft" style="--c:1;--r:17;--w:12;--h:1"><span class="mono mut">Lĩnh vực 02</span><span class="mono mut">mgst.com.vn</span></div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

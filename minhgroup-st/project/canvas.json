@@ -1,1 +1,346 @@
-{"v":3,"createdOnFiles":{"v":1,"at":"2026-10-02T09:00:00Z"},"title":"Minh Group ST Website","launch":{"view":"canvas"},"pages":[],"boards":{"Main.dc.html":{"x":0,"y":0,"w":1440,"h":6250,"title":"01 · Trang chủ / Home","expand":"fill","is_interactive":true},"About.dc.html":{"x":3040,"y":0,"w":1440,"h":2400,"title":"02 · Thông tin công ty / About","expand":"fill"},"History.dc.html":{"x":4560,"y":0,"w":1440,"h":2100,"title":"03 · Lịch sử & Cột mốc / History","expand":"fill"},"Organization.dc.html":{"x":6080,"y":0,"w":1440,"h":2400,"title":"04 · Cơ cấu tổ chức / Organization","expand":"fill"},"Leadership.dc.html":{"x":7600,"y":0,"w":1440,"h":2200,"title":"05 · Ban lãnh đạo / Leadership","expand":"fill"},"Market.dc.html":{"x":9120,"y":0,"w":1440,"h":2200,"title":"06 · Năng lực & Vị thế / Market Position","expand":"fill"},"Services.dc.html":{"x":3040,"y":2520,"w":1440,"h":2200,"title":"07 · Sản phẩm & Dịch vụ / Services","expand":"fill","is_interactive":true},"News.dc.html":{"x":4560,"y":2520,"w":1440,"h":2300,"title":"08 · Tin tức & Dự án / News","expand":"fill"},"Gallery.dc.html":{"x":6080,"y":2520,"w":1440,"h":2000,"title":"09 · Thư viện / Media Gallery","expand":"fill"},"Contact.dc.html":{"x":7600,"y":2520,"w":1440,"h":2200,"title":"10 · Liên hệ / Contact","expand":"fill"},"MainEN.dc.html":{"x":1520,"y":0,"w":1440,"h":6350,"title":"01 · Home (EN)","expand":"fill","is_interactive":true}},"order":["Main.dc.html","MainEN.dc.html","About.dc.html","History.dc.html","Organization.dc.html","Leadership.dc.html","Market.dc.html","Services.dc.html","News.dc.html","Gallery.dc.html","Contact.dc.html"],"notes":{},"designSystems":[]}
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "About.dc.html": {
+      "expand": "fill",
+      "h": 2400,
+      "title": "02 · Thông tin công ty / About",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Brochure01.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 01 · Bìa",
+      "w": 794,
+      "x": 3040,
+      "y": 4940
+    },
+    "Brochure02.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 02 · Giới thiệu",
+      "w": 794,
+      "x": 3914,
+      "y": 4940
+    },
+    "Brochure03.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 03 · Hệ sinh thái",
+      "w": 794,
+      "x": 4788,
+      "y": 4940
+    },
+    "Brochure04.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 04 · Lĩnh vực 01 · Chuyển đổi số",
+      "w": 794,
+      "x": 5662,
+      "y": 4940
+    },
+    "Brochure05.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 05 · Lĩnh vực 02 · Tài chính",
+      "w": 794,
+      "x": 6536,
+      "y": 4940
+    },
+    "Brochure06.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 06 · Lĩnh vực 03 · Bảo hiểm",
+      "w": 794,
+      "x": 7410,
+      "y": 4940
+    },
+    "Brochure07.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 07 · Lĩnh vực 04 · Chi trả & Dự án",
+      "w": 794,
+      "x": 8284,
+      "y": 4940
+    },
+    "Brochure08.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure A4 · 08 · Hành trình & Liên hệ",
+      "w": 794,
+      "x": 9158,
+      "y": 4940
+    },
+    "BrochureV2-01.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 01 · Bìa",
+      "w": 794,
+      "x": 3040,
+      "y": 6183
+    },
+    "BrochureV2-02.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 02 · Giới thiệu",
+      "w": 794,
+      "x": 3914,
+      "y": 6183
+    },
+    "BrochureV2-03.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 03 · Hệ sinh thái",
+      "w": 794,
+      "x": 4788,
+      "y": 6183
+    },
+    "BrochureV2-04.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 04 · I · Chuyển đổi số",
+      "w": 794,
+      "x": 5662,
+      "y": 6183
+    },
+    "BrochureV2-05.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 05 · II · Tài chính",
+      "w": 794,
+      "x": 6536,
+      "y": 6183
+    },
+    "BrochureV2-06.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 06 · III · Bảo hiểm",
+      "w": 794,
+      "x": 7410,
+      "y": 6183
+    },
+    "BrochureV2-07.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 07 · IV · Chi trả & Dự án",
+      "w": 794,
+      "x": 8284,
+      "y": 6183
+    },
+    "BrochureV2-08.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Brochure B2 · 08 · Hành trình & Liên hệ",
+      "w": 794,
+      "x": 9158,
+      "y": 6183
+    },
+    "Contact.dc.html": {
+      "expand": "fill",
+      "h": 2200,
+      "title": "10 · Liên hệ / Contact",
+      "w": 1440,
+      "x": 7600,
+      "y": 2520
+    },
+    "Gallery.dc.html": {
+      "expand": "fill",
+      "h": 2000,
+      "title": "09 · Thư viện / Media Gallery",
+      "w": 1440,
+      "x": 6080,
+      "y": 2520
+    },
+    "History.dc.html": {
+      "expand": "fill",
+      "h": 2100,
+      "title": "03 · Lịch sử & Cột mốc / History",
+      "w": 1440,
+      "x": 4560,
+      "y": 0
+    },
+    "Leadership.dc.html": {
+      "expand": "fill",
+      "h": 2200,
+      "title": "05 · Ban lãnh đạo / Leadership",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 6250,
+      "is_interactive": true,
+      "title": "01 · Trang chủ / Home",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "MainEN.dc.html": {
+      "expand": "fill",
+      "h": 6350,
+      "is_interactive": true,
+      "title": "01 · Home (EN)",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Market.dc.html": {
+      "expand": "fill",
+      "h": 2200,
+      "title": "06 · Năng lực & Vị thế / Market Position",
+      "w": 1440,
+      "x": 9120,
+      "y": 0
+    },
+    "News.dc.html": {
+      "expand": "fill",
+      "h": 2300,
+      "title": "08 · Tin tức & Dự án / News",
+      "w": 1440,
+      "x": 4560,
+      "y": 2520
+    },
+    "Organization.dc.html": {
+      "expand": "fill",
+      "h": 2400,
+      "title": "04 · Cơ cấu tổ chức / Organization",
+      "w": 1440,
+      "x": 6080,
+      "y": 0
+    },
+    "Services.dc.html": {
+      "expand": "fill",
+      "h": 2200,
+      "is_interactive": true,
+      "title": "07 · Sản phẩm & Dịch vụ / Services",
+      "w": 1440,
+      "x": 3040,
+      "y": 2520
+    },
+    "ProfileV3-01.dc.html": {
+      "x": 3040,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 01 · Bìa trước",
+      "paper": "a4"
+    },
+    "ProfileV3-02.dc.html": {
+      "x": 3914,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 02 · Tổng quan",
+      "paper": "a4"
+    },
+    "ProfileV3-03.dc.html": {
+      "x": 4788,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 03 · Năng lực thực địa",
+      "paper": "a4"
+    },
+    "ProfileV3-04.dc.html": {
+      "x": 5662,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 04 · Trang đôi trái · 01 & 02",
+      "paper": "a4"
+    },
+    "ProfileV3-05.dc.html": {
+      "x": 6536,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 05 · Trang đôi phải · 03 & 04",
+      "paper": "a4"
+    },
+    "ProfileV3-06.dc.html": {
+      "x": 7410,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 06 · Hệ sinh thái",
+      "paper": "a4"
+    },
+    "ProfileV3-07.dc.html": {
+      "x": 8284,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 07 · Lộ trình & Điều hành",
+      "paper": "a4"
+    },
+    "ProfileV3-08.dc.html": {
+      "x": 9158,
+      "y": 7426,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B3 · 08 · Bìa sau · CTA",
+      "paper": "a4"
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-02T09:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {},
+  "order": [
+    "Main.dc.html",
+    "MainEN.dc.html",
+    "About.dc.html",
+    "History.dc.html",
+    "Organization.dc.html",
+    "Leadership.dc.html",
+    "Market.dc.html",
+    "Services.dc.html",
+    "News.dc.html",
+    "Gallery.dc.html",
+    "Contact.dc.html",
+    "Brochure01.dc.html",
+    "Brochure02.dc.html",
+    "Brochure03.dc.html",
+    "Brochure04.dc.html",
+    "Brochure05.dc.html",
+    "Brochure06.dc.html",
+    "Brochure07.dc.html",
+    "Brochure08.dc.html",
+    "BrochureV2-01.dc.html",
+    "BrochureV2-02.dc.html",
+    "BrochureV2-03.dc.html",
+    "BrochureV2-04.dc.html",
+    "BrochureV2-05.dc.html",
+    "BrochureV2-06.dc.html",
+    "BrochureV2-07.dc.html",
+    "BrochureV2-08.dc.html",
+    "ProfileV3-01.dc.html",
+    "ProfileV3-02.dc.html",
+    "ProfileV3-03.dc.html",
+    "ProfileV3-04.dc.html",
+    "ProfileV3-05.dc.html",
+    "ProfileV3-06.dc.html",
+    "ProfileV3-07.dc.html",
+    "ProfileV3-08.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Page 1"
+    },
+    {
+      "id": "page-ycyw2a",
+      "name": "Page 2"
+    }
+  ],
+  "title": "Minh Group ST Website"
+}

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Profile B3 · 01 · Bìa trước</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+
+
+/* ---------- design tokens ---------- */
+:root{
+  --b:0mm;                                  /* bleed */
+  --navy:#0A2540;--navy-2:#123358;--navy-3:#1B4170;
+  --blue:#0066FF;--blue-l:#6FA6FF;--blue-s:#E6F0FF;
+  --green:#0E9F6E;--green-l:#4FD1A5;--green-s:#E3F5EE;
+  --slate:#2D3748;--mut:#5B6678;--line:#D8DFE9;--off:#F8FAFC;--white:#FFFFFF;
+  --head:'Plus Jakarta Sans',sans-serif;--body:'Be Vietnam Pro',sans-serif;
+  --cw:11.3333mm;--gut:4mm;--step:15.3333mm;   /* 12-col grid inside 180mm safe width */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));position:relative;overflow:hidden;background:var(--white);break-after:page}
+.page.navy{background:var(--navy);color:#fff}
+.page.off{background:var(--off)}
+.trim{position:absolute;left:var(--b);top:var(--b);width:210mm;height:297mm}
+.a{position:absolute}
+/* grid column helper: --c start col (1-12), --s span */
+.gx{position:absolute;left:calc(15mm + (var(--c) - 1)*var(--step));width:calc(var(--s)*var(--step) - var(--gut))}
+.bleed-l{left:calc(-1*var(--b))!important}
+.full{left:calc(-1*var(--b));width:calc(210mm + 2*var(--b))}
+
+/* ---------- type ---------- */
+.lbl,.display,.h1,.h2,.h3,.stat,.chip,.pn{word-spacing:.09em}
+.lbl{font-family:var(--head);font-size:6.8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.display{font-family:var(--head);font-weight:800;font-size:42pt;line-height:1.04;letter-spacing:-.03em}
+.h1{font-family:var(--head);font-weight:800;font-size:25pt;line-height:1.1;letter-spacing:-.025em;color:var(--navy)}
+.navy .h1{color:#fff}
+.h2{font-family:var(--head);font-weight:800;font-size:16pt;line-height:1.18;letter-spacing:-.02em;color:var(--navy)}
+.h3{font-family:var(--head);font-weight:700;font-size:11pt;line-height:1.3;letter-spacing:-.01em;color:var(--navy)}
+.navy .h2,.navy .h3,.on-navy .h2,.on-navy .h3{color:#fff}
+.body{font-size:9.5pt;line-height:1.45}
+.sm{font-size:9pt;line-height:1.42}
+.xs{font-size:7.6pt;line-height:1.4}
+.mut{color:var(--mut)}
+.navy .mut,.on-navy .mut{color:#A9B8CC}
+.stat{font-family:var(--head);font-weight:800;font-size:46pt;line-height:.95;letter-spacing:-.04em;color:var(--navy)}
+.stat em{font-style:normal;color:var(--blue)}
+.ic{width:5.2mm;height:5.2mm;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.icb{width:9mm;height:9mm;border-radius:50%;display:grid;place-items:center;flex:none}
+.blue-t{color:var(--blue)}.green-t{color:var(--green)}.navy-t{color:var(--navy)}
+.card{border-radius:2.4mm;padding:5mm}
+.chip{display:inline-flex;align-items:center;gap:1.6mm;font-family:var(--head);font-weight:700;font-size:7pt;border-radius:10mm;padding:1.2mm 3mm}
+.row{display:flex;gap:3mm;align-items:flex-start}
+.hr{height:.25mm;background:var(--line)}
+/* running header/footer (inside trim, safe area) */
+.rh{left:15mm;right:15mm;top:11mm;display:flex;justify-content:space-between;align-items:center}
+.rf{left:15mm;right:15mm;bottom:9mm;display:flex;justify-content:space-between;align-items:center;font-size:6.6pt;letter-spacing:.06em}
+.dot{display:inline-block;width:1.4mm;height:1.4mm;border-radius:50%;background:var(--green-l);margin:0 2.4mm;vertical-align:middle}
+.pn{font-family:var(--head);font-weight:800;font-size:9pt;letter-spacing:0}
+
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></symbol>
+ <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></symbol>
+ <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+ <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+ <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+ <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+ <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+ <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></symbol>
+ <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"></path></symbol>
+ <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 14.5h4"></path></symbol>
+ <symbol id="i-finger" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5M8.5 8.5A4 4 0 0 1 16 11v2.5M16 17a14 14 0 0 1-.6 3M5.5 13.5V11a6.5 6.5 0 0 1 11-4.7M19 10v3"></path></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></symbol>
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"></path><path d="M10 20v-5h4v5"></path></symbol>
+ <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"></path><circle cx="8" cy="16.5" r="1.6"></circle><circle cx="16" cy="16.5" r="1.6"></circle><path d="M4 12h16"></path></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"></path></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.6-4.6"></path></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"></rect><path d="M4 12h16M12 4v16"></path></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+ <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+ <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"></path><path d="M9 4v14M15 6v14"></path></symbol>
+ <symbol id="i-gov" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"></path></symbol>
+ <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"></path><path d="M6 9.5V20h12V9.5"></path><path d="M10 20v-5h4v5"></path></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
+ <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></symbol>
+</svg>
+<section style="margin:0" class="page navy"><div class="trim">
+  <svg class="a" id="cover-net" style="left:calc(-1*var(--b));top:calc(-1*var(--b));width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b))" viewBox="-3 -3 216 303"><path d="M-3 128 C 50.55 154.25, 104.1 259.25, 150 303" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.35" stroke-linecap="round"></path><circle cx="61.03" cy="188.67" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="94.43" cy="233.78" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="125.16" cy="275.05" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><path d="M-3 128 C 53.44 151.38, 109.87 244.91, 158.25 283.88" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.35" stroke-linecap="round"></path><circle cx="63.58" cy="181.07" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="99.29" cy="221.77" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="132.1" cy="259.02" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><path d="M-3 128 C 56.32 148.51, 115.65 230.56, 166.5 264.75" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.35" stroke-linecap="round"></path><circle cx="65.97" cy="173.65" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="104.09" cy="209.84" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="139.07" cy="242.99" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><path d="M-3 128 C 59.21 145.64, 121.42 216.22, 174.75 245.63" fill="none" stroke="#0066FF" stroke-opacity="1" stroke-width="0.7" stroke-linecap="round"></path><circle cx="68.26" cy="166.48" r="1.5" fill="#0A2540" stroke="#0066FF" stroke-opacity="1" stroke-width="0.55"></circle><circle cx="108.84" cy="198.03" r="1.5" fill="#0A2540" stroke="#0066FF" stroke-opacity="1" stroke-width="0.55"></circle><circle cx="146.04" cy="226.95" r="1.5" fill="#0A2540" stroke="#0066FF" stroke-opacity="1" stroke-width="0.55"></circle><path d="M-3 128 C 62.1 142.78, 127.2 201.88, 183 226.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.35" stroke-linecap="round"></path><circle cx="70.48" cy="159.6" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="113.56" cy="186.34" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="153.03" cy="210.9" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><path d="M-3 128 C 64.99 139.91, 132.97 187.53, 191.25 207.38" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.35" stroke-linecap="round"></path><circle cx="72.74" cy="153.01" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="118.29" cy="174.8" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="160.02" cy="194.84" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><path d="M-3 128 C 67.88 137.04, 138.75 173.19, 199.5 188.25" fill="none" stroke="#0E9F6E" stroke-opacity="1" stroke-width="0.7" stroke-linecap="round"></path><circle cx="75.09" cy="146.71" r="1.5" fill="#0A2540" stroke="#0E9F6E" stroke-opacity="1" stroke-width="0.55"></circle><circle cx="123.06" cy="163.38" r="1.5" fill="#0A2540" stroke="#0E9F6E" stroke-opacity="1" stroke-width="0.55"></circle><circle cx="167.01" cy="178.75" r="1.5" fill="#0A2540" stroke="#0E9F6E" stroke-opacity="1" stroke-width="0.55"></circle><path d="M-3 128 C 70.76 134.17, 144.52 158.84, 207.75 169.13" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.35" stroke-linecap="round"></path><circle cx="77.62" cy="140.63" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="127.91" cy="152.08" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="173.99" cy="162.66" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><path d="M-3 128 C 73.65 131.3, 150.3 144.5, 216 150" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="0.35" stroke-linecap="round"></path><circle cx="80.37" cy="134.71" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="132.85" cy="140.86" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="180.95" cy="146.54" r="0.9" fill="#0A2540" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="0.3"></circle><circle cx="-3" cy="128" r="2.4" fill="#0066FF"></circle><circle cx="-3" cy="128" r="5" fill="none" stroke="#0066FF" stroke-opacity="0.5" stroke-width="0.3"></circle></svg>
+  <div class="a rh"><img src="../assets/logo/mgst-logo-white.svg" style="height:10mm;display:block" alt="Minh Group ST"><span class="lbl" style="color:#A9B8CC">2026</span></div>
+
+  <div class="gx" style="--c:1;--s:11;top:46mm">
+    <div class="lbl" style="color:var(--green-l)">Corporate Profile &amp; Chiến lược phát triển toàn diện</div>
+    <div class="display" style="margin-top:7mm">Tiên phong số hóa –<br><span style="color:var(--blue-l)">Hiệu quả bứt phá</span></div>
+  </div>
+
+  <div class="a" style="left:calc(-1*var(--b));right:calc(-1*var(--b));top:250mm;bottom:calc(-1*var(--b));background:var(--navy)"></div>
+  <div class="gx" style="--c:1;--s:12;top:256mm">
+    <div class="hr" style="background:rgba(255,255,255,.22)"></div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:5mm">
+      <div>
+        <div style="font-family:var(--head);font-weight:800;font-size:12pt;letter-spacing:.02em">CÔNG TY TNHH MINH GROUP ST</div>
+        <div class="sm" style="margin-top:2mm;color:#C9D4E3">Hệ sinh thái Giải pháp<span class="dot"></span>Thực thi Địa bàn<span class="dot"></span>Đột phá Công nghệ</div>
+      </div>
+      <div class="xs" style="color:#8597B0;text-align:right">Trụ sở · Cần Thơ<br>10°02'N · 105°47'E</div>
+    </div>
+  </div>
+</div></section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

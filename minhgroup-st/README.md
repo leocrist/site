@@ -19,3 +19,15 @@ Wireframe 10 trang song ngữ (VI chính, có bản EN cho Trang chủ) cho Côn
 - Logo đối tác cần bản chính thức (SVG) và sự cho phép dùng bản trắng đơn sắc.
 - Các chỗ `[...]` (số giấy phép, địa chỉ, MST, giá, ngày tháng) là placeholder.
 - Giờ làm việc và cam kết "gọi lại trong 30 phút" trong FAQ là giả định.
+
+## Brochure / Corporate Profile (A4, 8 trang)
+
+Ba phương án, mỗi bản có HTML nguồn, PDF và ảnh preview; đồng thời có artboard tương ứng trên canvas (`project/`):
+
+| Thư mục | Hướng | Artboard canvas |
+|---|---|---|
+| `brochure/` | Bản 1: ruled grid như website, cam #ca4d25, Inter | `project/Brochure01–08.dc.html` |
+| `brochure-v2/` | Bản 2: editorial, màu logo (đỏ + gradient mặt trời), Playfair Display + Be Vietnam Pro | `project/BrochureV2-01–08.dc.html` |
+| `brochure-v3/` | Bản 3: Corporate Profile in ấn, navy, Plus Jakarta Sans + Be Vietnam Pro, bleed 3mm | `project/ProfileV3-01–08.dc.html` |
+
+Bản 3 có `SPEC.md` (lưới, typography, tokens, layout từng trang) và `tokens.json`. Logo vector ở `assets/logo/`.
