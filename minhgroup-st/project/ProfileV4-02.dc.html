@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Profile B4 · 02 · Tổng quan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+
+
+/* ---------- tokens (swap these 6 to re-theme) ---------- */
+:root{
+  --b:0mm;
+  --red:#B21F1D;        /* logo red, primary */
+  --red-d:#7C1412;      /* duotone shadow / pressed */
+  --rose:#F3DEDA;       /* tint band */
+  --ink:#2B2424;        /* charcoal, red-tinted */
+  --tint:#F5F0EE;       /* page tint */
+  --paper:#FFFDFC;
+  --mut:#6E6462;--line:#E3D9D6;
+  --head:'Montserrat',sans-serif;--body:'Be Vietnam Pro',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));position:relative;overflow:hidden;background:var(--paper);break-after:page}
+.page.tint{background:var(--tint)}
+.page.ink{background:var(--ink);color:var(--paper)}
+.trim{position:absolute;left:var(--b);top:var(--b);width:210mm;height:297mm}
+.a{position:absolute}
+.bleedL{left:calc(-1*var(--b))}.bleedR{right:calc(-1*var(--b))}.bleedT{top:calc(-1*var(--b))}.bleedB{bottom:calc(-1*var(--b))}
+
+/* type */
+.cap{font-family:var(--head);font-weight:700;font-size:6.6pt;letter-spacing:.24em;text-transform:uppercase}
+.wide{font-family:var(--head);font-weight:800;letter-spacing:.32em;text-transform:uppercase;line-height:1.12}
+.h1{font-family:var(--head);font-weight:700;font-size:19pt;line-height:1.18;letter-spacing:-.005em}
+.h2{font-family:var(--head);font-weight:700;font-size:12.5pt;line-height:1.25}
+.h3{font-family:var(--head);font-weight:700;font-size:9.6pt;line-height:1.3}
+.body{font-size:9.2pt;line-height:1.5}
+.sm{font-size:8.4pt;line-height:1.45}
+.xs{font-size:7pt;line-height:1.4}
+.mut{color:var(--mut)}
+.ink .mut{color:#C9BDBA}
+.red-t{color:var(--red)}
+.num{font-family:var(--head);font-weight:800;color:var(--red);letter-spacing:-.01em;line-height:1}
+.ic{width:5mm;height:5mm;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.dotc{width:11mm;height:11mm;border-radius:50%;display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:10pt;flex:none}
+.rule{height:.25mm;background:var(--line)}
+.ink .rule{background:rgba(255,253,252,.18)}
+
+/* duotone photo */
+.duo{overflow:hidden}
+.duo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.12) brightness(1.06)}
+.duo::after{content:"";position:absolute;inset:0;background:var(--red);mix-blend-mode:multiply;opacity:.9}
+.duo.deep::before{content:"";position:absolute;inset:0;background:var(--red-d);opacity:.35;z-index:1}
+.ph{overflow:hidden}.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.credit{position:absolute;font-size:4.6pt;color:#fff;background:rgba(43,36,36,.5);padding:.4mm 1.3mm;z-index:3}
+
+/* footer: page number + centre tick (from the reference) */
+.tick{left:calc(105mm - .9mm);bottom:calc(-1*var(--b));width:1.8mm;height:calc(9mm + var(--b));background:var(--red)}
+.ticks{left:calc(105mm - 6mm);bottom:calc(-1*var(--b));width:12mm;height:calc(5mm + var(--b));display:flex;gap:1.2mm;justify-content:center;align-items:flex-end}
+.ticks i{display:block;width:1.2mm;height:100%;background:var(--line)}
+.pn{bottom:8mm;font-family:var(--head);font-weight:700;font-size:7pt;letter-spacing:.2em;color:var(--mut)}
+.dots{background-image:radial-gradient(currentColor .32mm,transparent .36mm);background-size:2.6mm 2.6mm}
+
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+ <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+ <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+ <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+ <symbol id="i-gov" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"></path></symbol>
+ <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"></path><path d="M6 9.5V20h12V9.5"></path><path d="M10 20v-5h4v5"></path></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></symbol>
+ <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"></path><path d="M9 4v14M15 6v14"></path></symbol>
+ <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+ <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></symbol>
+</svg>
+<section style="margin:0" class="page"><div class="trim">
+  <div class="a ph" style="left:58mm;top:24mm;width:calc(152mm + var(--b));height:104mm;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%)">
+    <img src="../assets/photos/mg-a.jpg" style="object-position:55% 35%" alt="">
+  </div>
+  <span class="credit" style="right:2mm;top:123mm">Ảnh: Vyacheslav Argenberg · CC BY 4.0</span>
+  <div class="a bleedL bleedT" style="width:calc(128mm + var(--b));height:calc(100mm + var(--b));background:var(--red);clip-path:polygon(0 0,100% 0,72% 100%,0 100%);color:#fff;padding:calc(17mm + var(--b)) 0 0 calc(15mm + var(--b))">
+    <div class="cap" style="opacity:.85">01 · Tổng quan</div>
+    <h1 class="h1" style="margin-top:5mm;width:78mm;color:#fff">Đồng hành cùng chính quyền và doanh nghiệp.</h1>
+    <p class="sm" style="margin-top:4mm;width:70mm;color:#FBE9E6">Doanh nghiệp đa lĩnh vực, phát triển trên nền tảng chuyển đổi số, nghiên cứu và phát triển thị trường, cùng một hệ sinh thái giải pháp toàn diện.</p>
+  </div>
+
+  <div class="a" style="left:15mm;top:142mm;width:82mm">
+    <div class="cap red-t">Tầm nhìn</div>
+    <p class="body" style="margin-top:2.4mm">Trở thành tập đoàn giải pháp đa lĩnh vực dẫn đầu khu vực miền Tây về chuyển đổi số, tài chính và an sinh xã hội.</p>
+    <div class="rule" style="margin:6mm 0"></div>
+    <div class="cap red-t">Sứ mệnh</div>
+    <p class="body" style="margin-top:2.4mm">Đưa công nghệ và tiện ích hiện đại đến gần hơn với từng người dân và tổ chức.</p>
+  </div>
+
+  <div class="a" style="left:108mm;top:142mm;width:87mm">
+    <div class="cap mut">Triết lý hành động</div>
+    <div id="philo" style="margin-top:3mm"><div style="display:grid;grid-template-columns:15mm 1fr;align-items:center;padding:3.2mm 0;border-top:.25mm solid var(--line);"><span class="num" style="font-size:20pt">01</span><div><div class="h3">Công nghệ</div><div class="sm mut">tạo ra tốc độ</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;align-items:center;padding:3.2mm 0;border-top:.25mm solid var(--line);"><span class="num" style="font-size:20pt">02</span><div><div class="h3">Con người</div><div class="sm mut">tạo ra giá trị</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;align-items:center;padding:3.2mm 0;border-top:.25mm solid var(--line);"><span class="num" style="font-size:20pt">03</span><div><div class="h3">Thị trường</div><div class="sm mut">tạo ra cơ hội</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;align-items:center;padding:3.2mm 0;border-top:.25mm solid var(--line);border-bottom:.25mm solid var(--line)"><span class="num" style="font-size:20pt">04</span><div><div class="h3">Sự kết nối</div><div class="sm mut">tạo ra sức mạnh</div></div></div></div>
+  </div>
+
+  <div class="a" style="left:15mm;right:15mm;top:246mm;text-align:center">
+    <svg style="width:6mm;height:6mm;display:block;margin:0 auto" viewBox="0 0 8 8"><path d="M3 0h2v3h3v2H5v3H3V5H0V3h3z" fill="#B21F1D"></path></svg>
+    <div style="margin-top:4mm;font-family:var(--head);font-weight:700;font-size:15pt;letter-spacing:.02em">Tiên phong số hóa – <span class="red-t">Hiệu quả bứt phá</span></div>
+    <div class="cap mut" style="margin-top:2.4mm">Thông điệp thương hiệu</div>
+  </div>
+  <div class="a pn" style="left:15mm">02</div><div class="a ticks"><i></i><i></i><i style="background:var(--red)"></i><i></i><i></i></div>
+</div></section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

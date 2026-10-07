@@ -284,6 +284,70 @@
       "h": 1123,
       "title": "Profile B3 · 08 · Bìa sau · CTA",
       "paper": "a4"
+    },
+    "ProfileV4-01.dc.html": {
+      "x": 3040,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 01 · Bìa trước",
+      "paper": "a4"
+    },
+    "ProfileV4-02.dc.html": {
+      "x": 3914,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 02 · Tổng quan",
+      "paper": "a4"
+    },
+    "ProfileV4-03.dc.html": {
+      "x": 4788,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 03 · Năng lực thực địa",
+      "paper": "a4"
+    },
+    "ProfileV4-04.dc.html": {
+      "x": 5662,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 04 · Trang đôi trái · Công nghệ & Tài chính",
+      "paper": "a4"
+    },
+    "ProfileV4-05.dc.html": {
+      "x": 6536,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 05 · Trang đôi phải · An sinh & Dự án",
+      "paper": "a4"
+    },
+    "ProfileV4-06.dc.html": {
+      "x": 7410,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 06 · Hệ sinh thái",
+      "paper": "a4"
+    },
+    "ProfileV4-07.dc.html": {
+      "x": 8284,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 07 · Lộ trình & Ban lãnh đạo",
+      "paper": "a4"
+    },
+    "ProfileV4-08.dc.html": {
+      "x": 9158,
+      "y": 8669,
+      "w": 794,
+      "h": 1123,
+      "title": "Profile B4 · 08 · Bìa sau",
+      "paper": "a4"
     }
   },
   "createdOnFiles": {
@@ -330,7 +394,15 @@
     "ProfileV3-05.dc.html",
     "ProfileV3-06.dc.html",
     "ProfileV3-07.dc.html",
-    "ProfileV3-08.dc.html"
+    "ProfileV3-08.dc.html",
+    "ProfileV4-01.dc.html",
+    "ProfileV4-02.dc.html",
+    "ProfileV4-03.dc.html",
+    "ProfileV4-04.dc.html",
+    "ProfileV4-05.dc.html",
+    "ProfileV4-06.dc.html",
+    "ProfileV4-07.dc.html",
+    "ProfileV4-08.dc.html"
   ],
   "pages": [
     {
