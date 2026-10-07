@@ -212,6 +212,134 @@
       "x": 6080,
       "y": 0
     },
+    "ProfileV3-01.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 01 · Bìa trước",
+      "w": 794,
+      "x": 3040,
+      "y": 7426
+    },
+    "ProfileV3-02.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 02 · Tổng quan",
+      "w": 794,
+      "x": 3914,
+      "y": 7426
+    },
+    "ProfileV3-03.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 03 · Năng lực thực địa",
+      "w": 794,
+      "x": 4788,
+      "y": 7426
+    },
+    "ProfileV3-04.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 04 · Trang đôi trái · 01 & 02",
+      "w": 794,
+      "x": 5662,
+      "y": 7426
+    },
+    "ProfileV3-05.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 05 · Trang đôi phải · 03 & 04",
+      "w": 794,
+      "x": 6536,
+      "y": 7426
+    },
+    "ProfileV3-06.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 06 · Hệ sinh thái",
+      "w": 794,
+      "x": 7410,
+      "y": 7426
+    },
+    "ProfileV3-07.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 07 · Lộ trình & Điều hành",
+      "w": 794,
+      "x": 8284,
+      "y": 7426
+    },
+    "ProfileV3-08.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B3 · 08 · Bìa sau · CTA",
+      "w": 794,
+      "x": 9158,
+      "y": 7426
+    },
+    "ProfileV4-01.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 01 · Bìa trước",
+      "w": 794,
+      "x": 3040,
+      "y": 8669
+    },
+    "ProfileV4-02.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 02 · Tổng quan",
+      "w": 794,
+      "x": 3914,
+      "y": 8669
+    },
+    "ProfileV4-03.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 03 · Năng lực thực địa",
+      "w": 794,
+      "x": 4788,
+      "y": 8669
+    },
+    "ProfileV4-04.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 04 · Trang đôi trái · Công nghệ & Tài chính",
+      "w": 794,
+      "x": 5662,
+      "y": 8669
+    },
+    "ProfileV4-05.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 05 · Trang đôi phải · An sinh & Dự án",
+      "w": 794,
+      "x": 6536,
+      "y": 8669
+    },
+    "ProfileV4-06.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 06 · Hệ sinh thái",
+      "w": 794,
+      "x": 7410,
+      "y": 8669
+    },
+    "ProfileV4-07.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 07 · Lộ trình & Ban lãnh đạo",
+      "w": 794,
+      "x": 8284,
+      "y": 8669
+    },
+    "ProfileV4-08.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B4 · 08 · Bìa sau",
+      "w": 794,
+      "x": 9158,
+      "y": 8669
+    },
     "Services.dc.html": {
       "expand": "fill",
       "h": 2200,
@@ -221,132 +349,68 @@
       "x": 3040,
       "y": 2520
     },
-    "ProfileV3-01.dc.html": {
+    "ProfileV5-01.dc.html": {
       "x": 3040,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 01 · Bìa trước",
+      "title": "Profile B5 · 01 · Bìa trước",
       "paper": "a4"
     },
-    "ProfileV3-02.dc.html": {
+    "ProfileV5-02.dc.html": {
       "x": 3914,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 02 · Tổng quan",
+      "title": "Profile B5 · 02 · Tổng quan",
       "paper": "a4"
     },
-    "ProfileV3-03.dc.html": {
+    "ProfileV5-03.dc.html": {
       "x": 4788,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 03 · Năng lực thực địa",
+      "title": "Profile B5 · 03 · Năng lực thực địa",
       "paper": "a4"
     },
-    "ProfileV3-04.dc.html": {
+    "ProfileV5-04.dc.html": {
       "x": 5662,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 04 · Trang đôi trái · 01 & 02",
+      "title": "Profile B5 · 04 · Trang đôi trái · Công nghệ & Tài chính",
       "paper": "a4"
     },
-    "ProfileV3-05.dc.html": {
+    "ProfileV5-05.dc.html": {
       "x": 6536,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 05 · Trang đôi phải · 03 & 04",
+      "title": "Profile B5 · 05 · Trang đôi phải · An sinh & Dự án",
       "paper": "a4"
     },
-    "ProfileV3-06.dc.html": {
+    "ProfileV5-06.dc.html": {
       "x": 7410,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 06 · Hệ sinh thái",
+      "title": "Profile B5 · 06 · Hệ sinh thái",
       "paper": "a4"
     },
-    "ProfileV3-07.dc.html": {
+    "ProfileV5-07.dc.html": {
       "x": 8284,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 07 · Lộ trình & Điều hành",
+      "title": "Profile B5 · 07 · Lộ trình & Ban lãnh đạo",
       "paper": "a4"
     },
-    "ProfileV3-08.dc.html": {
+    "ProfileV5-08.dc.html": {
       "x": 9158,
-      "y": 7426,
+      "y": 9912,
       "w": 794,
       "h": 1123,
-      "title": "Profile B3 · 08 · Bìa sau · CTA",
-      "paper": "a4"
-    },
-    "ProfileV4-01.dc.html": {
-      "x": 3040,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 01 · Bìa trước",
-      "paper": "a4"
-    },
-    "ProfileV4-02.dc.html": {
-      "x": 3914,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 02 · Tổng quan",
-      "paper": "a4"
-    },
-    "ProfileV4-03.dc.html": {
-      "x": 4788,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 03 · Năng lực thực địa",
-      "paper": "a4"
-    },
-    "ProfileV4-04.dc.html": {
-      "x": 5662,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 04 · Trang đôi trái · Công nghệ & Tài chính",
-      "paper": "a4"
-    },
-    "ProfileV4-05.dc.html": {
-      "x": 6536,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 05 · Trang đôi phải · An sinh & Dự án",
-      "paper": "a4"
-    },
-    "ProfileV4-06.dc.html": {
-      "x": 7410,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 06 · Hệ sinh thái",
-      "paper": "a4"
-    },
-    "ProfileV4-07.dc.html": {
-      "x": 8284,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 07 · Lộ trình & Ban lãnh đạo",
-      "paper": "a4"
-    },
-    "ProfileV4-08.dc.html": {
-      "x": 9158,
-      "y": 8669,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B4 · 08 · Bìa sau",
+      "title": "Profile B5 · 08 · Bìa sau",
       "paper": "a4"
     }
   },
@@ -402,16 +466,20 @@
     "ProfileV4-05.dc.html",
     "ProfileV4-06.dc.html",
     "ProfileV4-07.dc.html",
-    "ProfileV4-08.dc.html"
+    "ProfileV4-08.dc.html",
+    "ProfileV5-01.dc.html",
+    "ProfileV5-02.dc.html",
+    "ProfileV5-03.dc.html",
+    "ProfileV5-04.dc.html",
+    "ProfileV5-05.dc.html",
+    "ProfileV5-06.dc.html",
+    "ProfileV5-07.dc.html",
+    "ProfileV5-08.dc.html"
   ],
   "pages": [
     {
       "id": "page-1",
       "name": "Page 1"
-    },
-    {
-      "id": "page-ycyw2a",
-      "name": "Page 2"
     }
   ],
   "title": "Minh Group ST Website"

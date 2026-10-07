@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Minh Group ST · Corporate Profile 2026 · Bản 5 (Web DNA)</title>
+<style>
+@font-face{font-family:Inter;font-weight:300;src:url(fonts/Inter-Light.ttf)}
+@font-face{font-family:Inter;font-weight:400;src:url(fonts/Inter-Regular.ttf)}
+@font-face{font-family:Inter;font-weight:500;src:url(fonts/Inter-Medium.ttf)}
+@font-face{font-family:Inter;font-weight:600;src:url(fonts/Inter-SemiBold.ttf)}
+@font-face{font-family:Inter;font-weight:700;src:url(fonts/Inter-Bold.ttf)}
+@page{size:216mm 303mm;margin:0}
+html,body{background:#d9d6d3}
+@media screen{.page{margin:10mm auto;box-shadow:0 2mm 10mm rgba(32,30,29,.2)}}
+
+/* ---------- tokens: lifted from the website (Main.dc.html) ---------- */
+:root{
+  --b:3mm;
+  --or:#ca4d25;       /* brand orange */
+  --or-l:#ef7a52;     /* orange on dark */
+  --tint:#fdf1eb;     /* .hc.ic2 / .fcard tint */
+  --hatch:#f6dfd3;    /* .hc.ht */
+  --ink:#201e1d;      /* text + .dk-sec */
+  --dk2:#2a2725;--dk3:#3a3633;
+  --mut:#5c5c5c;--mut-d:#a39d98;
+  --ln:#ebebeb;       /* grid lines */
+  --dot:#d9d6d3;      /* grid intersections */
+  --box:#e0dcd8;      /* box verticals / section rules */
+  --paper:#fffefd;
+  --u:15mm;--top:13.5mm;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"cv11","ss01"}
+.page{width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));position:relative;overflow:hidden;background:var(--paper);break-after:page}
+.trim{position:absolute;left:var(--b);top:var(--b);width:210mm;height:297mm}
+/* the website grid: 1px lines every cell, dots on intersections, extending into the gutters */
+.grid{position:absolute;left:calc(-1*var(--b));top:calc(-1*var(--b));width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));
+  background-image:radial-gradient(circle,var(--dot) .42mm,transparent .48mm),linear-gradient(to right,var(--ln) .2mm,transparent .2mm),linear-gradient(to bottom,var(--ln) .2mm,transparent .2mm);
+  background-size:var(--u) var(--u);background-position:calc(var(--b) - .1mm) calc(var(--b) + var(--top) - .1mm),var(--b) 0,0 calc(var(--b) + var(--top))}
+.dark{background:var(--ink);color:#f5f3f1}
+.dark .grid{--ln:#2e2b29;--dot:#4a4542}
+.dark-band{--ln:#2e2b29;--dot:#4a4542}
+/* box verticals = gutter of exactly one cell, as on the site */
+.boxv{position:absolute;top:calc(-1*var(--b));bottom:calc(-1*var(--b));width:.25mm;background:var(--box)}
+.dark .boxv{background:var(--dk3)}
+
+.g{position:absolute;left:calc(var(--c)*var(--u));top:calc(var(--top) + var(--r)*var(--u));width:calc(var(--w,1)*var(--u));height:calc(var(--h,1)*var(--u))}
+.fill{background:var(--paper)}
+.dark .fill{background:var(--ink)}
+.pad{padding:4mm 4.4mm}
+/* section rule with orange crosshairs where it meets the box (".x.l/.x.r") */
+.srule{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));height:.25mm;background:var(--box)}
+.dark .srule{background:var(--dk3)}
+.x{position:absolute;width:3.2mm;height:3.2mm;transform:translate(-50%,-50%);z-index:3}
+.x:before,.x:after{content:"";position:absolute;background:var(--or)}
+.x:before{left:0;right:0;top:1.48mm;height:.24mm}
+.x:after{top:0;bottom:0;left:1.48mm;width:.24mm}
+/* ruled rows (".rg"): 1px gaps show the line colour */
+.rg{display:grid;gap:.25mm;background:var(--box);border:.25mm solid var(--box)}
+.rg>*{background:var(--paper)}
+.dark .rg{background:var(--dk3);border-color:var(--dk3)}
+.dark .rg>*{background:var(--ink)}
+.ht{background:repeating-linear-gradient(135deg,var(--hatch) 0 .26mm,transparent .26mm 2.1mm)!important}
+.dark .ht{background:repeating-linear-gradient(135deg,var(--dk3) 0 .26mm,transparent .26mm 2.1mm)!important}
+.ic2{background:var(--tint)!important;display:grid;place-items:center;color:var(--or)}
+.dark .ic2{background:var(--dk2)!important;color:var(--or-l)}
+/* spinning node of the hero, frozen for print */
+.hn{position:absolute;width:8.4mm;height:8.4mm;transform:translate(-50%,-50%);border-radius:50%;border:.25mm solid var(--ln);background:var(--paper);display:grid;place-items:center;z-index:4}
+.hn svg{width:3.4mm;height:3.4mm;fill:var(--or)}
+.dark .hn{background:var(--ink);border-color:var(--dk3)}
+
+/* type */
+.lbl{font-size:6.6pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.mut{color:var(--mut)}.dark .mut,.dark-band .mut{color:var(--mut-d)}
+.or{color:var(--or)}.dark .or,.dark-band .or{color:var(--or-l)}
+.h1{font-size:38pt;font-weight:600;line-height:1.06;letter-spacing:-.035em}
+.h2{font-size:21pt;font-weight:600;line-height:1.14;letter-spacing:-.025em}
+.h2 span{color:var(--or)}.dark .h2 span,.dark-band .h2 span{color:var(--or-l)}
+.h3{font-size:11pt;font-weight:600;line-height:1.3;letter-spacing:-.01em}
+.body{font-size:9.2pt;line-height:1.55;color:#3d3a38}
+.dark .body,.dark-band .body{color:#d6d1cc}
+.sm{font-size:8.2pt;line-height:1.45}
+.xs{font-size:6.8pt;line-height:1.4}
+.stat{font-size:38pt;font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--or)}
+.pill{display:inline-flex;align-items:center;gap:2.2mm;border:.25mm solid var(--box);border-radius:20mm;padding:.9mm 3mm .9mm 1mm;font-size:7.4pt;font-weight:500;background:var(--paper)}
+.pill .nb{display:inline-flex;align-items:center;height:4.6mm;padding:0 2.4mm;border-radius:20mm;background:var(--or);color:#fff;font-size:6.6pt;font-weight:600}
+.dark .pill,.dark-band .pill{background:var(--ink);border-color:var(--dk3);color:#f5f3f1}
+.ic{width:5.4mm;height:5.4mm;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* .fcard: photo with the website's 135deg tint fade */
+.fcard{position:relative;overflow:hidden;background:var(--tint)}
+.fcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fcard:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgb(253 241 235 / 98%) 0%,rgb(253 241 235 / 94%) 40%,rgb(253 241 235 / 62%) 62%,rgb(253 241 235 / 0%) 90%)}
+.fcard>.in{position:relative;z-index:1}
+.cap{position:absolute;right:1.6mm;bottom:1.2mm;z-index:2;font-size:4.6pt;color:#fff;background:rgba(32,30,29,.5);padding:.3mm 1.2mm}
+.fcard .cap{color:#a63c1b;background:none;opacity:.8}
+/* photo strip (".hs-track") */
+.strip{position:absolute;display:flex;gap:.25mm;background:var(--ln);overflow:hidden}
+.strip>div{position:relative;height:100%;flex:none;overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:cover;display:block}
+/* values band (".vband") */
+.vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;gap:7mm;white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
+.vband svg{width:5mm;height:5mm;fill:#fff;flex:none}
+.foot{display:flex;justify-content:space-between;align-items:center}
+.pn{font-size:7pt;font-weight:600;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="spark" viewBox="0 0 24 24"><path d="M12 1.5c.7 5.6 4.9 9.8 10.5 10.5-5.6.7-9.8 4.9-10.5 10.5-.7-5.6-4.9-9.8-10.5-10.5C7.1 11.3 11.3 7.1 12 1.5z"/></symbol>
+ <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"/></symbol>
+ <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"/><path d="M9 8h6M9 11.5h6M9 15h3"/></symbol>
+ <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/></symbol>
+ <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"/><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"/></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></symbol>
+ <symbol id="i-gov" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"/></symbol>
+ <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+ <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"/></symbol>
+ <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h4"/></symbol>
+ <symbol id="i-finger" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5M8.5 8.5A4 4 0 0 1 16 11v2.5M16 17a14 14 0 0 1-.6 3M5.5 13.5V11a6.5 6.5 0 0 1 11-4.7M19 10v3"/></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-5h4v5"/></symbol>
+ <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"/><circle cx="8" cy="16.5" r="1.6"/><circle cx="16" cy="16.5" r="1.6"/><path d="M4 12h16"/></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"/></symbol>
+ <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"/></symbol>
+ <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.6-4.6"/></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M4 12h16M12 4v16"/></symbol>
+ <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+ <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+ <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<!-- ============ 01 · COVER (website hero) ============ -->
+<section class="page"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="g fill" style="--c:1;--r:0;--w:12;--h:1;display:flex;align-items:center;justify-content:space-between;padding:0 3mm">
+    <img src="../assets/logo/mgst-logo.svg" style="height:8mm;display:block" alt="Minh Group ST">
+    <span class="lbl mut">Hồ sơ năng lực · 2026</span>
+  </div>
+  <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
+
+  <!-- hero cell decorations -->
+  <div class="g ht" style="--c:1;--r:2"></div><div class="g ht" style="--c:12;--r:1"></div><div class="g ht" style="--c:11;--r:7"></div><div class="g ht" style="--c:2;--r:7"></div>
+  <div class="g ic2" style="--c:12;--r:4"><svg class="ic"><use href="#i-id"/></svg></div>
+  <div class="g ic2" style="--c:1;--r:5"><svg class="ic"><use href="#i-qr"/></svg></div>
+  <div class="g ic2" style="--c:11;--r:2"><svg class="ic"><use href="#i-shield"/></svg></div>
+  <div class="g ic2" style="--c:2;--r:3"><svg class="ic"><use href="#i-bank"/></svg></div>
+  <div class="hn" style="left:45mm;top:43.5mm"><svg><use href="#spark"/></svg></div>
+  <div class="hn" style="left:165mm;top:133.5mm"><svg><use href="#spark"/></svg></div>
+  <div class="hn" style="left:150mm;top:28.5mm"><svg><use href="#spark"/></svg></div>
+
+  <div class="g fill" style="--c:3;--r:2;--w:8;--h:6;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <span class="pill"><span class="nb">Mới</span>Hồ sơ năng lực &amp; chiến lược phát triển</span>
+    <h1 class="h1" style="margin-top:7mm;font-size:31pt">Tiên phong số hóa –<br><span class="or">Hiệu quả bứt phá</span></h1>
+    <p class="body" style="margin-top:6mm;width:100mm">Hệ sinh thái giải pháp đa lĩnh vực, thực thi tận địa bàn miền Tây: chuyển đổi số, tài chính – ngân hàng, bảo hiểm, an sinh và phát triển dự án.</p>
+  </div>
+
+  <div class="strip" style="left:calc(-1*var(--b));right:calc(-1*var(--b));top:148.5mm;height:90mm" id="s1"></div>
+  <div class="vband" style="top:238.5mm;height:30mm;font-size:20pt" data-words="Nhanh chóng|Tin cậy|Hiệu quả"></div>
+  <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm">
+    <span style="font-weight:700;font-size:9pt;letter-spacing:.02em">CÔNG TY TNHH MINH GROUP ST</span>
+    <span class="xs mut">Hệ sinh thái Giải pháp · Thực thi Địa bàn · Đột phá Công nghệ</span>
+  </div>
+</div></section>
+
+<!-- ============ 02 · OVERVIEW ============ -->
+<section class="page"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="g fill foot" style="--c:1;--r:0;--w:12;--h:1;padding:0 3mm"><img src="../assets/logo/mgst-logo.svg" style="height:6mm;display:block" alt="Minh Group ST"><span class="pn mut">02</span></div>
+
+  <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
+  <div class="g fill pad" style="--c:1;--r:1;--w:7;--h:3;padding-top:5mm">
+    <span class="pill"><span class="nb">01</span>Tổng quan</span>
+    <h2 class="h2" style="margin-top:5mm;font-size:17.5pt">Đồng hành cùng chính quyền và doanh nghiệp bằng <span>một hệ sinh thái giải pháp.</span></h2>
+  </div>
+  <div class="g fill pad" style="--c:8;--r:1;--w:5;--h:3;padding-top:14mm">
+    <p class="body">Minh Group ST là doanh nghiệp đa lĩnh vực, phát triển trên nền tảng chuyển đổi số, nghiên cứu – phát triển thị trường; không chỉ cung cấp giải pháp mà trực tiếp đồng hành cùng đối tác, khách hàng và cơ quan quản lý.</p>
+  </div>
+
+  <div class="g rg" style="--c:1;--r:4;--w:12;--h:5;grid-template-columns:1fr 1fr">
+    <div class="fcard pad" style="padding:6mm"><img src="../assets/photos/mg-g.jpg" style="object-position:60% 50%" alt=""><div class="in"><div class="lbl or">Tầm nhìn</div><div class="h3" style="font-size:14pt;margin-top:4mm;width:62mm;line-height:1.28">Tập đoàn giải pháp đa lĩnh vực dẫn đầu miền Tây về chuyển đổi số, tài chính và an sinh xã hội.</div></div><span class="cap">Ảnh: Tuong Lam Photos · CC BY-SA 4.0</span></div>
+    <div class="fcard pad" style="padding:6mm"><img src="../assets/photos/mg-a.jpg" style="object-position:60% 35%" alt=""><div class="in"><div class="lbl or">Sứ mệnh</div><div class="h3" style="font-size:14pt;margin-top:4mm;width:62mm;line-height:1.28">Đưa công nghệ và tiện ích hiện đại đến gần hơn với từng người dân và tổ chức.</div></div><span class="cap">Ảnh: V. Argenberg · CC BY 4.0</span></div>
+  </div>
+
+  <div class="srule" style="top:148.5mm"></div><div class="x" style="left:15mm;top:148.5mm"></div><div class="x" style="left:195mm;top:148.5mm"></div>
+  <div class="g fill" style="--c:1;--r:9;--w:12;--h:1;display:flex;align-items:center;padding:0 3mm"><span class="lbl mut">Triết lý hành động</span></div>
+  <div class="g rg" style="--c:1;--r:10;--w:12;--h:4;grid-template-columns:repeat(4,1fr)" id="philo"></div>
+
+  <div class="g ht" style="--c:1;--r:15"></div><div class="g ht" style="--c:12;--r:15"></div>
+  <div class="hn" style="left:105mm;top:238.5mm"><svg><use href="#spark"/></svg></div>
+  <div class="g fill" style="--c:2;--r:15;--w:10;--h:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <div class="h2" style="font-size:19pt">Tiên phong số hóa – <span>Hiệu quả bứt phá</span></div>
+    <div class="lbl mut" style="margin-top:2.6mm">Thông điệp thương hiệu</div>
+  </div>
+  <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm"><span class="xs mut">Minh Group ST · Corporate Profile 2026</span><span class="xs mut">mgst.com.vn</span></div>
+</div></section>
+
+<!-- ============ 03 · LOCAL EXECUTION ============ -->
+<section class="page"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="g fill foot" style="--c:1;--r:0;--w:12;--h:1;padding:0 3mm"><span class="pn mut">03</span><img src="../assets/logo/mgst-logo.svg" style="height:6mm;display:block" alt="Minh Group ST"></div>
+  <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
+  <div class="g fill pad" style="--c:1;--r:1;--w:8;--h:3;padding-top:5mm">
+    <span class="pill"><span class="nb">02</span>Năng lực thực địa</span>
+    <h2 class="h2" style="margin-top:5mm">Thực thi tại địa bàn, <span>không tư vấn xa rời.</span></h2>
+  </div>
+  <div class="g fill pad" style="--c:9;--r:1;--w:4;--h:3;padding-top:14mm"><p class="body">Nhân sự trực tiếp có mặt tại từng trạm y tế, bệnh viện, cơ quan hành chính và từng hộ gia đình.</p></div>
+
+  <div class="g rg" style="--c:1;--r:4;--w:12;--h:3;grid-template-columns:3fr 3fr 3fr 3fr">
+    <div class="pad" style="display:flex;align-items:center"><p class="h3" style="font-weight:500;font-size:12pt;line-height:1.35">Đội ngũ bám sát cơ sở, hiện diện mỗi ngày tại địa phương.</p></div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><div class="stat">300+</div><div class="sm mut" style="margin-top:2.4mm">nhân sự chính thức<br>&amp; cộng tác viên</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><div class="stat">13</div><div class="sm mut" style="margin-top:2.4mm">tỉnh thành ĐBSCL<br>được phủ sóng</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><div class="stat">2.000+</div><div class="sm mut" style="margin-top:2.4mm">lượt người dân<br>được hỗ trợ mỗi ngày</div></div>
+  </div>
+
+  <div class="strip" style="left:calc(-1*var(--b));right:calc(-1*var(--b));top:118.5mm;height:60mm" id="s3"></div>
+
+  <div class="g rg" style="--c:1;--r:11;--w:12;--h:2;grid-template-columns:repeat(4,1fr)" id="touch"></div>
+
+  <div class="srule" style="top:208.5mm"></div><div class="x" style="left:15mm;top:208.5mm"></div><div class="x" style="left:195mm;top:208.5mm"></div>
+  <div class="g fill foot" style="--c:1;--r:13;--w:12;--h:1;padding:0 3mm"><span class="lbl mut">Sơ đồ mạng lưới</span><span class="xs mut">11 PKD địa bàn · 1 PKD Y · 5 phòng chức năng</span></div>
+  <div class="g" style="--c:5;--r:14;--w:4;--h:1;background:var(--ink);color:#fff;display:grid;place-items:center"><span class="lbl" style="font-size:7.4pt">Ban Giám đốc</span></div>
+  <div class="g ht" style="--c:4;--r:14"></div><div class="g ht" style="--c:9;--r:14"></div>
+  <div class="hn" style="left:105mm;top:223.5mm"><svg><use href="#spark"/></svg></div>
+  <div class="g rg" style="--c:1;--r:15;--w:12;--h:1;grid-template-columns:repeat(12,1fr)" id="pkd"></div>
+  <div class="g rg" style="--c:1;--r:16;--w:12;--h:1;grid-template-columns:repeat(5,1fr)" id="func"></div>
+  <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm"><span class="xs mut">Minh Group ST · Corporate Profile 2026</span><span class="xs mut">mgst.com.vn</span></div>
+</div></section>
+
+<!-- ============ 04 · SPREAD LEFT ============ -->
+<section class="page"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="a dark-band" style="position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));top:calc(-1*var(--b));height:calc(73.5mm + var(--b));background:var(--ink);color:#f5f3f1">
+    <div class="grid" style="left:0;top:0;width:100%;height:100%;background-position:calc(var(--b) - .1mm) calc(var(--b) + var(--top) - .1mm),var(--b) 0,0 calc(var(--b) + var(--top))"></div>
+  </div>
+  <div class="boxv" style="left:15mm;background:var(--dk3);bottom:auto;height:calc(73.5mm + var(--b))"></div><div class="boxv" style="left:195mm;background:var(--dk3);bottom:auto;height:calc(73.5mm + var(--b))"></div>
+  <div class="g dark-band" style="--c:1;--r:0;--w:12;--h:1;display:flex;align-items:center;justify-content:space-between;padding:0 3mm;background:var(--ink);color:#f5f3f1"><img src="../assets/logo/mgst-logo-white.svg" style="height:6mm;display:block" alt="Minh Group ST"><span class="lbl mut">Trang đôi · 1/2</span></div>
+  <div class="g dark-band pad" style="--c:1;--r:1;--w:12;--h:3;background:var(--ink);color:#fff;padding-top:6mm">
+    <span class="pill"><span class="nb">03</span>Lĩnh vực trọng tâm</span>
+    <h2 class="h2" style="margin-top:5mm;font-size:26pt;color:#fff">Công nghệ <span>&amp;</span> Tài chính</h2>
+  </div>
+  <div class="g ic2" style="--c:12;--r:2;background:var(--dk2)!important;color:var(--or-l)"><svg class="ic"><use href="#i-cpu"/></svg></div>
+  <div class="g" style="--c:11;--r:3;background:repeating-linear-gradient(135deg,var(--dk3) 0 .26mm,transparent .26mm 2.1mm)"></div>
+  <div class="x" style="left:15mm;top:73.5mm"></div><div class="x" style="left:195mm;top:73.5mm"></div>
+
+  <div class="g rg" style="--c:1;--r:4;--w:12;--h:4;grid-template-columns:1fr 1fr">
+    <div class="fcard" style="padding:6mm"><img src="../assets/photos/mg-h.jpg" style="object-position:55% 50%" alt=""><div class="in"><span class="pill"><span class="nb">01</span>Chuyển đổi số &amp; Y tế số</span><div class="h2" style="font-size:16pt;margin-top:5mm;width:56mm">Đưa công nghệ <span>đến gần dân.</span></div></div><span class="cap">Ảnh: Franzfoto · CC BY-SA 3.0</span></div>
+    <div class="fcard" style="padding:6mm"><img src="../assets/photos/mg-f.jpg" style="object-position:55% 50%" alt=""><div class="in"><span class="pill"><span class="nb">02</span>Tài chính – Ngân hàng</span><div class="h2" style="font-size:16pt;margin-top:5mm;width:58mm">Cầu nối ngân hàng <span>với miền Tây.</span></div></div><span class="cap">Ảnh: Dragfyre · CC BY-SA 3.0</span></div>
+  </div>
+
+  <div class="g rg" style="--c:1;--r:8;--w:6;--h:3;grid-template-rows:repeat(3,1fr);grid-template-columns:var(--u) 1fr" id="a-list"></div>
+  <div class="g rg" style="--c:1;--r:11;--w:6;--h:2;grid-template-columns:var(--u) 1fr">
+    <div class="ht"></div>
+    <div style="display:flex;align-items:center;gap:4mm;padding:0 4mm"><span class="stat" style="font-size:32pt">2.000+</span><span class="sm mut">lượt người dân được tiếp cận, hỗ trợ trực tiếp mỗi ngày</span></div>
+  </div>
+  <div class="g fill" style="--c:1;--r:13;--w:6;--h:1;display:flex;align-items:center;padding:0 3mm"><span class="lbl or">Kênh y tế số · PKD Y</span></div>
+  <div class="g rg" style="--c:1;--r:14;--w:6;--h:3;grid-template-rows:repeat(3,1fr);grid-template-columns:var(--u) 1fr" id="h-list"></div>
+
+  <div class="g" style="--c:7;--r:8;--w:6;--h:3;background:var(--ink);color:#f5f3f1;padding:5mm">
+    <div style="display:flex;align-items:flex-end;gap:4mm"><span class="stat" style="font-size:44pt;color:var(--or-l)">12+</span><span class="sm" style="color:#d6d1cc;padding-bottom:1.6mm">ngân hàng thương mại hàng đầu Việt Nam là <b style="color:#fff">đối tác chiến lược</b></span></div>
+    <div id="banks" style="display:grid;grid-template-columns:repeat(12,1fr);gap:.8mm;margin-top:4.6mm"></div>
+  </div>
+  <div class="g rg" style="--c:7;--r:11;--w:6;--h:3;grid-template-rows:repeat(3,1fr);grid-template-columns:var(--u) 1fr" id="b-list"></div>
+  <div class="g ht" style="--c:7;--r:14"></div>
+  <div class="g fill" style="--c:8;--r:14;--w:5;--h:3;padding:4mm 4.4mm;display:flex;flex-direction:column;justify-content:center">
+    <div class="h3" style="font-size:12.5pt;font-weight:500;line-height:1.35">“Thị trường được làm nên từ <span class="or" style="font-weight:600">con người</span>, nhu cầu sống và sự thay đổi mỗi ngày.”</div>
+    <div class="xs mut" style="margin-top:2.4mm">Câu chuyện thương hiệu Minh Group ST</div>
+  </div>
+  <div class="hn" style="left:105mm;top:118.5mm"><svg><use href="#spark"/></svg></div>
+  <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm"><span class="pn mut">04</span><span class="xs mut">Minh Group ST · Corporate Profile 2026</span></div>
+</div></section>
+
+<!-- ============ 05 · SPREAD RIGHT ============ -->
+<section class="page"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="a dark-band" style="position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));top:calc(-1*var(--b));height:calc(73.5mm + var(--b));background:var(--ink)">
+    <div class="grid" style="left:0;top:0;width:100%;height:100%"></div>
+  </div>
+  <div class="boxv" style="left:15mm;background:var(--dk3);bottom:auto;height:calc(73.5mm + var(--b))"></div><div class="boxv" style="left:195mm;background:var(--dk3);bottom:auto;height:calc(73.5mm + var(--b))"></div>
+  <div class="g dark-band" style="--c:1;--r:0;--w:12;--h:1;display:flex;align-items:center;justify-content:space-between;padding:0 3mm;background:var(--ink);color:#f5f3f1"><span class="lbl mut">Trang đôi · 2/2</span><img src="../assets/logo/mgst-logo-white.svg" style="height:6mm;display:block" alt="Minh Group ST"></div>
+  <div class="g dark-band pad" style="--c:1;--r:1;--w:12;--h:3;background:var(--ink);color:#fff;padding-top:6mm">
+    <span class="pill"><span class="nb">03</span>Lĩnh vực trọng tâm</span>
+    <h2 class="h2" style="margin-top:5mm;font-size:26pt;color:#fff">An sinh <span>&amp;</span> Dự án</h2>
+  </div>
+  <div class="g ic2" style="--c:12;--r:2;background:var(--dk2)!important;color:var(--or-l)"><svg class="ic"><use href="#i-heart"/></svg></div>
+  <div class="g" style="--c:11;--r:3;background:repeating-linear-gradient(135deg,var(--dk3) 0 .26mm,transparent .26mm 2.1mm)"></div>
+  <div class="x" style="left:15mm;top:73.5mm"></div><div class="x" style="left:195mm;top:73.5mm"></div>
+
+  <div class="g rg" style="--c:1;--r:4;--w:12;--h:4;grid-template-columns:1fr 1fr">
+    <div class="fcard" style="padding:6mm"><img src="../assets/photos/mg-a.jpg" style="object-position:50% 30%" alt=""><div class="in"><span class="pill"><span class="nb">03</span>Bảo hiểm &amp; An sinh xã hội</span><div class="h2" style="font-size:16pt;margin-top:5mm;width:56mm">Bảo vệ tài chính <span>từng gia đình.</span></div></div><span class="cap">Ảnh: V. Argenberg · CC BY 4.0</span></div>
+    <div class="fcard" style="padding:6mm"><img src="../assets/photos/mg-g.jpg" style="object-position:20% 60%" alt=""><div class="in"><span class="pill"><span class="nb">04</span>Chi trả BTXH &amp; Dự án</span><div class="h2" style="font-size:16pt;margin-top:5mm;width:60mm">Trao giá trị, <span>gửi trọn trách nhiệm.</span></div></div><span class="cap">Ảnh: Tuong Lam Photos · CC BY-SA 4.0</span></div>
+  </div>
+
+  <!-- col A -->
+  <div class="g" style="--c:1;--r:8;--w:6;--h:1;background:var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;justify-items:center;padding:0 3mm">
+    <img src="../assets/logos/pvi-w.png" style="height:6.4mm" alt="PVI"><img src="../assets/logos/pti-w.png" style="height:6.4mm" alt="PTI"><span style="font-weight:700;font-size:10.5pt;letter-spacing:.08em;color:#fff">TASCO</span>
+  </div>
+  <div class="g rg" style="--c:1;--r:9;--w:6;--h:2;grid-template-columns:repeat(3,1fr)" id="prod"></div>
+  <div class="g fill" style="--c:1;--r:11;--w:6;--h:1;display:flex;align-items:center;padding:0 3mm"><span class="lbl or">Phòng Kinh doanh An sinh</span></div>
+  <div class="g rg" style="--c:1;--r:12;--w:6;--h:2;grid-template-rows:1fr 1fr;grid-template-columns:var(--u) 1fr" id="as-list"></div>
+
+  <!-- col B -->
+  <div class="g fill" style="--c:7;--r:8;--w:6;--h:1;display:flex;align-items:center;padding:0 3mm"><span class="lbl or">3 cam kết vận hành</span></div>
+  <div class="g rg" style="--c:7;--r:9;--w:6;--h:3;grid-template-rows:repeat(3,1fr);grid-template-columns:var(--u) 1fr" id="commit"></div>
+  <div class="g fill" style="--c:7;--r:12;--w:6;--h:2;padding:3.4mm 3mm 0">
+    <div class="lbl mut">Đối tượng phục vụ</div>
+    <div class="xs" style="margin-top:2mm;line-height:1.8">Người hưởng lương hưu · Trợ cấp bảo trợ xã hội · Người có công với cách mạng · Thụ hưởng chương trình mục tiêu</div>
+  </div>
+
+  <div class="srule" style="top:223.5mm"></div><div class="x" style="left:15mm;top:223.5mm"></div><div class="x" style="left:195mm;top:223.5mm"></div>
+  <div class="g fill foot" style="--c:1;--r:14;--w:12;--h:1;padding:0 3mm;top:calc(var(--top) + 14*var(--u) + .3mm)"><span class="lbl mut">Phòng Dự án · Hạt nhân chiến lược</span><span class="xs mut">Từ nghiên cứu đến kết nối nguồn lực</span></div>
+  <div class="g rg" style="--c:1;--r:15;--w:12;--h:2;grid-template-columns:repeat(3,1fr)" id="proj"></div>
+  <div class="hn" style="left:75mm;top:253.5mm"><svg><use href="#spark"/></svg></div><div class="hn" style="left:135mm;top:253.5mm"><svg><use href="#spark"/></svg></div>
+  <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm"><span class="xs mut">Minh Group ST · Corporate Profile 2026</span><span class="pn mut">05</span></div>
+</div></section>
+
+<!-- ============ 06 · ECOSYSTEM (dark) ============ -->
+<section class="page dark"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="g fill foot" style="--c:1;--r:0;--w:12;--h:1;padding:0 3mm"><img src="../assets/logo/mgst-logo-white.svg" style="height:6mm;display:block" alt="Minh Group ST"><span class="pn mut">06</span></div>
+  <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
+  <div class="g fill" style="--c:1;--r:1;--w:12;--h:2;display:flex;align-items:center;justify-content:space-between;padding:0 3mm">
+    <h2 class="h2" style="color:#fff;font-size:23pt">7 trụ cột, <span>một hệ sinh thái.</span></h2>
+    <span class="pill"><span class="nb">04</span>Hệ sinh thái</span>
+  </div>
+  <div class="g rg" style="--c:1;--r:3;--w:12;--h:12;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr)" id="eco"></div>
+  <div class="hn" style="left:75mm;top:103.5mm"><svg><use href="#spark"/></svg></div><div class="hn" style="left:135mm;top:163.5mm"><svg><use href="#spark"/></svg></div>
+  <div class="g rg" style="--c:1;--r:15;--w:12;--h:2;grid-template-columns:repeat(3,1fr)" id="adv"></div>
+  <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm"><span class="xs mut">Lợi thế cạnh tranh cốt lõi</span><span class="xs mut">mgst.com.vn</span></div>
+</div></section>
+
+<!-- ============ 07 · ROADMAP & TEAM ============ -->
+<section class="page"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="g fill foot" style="--c:1;--r:0;--w:12;--h:1;padding:0 3mm"><span class="pn mut">07</span><img src="../assets/logo/mgst-logo.svg" style="height:6mm;display:block" alt="Minh Group ST"></div>
+  <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
+  <div class="g fill pad" style="--c:1;--r:1;--w:8;--h:2;padding-top:4.4mm">
+    <span class="pill"><span class="nb">05</span>Lộ trình &amp; điều hành</span>
+    <h2 class="h2" style="margin-top:4mm">Lộ trình <span>2025 – 2026</span></h2>
+  </div>
+  <div class="g fill pad" style="--c:9;--r:1;--w:4;--h:2;padding-top:12mm"><p class="sm mut">Từ một pháp nhân đến mạng lưới 11 phòng kinh doanh địa bàn trong 18 tháng.</p></div>
+  <div class="g" style="--c:1;--r:3;--w:6;--h:1;background:var(--tint);display:flex;align-items:center;padding:0 4mm"><span class="h3 or">2025</span></div>
+  <div class="g ht" style="--c:7;--r:3;--w:6;--h:1;display:flex;align-items:center;padding:0 4mm"><span class="h3" style="background:var(--paper);padding:0 1.6mm">2026</span></div>
+  <div class="g rg" style="--c:1;--r:4;--w:12;--h:3;grid-template-columns:repeat(6,1fr)" id="road"></div>
+
+  <div class="srule" style="top:118.5mm"></div><div class="x" style="left:15mm;top:118.5mm"></div><div class="x" style="left:195mm;top:118.5mm"></div>
+  <div class="g fill foot" style="--c:1;--r:7;--w:12;--h:1;padding:0 3mm"><span class="lbl mut">Ban lãnh đạo</span><span class="xs mut">Liên hệ trực tiếp theo khối phụ trách</span></div>
+  <div class="g rg" style="--c:1;--r:8;--w:12;--h:9;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr)" id="team"></div>
+  <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm"><span class="xs mut">Ảnh chân dung: placeholder, cần ảnh thật của từng lãnh đạo.</span><span class="xs mut">mgst.com.vn</span></div>
+</div></section>
+
+<!-- ============ 08 · BACK COVER (website footer) ============ -->
+<section class="page dark"><div class="trim">
+  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="g fill foot" style="--c:1;--r:0;--w:12;--h:1;padding:0 3mm"><img src="../assets/logo/mgst-logo-white.svg" style="height:6mm;display:block" alt="Minh Group ST"><span class="pn mut">08</span></div>
+  <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
+  <div class="g fill pad" style="--c:1;--r:1;--w:12;--h:2;padding-top:4.4mm">
+    <span class="pill"><span class="nb">06</span>Định hướng &amp; liên hệ</span>
+    <h2 class="h2" style="margin-top:4mm;color:#fff">Giai đoạn tới: <span>ba mũi nhọn chiến lược.</span></h2>
+  </div>
+  <div class="g rg" style="--c:1;--r:3;--w:12;--h:4;grid-template-columns:repeat(3,1fr)" id="thrust"></div>
+
+  <div class="srule" style="top:118.5mm"></div><div class="x" style="left:15mm;top:118.5mm"></div><div class="x" style="left:195mm;top:118.5mm"></div>
+  <div class="g fill foot" style="--c:1;--r:7;--w:12;--h:1;padding:0 3mm"><span class="lbl mut">Kết nối cùng Minh Group ST</span><span class="xs mut">Phản hồi trong giờ hành chính</span></div>
+  <div class="g" style="--c:1;--r:8;--w:8;--h:3;background:var(--or);color:#fff;padding:6mm;display:flex;flex-direction:column;justify-content:space-between">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span class="lbl">Hotline</span><svg class="ic" style="width:7mm;height:7mm"><use href="#i-phone"/></svg></div>
+    <div style="font-size:34pt;font-weight:700;letter-spacing:-.03em;line-height:1">0977 726 700</div>
+  </div>
+  <div class="g rg" style="--c:1;--r:11;--w:8;--h:2;grid-template-columns:1fr 1fr">
+    <div class="pad" style="background:var(--dk2)!important"><div style="display:flex;gap:2.4mm;align-items:center" class="or"><svg class="ic"><use href="#i-mail"/></svg><span class="lbl">Email</span></div><div class="sm" style="margin-top:2.6mm;font-weight:600;color:#fff">minhgroupst@mgst.com.vn</div></div>
+    <div class="pad" style="background:var(--dk2)!important"><div style="display:flex;gap:2.4mm;align-items:center" class="or"><svg class="ic"><use href="#i-pin"/></svg><span class="lbl">Trụ sở chính</span></div><div class="sm" style="margin-top:2.6mm;font-weight:600;color:#fff">323–325 Phú Lợi, phường Phú Lợi, TP Cần Thơ</div></div>
+  </div>
+  <div class="g" style="--c:9;--r:8;--w:4;--h:5;background:var(--dk2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4mm">
+    <svg id="qr" style="width:36mm;height:36mm;display:block" viewBox="0 0 38 38"></svg>
+    <div class="sm" style="margin-top:3mm;font-weight:600;color:#fff">Quét để truy cập</div>
+    <div class="xs mut">trang thông tin &amp; liên hệ</div>
+    <div class="xs or" style="margin-top:1.6mm;font-weight:600">[Placeholder: chèn QR thật]</div>
+  </div>
+  <div class="hn" style="left:135mm;top:163.5mm"><svg><use href="#spark"/></svg></div>
+
+  <div class="vband" style="top:208.5mm;height:30mm;font-size:18pt" data-words="Tiên phong số hóa|Hiệu quả bứt phá"></div>
+  <div class="g fill" style="--c:1;--r:15;--w:12;--h:2;display:flex;align-items:center;justify-content:space-between;padding:0 3mm">
+    <div><div style="font-weight:700;font-size:11pt;letter-spacing:.02em;color:#fff">CÔNG TY TNHH MINH GROUP ST</div><div class="sm mut" style="margin-top:1.4mm">Hệ sinh thái Giải pháp · Thực thi Địa bàn · Đột phá Công nghệ</div></div>
+    <img src="../assets/logo/mgst-logo-white.svg" style="height:11mm;display:block" alt="">
+  </div>
+  <div class="g fill" style="--c:1;--r:17;--w:12;--h:1;display:flex;align-items:center;padding:0 3mm"><span class="xs mut" style="font-size:5.4pt">Ảnh minh họa (Wikimedia Commons): Tuong Lam Photos (CC BY-SA 4.0), V. Argenberg (CC BY 4.0), P. van der Sluijs, Franzfoto, Dragfyre (CC BY-SA 3.0). Logo PVI, PTI thuộc quyền sở hữu của từng đơn vị.</span></div>
+</div></section>
+
+<script>
+const $=id=>document.getElementById(id);
+const ic=(n,s='')=>`<svg class="ic" style="${s}"><use href="#${n}"/></svg>`;
+const SP='<svg viewBox="0 0 24 24"><use href="#spark"/></svg>';
+
+/* photo strips: 1px gaps, cut at page edges like the marquee */
+function strip(id,items,credit){$(id).innerHTML=items.map(([src,w,pos])=>`<div style="width:${w}mm"><img src="../assets/photos/${src}" style="object-position:${pos||'50% 50%'}" alt=""></div>`).join('')+`<span class="cap" style="right:4.6mm">${credit}</span>`;}
+strip('s1',[['mg-a.jpg',74,'45% 40%'],['mg-b.jpg',52,'50% 35%'],['mg-h.jpg',62],['mg-g.jpg',70,'40% 50%']],'Ảnh minh họa: Wikimedia Commons');
+strip('s3',[['mg-f.jpg',80,'50% 55%'],['mg-b.jpg',48,'50% 62%'],['mg-g.jpg',90,'70% 50%']],'Ảnh minh họa: Wikimedia Commons');
+
+/* values band */
+document.querySelectorAll('.vband').forEach(v=>{const w=v.dataset.words.split('|');let h='';for(let i=0;i<4;i++)w.forEach(t=>h+=`<span>${t}</span><svg viewBox="0 0 24 24"><use href="#spark"/></svg>`);v.innerHTML='<span style="width:4mm"></span>'+h;});
+
+/* philosophy cells */
+$('philo').innerHTML=[['i-bolt','Công nghệ tạo ra','Tốc độ'],['i-users','Con người tạo ra','Giá trị'],['i-trend','Thị trường tạo ra','Cơ hội'],['i-link','Sự kết nối tạo ra','Sức mạnh']].map(([i,a,b],k)=>
+ k===3?`<div style="background:var(--or);color:#fff;padding:5mm;display:flex;flex-direction:column;justify-content:space-between"><span style="width:11mm;height:11mm;display:grid;place-items:center;background:rgba(255,255,255,.16)">${ic(i)}</span><div><div class="sm" style="opacity:.85">${a}</div><div style="font-size:21pt;font-weight:600;letter-spacing:-.03em;margin-top:1mm">${b}</div></div></div>`
+ :`<div style="padding:5mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:11mm;height:11mm">${ic(i)}</span><div><div class="sm mut">${a}</div><div style="font-size:21pt;font-weight:600;letter-spacing:-.03em;margin-top:1mm">${b}</div></div></div>`).join('');
+
+/* touchpoints */
+$('touch').innerHTML=[['i-plus','Trạm y tế','Hỗ trợ tiếp đón, số hóa hồ sơ'],['i-hos','Bệnh viện','Thanh toán viện phí số'],['i-gov','Cơ quan hành chính','Đồng hành cùng chính quyền'],['i-house','Từng hộ gia đình','Hướng dẫn tận nơi']].map(([i,h,d])=>
+ `<div style="display:flex;gap:3.4mm;align-items:center;padding:0 4mm"><span class="ic2" style="width:11mm;height:11mm;flex:none">${ic(i)}</span><div><div class="h3" style="font-size:9.6pt">${h}</div><div class="xs mut" style="margin-top:.6mm">${d}</div></div></div>`).join('');
+
+/* PKD grid */
+$('pkd').innerHTML=Array.from({length:11},(_,i)=>`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center"><span class="xs mut" style="font-size:5.6pt;letter-spacing:.1em">PKD</span><span style="font-size:13pt;font-weight:700;color:var(--or);line-height:1.05">${i+1}</span></div>`).join('')
+ +`<div style="background:var(--or)!important;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center"><span class="xs" style="font-size:5.6pt;letter-spacing:.1em;opacity:.85">PKD</span><span style="font-size:13pt;font-weight:700;line-height:1.05">Y</span></div>`;
+$('func').innerHTML=['Phòng Dự án','PKD An sinh','Phòng Chi trả BTXH','PKD Tổng hợp','Kế toán – Nhân sự'].map((n,i)=>`<div class="${i%2?'':'ic2'}" style="display:flex;align-items:center;justify-content:center;text-align:center;padding:0 2mm;color:var(--ink)"><span class="sm" style="font-weight:600">${n}</span></div>`).join('');
+
+/* lists with icon cell */
+const rows=(id,items,dark)=>$(id).innerHTML=items.map(([i,h,d])=>`<div class="ic2">${ic(i)}</div><div style="display:flex;flex-direction:column;justify-content:center;padding:0 4mm"><div class="h3" style="font-size:9.8pt">${h}</div>${d?`<div class="xs mut" style="margin-top:.5mm">${d}</div>`:''}</div>`).join('');
+rows('a-list',[['i-id','Định danh VNeID','Hướng dẫn, kích hoạt, xử lý vướng mắc'],['i-tax','Thuế điện tử eTax Mobile','Cho người dân và hộ kinh doanh'],['i-qr','QR thanh toán không tiền mặt','Tại chợ và tuyến phố văn minh']]);
+rows('h-list',[['i-check','Số hóa bệnh án',''],['i-check','Viện phí không tiền mặt',''],['i-check','Tối ưu tiếp đón bệnh nhân','Tại bệnh viện và trạm y tế']]);
+rows('b-list',[['i-card','Mở rộng thị trường','Thẻ, tài khoản số, tín dụng về nông thôn và thành thị'],['i-finger','Chuẩn hóa sinh trắc học','Chiến dịch ra quân tại địa phương'],['i-bank','Mở tài khoản số','Cho khách hàng ngân hàng tại địa bàn']]);
+rows('as-list',[['i-shield','BHXH tự nguyện','Tuyên truyền cùng chính quyền'],['i-heart','BHYT hộ gia đình','Bảo vệ tài chính gia đình']]);
+$('banks').innerHTML=Array.from({length:12},()=>`<span style="aspect-ratio:1;border:.25mm solid #4a4542;display:grid;place-items:center;color:var(--or-l)">${ic('i-bank','width:3.2mm;height:3.2mm;stroke-width:1.8')}</span>`).join('');
+$('prod').innerHTML=[['i-home','Tài sản'],['i-car','Cơ giới'],['i-plus','Tai nạn']].map(([i,h])=>`<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm"><span class="ic2" style="width:10mm;height:10mm">${ic(i)}</span><span class="sm" style="font-weight:600">${h}</span></div>`).join('');
+$('commit').innerHTML=[['Chính xác','Đúng người, đúng tiền, đúng hẹn'],['Trách nhiệm','Kiểm soát tài chính chặt chẽ'],['Tận tâm','Với người có công, người cao tuổi']].map(([h,d],i)=>`<div style="${i?'':'background:var(--or)!important;color:#fff;'}display:grid;place-items:center;font-size:12pt;font-weight:700;${i?'color:var(--or)':''}">0${i+1}</div><div style="display:flex;flex-direction:column;justify-content:center;padding:0 4mm"><div class="h3" style="font-size:9.8pt">${h}</div><div class="xs mut" style="margin-top:.5mm">${d}</div></div>`).join('');
+$('proj').innerHTML=[['i-search','Nghiên cứu thị trường','Khảo sát nhu cầu, phân tích đối thủ và tiềm năng vùng'],['i-grid','Xây dựng mô hình','Phương án vận hành khả thi, có khả năng sinh lời'],['i-link','Kết nối nguồn lực','Gọi vốn, đối tác công – tư (PPP), nguồn lực xã hội']].map(([i,h,d],k)=>
+ `<div style="padding:4.4mm 5mm;display:grid;grid-template-columns:11mm 1fr;gap:3.4mm;align-items:start${k===2?';background:var(--tint)!important':''}"><span class="ic2" style="width:11mm;height:11mm${k===2?';background:var(--paper)!important':''}">${ic(i)}</span><div><div class="xs or" style="font-weight:700;letter-spacing:.12em">BƯỚC 0${k+1}</div><div class="h3" style="margin-top:1mm">${h}</div><div class="xs mut" style="margin-top:1mm">${d}</div></div></div>`).join('');
+
+/* ecosystem 3x3 */
+(()=>{const P=[['01','Công nghệ','Giải pháp số hóa hiện đại','i-cpu'],['02','Tài chính','Mạng lưới 12+ ngân hàng đối tác','i-bank'],['03','Bảo hiểm','Sản phẩm bảo vệ từ PVI, PTI, TASCO','i-shield'],['07','Doanh nghiệp','Giải pháp marketing và phát triển thị trường','i-trend'],null,['04','An sinh','Tuyên truyền BHXH, BHYT sâu rộng','i-heart'],['06','Đối tác','Đồng hành cùng phát triển, chia sẻ giá trị','i-link'],['05','Địa phương','Đồng hành khăng khít với chính quyền','i-map'],'ht'];
+  $('eco').innerHTML=P.map(p=>{
+   if(p===null)return `<div style="background:var(--or)!important;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><div style="font-size:54pt;font-weight:700;line-height:.9;letter-spacing:-.04em">7</div><div class="lbl" style="margin-top:3mm">trụ cột</div><div class="xs" style="margin-top:2mm;opacity:.85;width:40mm">Liên kết thành sức mạnh tổng hợp</div></div>`;
+   if(p==='ht')return `<div class="ht" style="display:flex;align-items:flex-end;padding:5mm"><span class="xs mut" style="background:var(--ink);padding:.6mm 1.6mm">Sức mạnh nằm ở khả năng liên kết</span></div>`;
+   return `<div style="padding:5.4mm;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;justify-content:space-between;align-items:flex-start"><span class="ic2" style="width:11mm;height:11mm">${ic(p[3])}</span><span style="font-size:9pt;font-weight:600;color:var(--or-l)">${p[0]}</span></div><div><div style="font-size:15pt;font-weight:600;color:#fff;letter-spacing:-.02em">${p[1]}</div><div class="sm mut" style="margin-top:1.4mm">${p[2]}</div></div></div>`;}).join('');
+})();
+$('adv').innerHTML=[['Mạng lưới phủ rộng','Hơn 300 nhân sự bám sát cơ sở khắp các địa bàn.','300+'],['Am hiểu bản địa','Nắm vững tâm lý, tập quán người dân và doanh nghiệp miền Tây.','ĐBSCL'],['Năng lực thực thi kép','Vừa hoạch định chiến lược, vừa trực tiếp triển khai thực tế.','2×']].map(([h,d,k])=>
+ `<div style="padding:4.6mm 5mm;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;justify-content:space-between;align-items:baseline"><div class="h3" style="color:#fff">${h}</div><span style="font-size:12pt;font-weight:700;color:var(--or-l)">${k}</span></div><div class="sm mut">${d}</div></div>`).join('');
+
+/* roadmap */
+$('road').innerHTML=[['03/2025','Thành lập Minh Group ST'],['04/2025','PKD Tổng hợp, PKD Y và hệ thống PKD địa bàn'],['09–11/2025','PKD 8 và PKD An sinh'],['01–03/2026','Phòng Dự án và PKD 9'],['06–07/2026','PKD 4 và Phòng Chi trả BTXH'],['09/2026','Hoàn thiện 11 PKD địa bàn (PKD 10, 11)']].map(([d,t],i)=>
+ `<div style="padding:4.4mm 3.4mm;display:flex;flex-direction:column;justify-content:space-between${i===5?';background:var(--or)!important;color:#fff':''}"><span style="width:7mm;height:7mm;border-radius:50%;display:grid;place-items:center;font-size:7.4pt;font-weight:700;${i===5?'background:#fff;color:var(--or)':'background:var(--tint);color:var(--or)'}">${i+1}</span><div><div style="font-size:9.6pt;font-weight:700;${i===5?'':'color:var(--or)'}">${d}</div><div class="xs" style="margin-top:1.2mm;${i===5?'':'color:#3d3a38'}">${t}</div></div></div>`).join('');
+
+/* team */
+$('team').innerHTML=[['Ông Đinh Hoàng Minh','Cố vấn Cao cấp','0939 980 090','Phòng Kế toán Tổng hợp, Phòng Kinh doanh Tổng hợp'],['Ông Đinh Hoàng Công','Giám đốc Công ty','0933 999 010','PKD Y; phụ trách chung toàn Công ty'],['Ông Lư Hồng Huỳnh','Phó Giám đốc','0907 769 456','Khối PKD địa bàn: PKD 3, 4, 5, 9, 11'],['Bà Nguyễn Thị Hồng Huệ','Phó Giám đốc','0989 094 139','Khối PKD địa bàn: PKD 2, 6, 7'],['Ông Phan Hữu Linh','Phó Giám đốc','0948 897 976','Khối chuyên trách: Dự án, Chi trả, An sinh'],['Ông Dương Minh Trường','Phó Giám đốc','0865 555 416','Khối PKD địa bàn: PKD 1, 8, 10']].map(([n,r,p,s],i)=>
+ `<div style="display:grid;grid-template-columns:30mm 1fr;gap:4.4mm;padding:7.5mm 5mm 7.5mm 7.5mm;align-items:center"><span class="ht" style="width:30mm;height:30mm;display:grid;place-items:center;color:#d6b7a8;${i===1?'outline:.5mm solid var(--or);outline-offset:-.5mm':''}">${ic('i-person','width:12mm;height:12mm;stroke-width:1.2')}</span><div><div class="h3" style="font-size:10.4pt">${n}</div><div class="sm or" style="font-weight:600;margin-top:.6mm">${r}</div><div style="font-size:10pt;font-weight:700;margin-top:2mm;letter-spacing:.01em">${p}</div><div class="xs mut" style="margin-top:1.4mm">${s}</div></div></div>`).join('');
+
+/* thrusts */
+$('thrust').innerHTML=[['i-map','Mở rộng 13 tỉnh thành ĐBSCL','Tăng nhân sự, hoàn thiện mạng lưới chi nhánh.'],['i-cpu','AI và tự động hóa','Tự động hóa quy trình quản lý, nâng năng lực hỗ trợ số hóa người dân.'],['i-link','Liên kết chiến lược','Với định chế tài chính, tập đoàn bảo hiểm và cơ quan nhà nước.']].map(([i,h,d],k)=>
+ `<div style="padding:6mm 5.4mm;display:flex;flex-direction:column;justify-content:space-between"><div style="display:flex;justify-content:space-between;align-items:flex-start"><span class="ic2" style="width:12mm;height:12mm">${ic(i)}</span><span style="font-size:22pt;font-weight:700;color:var(--or-l);letter-spacing:-.03em;line-height:1">0${k+1}</span></div><div><div style="font-size:13pt;font-weight:600;color:#fff;letter-spacing:-.015em;line-height:1.25">${h}</div><div class="sm mut" style="margin-top:2mm">${d}</div></div></div>`).join('');
+
+/* QR placeholder */
+(()=>{const s=$('qr'),NS='http://www.w3.org/2000/svg',el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);s.appendChild(e);return e};
+  el('rect',{x:.5,y:.5,width:37,height:37,fill:'#fffefd'});
+  [[3,3],[25,3],[3,25]].forEach(([x,y])=>{el('rect',{x,y,width:10,height:10,fill:'none',stroke:'#201e1d','stroke-width':1.6});el('rect',{x:x+3.2,y:y+3.2,width:3.6,height:3.6,fill:'#ca4d25'})});
+  const t=el('text',{x:25.5,y:31,'text-anchor':'middle','font-family':'Inter','font-weight':700,'font-size':4,fill:'#a39d98'});t.textContent='QR';})();
+</script>
+</body>
+</html>

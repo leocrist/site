@@ -28,6 +28,8 @@ Ba phương án, mỗi bản có HTML nguồn, PDF và ảnh preview; đồng th
 |---|---|---|
 | `brochure/` | Bản 1: ruled grid như website, cam #ca4d25, Inter | `project/Brochure01–08.dc.html` |
 | `brochure-v2/` | Bản 2: editorial, màu logo (đỏ + gradient mặt trời), Playfair Display + Be Vietnam Pro | `project/BrochureV2-01–08.dc.html` |
+| `brochure-v4/` | Bản 4: theo mẫu tham chiếu, đỏ logo, Montserrat + Be Vietnam Pro | `project/ProfileV4-01–08.dc.html` |
+| `brochure-v5/` | Bản 5: Web DNA (lưới ô, crosshair, fcard, vband) + nội dung brochure | `project/ProfileV5-01–08.dc.html` |
 | `brochure-v3/` | Bản 3: Corporate Profile in ấn, navy, Plus Jakarta Sans + Be Vietnam Pro, bleed 3mm | `project/ProfileV3-01–08.dc.html` |
 
 Bản 3 có `SPEC.md` (lưới, typography, tokens, layout từng trang) và `tokens.json`. Logo vector ở `assets/logo/`.
