@@ -101,6 +101,16 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
 /* values band (".vband") */
 .vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;gap:7mm;white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
 .vband svg{width:5mm;height:5mm;fill:#fff;flex:none}
+/* cover hero: full-bleed photo, ink fade, grid lines carried over the image */
+.hero{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));overflow:hidden;background:var(--ink)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(32 30 29 / 92%) 0%,rgb(32 30 29 / 55%) 34%,rgb(32 30 29 / 0%) 62%),linear-gradient(90deg,rgb(32 30 29 / 35%),rgb(32 30 29 / 0%) 60%)}
+.hgrid{position:absolute;inset:0;z-index:1;background-image:radial-gradient(circle,rgb(255 255 255 / 55%) .42mm,transparent .48mm),linear-gradient(to right,rgb(255 255 255 / 16%) .2mm,transparent .2mm),linear-gradient(to bottom,rgb(255 255 255 / 16%) .2mm,transparent .2mm);
+  background-size:var(--u) var(--u);background-position:calc(var(--b) - .1mm) -.1mm,var(--b) 0,0 0}
+.hin{position:absolute;left:calc(var(--b) + 19mm);right:calc(var(--b) + 19mm);bottom:12mm;z-index:2}
+.hero .cap{z-index:2;right:calc(var(--b) + 16.6mm)}
+.kf{padding:4mm 5mm;display:flex;flex-direction:column;justify-content:space-between}
+.kf .stat{font-size:30pt}.kf .stat span{font-size:20pt;vertical-align:.35em;margin-left:.4mm}
 .foot{display:flex;justify-content:space-between;align-items:center}
 .pn{font-size:7pt;font-weight:600;letter-spacing:.14em}
 
@@ -139,29 +149,41 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
 </svg>
 <section style="margin:0" class="page"><div class="trim">
   <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
-  <div class="g fill" style="--c:1;--r:0;--w:12;--h:1;display:flex;align-items:center;justify-content:space-between;padding:0 3mm">
-    <img src="../assets/logo/mgst-logo.svg" style="height:8mm;display:block" alt="Minh Group ST">
-    <span class="lbl mut">Hồ sơ năng lực · 2026</span>
+  <!-- masthead: 2 cells tall, logo 14mm -->
+  <div class="g fill" style="--c:1;--r:0;--w:12;--h:2;display:flex;align-items:center;justify-content:space-between;padding:0 4mm">
+    <img src="../assets/logo/mgst-logo.svg" style="height:14.5mm;display:block" alt="Minh Group ST">
+    <div style="text-align:right"><div class="lbl or">Corporate Profile</div><div style="font-size:15pt;font-weight:600;letter-spacing:-.02em;margin-top:.8mm">Hồ sơ năng lực 2026</div></div>
   </div>
-  <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
+  <div class="g ht" style="--c:0;--r:0;--h:2"></div><div class="g ht" style="--c:13;--r:0;--h:2"></div>
 
-  <!-- hero cell decorations -->
-  <div class="g ht" style="--c:1;--r:2"></div><div class="g ht" style="--c:12;--r:1"></div><div class="g ht" style="--c:11;--r:7"></div><div class="g ht" style="--c:2;--r:7"></div>
-  <div class="g ic2" style="--c:12;--r:4"><svg class="ic"><use href="#i-id"></use></svg></div>
-  <div class="g ic2" style="--c:1;--r:5"><svg class="ic"><use href="#i-qr"></use></svg></div>
-  <div class="g ic2" style="--c:11;--r:2"><svg class="ic"><use href="#i-shield"></use></svg></div>
-  <div class="g ic2" style="--c:2;--r:3"><svg class="ic"><use href="#i-bank"></use></svg></div>
-  <div class="hn" style="left:45mm;top:43.5mm"><svg><use href="#spark"></use></svg></div>
-  <div class="hn" style="left:165mm;top:133.5mm"><svg><use href="#spark"></use></svg></div>
-  <div class="hn" style="left:150mm;top:28.5mm"><svg><use href="#spark"></use></svg></div>
-
-  <div class="g fill" style="--c:3;--r:2;--w:8;--h:6;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
-    <span class="pill"><span class="nb">Mới</span>Hồ sơ năng lực &amp; chiến lược phát triển</span>
-    <h1 class="h1" style="margin-top:7mm;font-size:31pt">Tiên phong số hóa –<br><span class="or">Hiệu quả bứt phá</span></h1>
-    <p class="body" style="margin-top:6mm;width:100mm">Hệ sinh thái giải pháp đa lĩnh vực, thực thi tận địa bàn miền Tây: chuyển đổi số, tài chính – ngân hàng, bảo hiểm, an sinh và phát triển dự án.</p>
+  <!-- hero photo, full bleed, website grid continues over it -->
+  <div class="hero" style="top:43.5mm;height:135mm">
+    <img src="../assets/photos/mg-k.jpg" style="object-position:50% 38%" alt="">
+    <div class="hgrid"></div>
+    <div class="hin">
+      <span class="pill" style="background:rgba(32,30,29,.55);border-color:rgba(255,255,255,.3);color:#fff"><span class="nb">2026</span>Hệ sinh thái giải pháp đa lĩnh vực · Miền Tây</span>
+      <h1 class="h1" style="margin-top:6mm;font-size:46pt;line-height:1.02;color:#fff">Tiên phong số hóa –<br><span style="color:var(--or-l)">Hiệu quả bứt phá</span></h1>
+    </div>
+    <span class="cap">Cầu Cần Thơ · Ảnh: Christophe95, CC BY-SA 4.0</span>
   </div>
+  <div class="boxv" style="left:15mm;background:rgba(255,255,255,.45);top:43.5mm;bottom:auto;height:135mm"></div><div class="boxv" style="left:195mm;background:rgba(255,255,255,.45);top:43.5mm;bottom:auto;height:135mm"></div>
+  <div class="x" style="left:15mm;top:43.5mm"></div><div class="x" style="left:195mm;top:43.5mm"></div>
+  <div class="x" style="left:15mm;top:178.5mm"></div><div class="x" style="left:195mm;top:178.5mm"></div>
+  <div class="hn" style="left:165mm;top:43.5mm"><svg><use href="#spark"></use></svg></div>
 
-  <div class="strip" style="left:calc(-1*var(--b));right:calc(-1*var(--b));top:148.5mm;height:90mm" id="s1"><div style="width:74mm"><img src="../assets/photos/mg-a.jpg" style="object-position:45% 40%" alt=""></div><div style="width:52mm"><img src="../assets/photos/mg-b.jpg" style="object-position:50% 35%" alt=""></div><div style="width:62mm"><img src="../assets/photos/mg-h.jpg" style="object-position:50% 50%" alt=""></div><div style="width:70mm"><img src="../assets/photos/mg-g.jpg" style="object-position:40% 50%" alt=""></div><span class="cap" style="right:4.6mm">Ảnh minh họa: Wikimedia Commons</span></div>
+  <!-- key figures -->
+  <div class="g rg" style="--c:1;--r:11;--w:12;--h:2;grid-template-columns:repeat(3,1fr) 1.15fr">
+    <div class="kf"><span class="stat">300<span>+</span></span><span class="sm mut">nhân sự thực địa<br>tận cấp xã, phường</span></div>
+    <div class="kf"><span class="stat">12<span>+</span></span><span class="sm mut">ngân hàng<br>đối tác chiến lược</span></div>
+    <div class="kf"><span class="stat">7</span><span class="sm mut">trụ cột<br>hệ sinh thái</span></div>
+    <div style="background:var(--or)!important;color:#fff;padding:4mm 5mm;display:flex;flex-direction:column;justify-content:space-between">
+      <svg class="ic" style="width:6mm;height:6mm"><use href="#i-link"></use></svg>
+      <div style="font-size:11pt;font-weight:600;line-height:1.25;letter-spacing:-.01em">Sự kết nối<br>tạo ra sức mạnh</div>
+    </div>
+  </div>
+  <!-- service cells -->
+  <div class="g rg" style="--c:1;--r:13;--w:12;--h:2;grid-template-columns:repeat(5,1fr)" id="cv-svc"><div style="padding:3.6mm 4mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:9mm;height:9mm"><svg class="ic" style="width:4.6mm;height:4.6mm"><use href="#i-id"></use></svg></span><div><div class="h3" style="font-size:9pt;line-height:1.2">Chuyển đổi số</div><div class="xs mut" style="margin-top:.6mm">VNeID · eTax · QR</div></div></div><div style="padding:3.6mm 4mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:9mm;height:9mm"><svg class="ic" style="width:4.6mm;height:4.6mm"><use href="#i-bank"></use></svg></span><div><div class="h3" style="font-size:9pt;line-height:1.2">Ngân hàng</div><div class="xs mut" style="margin-top:.6mm">Thẻ · tài khoản số · tín dụng</div></div></div><div style="padding:3.6mm 4mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:9mm;height:9mm"><svg class="ic" style="width:4.6mm;height:4.6mm"><use href="#i-shield"></use></svg></span><div><div class="h3" style="font-size:9pt;line-height:1.2">Bảo hiểm</div><div class="xs mut" style="margin-top:.6mm">PVI · PTI · TASCO</div></div></div><div style="padding:3.6mm 4mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:9mm;height:9mm"><svg class="ic" style="width:4.6mm;height:4.6mm"><use href="#i-heart"></use></svg></span><div><div class="h3" style="font-size:9pt;line-height:1.2">An sinh xã hội</div><div class="xs mut" style="margin-top:.6mm">BHXH · BHYT · chi trả</div></div></div><div style="padding:3.6mm 4mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:9mm;height:9mm"><svg class="ic" style="width:4.6mm;height:4.6mm"><use href="#i-trend"></use></svg></span><div><div class="h3" style="font-size:9pt;line-height:1.2">Phát triển dự án</div><div class="xs mut" style="margin-top:.6mm">Nghiên cứu · kết nối vốn</div></div></div></div>
+
   <div class="vband" style="top:238.5mm;height:30mm;font-size:20pt" data-words="Nhanh chóng|Tin cậy|Hiệu quả"><span style="width:4mm"></span><span>Nhanh chóng</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Tin cậy</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Hiệu quả</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Nhanh chóng</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Tin cậy</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Hiệu quả</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Nhanh chóng</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Tin cậy</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Hiệu quả</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Nhanh chóng</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Tin cậy</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg><span>Hiệu quả</span><svg viewBox="0 0 24 24"><use href="#spark"></use></svg></div>
   <div class="g fill foot" style="--c:1;--r:17;--w:12;--h:1;padding:0 3mm">
     <span style="font-weight:700;font-size:9pt;letter-spacing:.02em">CÔNG TY TNHH MINH GROUP ST</span>
