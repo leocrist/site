@@ -98,7 +98,7 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
 .strip>div{position:relative;height:100%;flex:none;overflow:hidden}
 .strip img{width:100%;height:100%;object-fit:cover;display:block}
 /* values band (".vband") */
-.vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;gap:7mm;white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
+.vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;justify-content:space-evenly;padding:0 calc(var(--b) + 15mm);white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
 .vband svg{width:5mm;height:5mm;fill:#fff;flex:none}
 /* cover hero: full-bleed photo, ink fade, grid lines carried over the image */
 .hero{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));overflow:hidden;background:var(--ink)}
@@ -433,7 +433,8 @@ $('cv-svc').innerHTML=[['i-id','Chuyển đổi số','VNeID · eTax · QR'],['i
 strip('s3',[['mg-f.jpg',80,'50% 55%'],['mg-b.jpg',48,'50% 62%'],['mg-g.jpg',90,'70% 50%']],'Ảnh minh họa: Wikimedia Commons');
 
 /* values band */
-document.querySelectorAll('.vband').forEach(v=>{const w=v.dataset.words.split('|');let h='';for(let i=0;i<4;i++)w.forEach(t=>h+=`<span>${t}</span><svg viewBox="0 0 24 24"><use href="#spark"/></svg>`);v.innerHTML='<span style="width:4mm"></span>'+h;});
+/* print: show each value once (no marquee loop), spread evenly with a spark between */
+document.querySelectorAll('.vband').forEach(v=>{v.innerHTML=v.dataset.words.split('|').map(t=>`<span>${t}</span>`).join('<svg viewBox="0 0 24 24"><use href="#spark"/></svg>');});
 
 /* philosophy cells */
 $('philo').innerHTML=[['i-bolt','Công nghệ tạo ra','Tốc độ'],['i-users','Con người tạo ra','Giá trị'],['i-trend','Thị trường tạo ra','Cơ hội'],['i-link','Sự kết nối tạo ra','Sức mạnh']].map(([i,a,b],k)=>
