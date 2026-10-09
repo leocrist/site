@@ -17,10 +17,10 @@ body{margin:0}
 /* ---------- design tokens ---------- */
 :root{
   --b:0mm;                                  /* bleed */
-  --navy:#0A2540;--navy-2:#123358;--navy-3:#1B4170;
-  --blue:#0066FF;--blue-l:#6FA6FF;--blue-s:#E6F0FF;
-  --green:#0E9F6E;--green-l:#4FD1A5;--green-s:#E3F5EE;
-  --slate:#2D3748;--mut:#5B6678;--line:#D8DFE9;--off:#F8FAFC;--white:#FFFFFF;
+  --navy:#201E1D;--navy-2:#2A2725;--navy-3:#3A3633;
+  --blue:#CA4D25;--blue-l:#EF7A52;--blue-s:#FDF1EB;
+  --green:#A93D1B;--green-l:#F2A07E;--green-s:#F6DFD3;
+  --slate:#3A3633;--mut:#5C5C5C;--line:#EBE7E3;--off:#FAF7F4;--white:#FFFFFF;
   --head:'Plus Jakarta Sans',sans-serif;--body:'Be Vietnam Pro',sans-serif;
   --cw:11.3333mm;--gut:4mm;--step:15.3333mm;   /* 12-col grid inside 180mm safe width */
 }
@@ -49,7 +49,7 @@ body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact
 .sm{font-size:9pt;line-height:1.42}
 .xs{font-size:7.6pt;line-height:1.4}
 .mut{color:var(--mut)}
-.navy .mut,.on-navy .mut{color:#A9B8CC}
+.navy .mut,.on-navy .mut{color:#A39D98}
 .stat{font-family:var(--head);font-weight:800;font-size:46pt;line-height:.95;letter-spacing:-.04em;color:var(--navy)}
 .stat em{font-style:normal;color:var(--blue)}
 .ic{width:5.2mm;height:5.2mm;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
@@ -101,8 +101,8 @@ body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact
 </svg>
 <section style="margin:0" class="page"><div class="trim">
   <div class="a" style="left:calc(-1*var(--b));right:calc(-1*var(--b));top:calc(-1*var(--b));height:calc(60mm + var(--b));background:var(--navy)"></div>
-  <svg class="a" id="spreadR" style="left:calc(-1*var(--b));top:0;width:calc(210mm + 2*var(--b));height:60mm" viewBox="-3 0 216 60"><path d="M-3 50 H 213" stroke="rgba(255,255,255,.25)" stroke-width="0.4"></path><path d="M59 50 H 59"></path><path d="M151 50 H 91"></path><path d="M-3 50 H55.8" stroke="#0066FF" stroke-width="0.8"></path><path d="M62.2 50 H147.8" stroke="#0E9F6E" stroke-width="0.8"></path><circle cx="59" cy="50" r="3.2" fill="#0A2540" stroke="#0E9F6E" stroke-width="0.9"></circle><text x="59" y="51.2" font-family="Plus Jakarta Sans" font-size="3.2" text-anchor="middle" font-weight="800" fill="#fff">03</text><circle cx="151" cy="50" r="3.2" fill="#0A2540" stroke="#0E9F6E" stroke-width="0.9"></circle><text x="151" y="51.2" font-family="Plus Jakarta Sans" font-size="3.2" text-anchor="middle" font-weight="800" fill="#fff">04</text></svg>
-  <div class="a rh" style="color:#fff"><span class="lbl" style="color:#A9B8CC">2 / 2</span><span class="lbl" style="color:var(--green-l)">03 · Lĩnh vực trọng tâm</span></div>
+  <svg class="a" id="spreadR" style="left:calc(-1*var(--b));top:0;width:calc(210mm + 2*var(--b));height:60mm" viewBox="-3 0 216 60"><path d="M-3 50 H 213" stroke="rgba(255,255,255,.25)" stroke-width="0.4"></path><path d="M59 50 H 59"></path><path d="M151 50 H 91"></path><path d="M-3 50 H55.8" stroke="#CA4D25" stroke-width="0.8"></path><path d="M62.2 50 H147.8" stroke="#A93D1B" stroke-width="0.8"></path><circle cx="59" cy="50" r="3.2" fill="#201E1D" stroke="#A93D1B" stroke-width="0.9"></circle><text x="59" y="51.2" font-family="Plus Jakarta Sans" font-size="3.2" text-anchor="middle" font-weight="800" fill="#fff">03</text><circle cx="151" cy="50" r="3.2" fill="#201E1D" stroke="#A93D1B" stroke-width="0.9"></circle><text x="151" y="51.2" font-family="Plus Jakarta Sans" font-size="3.2" text-anchor="middle" font-weight="800" fill="#fff">04</text></svg>
+  <div class="a rh" style="color:#fff"><span class="lbl" style="color:#A39D98">2 / 2</span><span class="lbl" style="color:var(--green-l)">03 · Lĩnh vực trọng tâm</span></div>
   <div class="gx" style="--c:1;--s:12;top:24mm"><h1 class="h1" style="color:#fff">An sinh <span style="color:var(--green-l)">&amp;</span> Dự án</h1></div>
 
   <!-- column A -->
@@ -112,7 +112,7 @@ body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact
     <div class="card on-navy" style="margin-top:5mm;background:var(--navy);color:#fff;padding:4.5mm 5mm">
       <div class="lbl" style="color:var(--green-l)">Đại lý tổ chức uy tín của</div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:3.5mm">
-        <img src="../assets/logos/pvi-w.png" style="height:7.5mm" alt="PVI"><img src="../assets/logos/pti-w.png" style="height:7.5mm" alt="PTI"><span style="font-family:var(--head);font-weight:800;font-size:12pt;letter-spacing:.06em">TASCO</span><span class="sm" style="color:#A9B8CC">…</span>
+        <img src="../assets/logos/pvi-w.png" style="height:7.5mm" alt="PVI"><img src="../assets/logos/pti-w.png" style="height:7.5mm" alt="PTI"><span style="font-family:var(--head);font-weight:800;font-size:12pt;letter-spacing:.06em">TASCO</span><span class="sm" style="color:#A39D98">…</span>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm;margin-top:3mm">
@@ -148,10 +148,10 @@ body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact
 
   <div class="a" style="left:calc(-1*var(--b));right:calc(-1*var(--b));top:212mm;bottom:calc(-1*var(--b));overflow:hidden">
     <img src="../assets/photos/mg-a.jpg" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block" alt="">
-    <div class="a" style="inset:0;background:linear-gradient(180deg,rgba(10,37,64,0) 45%,rgba(10,37,64,.78) 100%)"></div>
-    <span class="a" style="left:calc(15mm + var(--b));top:3mm;font-size:4.8pt;color:#fff;background:rgba(10,37,64,.55);padding:.5mm 1.4mm">Ảnh minh họa: Vyacheslav Argenberg · CC BY 4.0</span>
+    <div class="a" style="inset:0;background:linear-gradient(180deg,rgba(32,30,29,0) 45%,rgba(32,30,29,.78) 100%)"></div>
+    <span class="a" style="left:calc(15mm + var(--b));top:3mm;font-size:4.8pt;color:#fff;background:rgba(32,30,29,.55);padding:.5mm 1.4mm">Ảnh minh họa: Vyacheslav Argenberg · CC BY 4.0</span>
   </div>
-  <div class="a rf" style="color:#DCE4EE"><span class="pn" style="color:#fff">05</span><span>Minh Group ST · Corporate Profile 2026</span></div>
+  <div class="a rf" style="color:#E0DCD8"><span class="pn" style="color:#fff">05</span><span>Minh Group ST · Corporate Profile 2026</span></div>
 </div></section>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>

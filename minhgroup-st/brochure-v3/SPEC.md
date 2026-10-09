@@ -51,22 +51,22 @@
 
 | Token | HEX | CMYK tham chiếu* | Dùng cho |
 |---|---|---|---|
-| `navy` | #0A2540 | C100 M80 Y35 K45 | Màu chủ đạo, nền bìa, trang 6, khối nhấn |
-| `navy-2` / `navy-3` | #123358 / #1B4170 | C95 M70 Y30 K30 / C90 M60 Y20 K15 | Thẻ đặt trên nền navy |
-| `blue` | #0066FF | C90 M55 Y0 K0 | Công nghệ, tài chính, nút và liên kết |
-| `blue-l` | #6FA6FF | C55 M30 Y0 K0 | Chữ hoặc nét xanh trên nền navy (độ tương phản ≥ 4.5:1) |
-| `green` | #0E9F6E | C85 M10 Y70 K5 | An sinh, y tế, bảo hiểm |
-| `green-l` | #4FD1A5 | C60 M0 Y45 K0 | Nhãn xanh lá trên nền navy |
-| `slate` | #2D3748 | **K90** (đề xuất) | Chữ thân bài |
-| `mut` | #5B6678 | K65 | Chú thích, mô tả phụ |
-| `off` | #F8FAFC | C2 M1 Y0 K0 (đề xuất bỏ, xem ghi chú) | Nền khối |
-| `line` | #D8DFE9 | C15 M8 Y3 K0 | Đường kẻ, viền thẻ |
+| `navy` | #201E1D | C100 M80 Y35 K45 | Màu chủ đạo, nền bìa, trang 6, khối nhấn |
+| `navy-2` / `navy-3` | #2A2725 / #3A3633 | C95 M70 Y30 K30 / C90 M60 Y20 K15 | Thẻ đặt trên nền navy |
+| `blue` | #CA4D25 | C90 M55 Y0 K0 | Công nghệ, tài chính, nút và liên kết |
+| `blue-l` | #EF7A52 | C55 M30 Y0 K0 | Chữ hoặc nét xanh trên nền navy (độ tương phản ≥ 4.5:1) |
+| `green` | #A93D1B | C85 M10 Y70 K5 | An sinh, y tế, bảo hiểm |
+| `green-l` | #F2A07E | C60 M0 Y45 K0 | Nhãn xanh lá trên nền navy |
+| `slate` | #3A3633 | **K90** (đề xuất) | Chữ thân bài |
+| `mut` | #5C5C5C | K65 | Chú thích, mô tả phụ |
+| `off` | #FAF7F4 | C2 M1 Y0 K0 (đề xuất bỏ, xem ghi chú) | Nền khối |
+| `line` | #EBE7E3 | C15 M8 Y3 K0 | Đường kẻ, viền thẻ |
 
 \* Giá trị CMYK ở đây chỉ là điểm xuất phát, cần đối chiếu bằng bản in thử (proof) trên profile FOGRA39.
 
-- `#0066FF` nằm **ngoài gam màu CMYK**: khi in sẽ xỉn và ngả sang tím-xanh. Muốn giữ đúng màu thì phải dùng màu pha Pantone 2728 C / 285 C.
+- `#CA4D25` nằm **ngoài gam màu CMYK**: khi in sẽ xỉn và ngả sang tím-xanh. Muốn giữ đúng màu thì phải dùng màu pha Pantone 2728 C / 285 C.
 - Chữ thân bài 9–10pt nên in **một bản K** (100K hoặc 90K) để không bị lệch chồng màu. Không nên in slate bằng 4 màu.
-- `#F8FAFC` chỉ khoảng 2% mực, nên khi in gần như không thấy. Nên đổi thành C5 M2 Y0 K0, hoặc dùng giấy trắng và viền `line`.
+- `#FAF7F4` chỉ khoảng 2% mực, nên khi in gần như không thấy. Nên đổi thành C5 M2 Y0 K0, hoặc dùng giấy trắng và viền `line`.
 
 ## 4. Typography
 
