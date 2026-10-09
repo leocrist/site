@@ -99,8 +99,17 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
 .strip>div{position:relative;height:100%;flex:none;overflow:hidden}
 .strip img{width:100%;height:100%;object-fit:cover;display:block}
 /* values band (".vband") */
-.vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;gap:7mm;white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
+.vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;justify-content:space-evenly;padding:0 calc(var(--b) + 15mm);white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
 .vband svg{width:5mm;height:5mm;fill:#fff;flex:none}
+/* cover hero: full-bleed photo, ink fade, grid lines carried over the image */
+.hero{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));overflow:hidden;background:var(--ink)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(32 30 29 / 92%) 0%,rgb(32 30 29 / 55%) 34%,rgb(32 30 29 / 0%) 62%),linear-gradient(90deg,rgb(32 30 29 / 35%),rgb(32 30 29 / 0%) 60%)}
+.oc{background:rgb(202 77 37 / var(--a));z-index:2}
+.hin{position:absolute;left:calc(var(--b) + 19mm);right:calc(var(--b) + 19mm);bottom:12mm;z-index:2}
+.hero .cap{z-index:2;right:calc(var(--b) + 16.6mm)}
+.kf{padding:4mm 5mm;display:flex;flex-direction:column;justify-content:space-between}
+.kf .stat{font-size:30pt}.kf .stat span{font-size:20pt;vertical-align:.35em;margin-left:.4mm}
 .foot{display:flex;justify-content:space-between;align-items:center}
 .pn{font-size:7pt;font-weight:600;letter-spacing:.14em}
 
@@ -138,7 +147,7 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
 </svg>
 <section style="margin:0" class="page"><div class="trim">
-  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
   <div class="g fill foot" style="--c:1;--r:0;--w:12;--h:1;padding:0 3mm"><span class="pn mut">07</span><img src="../assets/logo/mgst-logo.svg" style="height:6mm;display:block" alt="Minh Group ST"></div>
   <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
   <div class="g fill pad" style="--c:1;--r:1;--w:8;--h:2;padding-top:4.4mm">

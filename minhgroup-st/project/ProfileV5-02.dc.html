@@ -99,8 +99,17 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
 .strip>div{position:relative;height:100%;flex:none;overflow:hidden}
 .strip img{width:100%;height:100%;object-fit:cover;display:block}
 /* values band (".vband") */
-.vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;gap:7mm;white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
+.vband{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));background:var(--or);color:#fff;display:flex;align-items:center;justify-content:space-evenly;padding:0 calc(var(--b) + 15mm);white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:-.02em}
 .vband svg{width:5mm;height:5mm;fill:#fff;flex:none}
+/* cover hero: full-bleed photo, ink fade, grid lines carried over the image */
+.hero{position:absolute;left:calc(-1*var(--b));right:calc(-1*var(--b));overflow:hidden;background:var(--ink)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgb(32 30 29 / 92%) 0%,rgb(32 30 29 / 55%) 34%,rgb(32 30 29 / 0%) 62%),linear-gradient(90deg,rgb(32 30 29 / 35%),rgb(32 30 29 / 0%) 60%)}
+.oc{background:rgb(202 77 37 / var(--a));z-index:2}
+.hin{position:absolute;left:calc(var(--b) + 19mm);right:calc(var(--b) + 19mm);bottom:12mm;z-index:2}
+.hero .cap{z-index:2;right:calc(var(--b) + 16.6mm)}
+.kf{padding:4mm 5mm;display:flex;flex-direction:column;justify-content:space-between}
+.kf .stat{font-size:30pt}.kf .stat span{font-size:20pt;vertical-align:.35em;margin-left:.4mm}
 .foot{display:flex;justify-content:space-between;align-items:center}
 .pn{font-size:7pt;font-weight:600;letter-spacing:.14em}
 
@@ -138,7 +147,7 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
 </svg>
 <section style="margin:0" class="page"><div class="trim">
-  <div class="grid"></div><div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
+  <div class="boxv" style="left:15mm"></div><div class="boxv" style="left:195mm"></div>
   <div class="g fill foot" style="--c:1;--r:0;--w:12;--h:1;padding:0 3mm"><img src="../assets/logo/mgst-logo.svg" style="height:6mm;display:block" alt="Minh Group ST"><span class="pn mut">02</span></div>
 
   <div class="srule" style="top:28.5mm"></div><div class="x" style="left:15mm;top:28.5mm"></div><div class="x" style="left:195mm;top:28.5mm"></div>
@@ -160,7 +169,6 @@ body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:ex
   <div class="g rg" style="--c:1;--r:10;--w:12;--h:4;grid-template-columns:repeat(4,1fr)" id="philo"><div style="padding:5mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:11mm;height:11mm"><svg class="ic" style=""><use href="#i-bolt"></use></svg></span><div><div class="sm mut">Công nghệ tạo ra</div><div style="font-size:21pt;font-weight:600;letter-spacing:-.03em;margin-top:1mm">Tốc độ</div></div></div><div style="padding:5mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:11mm;height:11mm"><svg class="ic" style=""><use href="#i-users"></use></svg></span><div><div class="sm mut">Con người tạo ra</div><div style="font-size:21pt;font-weight:600;letter-spacing:-.03em;margin-top:1mm">Giá trị</div></div></div><div style="padding:5mm;display:flex;flex-direction:column;justify-content:space-between"><span class="ic2" style="width:11mm;height:11mm"><svg class="ic" style=""><use href="#i-trend"></use></svg></span><div><div class="sm mut">Thị trường tạo ra</div><div style="font-size:21pt;font-weight:600;letter-spacing:-.03em;margin-top:1mm">Cơ hội</div></div></div><div style="background:var(--or);color:#fff;padding:5mm;display:flex;flex-direction:column;justify-content:space-between"><span style="width:11mm;height:11mm;display:grid;place-items:center;background:rgba(255,255,255,.16)"><svg class="ic" style=""><use href="#i-link"></use></svg></span><div><div class="sm" style="opacity:.85">Sự kết nối tạo ra</div><div style="font-size:21pt;font-weight:600;letter-spacing:-.03em;margin-top:1mm">Sức mạnh</div></div></div></div>
 
   <div class="g ht" style="--c:1;--r:15"></div><div class="g ht" style="--c:12;--r:15"></div>
-  <div class="hn" style="left:105mm;top:238.5mm"><svg><use href="#spark"></use></svg></div>
   <div class="g fill" style="--c:2;--r:15;--w:10;--h:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
     <div class="h2" style="font-size:19pt">Tiên phong số hóa – <span>Hiệu quả bứt phá</span></div>
     <div class="lbl mut" style="margin-top:2.6mm">Thông điệp thương hiệu</div>
