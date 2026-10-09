@@ -114,6 +114,11 @@ body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact
     <div class="display" style="margin-top:7mm">Tiên phong số hóa –<br><span style="color:var(--blue-l)">Hiệu quả bứt phá</span></div>
   </div>
 
+  <!-- centre photo; the network fans out beneath it, from the middle of the base -->
+  <div class="gx" style="--c:1;--s:12;top:106mm;height:92mm;border-radius:2.4mm;overflow:hidden">
+    <img src="../assets/photos/mg-k.jpg" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block" alt="">
+    <span class="a" style="right:2mm;bottom:1.6mm;font-size:4.8pt;color:#fff;background:rgba(32,30,29,.55);padding:.5mm 1.4mm">Cầu Cần Thơ · Ảnh: Christophe95 · CC BY-SA 4.0</span>
+  </div>
   <div class="a" style="left:calc(-1*var(--b));right:calc(-1*var(--b));top:250mm;bottom:calc(-1*var(--b));background:var(--navy)"></div>
   <div class="gx" style="--c:1;--s:12;top:256mm">
     <div class="hr" style="background:rgba(255,255,255,.22)"></div>
@@ -429,7 +434,7 @@ function delta(id,opt){
   el('circle',{cx:src[0],cy:src[1],r:2.4,fill:C.blue},s);
   el('circle',{cx:src[0],cy:src[1],r:5,fill:'none',stroke:C.blue,'stroke-opacity':.5,'stroke-width':.3},s);
 }
-delta('cover-net',{src:[-3,128],ex0:150,ey0:303,ex1:216,ey1:150,k1:.35,k2:.7});
+delta('cover-net',{src:[105,246],ex0:-3,ey0:201,ex1:213,ey1:201,k1:.35,k2:.7,stations:[.45,.75]});
 delta('back-net',{src:[128,303],ex0:216,ey0:300,ex1:216,ey1:228,k1:.45,k2:.8,stations:[.55,.85]});
 
 /* ---- spread band: one line across pages 4–5 with four stations ---- */
