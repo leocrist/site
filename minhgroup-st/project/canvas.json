@@ -4,7 +4,7 @@
   "boards": {
     "About.dc.html": {
       "expand": "fill",
-      "h": 2400,
+      "h": 3600,
       "title": "02 · Thông tin công ty / About",
       "w": 1440,
       "x": 3040,
@@ -140,23 +140,23 @@
     },
     "Contact.dc.html": {
       "expand": "fill",
-      "h": 2200,
+      "h": 2180,
       "title": "10 · Liên hệ / Contact",
       "w": 1440,
-      "x": 7600,
-      "y": 2520
+      "x": 15200,
+      "y": 0
     },
     "Gallery.dc.html": {
       "expand": "fill",
-      "h": 2000,
+      "h": 2560,
       "title": "09 · Thư viện / Media Gallery",
       "w": 1440,
-      "x": 6080,
-      "y": 2520
+      "x": 13680,
+      "y": 0
     },
     "History.dc.html": {
       "expand": "fill",
-      "h": 2100,
+      "h": 2800,
       "title": "03 · Lịch sử & Cột mốc / History",
       "w": 1440,
       "x": 4560,
@@ -164,7 +164,7 @@
     },
     "Leadership.dc.html": {
       "expand": "fill",
-      "h": 2200,
+      "h": 2780,
       "title": "05 · Ban lãnh đạo / Leadership",
       "w": 1440,
       "x": 7600,
@@ -172,7 +172,7 @@
     },
     "Main.dc.html": {
       "expand": "fill",
-      "h": 6250,
+      "h": 6300,
       "is_interactive": true,
       "title": "01 · Trang chủ / Home",
       "w": 1440,
@@ -190,7 +190,7 @@
     },
     "Market.dc.html": {
       "expand": "fill",
-      "h": 2200,
+      "h": 3420,
       "title": "06 · Năng lực & Vị thế / Market Position",
       "w": 1440,
       "x": 9120,
@@ -198,15 +198,15 @@
     },
     "News.dc.html": {
       "expand": "fill",
-      "h": 2300,
+      "h": 2720,
       "title": "08 · Tin tức & Dự án / News",
       "w": 1440,
-      "x": 4560,
-      "y": 2520
+      "x": 12160,
+      "y": 0
     },
     "Organization.dc.html": {
       "expand": "fill",
-      "h": 2400,
+      "h": 2800,
       "title": "04 · Cơ cấu tổ chức / Organization",
       "w": 1440,
       "x": 6080,
@@ -340,142 +340,78 @@
       "x": 9158,
       "y": 8669
     },
+    "ProfileV5-01.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 01 · Bìa trước",
+      "w": 794,
+      "x": 3040,
+      "y": 9912
+    },
+    "ProfileV5-02.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 02 · Tổng quan",
+      "w": 794,
+      "x": 3914,
+      "y": 9912
+    },
+    "ProfileV5-03.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 03 · Năng lực thực địa",
+      "w": 794,
+      "x": 4788,
+      "y": 9912
+    },
+    "ProfileV5-04.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 04 · Trang đôi trái · Công nghệ & Tài chính",
+      "w": 794,
+      "x": 5662,
+      "y": 9912
+    },
+    "ProfileV5-05.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 05 · Trang đôi phải · An sinh & Dự án",
+      "w": 794,
+      "x": 6536,
+      "y": 9912
+    },
+    "ProfileV5-06.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 06 · Hệ sinh thái",
+      "w": 794,
+      "x": 7410,
+      "y": 9912
+    },
+    "ProfileV5-07.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 07 · Lộ trình & Ban lãnh đạo",
+      "w": 794,
+      "x": 8284,
+      "y": 9912
+    },
+    "ProfileV5-08.dc.html": {
+      "h": 1123,
+      "paper": "a4",
+      "title": "Profile B5 · 08 · Bìa sau",
+      "w": 794,
+      "x": 9158,
+      "y": 9912
+    },
     "Services.dc.html": {
       "expand": "fill",
-      "h": 2200,
+      "h": 4920,
       "is_interactive": true,
       "title": "07 · Sản phẩm & Dịch vụ / Services",
       "w": 1440,
-      "x": 3040,
-      "y": 2520
-    },
-    "ProfileV5-01.dc.html": {
-      "x": 3040,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 01 · Bìa trước",
-      "paper": "a4"
-    },
-    "ProfileV5-02.dc.html": {
-      "x": 3914,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 02 · Tổng quan",
-      "paper": "a4"
-    },
-    "ProfileV5-03.dc.html": {
-      "x": 4788,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 03 · Năng lực thực địa",
-      "paper": "a4"
-    },
-    "ProfileV5-04.dc.html": {
-      "x": 5662,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 04 · Trang đôi trái · Công nghệ & Tài chính",
-      "paper": "a4"
-    },
-    "ProfileV5-05.dc.html": {
-      "x": 6536,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 05 · Trang đôi phải · An sinh & Dự án",
-      "paper": "a4"
-    },
-    "ProfileV5-06.dc.html": {
-      "x": 7410,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 06 · Hệ sinh thái",
-      "paper": "a4"
-    },
-    "ProfileV5-07.dc.html": {
-      "x": 8284,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 07 · Lộ trình & Ban lãnh đạo",
-      "paper": "a4"
-    },
-    "ProfileV5-08.dc.html": {
-      "x": 9158,
-      "y": 9912,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B5 · 08 · Bìa sau",
-      "paper": "a4"
-    },
-    "ProfileV6-01.dc.html": {
-      "x": 3040,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 01 · Bìa trước",
-      "paper": "a4"
-    },
-    "ProfileV6-02.dc.html": {
-      "x": 3914,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 02 · Giới thiệu & Tầm nhìn",
-      "paper": "a4"
-    },
-    "ProfileV6-03.dc.html": {
-      "x": 4788,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 03 · Câu chuyện & 7 trụ cột",
-      "paper": "a4"
-    },
-    "ProfileV6-04.dc.html": {
-      "x": 5662,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 04 · Thực địa & Bộ máy lãnh đạo",
-      "paper": "a4"
-    },
-    "ProfileV6-05.dc.html": {
-      "x": 6536,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 05 · Lĩnh vực 01 · 02",
-      "paper": "a4"
-    },
-    "ProfileV6-06.dc.html": {
-      "x": 7410,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 06 · Lĩnh vực 03 · 04",
-      "paper": "a4"
-    },
-    "ProfileV6-07.dc.html": {
-      "x": 8284,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 07 · Hành trình phát triển",
-      "paper": "a4"
-    },
-    "ProfileV6-08.dc.html": {
-      "x": 9158,
-      "y": 11155,
-      "w": 794,
-      "h": 1123,
-      "title": "Profile B6 · 08 · Định hướng & Liên hệ",
-      "paper": "a4"
+      "x": 10640,
+      "y": 0
     }
   },
   "createdOnFiles": {
@@ -538,15 +474,7 @@
     "ProfileV5-05.dc.html",
     "ProfileV5-06.dc.html",
     "ProfileV5-07.dc.html",
-    "ProfileV5-08.dc.html",
-    "ProfileV6-01.dc.html",
-    "ProfileV6-02.dc.html",
-    "ProfileV6-03.dc.html",
-    "ProfileV6-04.dc.html",
-    "ProfileV6-05.dc.html",
-    "ProfileV6-06.dc.html",
-    "ProfileV6-07.dc.html",
-    "ProfileV6-08.dc.html"
+    "ProfileV5-08.dc.html"
   ],
   "pages": [
     {
