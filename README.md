@@ -49,15 +49,8 @@ python3 -m http.server 5181 --bind 0.0.0.0
 
 Đã kiểm tra bằng Chromium: 59 trang canvas và brochure V2–V8 hiển thị nội dung, không có exception JavaScript.
 
-### File thiếu trong bộ ZIP được cung cấp
+### Tài nguyên Brochure V8
 
-Brochure V8 tham chiếu các file chưa có trong bản export:
+Đã bổ sung đủ 5 ảnh từ `assets.zip` vào `brochure-v8/assets/`: văn phòng, trao bằng, trao quà, trồng cây và QR website.
 
-- `brochure-v8/assets/office-illustration.png`
-- `brochure-v8/assets/awards-illustration.png`
-- `brochure-v8/assets/donation-illustration.png`
-- `brochure-v8/assets/tree-illustration.png`
-- `brochure-v8/assets/website-qr.png`
-- `brochure-v8/MinhGroupST-V8-review.pdf` (nút tải PDF)
-
-Cần bổ sung các file gốc để hiển thị đầy đủ hình minh họa và tải PDF.
+File `brochure-v8/MinhGroupST-V8-review.pdf` (nút tải PDF) vẫn chưa có trong bộ file được cung cấp; cần bổ sung để tải PDF.
