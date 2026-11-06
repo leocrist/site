@@ -184,3 +184,23 @@ if (tzRoot) {
   };
   tick(); setInterval(tick, 30000);
 }
+
+/* On-this-page navigation: highlight the section in view */
+const pagenav = $('.pagenav');
+if (pagenav && 'IntersectionObserver' in window) {
+  const links = $$('a', pagenav);
+  const list = $('ul', pagenav);
+  const targets = links.map(a => document.getElementById(a.hash.slice(1))).filter(Boolean);
+  const setActive = id => links.forEach(a => {
+    const on = a.hash === '#' + id;
+    a.setAttribute('aria-current', on ? 'true' : 'false');
+    if (on) list.scrollTo({ left: a.offsetLeft - 16, behavior: 'smooth' });
+  });
+  const seen = new Map();
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => seen.set(e.target.id, e.isIntersecting));
+    const first = targets.find(t => seen.get(t.id));
+    if (first) setActive(first.id);
+  }, { rootMargin: '-140px 0px -55% 0px' });
+  targets.forEach(t => io.observe(t));
+}

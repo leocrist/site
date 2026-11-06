@@ -152,6 +152,7 @@ function page({ file, title, desc, body }) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Be+Vietnam+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/clusters.css">
 </head>
 <body>
 ${header(file)}
@@ -216,7 +217,7 @@ const tzBlock = (headingId = 'tz-h') => {
   const shared = (CLOSE - OPEN - diff) / 60;
   const work = (cls, from, to, label, key) => `<span class="tz__work${cls}" data-work="${key}" style="left:${pc(from)};width:${pc(to - from)}">${label}</span>`;
   return `
-<section class="section" aria-labelledby="${headingId}"><div class="wrap">
+<section class="section" id="${headingId === 'tz-h' ? 'hubs' : 'hubs-company'}" aria-labelledby="${headingId}"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Dual-hub delivery</p><h2 class="h2" id="${headingId}">Led in Melbourne. Built in Can Tho.</h2>
     <p class="lead">Can Tho runs <span data-tz-diff>${diff / 60}</span> hours behind Melbourne (three in winter, four during Australian daylight saving). Every working day both teams share a block of live hours for stand-ups, reviews and decisions.</p></div>
   <div class="tz" data-tz data-open="${OPEN}" data-close="${CLOSE}">
@@ -264,7 +265,7 @@ const SDLC = [
   ['06', 'Ops & Support', 'Predictive observability', 'Incident root-cause triage, runbook execution and anomaly mitigation from operational telemetry.', 'Root-cause triage suggestions|Runbooks executed with approval|Anomalies surfaced early'],
 ];
 const modelBlock = (headingId, eyebrow, h2, lead) => `
-<section class="section--tight" aria-labelledby="${headingId}">
+<section class="section--tight" id="${headingId.replace(/-h$/, '')}" aria-labelledby="${headingId}">
   <div class="night-wrap"><div class="night section" style="padding-inline:0">
     <div class="wrap">
       <div class="sec-head sec-head--center">
@@ -303,6 +304,37 @@ const testimonial = () => `<figure class="quote">
   <figcaption><span class="avatar" aria-hidden="true">KM</span><span><b>Kyle Mathers</b><span>Chief Technology Officer · Member Benefits Australia</span></span></figcaption>
 </figure>`;
 
+
+/* ---------- Home data ---------- */
+const EXPLORE = [
+  ['ai', 'AI-Augmented Delivery', 'AI across your SDLC, with human approval at each gate',
+   'We embed copilots, synthetic test generation and automated architecture verification into the pipeline you already run, so teams ship faster without losing control of quality or IP.',
+   ['Copilot engineering integrated into GitHub or GitLab', 'Synthetic test generation and self-healing regression suites', 'Automated refactoring and architecture verification', 'SDLC telemetry: velocity, cycle time and quality trends'],
+   [['QA cycle time', '35 to 50% shorter'], ['Sprint velocity', '+42% (AI-assisted)'], ['Release gates', 'Static analysis and security scan before merge']],
+   ['GitHub', 'GitLab CI', 'AWS CodePipeline', 'SonarQube', 'Playwright', 'Cypress'], 'ai-transformation.html', 'Explore AI-augmented delivery'],
+  ['llm', 'AI Engineering & LLMs', 'GenAI, agents, vision and NLP in production',
+   'Enterprise-grade AI applications built on your own data: retrieval-augmented generation, multi-agent workflows, computer vision and speech, hardened for production with guardrails and tracing.',
+   ['Enterprise RAG with hybrid search over your repositories', 'Autonomous agents with tool use and human-in-the-loop', 'Computer vision: document OCR, defect detection, edge inference', 'MLOps: feature stores, drift monitoring, CI/CD for models'],
+   [['Proof of concept', '2 to 4 weeks'], ['Sandbox environment', 'Within 10 business days'], ['Production hardening', '6 to 12 weeks']],
+   ['Llama', 'Mistral', 'Pinecone', 'Qdrant', 'Langfuse', 'OpenTelemetry', 'Kafka', 'Delta Lake'], 'ai-engineering.html', 'Explore AI engineering'],
+  ['software', 'Software Engineering & Cloud', 'Modernise legacy systems into resilient platforms',
+   'Build and modernise mission-critical products with cloud-native architecture, microservices and modern DevOps, designed for zero downtime and strict governance.',
+   ['Monolith to microservices, with controlled cut-over', 'Cloud-native platforms on AWS and Azure', 'API ecosystems and event-driven integration', 'DevSecOps pipelines with infrastructure as code'],
+   [['Core banking case', '55% faster modernisation'], ['Unit test coverage', 'Above 92%'], ['Security exceptions', 'None (APRA, ISO 27001 audited)']],
+   ['AWS', 'Azure', 'Kubernetes', 'Terraform', 'Kafka', 'Go', 'Java', 'Python / FastAPI', 'React / Node'], 'services.html#software', 'Explore software engineering'],
+  ['emerging', 'Emerging Technologies', 'IoT, edge AI and digital twins, from pilot to scale',
+   'Explore, validate and industrialise next-horizon technology: sensor networks, models running at the edge and digital twins that let you test changes before you make them.',
+   ['Industrial IoT and edge telemetry', 'Edge AI inference for visual quality control', 'Digital twins of operations and assets', 'Data mesh and domain-owned data products'],
+   [['Visual QC blueprint', 'Sub-second inspection at the edge'], ['Pilot shape', 'Time-boxed, with a go / no-go review'], ['Squad', 'Embedded architect, CV and cloud IoT engineers']],
+   ['Edge inference', 'Computer vision', 'C++', 'Cloud IoT', 'Digital twins'], 'services.html#emerging', 'Explore emerging tech'],
+];
+const JOURNEY = [
+  ['Discovery & scoping', 'Days, not months', 'We map your technical stack, team structure and roadmap with our Melbourne architects, under mutual NDA.', 'Architecture review, proposed team shape and a delivery roadmap', 'Melbourne solution architect'],
+  ['Pod set-up', 'Weeks', 'We assemble a senior-led pod (frontend, backend, DevOps, QA lead) and connect it to your repositories, tools and rituals.', 'Named team, access and environments, sprint calendar', 'Australian tech lead'],
+  ['Delivery sprints', 'Two-week cadence', 'Pods ship in your sprint rhythm with AI-augmented engineering, quality gates on every merge and live burndowns.', 'Working software every sprint, sprint reviews and telemetry', 'Tech lead with your product owner'],
+  ['Scale or hand over', 'When you are ready', 'Grow the pod, add a discipline, or take the work in-house with a full hand-over.', 'Complete IP and codebase transfer, documentation, runbooks', 'Engagement manager, Melbourne'],
+];
+
 /* =====================================================================
    HOME
    ===================================================================== */
@@ -314,7 +346,7 @@ page({
     <div><p class="eyebrow">Engineering partner for Australian enterprise</p>
       <h1 class="h-display">Build with AI. Ship with governance.</h1></div>
     <div><p class="lead">PTN Global helps you build, modernise and transform enterprise software with AI-augmented engineering: strategy and architecture from Melbourne, delivery pods in Can Tho.</p>
-      <div class="actions"><a class="btn" href="contact.html">Talk to our experts</a><a class="btn btn--soft" href="#capabilities">Explore capabilities</a></div>
+      <div class="actions"><a class="btn" href="contact.html">Talk to our experts</a><a class="btn btn--soft" href="#services">Explore services</a></div>
       <ul class="checks"><li>${ic('check')}ISO/IEC 27001 certified</li><li>${ic('check')}Australian contracts</li><li>${ic('check')}Shared working hours</li></ul></div>
   </div>
 
@@ -323,10 +355,6 @@ page({
   </div>
 </div></section>
 
-<section aria-labelledby="trust-h"><div class="wrap trust">
-  <h2 class="eyebrow" id="trust-h">Trusted by teams at</h2>
-  <ul><li>The Florey</li><li>CCIA</li><li>oncall</li><li>interpreters</li><li>ReadyTech</li><li>soundstack</li></ul>
-</div></section>
 
 <section class="section--loose statement" aria-labelledby="challenge-h"><div class="wrap">
   <p class="eyebrow">The challenge</p>
@@ -339,40 +367,84 @@ page({
   </div>
 </div></section>
 
-<section class="section section--alt" id="capabilities" aria-labelledby="cap-h"><div class="wrap">
-  <div class="sec-head sec-head--row">
-    <div><p class="eyebrow">Capabilities</p><h2 class="h2" id="cap-h" style="margin-top:16px">One partner from architecture to AI in production</h2></div>
-    <a class="link" href="services.html">All services ${ic('arrow')}</a>
-  </div>
-  <div class="cap-features">
-    <a class="tile tile--feature" href="ai-transformation.html"><span class="glow"></span><div><p class="eyebrow">Flagship</p><h3 style="margin-top:12px">AI-Augmented Delivery</h3><p style="margin-top:12px">Copilots, synthetic test generation and automated refactoring built into your GitHub or GitLab pipeline, with a human approval at every gate.</p></div><span class="more">Explore the model ${ic('arrow')}</span></a>
-    <a class="tile tile--feature g2" href="ai-engineering.html"><span class="glow"></span><div><p class="eyebrow">Enterprise AI</p><h3 style="margin-top:12px">AI Engineering &amp; LLMs</h3><p style="margin-top:12px">Retrieval-augmented generation, workflow agents, document intelligence and predictive models, built on your own data.</p></div><span class="more">Explore AI platforms ${ic('arrow')}</span></a>
-  </div>
-  <div class="cap-index">
-    ${[
-      ['AI engineering', [['ai-engineering.html', 'AI agents', 'Multi-step reasoning with human-in-the-loop'], ['ai-engineering.html', 'Enterprise RAG', 'Hybrid search over your repositories'], ['ai-engineering.html', 'Computer vision', 'Document OCR, defect detection'], ['ai-engineering.html', 'NLP &amp; speech', 'Multilingual ASR, TTS, intent']]],
-      ['Software engineering', [['services.html#software', 'Cloud-native platforms', 'AWS and Azure, zero downtime'], ['services.html#software', 'Legacy modernisation', 'Monolith to event-driven services'], ['services.html#software', 'DevSecOps delivery', 'Security gates on every branch'], ['services.html#engage', 'Dedicated pods', 'Senior squads in your sprints']]],
-      ['Emerging technologies', [['services.html#emerging', 'Industrial IoT', 'Sensor networks, edge telemetry'], ['services.html#emerging', 'Edge AI inference', 'Models running on site'], ['services.html#emerging', 'Digital twins', 'Model operations before changing them'], ['services.html#emerging', 'Data mesh', 'Domain-owned data products']]],
-    ].map(([h, items]) => `<div><h3>${h}</h3><ul>${items.map(([href, t, d]) => `<li><a href="${href}"><span><span>${t}</span><small>${d}</small></span>${ic('arrow')}</a></li>`).join('')}</ul></div>`).join('')}
+<nav class="pagenav" aria-label="On this page"><div class="wrap"><span class="pagenav__label">On this page</span><ul>
+  ${[['services', 'Services'], ['model', 'How we work'], ['journey', 'Engagement'], ['industries', 'Industries'], ['proof', 'Results'], ['security', 'Security'], ['hubs', 'Two hubs'], ['faq', 'FAQ']].map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join('')}
+</ul></div></nav>
+
+<section class="section section--alt" id="services" aria-labelledby="svc-h"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">What we do</p><h2 class="h2" id="svc-h">Four disciplines, one accountable team</h2><p class="lead">Pick a discipline to see what we deliver, the outcomes clients report and the technology we work with. Each one runs under the same Melbourne governance.</p></div>
+  <div class="explorer">
+    <div class="explorer__tabs" role="tablist" aria-label="Disciplines" aria-orientation="vertical">
+      ${EXPLORE.map(([id, t, one], i) => `<button type="button" role="tab" id="ex-tab-${id}" aria-controls="ex-${id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}"><b>${t}</b><span>${one}</span></button>`).join('')}
+    </div>
+    ${EXPLORE.map(([id, t, one, sum, deliver, outcomes, stack, href, lt], i) => `
+    <div class="explorer__panel tabpanel" role="tabpanel" id="ex-${id}" aria-labelledby="ex-tab-${id}" tabindex="0"${i ? ' hidden' : ''}>
+      <div class="explorer__intro"><h3>${t}</h3><p>${sum}</p><p class="actions"><a class="btn btn--sm" href="${href}">${lt}</a><a class="btn btn--sm btn--line" href="contact.html?focus=${encodeURIComponent(t)}">Discuss a project</a></p></div>
+      <div><h4>What we deliver</h4><ul class="checklist">${deliver.map(d => `<li>${ic('check')}<span>${d}</span></li>`).join('')}</ul></div>
+      <div><h4>Outcomes clients report</h4><dl class="spec spec--tight">${outcomes.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+        <h4 style="margin-top:24px">Technology we work with</h4><div class="chips">${stack.map(c => `<span class="chip">${c}</span>`).join('')}</div></div>
+    </div>`).join('')}
   </div>
 </div></section>
 
-${modelBlock('model-h', 'How we work', 'One model across the lifecycle. <span class="dim">Six stages, one team.</span>', 'Human expertise, AI agents and engineering process combined: how software is analysed, designed, built, tested and operated.')}
+${modelBlock('model-h', 'How we work', 'One model across the lifecycle. <span class="dim">Six stages, one team.</span>', 'Human expertise, AI agents and engineering process combined: how software is analysed, designed, built, tested and operated. Select a stage to see what changes.')}
 
-<section class="section" id="engage" aria-labelledby="engage-h"><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">Engagement models</p><h2 class="h2" id="engage-h">Match the engagement to where you are</h2><p class="lead">From a six-week AI proof of concept to a long-running dedicated pod, the governance stays the same.</p></div>
-  ${engageRows()}
+<section class="section" id="journey" aria-labelledby="journey-h"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Working with us</p><h2 class="h2" id="journey-h">From first call to a running delivery pod</h2><p class="lead">Every engagement follows the same four steps, so you always know what happens next, what you receive and who is accountable.</p></div>
+  <ol class="journey">
+    ${JOURNEY.map(([t, when, what, get, who], i) => `<li class="journey__step reveal">
+      <div class="journey__head"><span class="journey__n">${i + 1}</span><span class="chip">${when}</span></div>
+      <h3>${t}</h3><p>${what}</p>
+      <dl><div><dt>You receive</dt><dd>${get}</dd></div><div><dt>Who leads</dt><dd>${who}</dd></div></dl>
+    </li>`).join('')}
+  </ol>
+  <div style="margin-top:72px">
+    <div class="sec-head"><p class="eyebrow">Engagement models</p><h2 class="h3" style="font-size:clamp(1.6rem,1.3rem+1vw,2.1rem)">Choose the shape that fits where you are</h2><p class="lead">From a six-week AI proof of concept to a long-running dedicated pod, the governance stays the same.</p></div>
+    ${engageRows()}
+  </div>
 </div></section>
 
-<section class="section section--alt" aria-labelledby="proof-h"><div class="wrap">
-  <h2 class="sr-only" id="proof-h">What clients say</h2>
-  <div style="max-width:880px">${testimonial()}</div>
-  <div style="margin-top:48px">${ledger([['Since 2019', 'Founded in Melbourne'], ['98.4%', 'Client retention'], ['4.9 / 5', 'Executive partner NPS'], ['ISO/IEC 27001', 'Audited by CPG']])}</div>
+<section class="section section--alt" id="industries" aria-labelledby="ind-h"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Industries</p><h2 class="h2" id="ind-h">Start from your sector</h2><p class="lead">Regulated sectors need different defaults. Each sector page shows the architecture blueprint and squad we would typically start with.</p></div>
+  <ul class="ind-index">
+    ${[['Healthcare', 'HIPAA / HL7 FHIR data fabrics, telehealth, diagnostic AI', 'industries.html'], ['Financial services', 'Core banking modernisation, real-time fraud AI, PCI-DSS', 'industries.html'], ['Education', 'Scalable LMS, GenAI tutoring copilots, student analytics', 'industries.html'], ['Enterprise &amp; SaaS', 'Legacy migration, multi-tenant cloud, zero-downtime CI/CD', 'industries.html'], ['Manufacturing', 'Edge telemetry, predictive maintenance, visual QC', 'industries.html'], ['Government', 'Sovereign data, zero-trust security, accessible portals', 'industries.html']].map(([t, d, h]) => `<li><a href="${h}"><span><b>${t}</b><small>${d}</small></span>${ic('arrow')}</a></li>`).join('')}
+  </ul>
+</div></section>
+
+<section class="section" id="proof" aria-labelledby="proof-h"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Results</p><h2 class="h2" id="proof-h">What delivery looks like in practice</h2><p class="lead">A featured engagement, what a client says about working with us, and the numbers we are measured on.</p></div>
+  <div class="proof2">
+    <article class="feature-case art art--dim">
+      <p class="eyebrow">Financial services · Core banking</p>
+      <h3>Accelerating core banking modernisation by 55%</h3>
+      <p>An established financial institution needed to decompose a 14-year-old monolithic ledger. An AI-augmented squad analysed legacy COBOL and Java routines and generated cloud-native microservices with unit test coverage above 92%.</p>
+      <dl class="spec spec--night"><div><dt>Test coverage</dt><dd>Above 92%</dd></div><div><dt>Security exceptions</dt><dd>None, APRA and ISO 27001 audited</dd></div><div><dt>Team</dt><dd>Melbourne and Can Tho dual hub</dd></div></dl>
+      <p><a class="btn btn--light btn--sm" href="ai-transformation.html">Read the engagement ${ic('arrow')}</a></p>
+    </article>
+    <div class="proof2__side">
+      ${testimonial()}
+      ${ledger([['Since 2019', 'Founded in Melbourne'], ['98.4%', 'Client retention'], ['4.9 / 5', 'Executive partner NPS']])}
+      <p><a class="link" href="case-studies.html">Healthcare, financial and education case studies ${ic('arrow')}</a></p>
+    </div>
+  </div>
+  <div class="trust trust--inline" aria-labelledby="trust2-h"><h3 class="eyebrow" id="trust2-h">Trusted by teams at</h3><ul><li>The Florey</li><li>CCIA</li><li>oncall</li><li>interpreters</li><li>ReadyTech</li><li>soundstack</li></ul></div>
+</div></section>
+
+<section class="section section--alt" id="security" aria-labelledby="sec-h"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Security &amp; governance</p><h2 class="h2" id="sec-h">Offshore delivery without weaker security</h2><p class="lead">The questions your security review will ask, answered before the first call.</p></div>
+  <div class="security">
+    <div class="panel cert"><div class="cert__seal">ISO<br>27001<small>CPG AUDITED</small></div>
+      <div><b>Certified information security</b><p>Certificate <span class="mono">ISMS/20/R84/1419</span> (CPG). Scope: software development, testing, enhancement and maintenance from our Can Tho delivery centre.</p>
+      <p style="margin-top:12px"><a class="link" href="${CERT_URL}" target="_blank" rel="noopener">Verify on CPG<span class="sr-only"> (opens in a new tab)</span> ${ic('link2')}</a></p></div></div>
+    <div class="security__groups">
+      ${[['Information security', ['ISMS independently audited, not self-assessed', 'Practices mapped to the Australian Privacy Principles', 'Same controls in Melbourne and Can Tho']], ['IP &amp; contracts', ['Contracts governed by Australian law', 'Mutual NDA from the first discovery call', 'Complete IP and codebase transfer at hand-over']], ['Delivery governance', ['Isolated development environments per client', 'Static analysis and security scanning before merge', 'Open repositories and live sprint burndowns']]].map(([h, items]) => `<div><h3>${h}</h3><ul class="checklist">${items.map(x => `<li>${ic('check')}<span>${x}</span></li>`).join('')}</ul></div>`).join('')}
+    </div>
+  </div>
 </div></section>
 
 ${tzBlock()}
 
-<section class="section" aria-labelledby="faq-h"><div class="wrap faq">
+<section class="section" id="faq" aria-labelledby="faq-h"><div class="wrap faq">
   <div><p class="eyebrow">Good to know</p><h2 class="h2" id="faq-h" style="margin-top:8px">Questions CTOs ask us first</h2></div>
   <div class="faq__list">
     ${[

@@ -31,6 +31,23 @@ Edit content and partials in `src/build.mjs` (one place for the header, footer a
 
 Navigation: Services (mega menu) · Industries · Case Studies · Company (menu) · Careers · Contact + primary CTA. On mobile, a full-screen menu lists every page (the old tab bar left out 4 pages).
 
+## v4: richer Home (ui-ux-pro-max, 2026-11-06)
+
+Design system query: *Trust & Authority + Conversion*, with industry entry points from *Enterprise Gateway*. The visual identity stays as in v3. Home is now organised into clear sections:
+
+1. Hero + two-office map
+2. The challenge
+3. **On-this-page navigation** (sticky, highlights the section in view)
+4. **Services explorer**: 4 disciplines in vertical tabs, each with summary, what we deliver, reported outcomes and technologies
+5. AI-Augmented Engineering Model (6 SDLC stages)
+6. **Engagement journey**: Discovery, Pod set-up, Delivery sprints, Scale or hand over. Each step lists timing, what you receive and who leads. Followed by the engagement models
+7. **Industry gateway** (6 sectors)
+8. **Results**: featured banking case on texture, testimonial, fact ledger, client names
+9. **Security & governance**: ISO certificate card plus three checklists (information security, IP & contracts, delivery governance)
+10. Two time zones, FAQ, closing CTA
+
+New styles live in `css/clusters.css`.
+
 ## v3: TestSprite-informed pass (2026-11-06)
 
 - Type: Newsreader serif display (weight 400) with italic serif eyebrows, Be Vietnam Pro body (full Vietnamese support) and IBM Plex Mono for data. Sentient, used in the wireframe, is on Fontshare, which artifact hosting blocks.
