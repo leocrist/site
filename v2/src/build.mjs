@@ -85,7 +85,7 @@ function header(active) {
       </ul>
     </nav>
     <div class="nav__end">
-      <a class="nav__link hide-md" href="contact.html"${cur('contact.html')}>Contact</a>
+      <a class="btn btn--sm btn--line hide-md" href="contact.html"${cur('contact.html')}>Contact us</a>
       <a class="btn btn--sm" href="contact.html">Talk to our experts</a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">${ic('menu', 'i-open')}<span class="i-close" style="display:none">${ic('close')}</span></button>
@@ -150,7 +150,7 @@ function page({ file, title, desc, body }) {
 <link rel="icon" href="assets/ptn-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Be+Vietnam+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -208,10 +208,10 @@ const tzBlock = (headingId = 'tz-h') => {
 
 const cta = (h, p, primary = ['contact.html', 'Book a discovery call'], secondary = ['case-studies.html', 'See case studies']) => `
 <section class="section--tight" aria-labelledby="cta-h">
-  <div class="night-wrap"><div class="wrap"><div class="cta night reveal">
+  <div class="wrap"><div class="cta art art--dim reveal">
     <div><p class="eyebrow">Get started</p><h2 class="h2" id="cta-h" style="margin-top:16px">${h}</h2><p class="lead">${p}</p></div>
     <div class="actions"><a class="btn btn--light" href="${primary[0]}">${primary[1]} ${ic('arrow')}</a>${secondary ? `<a class="btn btn--ghost-night" href="${secondary[0]}">${secondary[1]}</a>` : ''}</div>
-  </div></div></div>
+  </div></div>
 </section>`;
 
 const pageHero = ({ crumb, eyebrow, h1, lead, actions = '' }) => `
@@ -241,7 +241,7 @@ const modelBlock = (headingId, eyebrow, h2, lead) => `
         <p class="lead">${lead}</p>
       </div>
       <div class="model" data-model>
-        <div class="model__visual" aria-hidden="true"><div class="model__card">
+        <div class="model__visual art" aria-hidden="true"><div class="model__card">
           <p class="eyebrow">Stage 01 · ${SDLC[0][2]}</p><h3>${SDLC[0][1]}</h3><p>${SDLC[0][3]}</p>
           <ul>${SDLC[0][4].split('|').map(p => `<li>${ic('check')}${p}</li>`).join('')}</ul>
         </div></div>
@@ -277,16 +277,17 @@ const testimonial = () => `<figure class="quote">
 page({
   file: 'index.html', title: '', desc: 'PTN Global helps organisations build, modernise and transform enterprise software with AI-augmented engineering. Melbourne-led, delivered from Can Tho, ISO/IEC 27001 certified.',
   body: `
-<section class="hero"><div class="wrap">
-  <div class="hero__inner">
-    <a class="pill-tag" href="ai-transformation.html"><b>NEW</b> The AI-Augmented Engineering Model ${ic('arrow', 'i')}</a>
-    <h1 class="h-display">Build, modernise and transform with <span class="nowrap">AI-augmented</span> engineering</h1>
-    <p class="lead">PTN Global is the engineering partner that helps enterprises ship faster with AI, without trading away security or stability. Strategy and architecture from Melbourne, delivery pods in Can Tho.</p>
-    <div class="actions"><a class="btn" href="contact.html">Talk to our experts</a><a class="btn btn--soft" href="#capabilities">Explore capabilities</a></div>
-    <p class="hero__note">ISO/IEC 27001 certified · Australian contracts and governance</p>
+<section class="hero hero--split"><div class="wrap">
+  <div class="hero__grid">
+    <div><p class="eyebrow">Engineering partner for Australian enterprise</p>
+      <h1 class="h-display">Build with AI. Ship with governance.</h1></div>
+    <div><p class="lead">PTN Global helps you build, modernise and transform enterprise software with AI-augmented engineering: strategy and architecture from Melbourne, delivery pods in Can Tho.</p>
+      <div class="actions"><a class="btn" href="contact.html">Talk to our experts</a><a class="btn btn--soft" href="#capabilities">Explore capabilities</a></div>
+      <ul class="checks"><li>${ic('check')}ISO/IEC 27001 certified</li><li>${ic('check')}Australian contracts</li><li>${ic('check')}Shared working hours</li></ul></div>
   </div>
 
-  <figure class="ws reveal" aria-label="Illustration: a PTN delivery pod workspace where AI agents and engineers share one sprint board">
+  <div class="art hero__frame reveal">
+  <figure class="ws" aria-label="Illustration: a PTN delivery pod workspace where AI agents and engineers share one sprint board">
     <div class="ws__bar" aria-hidden="true">
       <span class="ws__org"><img src="assets/ptn-mark.svg" alt="">Your pod</span>
       <span class="ws__search">${ic('search')} Search stories, PRs, test runs</span>
@@ -321,6 +322,7 @@ page({
     </div>
   </figure>
   <p class="ws__caption">Illustrative view of how engineers and AI agents share one delivery workflow.</p>
+  </div>
 </div></section>
 
 <section aria-labelledby="trust-h"><div class="wrap trust">
@@ -371,6 +373,19 @@ ${modelBlock('model-h', 'How we work', 'One model across the lifecycle. <span cl
 </div></section>
 
 ${tzBlock()}
+
+<section class="section" aria-labelledby="faq-h"><div class="wrap faq">
+  <div><p class="eyebrow">Good to know</p><h2 class="h2" id="faq-h" style="margin-top:8px">Questions CTOs ask us first</h2></div>
+  <div class="faq__list">
+    ${[
+      ['How do you protect our IP and data?', 'Our Can Tho delivery centre runs an ISMS certified to ISO/IEC 27001 and independently audited by CPG (certificate ISMS/20/R84/1419). Every engagement runs in isolated environments, under NDA, with contracts governed by Australian law.'],
+      ['How much do our teams actually overlap?', 'Can Tho is three to four hours behind Melbourne, depending on Australian daylight saving. That leaves a shared block of live hours every working day for stand-ups, reviews and decisions.'],
+      ['Who is accountable if something goes wrong?', 'Our Melbourne leadership. Solution architecture, engagement management and client accountability sit in Australia; delivery pods report into an Australian tech lead.'],
+      ['Do we have to replace our existing team or tools?', 'No. Pods join your sprint rituals and work in your GitHub, GitLab or AWS CodePipeline setup. The AI tooling plugs into the pipeline you already run.'],
+      ['How quickly can a pod start?', 'Typically within weeks, after a short discovery phase to agree scope, team shape and governance. We confirm the date in the proposal.'],
+    ].map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${q}${ic('plus')}</summary><div><p>${a}</p></div></details>`).join('')}
+  </div>
+</div></section>
 
 ${cta("Let's build what's next, together", 'Book a technical assessment with our Melbourne architecture leads. We review your cloud maturity and model integration path, then propose a sprint roadmap.')}
 `});

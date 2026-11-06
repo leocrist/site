@@ -31,6 +31,14 @@ Edit content and partials in `src/build.mjs` (one place for the header, footer a
 
 Navigation: Services (mega menu) · Industries · Case Studies · Company (menu) · Careers · Contact + primary CTA. On mobile, a full-screen menu lists every page (the old tab bar left out 4 pages).
 
+## v3: TestSprite-informed pass (2026-11-06)
+
+- Type: Newsreader serif display (weight 400) with italic serif eyebrows, Be Vietnam Pro body (full Vietnamese support) and IBM Plex Mono for data. Sentient, used in the wireframe, is on Fontshare, which artifact hosting blocks.
+- Layout: split hero (headline left; lead, actions and ✓ trust row right) and split section heads. Rectangular controls with 4–10 px radii.
+- Product evidence (hero workspace, SDLC card, closing CTA) is framed on a generated SVG-noise "river" texture in PTN blues and greens. It is original, with no third-party imagery.
+- Added a Home FAQ (inline `<details>` accordion). The closing CTA now sits on the texture.
+- Contrast on the texture was measured from rendered pixels: CTA 8.5:1, caption chip 16.6:1. The QA ledger is still 49/49 PASS.
+
 ## Impeccable pass (2026-11-06)
 
 - All colour moved to OKLCH, with neutrals tinted toward hue 230. The colour strategy is now *Committed*: PTN deep blue carries the model, matcher and CTA chapters, and PTN green is the accent on blue.
