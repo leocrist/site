@@ -1,0 +1,14 @@
+interface:
+  display_name: Web Artifacts Builder
+  short_description: Build complex React artifacts with mandatory output QA
+  default_prompt: Use $web-artifacts-builder to build and test an interactive React
+    artifact for my brief.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

@@ -1,0 +1,14 @@
+interface:
+  display_name: Canvas Design
+  short_description: Thiết kế poster và tác phẩm tĩnh với kiểm tra chất lượng
+  default_prompt: Use $canvas-design to create a visual composition from my brief
+    and verify the final output.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

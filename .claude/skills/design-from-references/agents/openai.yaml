@@ -1,0 +1,14 @@
+interface:
+  display_name: Design from References
+  short_description: Thiết kế từ 10 nguồn mẫu, theo đúng mục tiêu và định dạng
+  default_prompt: Use $design-from-references to choose relevant references and create
+    a finished design for my brief.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

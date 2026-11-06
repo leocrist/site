@@ -1,0 +1,14 @@
+interface:
+  display_name: UI UX Pro Max
+  short_description: Tra cứu UI/UX, hệ thống thiết kế và kiểm tra chất lượng
+  default_prompt: Use $ui-ux-pro-max to research a suitable design system and validate
+    the implemented interface.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
