@@ -156,3 +156,31 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
   reveals.forEach(r => io.observe(r));
 } else reveals.forEach(r => r.classList.add('in'));
+
+/* Two time zones: live clocks, DST-aware offset, shared-hours bars, now marker */
+const tzRoot = $('[data-tz]');
+if (tzRoot) {
+  const off = tz => {
+    const d = new Date();
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).formatToParts(d).map(x => [x.type, x.value]));
+    return Math.round((Date.UTC(+p.year, p.month - 1, +p.day, +p.hour, +p.minute) - d.getTime()) / 60000);
+  };
+  const hhmm = m => { m = ((m % 1440) + 1440) % 1440; return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; };
+  const pc = m => (m / 1440 * 100) + '%';
+  const OPEN = +tzRoot.dataset.open, CLOSE = +tzRoot.dataset.close;
+  const tick = () => {
+    const mel = off('Australia/Melbourne'), vn = off('Asia/Ho_Chi_Minh'), diff = mel - vn;
+    const now = new Date(), utc = now.getUTCHours() * 60 + now.getUTCMinutes();
+    $$('[data-clock]').forEach(c => { c.textContent = hhmm(utc + off(c.dataset.clock)); });
+    const set = (key, from, to, label) => { const el = $(`[data-work="${key}"]`, tzRoot); el.style.left = pc(from); el.style.width = pc(Math.max(0, to - from)); if (label) el.textContent = label; };
+    set('vn', OPEN + diff, Math.min(1440, CLOSE + diff));
+    set('both', OPEN + diff, CLOSE);
+    const shared = (CLOSE - OPEN - diff) / 60;
+    $('[data-tz-summary]', tzRoot).textContent = `${shared} h a day, ${hhmm(OPEN + diff)} to ${hhmm(CLOSE)}`;
+    $('[data-tz-text]', tzRoot).textContent = `Shared hours: ${hhmm(OPEN + diff)} to ${hhmm(CLOSE)} Melbourne time, which is ${hhmm(OPEN)} to ${hhmm(CLOSE - diff)} in Can Tho, ${shared} hours a day.`;
+    $$('[data-tz-diff]').forEach(e => { e.textContent = diff / 60; });
+    const melNow = ((utc + mel) % 1440 + 1440) % 1440;
+    $$('[data-now]', tzRoot).forEach(n => { n.style.left = pc(melNow); });
+  };
+  tick(); setInterval(tick, 30000);
+}

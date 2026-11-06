@@ -31,6 +31,16 @@ Edit content and partials in `src/build.mjs` (one place for the header, footer a
 
 Navigation: Services (mega menu) · Industries · Case Studies · Company (menu) · Careers · Contact + primary CTA. On mobile, a full-screen menu lists every page (the old tab bar left out 4 pages).
 
+## Impeccable pass (2026-11-06)
+
+- All colour moved to OKLCH, with neutrals tinted toward hue 230. The colour strategy is now *Committed*: PTN deep blue carries the model, matcher and CTA chapters, and PTN green is the accent on blue.
+- Removed the hero-metric stat tiles on 5 pages. They are replaced by a fact ledger (Home, Company, Industries), an impact table with sources (Services) and a spec list (AI Transformation case).
+- Removed the identical card grids. Home now has 2 flagship panels plus a text capability index; AI Engineering and Company pillars use rows.
+- Removed the false 01/02 numbering. Numbers stay only on real sequences: the SDLC stages and the maturity stages.
+- Removed the decorative glass blur, and the client names no longer use made-up logo fonts.
+- New **two-time-zone module** (Home, Company). It shows live Melbourne and Can Tho clocks, a DST-aware offset (AEST/AEDT) and the shared working hours. It also fixes the old "AEST (UTC+10)" label, which is wrong during Australian daylight saving.
+- Re-ran the QA ledger: 49/49 PASS.
+
 ## Design direction
 
 ClickUp principles adapted, not copied: a light canvas, tight-tracked display type, ink-black pill CTAs, a product-UI frame as the hero visual, a mono-caps "trusted by" strip, a two-tone statement headline, a hairline tile grid, and one rounded dark chapter with a tabbed feature list. PTN's own logo and blue/green replace ClickUp's purple and pink gradients.

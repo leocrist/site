@@ -169,6 +169,43 @@ ${footer()}
 }
 
 /* ---------- Shared blocks ---------- */
+const ledger = items => `<dl class="ledger">${items.map(([v, l]) => `<div><dt>${l}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
+
+// Offset (minutes ahead of UTC) for an IANA zone right now; Node ships full ICU.
+const tzOffset = (tz, d = new Date()) => {
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).formatToParts(d).map(x => [x.type, x.value]));
+  return Math.round((Date.UTC(+p.year, p.month - 1, +p.day, +p.hour, +p.minute) - d.getTime()) / 60000);
+};
+const hhmm = m => { m = ((m % 1440) + 1440) % 1440; return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; };
+const OPEN = 540, CLOSE = 1050; // 09:00 to 17:30 local, office hours to confirm
+const tzBlock = (headingId = 'tz-h') => {
+  const diff = tzOffset('Australia/Melbourne') - tzOffset('Asia/Ho_Chi_Minh');
+  const pc = m => (m / 1440 * 100).toFixed(3) + '%';
+  const shared = (CLOSE - OPEN - diff) / 60;
+  const work = (cls, from, to, label, key) => `<span class="tz__work${cls}" data-work="${key}" style="left:${pc(from)};width:${pc(to - from)}">${label}</span>`;
+  return `
+<section class="section" aria-labelledby="${headingId}"><div class="wrap">
+  <div class="sec-head"><p class="eyebrow">Dual-hub delivery</p><h2 class="h2" id="${headingId}">Led in Melbourne. Built in Can Tho.</h2>
+    <p class="lead">Can Tho runs <span data-tz-diff>${diff / 60}</span> hours behind Melbourne (three in winter, four during Australian daylight saving). Every working day both teams share a block of live hours for stand-ups, reviews and decisions.</p></div>
+  <div class="tz" data-tz data-open="${OPEN}" data-close="${CLOSE}">
+    <div class="tz__scale" aria-hidden="true"><span></span><ol>${[0, 3, 6, 9, 12, 15, 18, 21, 24].map(h => `<li>${String(h).padStart(2, '0')}</li>`).join('')}</ol></div>
+    <div class="tz__row"><div class="tz__who"><b>Melbourne</b><span>Headquarters · <span data-clock="Australia/Melbourne">${hhmm(new Date().getUTCHours() * 60 + new Date().getUTCMinutes() + tzOffset('Australia/Melbourne'))}</span> now</span></div>
+      <div class="tz__track">${work('', OPEN, CLOSE, '09:00 to 17:30', 'mel')}<span class="tz__now" data-now></span></div></div>
+    <div class="tz__row"><div class="tz__who"><b>Can Tho</b><span>Delivery centre · <span data-clock="Asia/Ho_Chi_Minh">${hhmm(new Date().getUTCHours() * 60 + new Date().getUTCMinutes() + tzOffset('Asia/Ho_Chi_Minh'))}</span> now</span></div>
+      <div class="tz__track">${work('', OPEN + diff, Math.min(1440, CLOSE + diff), '09:00 to 17:30 Can Tho', 'vn')}<span class="tz__now" data-now></span></div></div>
+    <div class="tz__row"><div class="tz__who"><b>Shared hours</b><span data-tz-summary>${shared} h a day, ${hhmm(OPEN + diff)} to ${hhmm(CLOSE)}</span></div>
+      <div class="tz__track">${work(' tz__work--overlap', OPEN + diff, CLOSE, '', 'both')}<span class="tz__now" data-now></span></div></div>
+    <p class="sr-only" data-tz-text>Shared hours: ${hhmm(OPEN + diff)} to ${hhmm(CLOSE)} Melbourne time, which is ${hhmm(OPEN)} to ${hhmm(CLOSE - diff)} in Can Tho, ${shared} hours a day.</p>
+    <div class="tz__legend" aria-hidden="true"><span>Timeline in Melbourne time</span><span><i style="background:var(--blue-tint);border:1px solid var(--blue)"></i>Office hours</span><span><i style="background:var(--night)"></i>Both teams online</span><span><i style="background:var(--danger)"></i>Now</span></div>
+  </div>
+  <p class="tbc-key" style="margin-top:12px">Office hours shown as 09:00 to 17:30 local time (to confirm). Live times use your browser clock.</p>
+  <div class="tz__addr">
+    <address><b>Melbourne</b>Level 11, 101 Bourke Street, Melbourne VIC 3000<br><span class="muted">Client accountability, solution architecture, engagement management</span></address>
+    <address><b>Can Tho</b>R&amp;D Technology Park, Can Tho, Vietnam<br><span class="muted">${ENG}&nbsp;engineers, AI labs and DevSecOps on ISO-certified infrastructure</span></address>
+  </div>
+</div></section>`;
+};
+
 const cta = (h, p, primary = ['contact.html', 'Book a discovery call'], secondary = ['case-studies.html', 'See case studies']) => `
 <section class="section--tight" aria-labelledby="cta-h">
   <div class="night-wrap"><div class="wrap"><div class="cta night reveal">
@@ -223,7 +260,7 @@ const ENGAGE = [
   ['AI Strategy & PoC Lab', '6-week sprint', 'Time-boxed discovery to assess AI readiness, build a working proof of concept and design an ROI-driven roadmap.', ['Executive AI feasibility analysis', 'Security and compliance sandbox testing', 'Working prototype demonstration']],
 ];
 const engageRows = () => `<div class="rows">${ENGAGE.map(([t, tag, d, li], i) => `
-  <article class="row reveal"><span class="num">0${i + 1}</span>
+  <article class="row reveal">
     <div><span class="chip tag">${tag}</span><h3>${t}</h3></div>
     <div><p>${d}</p></div>
     <ul>${li.map(x => `<li>${ic('check')}${x}</li>`).join('')}</ul>
@@ -291,7 +328,7 @@ page({
   <ul><li>The Florey</li><li>CCIA</li><li>oncall</li><li>interpreters</li><li>ReadyTech</li><li>soundstack</li></ul>
 </div></section>
 
-<section class="section statement" aria-labelledby="challenge-h"><div class="wrap">
+<section class="section--loose statement" aria-labelledby="challenge-h"><div class="wrap">
   <p class="eyebrow">The challenge</p>
   <h2 class="h1 two-tone" id="challenge-h" style="margin-top:16px">AI velocity is easy to promise. <span class="dim">Stability is hard to keep.</span></h2>
   <p class="lead">Delivery roadmaps can't keep pace with customer expectations, and AI adopted without guardrails puts your IP and security at risk and leaves you with architectural sprawl. We re-engineer your software lifecycle with both in mind.</p>
@@ -307,17 +344,16 @@ page({
     <div><p class="eyebrow">Capabilities</p><h2 class="h2" id="cap-h" style="margin-top:16px">One partner from architecture to AI in production</h2></div>
     <a class="link" href="services.html">All services ${ic('arrow')}</a>
   </div>
-  <div class="tiles">
-    <a class="tile tile--feature" href="ai-transformation.html"><span class="glow"></span><span class="num">01</span><div><h3>AI-Augmented Delivery</h3><p style="margin-top:12px">Copilots, synthetic test generation and automated refactoring built into your GitHub or GitLab pipeline.</p></div><span class="more">Explore the model ${ic('arrow')}</span></a>
-    <a class="tile" href="ai-engineering.html">${ic('bot', 'ti')}<b>AI agents</b><p>Multi-step reasoning, tool use and human-in-the-loop.</p></a>
-    <a class="tile" href="ai-engineering.html">${ic('db', 'ti')}<b>Enterprise RAG</b><p>Hybrid search over your own repositories.</p></a>
-    <a class="tile" href="ai-engineering.html">${ic('eye', 'ti')}<b>Computer vision</b><p>Document OCR, defect detection, edge inference.</p></a>
-    <a class="tile" href="ai-engineering.html">${ic('wave', 'ti')}<b>NLP &amp; speech</b><p>Multilingual ASR, TTS and intent classification.</p></a>
-    <a class="tile" href="services.html#software">${ic('cloud', 'ti')}<b>Cloud native</b><p>AWS and Azure platforms built for zero downtime.</p></a>
-    <a class="tile" href="services.html#software">${ic('swap', 'ti')}<b>Legacy modernisation</b><p>Monoliths to event-driven services, safely.</p></a>
-    <a class="tile tile--feature g2" href="ai-engineering.html"><span class="glow"></span><span class="num">02</span><div><h3>AI Engineering &amp; LLMs</h3><p style="margin-top:12px">Domain-tailored intelligence: retrieval-augmented generation, workflow agents, document intelligence and predictive models.</p></div><span class="more">Explore AI platforms ${ic('arrow')}</span></a>
-    <a class="tile" href="services.html#emerging">${ic('chip', 'ti')}<b>Industrial IoT</b><p>Sensor networks and edge telemetry.</p></a>
-    <a class="tile" href="services.html#software">${ic('shield', 'ti')}<b>DevSecOps</b><p>Security gates on every branch.</p></a>
+  <div class="cap-features">
+    <a class="tile tile--feature" href="ai-transformation.html"><span class="glow"></span><div><p class="eyebrow">Flagship</p><h3 style="margin-top:12px">AI-Augmented Delivery</h3><p style="margin-top:12px">Copilots, synthetic test generation and automated refactoring built into your GitHub or GitLab pipeline, with a human approval at every gate.</p></div><span class="more">Explore the model ${ic('arrow')}</span></a>
+    <a class="tile tile--feature g2" href="ai-engineering.html"><span class="glow"></span><div><p class="eyebrow">Enterprise AI</p><h3 style="margin-top:12px">AI Engineering &amp; LLMs</h3><p style="margin-top:12px">Retrieval-augmented generation, workflow agents, document intelligence and predictive models, built on your own data.</p></div><span class="more">Explore AI platforms ${ic('arrow')}</span></a>
+  </div>
+  <div class="cap-index">
+    ${[
+      ['AI engineering', [['ai-engineering.html', 'AI agents', 'Multi-step reasoning with human-in-the-loop'], ['ai-engineering.html', 'Enterprise RAG', 'Hybrid search over your repositories'], ['ai-engineering.html', 'Computer vision', 'Document OCR, defect detection'], ['ai-engineering.html', 'NLP &amp; speech', 'Multilingual ASR, TTS, intent']]],
+      ['Software engineering', [['services.html#software', 'Cloud-native platforms', 'AWS and Azure, zero downtime'], ['services.html#software', 'Legacy modernisation', 'Monolith to event-driven services'], ['services.html#software', 'DevSecOps delivery', 'Security gates on every branch'], ['services.html#engage', 'Dedicated pods', 'Senior squads in your sprints']]],
+      ['Emerging technologies', [['services.html#emerging', 'Industrial IoT', 'Sensor networks, edge telemetry'], ['services.html#emerging', 'Edge AI inference', 'Models running on site'], ['services.html#emerging', 'Digital twins', 'Model operations before changing them'], ['services.html#emerging', 'Data mesh', 'Domain-owned data products']]],
+    ].map(([h, items]) => `<div><h3>${h}</h3><ul>${items.map(([href, t, d]) => `<li><a href="${href}"><span><span>${t}</span><small>${d}</small></span>${ic('arrow')}</a></li>`).join('')}</ul></div>`).join('')}
   </div>
 </div></section>
 
@@ -330,25 +366,11 @@ ${modelBlock('model-h', 'How we work', 'One model across the lifecycle. <span cl
 
 <section class="section section--alt" aria-labelledby="proof-h"><div class="wrap">
   <h2 class="sr-only" id="proof-h">What clients say</h2>
-  <div class="proof">
-    ${testimonial()}
-    <div class="stats">
-      <div class="stat"><b>98.4%</b><span>Client retention rate</span></div>
-      <div class="stat"><b>4.9 / 5</b><span>Executive partner NPS</span></div>
-      <div class="stat"><b>2019</b><span>Founded in Melbourne</span></div>
-      <div class="stat"><b>ISO 27001</b><span>Independently audited by CPG</span></div>
-    </div>
-  </div>
+  <div style="max-width:880px">${testimonial()}</div>
+  <div style="margin-top:48px">${ledger([['Since 2019', 'Founded in Melbourne'], ['98.4%', 'Client retention'], ['4.9 / 5', 'Executive partner NPS'], ['ISO/IEC 27001', 'Audited by CPG']])}</div>
 </div></section>
 
-<section class="section" aria-labelledby="hubs-h"><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">Dual-hub delivery</p><h2 class="h2" id="hubs-h">Led in Melbourne. Built in Can Tho.</h2></div>
-  <div class="hubs">
-    <article class="hub reveal"><p class="eyebrow">Headquarters · AEST (UTC+10)</p><h3>Melbourne</h3><address>Level 11, 101 Bourke Street, Melbourne VIC 3000</address><p class="muted">Client accountability, solution architecture and engagement management.</p><div class="chips"><span class="chip">Governance</span><span class="chip">Architecture</span></div></article>
-    <div class="hub-link" aria-hidden="true">${ic('swap')}</div>
-    <article class="hub reveal"><p class="eyebrow">Delivery centre · ICT (UTC+7)</p><h3>Can Tho</h3><address>R&amp;D Technology Park, Can Tho, Vietnam</address><p class="muted">Full-stack squads, AI labs and DevSecOps pipelines on ISO-certified infrastructure.</p><div class="chips"><span class="chip">${ENG}&nbsp;engineers</span><span class="chip">ISO 27001 facility</span></div></article>
-  </div>
-</div></section>
+${tzBlock()}
 
 ${cta("Let's build what's next, together", 'Book a technical assessment with our Melbourne architecture leads. We review your cloud maturity and model integration path, then propose a sprint roadmap.')}
 `});
@@ -370,7 +392,7 @@ ${pageHero({ crumb: 'Services', eyebrow: 'What we do', h1: 'From technology chal
 <section class="section--tight" id="disciplines" aria-labelledby="disc-h"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Full lifecycle practice</p><h2 class="h2" id="disc-h">Four core disciplines</h2></div>
   <div class="rows">${DISC.map(([id, t, tag, d, chips, href, lt], i) => `
-    <article class="row reveal" id="${id}"><span class="num">0${i + 1}</span>
+    <article class="row reveal" id="${id}">
       <div><span class="chip tag">${tag}</span><h3>${t}</h3></div>
       <div><p>${d}</p><div class="chips">${chips.map(c => `<span class="chip">${c}</span>`).join('')}</div></div>
       <a class="link" href="${href}">${lt} ${ic('arrow')}</a>
@@ -378,13 +400,17 @@ ${pageHero({ crumb: 'Services', eyebrow: 'What we do', h1: 'From technology chal
 </div></section>
 
 <section class="section section--alt" aria-labelledby="impact-h"><div class="wrap">
-  <div class="sec-head"><p class="eyebrow">Measurable business impact</p><h2 class="h2" id="impact-h">Benchmarked against hard commercial indicators</h2><p class="lead">Every engagement is tracked with project telemetry and governance audits. Figures below are the outcomes PTN reports; publish them with their source and timeframe.</p></div>
-  <div class="stats stats--4">
-    <div class="stat"><b>+42%</b><span>Higher productivity: AI-assisted sprint velocity</span></div>
-    <div class="stat"><b>2.8x</b><span>Faster time to market</span></div>
-    <div class="stat"><b>35%</b><span>Reduced cost through blended delivery</span></div>
-    <div class="stat"><b>35–50%</b><span>Cycle time reduction with AI-augmented QA</span></div>
-  </div>
+  <div class="sec-head"><p class="eyebrow">Measurable business impact</p><h2 class="h2" id="impact-h">Benchmarked against hard commercial indicators</h2><p class="lead">Every engagement is tracked with project telemetry and governance audits.</p></div>
+  <div class="table-wrap" tabindex="0" role="region" aria-label="Reported business impact (scrolls sideways on small screens)"><table class="impact">
+    <caption class="sr-only">Reported business impact</caption>
+    <thead><tr><th scope="col">Indicator</th><th scope="col">Reported outcome</th><th scope="col">Where it comes from</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Productivity</th><td class="val">+42%</td><td>AI-assisted sprint velocity, measured against the pre-engagement baseline</td></tr>
+      <tr><th scope="row">Time to market</th><td class="val">2.8x</td><td>Concept architecture to compliant production</td></tr>
+      <tr><th scope="row">Cost</th><td class="val">−35%</td><td>Blended Melbourne and Can Tho delivery with senior oversight</td></tr>
+      <tr><th scope="row">QA cycle time</th><td class="val">−35 to 50%</td><td>Synthetic test generation and self-healing regression suites</td></tr>
+    </tbody></table></div>
+  <p class="tbc-key" style="margin-top:12px">Figures as reported by PTN. Add the source engagement and timeframe for each before launch.</p>
 </div></section>
 
 <section class="section" aria-labelledby="gov-h"><div class="wrap">
@@ -427,7 +453,7 @@ ${modelBlock('model-h', 'Lifecycle methodology', 'The PTN AI-Augmented Engineeri
 <section class="section" id="offerings" aria-labelledby="off-h"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Consultancy offerings</p><h2 class="h2" id="off-h">Four ways to start</h2><p class="lead">Structured for engineering leaders who want repeatable velocity without compromising IP or code integrity.</p></div>
   <div class="rows">${AIT.map(([t, d, f], i) => `
-    <article class="row reveal"><span class="num">0${i + 1}</span><div><h3>${t}</h3></div><div><p>${d}</p></div><a class="link" href="contact.html?focus=${encodeURIComponent(f)}">Discuss ${f.toLowerCase()} ${ic('arrow')}</a></article>`).join('')}</div>
+    <article class="row reveal"><div><h3>${t}</h3></div><div><p>${d}</p></div><a class="link" href="contact.html?focus=${encodeURIComponent(f)}">Discuss ${f.toLowerCase()} ${ic('arrow')}</a></article>`).join('')}</div>
 </div></section>
 
 <section class="section section--alt" aria-labelledby="case-h"><div class="wrap">
@@ -436,7 +462,13 @@ ${modelBlock('model-h', 'Lifecycle methodology', 'The PTN AI-Augmented Engineeri
       <p class="lead" style="margin-top:20px">An established financial institution needed to decompose a 14-year-old monolithic ledger. An AI-augmented squad analysed legacy COBOL and Java routines and generated cloud-native microservices with unit test coverage above 92%.</p>
       <div class="chips" style="margin-top:24px"><span class="chip">Zero security exceptions</span><span class="chip">APRA &amp; ISO 27001 audited</span><span class="chip">Melbourne &amp; Can Tho</span></div>
     </div>
-    <div class="stats"><div class="stat"><b>55%</b><span>Faster modernisation</span></div><div class="stat"><b>92%+</b><span>Unit test coverage</span></div><div class="stat"><b>14 yrs</b><span>Legacy ledger decomposed</span></div><div class="stat"><b>0</b><span>Security exceptions</span></div></div>
+    <dl class="spec">
+      <div><dt>Starting point</dt><dd>14-year-old monolithic ledger, COBOL and Java</dd></div>
+      <div><dt>Delivered</dt><dd>Cloud-native microservices, generated and reviewed</dd></div>
+      <div><dt>Unit test coverage</dt><dd>Above 92%</dd></div>
+      <div><dt>Modernisation speed</dt><dd>55% faster than plan</dd></div>
+      <div><dt>Security exceptions</dt><dd>None, APRA and ISO 27001 audited</dd></div>
+    </dl>
   </div>
 </div></section>
 
@@ -466,9 +498,8 @@ ${pageHero({ crumb: '<a href="services.html">Services</a> / AI Engineering', eye
 
 <section class="section--tight" aria-labelledby="caps-h"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Capabilities</p><h2 class="h2" id="caps-h">Six AI engineering capabilities</h2></div>
-  <div class="tiles tiles--3">
-    ${CAPS.map(([i, t, tag, d, chips]) => `<article class="tile" style="min-height:260px">${ic(i, 'ti')}<div><span class="eyebrow">${tag}</span><h3 class="h3" style="margin-top:6px">${t}</h3></div><p style="font-size:.9375rem;color:var(--ink-2)">${d}</p><div class="chips" style="margin-top:auto">${chips.map(c => `<span class="chip">${c}</span>`).join('')}</div></article>`).join('')}
-  </div>
+  <div class="rows">${CAPS.map(([, t, tag, d, chips]) => `
+    <article class="row reveal"><div><span class="chip tag">${tag}</span><h3>${t}</h3></div><div><p>${d}</p></div><div class="chips">${chips.map(c => `<span class="chip">${c}</span>`).join('')}</div></article>`).join('')}</div>
 </div></section>
 
 <section class="section section--alt" aria-labelledby="mat-h"><div class="wrap">
@@ -523,7 +554,7 @@ ${pageHero({ crumb: 'Industries', eyebrow: 'Industries', h1: 'Real experience ac
   </div>
   <p class="filter-status" id="sector-status" role="status">Showing 6 of 6 sectors</p>
   <div class="sector-list" style="margin-top:16px">${SECTORS.map(([t, g, d, chips, cs], i) => `
-    <article class="sector" data-group="${g}"><span class="num">0${i + 1}</span><h3>${t}</h3>
+    <article class="sector" data-group="${g}"><h3>${t}</h3>
       <div><p>${d}</p><div class="chips">${chips.map(c => `<span class="chip">${c}</span>`).join('')}</div></div>
       ${cs ? `<a class="link" href="case-studies.html#${cs}">Read the case study ${ic('arrow')}</a>` : `<a class="link" href="contact.html?focus=${encodeURIComponent(t)}">Discuss a ${t.toLowerCase()} project ${ic('arrow')}</a>`}
     </article>`).join('')}</div>
@@ -549,12 +580,7 @@ ${pageHero({ crumb: 'Industries', eyebrow: 'Industries', h1: 'Real experience ac
 
 <section class="section" aria-labelledby="track-h"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Proven outcomes</p><h2 class="h2" id="track-h">Cross-domain delivery track record</h2><p class="lead">One delivery methodology, certified by CPG and governed by ISO-mandated confidentiality.</p></div>
-  <div class="stats stats--4">
-    <div class="stat"><b>98%</b><span>On-time sprints on a two-week cadence</span></div>
-    <div class="stat"><b>${tbc('120+', 'the Services page shows both 120+ and 115 enterprise deployments')}</b><span>Enterprise deployments</span></div>
-    <div class="stat"><b>ISO 27001</b><span>Independently audited ISMS</span></div>
-    <div class="stat"><b>Since 2019</b><span>Sustained technology partnerships</span></div>
-  </div>
+  ${ledger([['98%', 'On-time sprints'], [tbc('120+', 'the Services page shows both 120+ and 115 enterprise deployments'), 'Enterprise deployments'], ['ISO/IEC 27001', 'Independently audited'], ['Since 2019', 'Sustained partnerships']])}
   <div class="panel" style="margin-top:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
     <div style="max-width:60ch"><b style="font-size:1.125rem">Confidentiality and IP protection</b><p>Every engagement runs on isolated development environments, under strict NDAs and contracts governed by Australian law.</p></div>
     <a class="btn btn--line" href="${CERT_URL}" target="_blank" rel="noopener">View the audit certificate<span class="sr-only"> (opens in a new tab)</span> ${ic('link2')}</a>
@@ -609,19 +635,14 @@ page({
   body: `
 ${pageHero({ crumb: 'Company', eyebrow: 'Who we are', h1: 'Offshore engineering, led from Melbourne', lead: 'Founded in Melbourne by Tam Phan, PTN Global partners with forward-thinking enterprises to build, modernise and scale software through custom AI, cloud architecture and disciplined delivery from Vietnam.', actions: `<a class="btn" href="contact.html">Talk to a Melbourne lead</a>` })}
 
-<section aria-label="Company at a glance"><div class="wrap"><div class="stats stats--4">
-  <div class="stat"><b>2019</b><span>Founded in Melbourne</span></div>
-  <div class="stat"><b>${ENG}</b><span>Engineers in Can Tho</span></div>
-  <div class="stat"><b>98.4%</b><span>Client retention rate</span></div>
-  <div class="stat"><b>ISO 27001</b><span>Certified, CPG audited</span></div>
-</div><p class="tbc-key" style="margin-top:12px"><span class="tbc">Dotted</span> = figure to confirm before launch (conflicting values on the current site).</p></div></section>
+<section aria-label="Company at a glance"><div class="wrap">${ledger([['2019', 'Founded in Melbourne'], [ENG, 'Engineers in Can Tho'], ['98.4%', 'Client retention'], ['ISO/IEC 27001', 'Audited by CPG']])}<p class="tbc-key" style="margin-top:12px"><span class="tbc">Dotted</span> = figure to confirm before launch (conflicting values on the current site).</p></div></section>
 
 <section class="section" aria-labelledby="pil-h"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Operating architecture</p><h2 class="h2" id="pil-h">Three pillars of global capability</h2><p class="lead">Executive leadership rooted in Australian enterprise accountability, amplified by Vietnam's software engineering ecosystem.</p></div>
-  <div class="grid-3">
-    <article class="panel reveal"><p class="eyebrow">Governance &amp; strategy</p><h3>Australia headquarters</h3><p>Level 11, 101 Bourke Street, Melbourne. Client accountability, technology leadership, solution architecture and engagement management.</p><div class="chips"><span class="chip">AEST (UTC+10)</span></div></article>
-    <article class="panel reveal"><p class="eyebrow">Delivery core</p><h3>Vietnam engineering centre</h3><p>Can Tho R&amp;D Technology Park. Full-stack squads, AI research labs, DevSecOps pipelines and ISO-certified infrastructure.</p><div class="chips"><span class="chip">${tbc('200+ seats', 'capacity figure appears as 200+ seats here and 120+/150+ engineers elsewhere')}</span></div></article>
-    <article class="panel reveal"><p class="eyebrow">Squad orchestration</p><h3>Global delivery model</h3><p>One operational rhythm across borders: agile sprints, minimal hand-off friction, English-proficient leads and cultural alignment across Asia-Pacific.</p><div class="chips"><span class="chip">Two-week sprints</span></div></article>
+  <div class="rows">
+    <article class="row reveal"><div><span class="chip tag">Governance &amp; strategy</span><h3>Australia headquarters</h3></div><p>Level 11, 101 Bourke Street, Melbourne. Client accountability, technology leadership, solution architecture and engagement management.</p><div class="chips"><span class="chip">AEST / AEDT</span></div></article>
+    <article class="row reveal"><div><span class="chip tag">Delivery core</span><h3>Vietnam engineering centre</h3></div><p>Can Tho R&amp;D Technology Park. Full-stack squads, AI research labs, DevSecOps pipelines and ISO-certified infrastructure.</p><div class="chips"><span class="chip">${tbc('200+ seats', 'capacity figure appears as 200+ seats here and 120+/150+ engineers elsewhere')}</span></div></article>
+    <article class="row reveal"><div><span class="chip tag">Squad orchestration</span><h3>Global delivery model</h3></div><p>One operational rhythm across borders: two-week sprints, minimal hand-off friction, English-proficient leads and cultural alignment across Asia-Pacific.</p><div class="chips"><span class="chip">Two-week sprints</span></div></article>
   </div>
 </div></section>
 
@@ -635,7 +656,7 @@ ${pageHero({ crumb: 'Company', eyebrow: 'Who we are', h1: 'Offshore engineering,
 
 <section class="section" aria-labelledby="val-h"><div class="wrap">
   <div class="sec-head"><p class="eyebrow">Core values</p><h2 class="h2" id="val-h">Standards we hold in every review, sprint and meeting</h2></div>
-  <div class="values">${VALUES.map(([t, d], i) => `<div><span class="eyebrow">0${i + 1}</span><b>${t}</b><p>${d}</p></div>`).join('')}</div>
+  <div class="values">${VALUES.map(([t, d], i) => `<div><b>${t}</b><p>${d}</p></div>`).join('')}</div>
 </div></section>
 
 <section class="section section--alt" aria-labelledby="sec-gov-h"><div class="wrap">
@@ -652,6 +673,8 @@ ${pageHero({ crumb: 'Company', eyebrow: 'Who we are', h1: 'Offshore engineering,
       <p style="margin-top:12px"><a class="link" href="${CERT_URL}" target="_blank" rel="noopener">Verify on CPG<span class="sr-only"> (opens in a new tab)</span> ${ic('link2')}</a></p></div></div>
   </div>
 </div></section>
+
+${tzBlock('tz-company-h')}
 
 ${cta('Ready to scale with senior offshore teams?', 'Book a discovery conversation with our Melbourne practice leaders. We map your stack, team structure and roadmap in days, not months.')}
 `});
@@ -723,7 +746,7 @@ ${pageHero({ crumb: 'Contact', eyebrow: 'Contact us', h1: "Let's start a convers
   </form>
   <div class="side-stack">
     <div class="panel"><p class="eyebrow">Email us directly</p><p style="margin-top:12px"><a class="link" style="font-size:1.25rem" href="mailto:${EMAIL}">${EMAIL}</a></p><p class="muted" style="font-size:.9375rem">Tech leads are available for NDA-secured architecture calls.</p></div>
-    <div class="panel"><p class="eyebrow">Melbourne · Headquarters</p><address style="font-style:normal;margin-top:12px">Level 11, 101 Bourke Street<br>Melbourne VIC 3000, Australia</address><div class="chips" style="margin-top:12px"><span class="chip">AEST (UTC+10)</span><span class="chip">Executive governance</span></div></div>
+    <div class="panel"><p class="eyebrow">Melbourne · Headquarters</p><address style="font-style:normal;margin-top:12px">Level 11, 101 Bourke Street<br>Melbourne VIC 3000, Australia</address><div class="chips" style="margin-top:12px"><span class="chip">AEST / AEDT</span><span class="chip">Executive governance</span></div></div>
     <div class="panel"><p class="eyebrow">Can Tho · Delivery centre</p><address style="font-style:normal;margin-top:12px">R&amp;D Technology Park<br>Can Tho, Vietnam</address><div class="chips" style="margin-top:12px"><span class="chip">${ENG}&nbsp;engineers</span><span class="chip">ISO 27001 facility</span></div></div>
     <div class="panel panel--blue"><p class="eyebrow">Prefer to read first?</p><p style="margin-top:12px">See how we approach legacy refactoring and GenAI integration.</p><p style="margin-top:16px" class="actions"><a class="btn btn--sm" href="case-studies.html">Read case studies</a><a class="btn btn--sm btn--line" href="ai-transformation.html">Our AI model</a></p></div>
   </div>
