@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Home – Minh Group ST</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&amp;display=swap">
+<style>
+body{margin:0;background:#ffffff;color:#201e1d;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#ca4d25}a:hover{color:#bf4420}
+h1,h2,h3,p,dl,dd,ul{margin:0}ul{padding:0;list-style:none}h1,h2,h3{font-weight:600}
+.mono{font-family:'Inter',system-ui,sans-serif}
+.sec{border-top:1px solid #ebebeb;padding:0 24px}
+.box{position:relative;max-width:1112px;margin:0 auto;border-left:1px solid #ebebeb;border-right:1px solid #ebebeb;box-sizing:border-box}
+.x{position:absolute;top:-5px;width:9px;height:9px;z-index:3;pointer-events:none}
+.x::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;background:#ca4d25}
+.x::after{content:"";position:absolute;top:0;bottom:0;left:4px;width:1px;background:#ca4d25}
+.x.l{left:-5px}.x.r{right:-5px}
+.rg{display:grid;gap:1px;background:#ebebeb}
+.rg>*{background:#ffffff}
+.h2{font-size:48px;line-height:1.1;letter-spacing:-0.01em;max-width:760px;text-wrap:balance}
+.h2 span{color:#ca4d25}
+.lead{font-size:17px;line-height:1.65;color:#5c5c5c;max-width:62ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;font-family:inherit;font-size:14px;font-weight:500;text-decoration:none;box-sizing:border-box;cursor:pointer;white-space:nowrap;transition:background .2s cubic-bezier(.25,1,.5,1),border-color .2s,color .2s}
+.btn svg{transition:transform .3s cubic-bezier(.25,1,.5,1)}.btn:hover svg{transform:translateX(3px)}
+.btn-p{background:#ca4d25;color:#fffaf6;border:1px solid #ca4d25}.btn-p:hover{background:#bf4420;color:#fffaf6}
+.btn-s{background:#ffffff;color:#201e1d;border:1px solid #e0e0e0;box-shadow:0 1px 2px rgb(32 30 29 / 4%)}.btn-s:hover{border-color:#201e1d;color:#201e1d}
+.nav a{color:#5c5c5c;text-decoration:none;font-size:14px;padding:8px 12px;border-radius:8px;transition:background .2s,color .2s}.nav a:hover{background:#f4f4f5;color:#201e1d}.nav a.on{color:#201e1d;background:#f4f4f5}
+.lang{display:flex;gap:2px;padding:3px;border-radius:10px;background:#f4f4f5}.lang button{min-width:40px;min-height:34px;border:0;border-radius:7px;background:transparent;font-family:'Inter',system-ui,sans-serif;font-size:12px;color:#5c5c5c;cursor:pointer}.lang button[aria-pressed="true"]{background:#ffffff;color:#201e1d;box-shadow:0 1px 2px rgb(32 30 29 / 8%)}
+.cells{position:absolute;inset:-1px -1px auto -1px;height:600px;pointer-events:none;background-image:radial-gradient(circle at center,#e0e0e0 1.5px,transparent 1.6px),linear-gradient(to right,#ebebeb 1px,transparent 1px),linear-gradient(to bottom,#ebebeb 1px,transparent 1px);background-size:calc(100% / 11) 96px;-webkit-mask-image:radial-gradient(42% 60% at 50% 45%,transparent 55%,#000 100%);mask-image:radial-gradient(42% 60% at 50% 45%,transparent 55%,#000 100%)}
+.fade{position:absolute;left:0;right:0;top:440px;height:160px;background:linear-gradient(to bottom,rgb(255 255 255 / 0%),#ffffff);pointer-events:none}
+.px{position:absolute;display:grid;grid-template-columns:repeat(4,6px);gap:3px;transform:translate(-50%,-50%)}
+.px span{width:6px;height:6px;border-radius:1px}
+.px .on{background:#ca4d25;animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+.rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;filter:blur(6px);transform:translateY(14px)}to{opacity:1;filter:none;transform:none}}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:4px;border-radius:999px;border:1px solid #e0e0e0;background:#ffffff;font-size:13px;font-weight:500;color:#201e1d;text-decoration:none;box-shadow:0 1px 2px rgb(32 30 29 / 4%),0 8px 24px -12px rgb(32 30 29 / 8%)}
+.pill:hover{border-color:#ca4d25;color:#201e1d}
+.pill .nb{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:#ca4d25;color:#fff;font-size:12px;font-weight:600}
+.pill .tg{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:999px;background:#fbeee8;color:#a63c1b;transition:transform .2s}
+.pill:hover .tg{transform:translateX(2px)}
+.ask{background:#ffffff;border:1px solid #e0e0e0;border-radius:16px;box-shadow:0 1px 2px rgb(32 30 29 / 4%),0 16px 40px -20px rgb(32 30 29 / 18%);overflow:hidden;text-align:left}
+.chip{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:8px;border:1px solid #ebebeb;background:#ffffff;font-family:inherit;font-size:13px;color:#5c5c5c;cursor:pointer;transition:border-color .2s,color .2s}
+.chip:hover{border-color:#ca4d25;color:#201e1d}.chip[aria-pressed="true"]{background:#201e1d;border-color:#201e1d;color:#ffffff}
+.marq{display:flex;gap:48px;width:max-content;animation:marq 40s linear infinite}.mq:hover .marq{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.lg{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;color:#5c5c5c;white-space:nowrap}
+.lg span{width:28px;height:28px;border-radius:7px;border:1px dashed #d4d4d4;background:#f4f4f5}
+.cell{display:flex;flex-direction:column;gap:10px;padding:32px;text-decoration:none;color:#201e1d;transition:background .25s}
+a.cell:hover{background:#fafafa;color:#201e1d}
+a.cell:hover .go{color:#ca4d25;transform:translate(2px,-2px)}
+.ic{width:48px;height:48px;border-radius:12px;background:#fbeee8;color:#ca4d25;display:flex;align-items:center;justify-content:center;margin-bottom:8px;transition:background .3s cubic-bezier(.25,1,.5,1),color .3s,transform .3s cubic-bezier(.25,1,.5,1)}
+a.cell:hover .ic{background:#ca4d25;color:#fffaf6;transform:translateY(-2px)}
+.go{transition:transform .3s cubic-bezier(.25,1,.5,1),color .2s;color:#a3a3a3}
+.cell h4{margin:0;font-size:17px;font-weight:500}
+.cell p{font-size:14px;line-height:1.6;color:#5c5c5c}
+.tag{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;background:#fbeee8;color:#a63c1b;font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.04em}
+.frow{display:grid;grid-template-columns:16rem minmax(0,1fr);border-top:1px solid #ebebeb}
+.frow>div:first-child{padding:32px 40px;display:flex;flex-direction:column;gap:10px;border-right:1px solid #ebebeb}
+.frow{border-top-color:#f6dfd3}
+.frow>div:first-child{background:#fdf1eb;border-right-color:#f6dfd3}
+.frow .rg{background:#f6dfd3}
+.frow .rg>li>.cell{background:#ffffff;height:100%;box-sizing:border-box}
+.frow a.cell:hover{background:#fdf1eb}
+.frow a.cell:focus-visible{background:#fdf1eb;outline:2px solid #ca4d25;outline-offset:-2px}
+.frow .ic{background:#fdf1eb;box-shadow:none}
+.frow a.cell:hover .ic{background:#ca4d25;box-shadow:none}
+.num{font-family:'Inter',system-ui,sans-serif;font-size:13px;color:#ca4d25}
+.ph{background:repeating-linear-gradient(135deg,#f4f4f5 0 10px,#fafafa 10px 20px);border:1px dashed #d4d4d4;display:flex;align-items:center;justify-content:center;color:#5c5c5c;font-size:13px;text-align:center;padding:16px;box-sizing:border-box}
+label{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:#5c5c5c}
+input,select{min-height:48px;border:1px solid #e0e0e0;border-radius:10px;padding:0 14px;font-family:inherit;font-size:15px;background:#ffffff;color:#201e1d;box-sizing:border-box;transition:border-color .2s}
+input:focus,select:focus{outline:2px solid rgb(202 77 37 / 25%);outline-offset:1px;border-color:#ca4d25}
+.fd{background:#201e1d;color:#d4d4d4;border-top:0;padding:0 24px;overflow:hidden}
+.fd .box{border-color:#34302d}
+.fd .rg{background:#34302d}.fd .rg>*{background:#201e1d}
+.fd .x::before,.fd .x::after{background:#ca4d25}
+.fd .ask{width:100%;max-width:760px;margin-top:56px;box-sizing:border-box}
+.ask-body{padding:24px;display:flex;flex-direction:column;gap:14px}
+.ask-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px 16px;flex-wrap:wrap}
+.ask-q{font-size:17px;font-weight:600;color:#201e1d}
+.ask-note{font-size:13px;color:#8a8a8a}
+.ask-chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:38px;padding:0 14px;border-radius:999px;background:#ffffff}
+.chip[aria-pressed="true"]{background:#fdf1eb !important;border-color:#ca4d25 !important;color:#a63c1b !important}
+.ask textarea{width:100%;min-height:84px;resize:vertical;border:1px solid #e0e0e0;border-radius:12px;padding:12px 14px;font-family:inherit;font-size:15px;line-height:1.5;background:#fafafa;color:#201e1d;box-sizing:border-box;transition:border-color .2s,background .2s}
+.ask textarea:focus{outline:2px solid rgb(202 77 37 / 25%);outline-offset:1px;border-color:#ca4d25;background:#ffffff}
+.ask textarea::placeholder,.ask input::placeholder{color:#8a8a8a}
+.ask-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end}
+.ask-phone{color:#5c5c5c}
+.ask-phone input{width:100%}
+.ask input[aria-invalid="true"]{border-color:#b42318}
+.ask-send{min-height:48px}
+.ask-err{min-height:18px;font-size:13px;color:#b42318}
+.ask-foot{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding:14px 24px;border-top:1px solid #ebebeb;background:#fafafa;font-size:14px}
+.ask-foot a{color:#201e1d;font-weight:500}.ask-foot a:hover{color:#ca4d25}
+.ask-done{padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.ask-ok{width:52px;height:52px;border-radius:50%;background:#fdf1eb;color:#ca4d25;display:flex;align-items:center;justify-content:center}
+@media (max-width:640px){.ask{margin-top:40px}.ask-body{padding:16px}.ask-foot{padding:12px 16px}.ask-chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scroll-snap-type:x mandatory;scrollbar-width:none}.ask-chips .chip{flex-shrink:0;scroll-snap-align:start}.ask-row{grid-template-columns:1fr}.ask-send{width:100%}}
+.dk{cursor:pointer;font-family:inherit;padding:0;box-sizing:border-box}
+.dk-chat{background:#ca4d25;border-color:#ca4d25;color:#fffaf6;width:56px;height:56px;border-radius:16px}
+.dk-chat:hover{background:#bf4420}
+.chatpop{position:fixed;right:88px;bottom:20px;width:400px;max-width:calc(100vw - 108px);max-height:calc(100vh - 40px);overflow:auto;z-index:31;background:#ffffff;border:1px solid #e0e0e0;border-radius:16px;box-shadow:0 28px 64px -24px rgb(32 30 29 / 40%);text-align:left;animation:pop .28s cubic-bezier(.16,1,.3,1) both;transform-origin:bottom right}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.chat-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 16px;border-bottom:1px solid #ebebeb}
+.chat-x{width:40px;height:40px;border:0;border-radius:10px;background:transparent;color:#5c5c5c;display:flex;align-items:center;justify-content:center;cursor:pointer}.chat-x:hover{background:#f4f4f5;color:#201e1d}
+.chatpop .ask{margin:0;max-width:none;border:0;border-radius:0;box-shadow:none}
+.chatpop .ask-body{padding:16px}
+.chatpop .ask-row{grid-template-columns:1fr}
+.chatpop .ask-send{width:100%}
+.chatpop .ask-foot{padding:12px 16px}
+.chatpop .ask-done{padding:28px 16px}
+@media (max-width:640px){.chatpop{left:12px;right:12px;bottom:88px;width:auto;max-width:none;max-height:calc(100vh - 108px)}.chatpop .ask-chips{margin:0 -16px}}
+@media (prefers-reduced-motion:reduce){.chatpop{animation:none}}
+.hero-strip .ph{height:340px !important;border-radius:0}
+@media (max-width:900px){.hero-strip{grid-template-columns:1fr 1fr !important}.hero-strip .ph:first-child{grid-column:1 / -1}.hero-strip .ph{height:220px !important}}
+.ft a{color:#d4d4d4}.fd .ft a:hover{color:#ffffff}
+.wm{font-size:clamp(48px,10.5vw,150px);line-height:.78;font-weight:600;letter-spacing:-0.01em;color:#2c2927;white-space:nowrap;text-align:center;padding-top:40px;transform:translateY(14%);user-select:none}
+.wm span{color:#ca4d25}
+.ft a{color:#5c5c5c;text-decoration:none;font-size:14px}.ft a:hover{color:#ca4d25}
+.dk{width:48px;height:48px;border-radius:12px;background:#ffffff;border:1px solid #e0e0e0;display:flex;align-items:center;justify-content:center;color:#201e1d;box-shadow:0 8px 24px -12px rgb(32 30 29 / 30%);text-decoration:none;font-size:12px;font-weight:500}
+@media (max-width:900px){.h1{font-size:44px !important}.h2{font-size:32px}.frow{grid-template-columns:1fr}.frow>div:first-child{border-right:0;border-bottom:1px solid #ebebeb;padding:28px 20px}.cell{padding:24px 20px}.pad{padding-left:20px !important;padding-right:20px !important}.px{display:none}.cells{background-size:calc(100% / 4) 96px}.nav{display:none !important}}
+@media (prefers-reduced-motion:reduce){.rise,.px .on,.marq{animation:none}}
+.proc-art{position:relative;display:flex;align-items:center;justify-content:center;padding:40px;background-color:#fff;background-image:radial-gradient(circle at center,#f0c9b6 1.2px,transparent 1.4px);background-size:20px 20px}
+.proc-art svg{width:100%;max-width:440px;height:auto}
+@media (max-width:900px){.proc-head{grid-template-columns:1fr !important}.proc-art{padding:24px 16px}}
+.hn{position:absolute;width:40px;height:40px;transform:translate(-50%,-50%);border-radius:999px;border:1px solid #ebebeb;background:#fff;display:none;place-items:center;pointer-events:none;opacity:0;animation:hnin .6s ease-out forwards}
+.hn svg{width:15px;height:15px;fill:#ca4d25;stroke:#ca4d25;stroke-width:2;stroke-linejoin:round;animation:spin 10s linear infinite}
+.hn.rv svg{animation-direction:reverse;animation-duration:12s}
+@keyframes hnin{to{opacity:1}}
+.hc{position:absolute;box-sizing:border-box;margin:-1px 0 0 -1px;width:calc(100% / 11 + 1px);height:97px;display:none;place-items:center;pointer-events:none;border:1px solid #ebebeb}
+.hc.ic2{background:#fdf1eb;opacity:0;animation:hcfill 9s ease-in-out infinite}
+.hc.ic2 svg{width:24px;height:24px;fill:none;stroke:#ca4d25;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hc.ht{background:repeating-linear-gradient(135deg,#f6dfd3 0 1px,transparent 1px 8px)}
+@keyframes hcfill{0%,8%{opacity:0}18%,62%{opacity:1}72%,100%{opacity:0}}
+@media (min-width:1024px){.hc{display:grid}}
+@media (prefers-reduced-motion:reduce){.hc.ic2{animation:none;opacity:1}}
+
+@media (min-width:1024px){.hn{display:grid}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.hn,.hn svg{animation:none;opacity:1}}
+.faq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px}
+.faq-tag{display:inline-flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid #ebebeb;font-size:14px;font-weight:500;color:#201e1d}
+.faq-spk{width:14px;height:14px;fill:#ca4d25;stroke:#ca4d25;stroke-width:2;stroke-linejoin:round}
+.faq-aside{margin-top:24px;font-size:14px;line-height:1.6;color:#5c5c5c}
+.faq-aside a{color:#ca4d25;font-weight:500;text-decoration:none}
+.faq-aside a:hover{text-decoration:underline}
+.faq-list{margin-top:40px;border-top:1px solid #ebebeb}
+.faq{border-bottom:1px solid #ebebeb}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0;font-size:18px;font-weight:500;color:#201e1d;cursor:pointer;list-style:none;border-radius:8px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:#ca4d25}
+.faq summary:focus-visible{outline:2px solid rgb(202 77 37 / 60%);outline-offset:4px}
+.faq-plus{flex-shrink:0;color:#8a8a8a;transition:transform .2s}
+.faq[open] .faq-plus{transform:rotate(45deg);color:#ca4d25}
+.faq p{padding:0 36px 24px 0;font-size:15px;line-height:1.65;color:#5c5c5c;text-wrap:pretty}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:24px}.faq summary{font-size:16px}.faq p{padding-right:0}}
+.dk-sec{background:#201e1d;border-top-color:#201e1d;color:#f5f3f1}
+.dk-sec .box{border-color:#3a3633}
+.dk-sec .rg{background:#3a3633;border-top-color:#3a3633 !important}
+.dk-sec .rg>*{background:#201e1d}
+.dk-sec .h2{color:#ffffff}.dk-sec .h2 span{color:#ef7a52}
+.dk-sec .cell{color:#f5f3f1}
+.dk-sec a.cell:hover{background:#2a2725;color:#ffffff}
+.dk-sec a.cell:hover h4{color:#ef7a52}
+.dk-sec .cell .mono{color:#a39d98 !important}
+.dk-sec .ph{background:repeating-linear-gradient(135deg,#2a2725 0 10px,#252220 10px 20px);border-color:#4a4542;color:#a39d98}
+.dk-sec .btn-s{background:transparent;color:#ffffff;border-color:#4a4542}
+.dk-sec .btn-s:hover{border-color:#ef7a52;color:#ef7a52}
+.dk-sec + .sec{border-top-color:#201e1d}
+.frow>div:first-child{position:relative;overflow:hidden;padding-top:72px}
+.frow>div:first-child::before{content:"";position:absolute;top:0;left:0;width:88px;height:88px;background:repeating-linear-gradient(135deg,#ca4d25 0 1.5px,transparent 1.5px 7px);opacity:.55;-webkit-mask-image:linear-gradient(135deg,#000 0%,#000 35%,transparent 70%);mask-image:linear-gradient(135deg,#000 0%,#000 35%,transparent 70%);pointer-events:none}
+@media (max-width:900px){.frow>div:first-child{padding-top:56px}.frow>div:first-child::before{width:64px;height:64px}}
+.vband{background:#ca4d25;color:#ffffff;overflow:hidden;padding:28px 0;border-top:1px solid #ca4d25}
+.vb-track{display:flex;align-items:center;gap:40px;width:max-content;animation:marq 32s linear infinite;font-size:clamp(40px,6vw,88px);font-weight:500;letter-spacing:-0.02em;line-height:1;white-space:nowrap}
+.vb-spk{width:.5em;height:.5em;fill:#ffffff;stroke:#ffffff;stroke-width:2;stroke-linejoin:round;flex-shrink:0;animation:spin 10s linear infinite}
+.vband:hover .vb-track{animation-play-state:paused}
+.vband + .dk-sec{border-top-color:#ca4d25}
+@media (prefers-reduced-motion:reduce){.vb-track,.vb-spk{animation:none}}
+.mq.dk-sec .mono{color:#a39d98 !important}
+.mq.dk-sec .lg{color:#d6d1cc}
+.mq.dk-sec .lg>span{background:#2a2725;border-color:#5c5652}
+.mq.dk-sec .lg:hover{color:#ffffff}
+.mq.dk-sec + .sec{border-top-color:#201e1d}
+/* Layout grid: gutter mỗi bên = đúng 1 ô lưới; container = --inner ô */
+:root{--inner:11;--cell:min(calc(100vw / 13),128px)}
+@media (max-width:1023px){:root{--inner:10;--cell:calc(100vw / 12)}}
+@media (max-width:767px){:root{--inner:6;--cell:calc((100vw - 32px) / 6)}}
+.sec,.fd{padding-left:0;padding-right:0}
+.box{max-width:none;width:calc(var(--cell) * var(--inner))}
+@media (max-width:767px){.box{width:auto;margin:0 16px}}
+.hero{position:relative;overflow:hidden}
+.cells{left:calc(-1 * var(--cell) - 1px);right:calc(-1 * var(--cell) - 1px);background-size:var(--cell) 96px}
+.hc{width:calc(var(--cell) + 1px)}
+.hs-wrap{position:relative;margin-top:64px;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;border-top:1px solid #ebebeb}
+.hs-track{display:flex;gap:1px;width:max-content;margin:0;padding:0;list-style:none;background:#ebebeb;animation:marq 60s linear infinite}
+.hs-wrap:hover .hs-track{animation-play-state:paused}
+.hs-track .ph{height:340px;border:0;border-radius:0;flex-shrink:0}
+.hs-w{width:560px}.hs-n{width:340px}
+@media (max-width:900px){.hs-track .ph{height:220px}.hs-w{width:360px}.hs-n{width:220px}}
+@media (prefers-reduced-motion:reduce){.hs-track{animation:none}.hs-wrap{overflow-x:auto}}
+@media (max-width:900px){.sec dd[style*="56px"]{font-size:40px !important}}
+/* Ảnh nền mờ cho thẻ trụ cột: thay background-image bằng ảnh thật */
+.fcard>*{position:relative;z-index:1}
+.frow>div.fcard{background:#fdf1eb}
+.fcard>.fbg{position:absolute;inset:-12px;z-index:0;background:repeating-linear-gradient(135deg,#e9c3b0 0 14px,#f3d9cb 14px 28px);background-size:cover;background-position:center;filter:blur(3px) saturate(.9);transform:scale(1.04)}
+.fcard::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(180deg,rgb(253 241 235 / 72%) 0%,rgb(253 241 235 / 88%) 55%,rgb(253 241 235 / 94%) 100%);pointer-events:none}
+.frow>div.fcard::before{z-index:1}
+.fcard>.fbg-cap{position:absolute;right:10px;bottom:8px;z-index:1;font-size:10px;color:#a63c1b;opacity:.7}
+.fcard h3{color:#201e1d}.fcard p{color:#3d3a38 !important}
+.ph.hasimg{position:relative;padding:0;overflow:hidden;background:#e7e2de}
+.ph.hasimg>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ph.hasimg>.cr{position:absolute;right:6px;bottom:6px;padding:2px 6px;border-radius:4px;background:rgb(32 30 29 / 55%);color:#fff;font-size:10px;line-height:1.4;max-width:calc(100% - 12px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fcard>.fbg{background-size:cover !important;background-position:center !important}
+.dk-sec .ph.hasimg{border:0}
+.fcard>.fbg{filter:none !important;transform:none !important;inset:0 !important}
+.fcard::after{background:linear-gradient(135deg,rgb(253 241 235 / 96%) 0%,rgb(253 241 235 / 90%) 35%,rgb(253 241 235 / 55%) 60%,rgb(253 241 235 / 0%) 90%) !important;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);-webkit-mask-image:linear-gradient(135deg,#000 40%,transparent 88%);mask-image:linear-gradient(135deg,#000 40%,transparent 88%)}
+.fcard h3{font-size:24px !important;line-height:1.25}
+.fcard p{font-size:16px !important;line-height:1.55 !important}
+@media (max-width:900px){.fcard h3{font-size:20px !important}.fcard p{font-size:15px !important}}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:34px;border-radius:7px;font-size:12px;font-weight:500;color:#5c5c5c;text-decoration:none}
+.lang a:hover{color:#201e1d}
+.lang a[aria-current="true"]{background:#ffffff;color:#201e1d;box-shadow:0 1px 2px rgb(32 30 29 / 8%)}
+.lg .lg-m{width:28px;height:28px;border:0 !important;background:none !important;border-radius:0;display:inline-flex;color:inherit;flex-shrink:0}
+.lg .lg-m svg{width:100%;height:100%}
+.lg{font-size:17px;font-weight:600;letter-spacing:-0.01em}
+.lg-brand{font-size:22px;font-weight:800;letter-spacing:.04em}
+.mq.dk-sec .lg{color:#bdb6b0}.mq.dk-sec .lg:hover{color:#ffffff}
+.lgi{display:inline-flex;align-items:center;height:48px;padding:0 8px;opacity:.72;transition:opacity .2s}
+.lgi:hover{opacity:1}.lgi img{display:block;width:auto}
+.mq .marq{gap:72px;align-items:center}
+</style>
+</helmet>
+<div style="min-height: 100vh">
+
+<header style="position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #ebebeb; background: rgb(255 255 255 / 90%); backdrop-filter: blur(12px)">
+<div class="box" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 20px">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #201e1d">
+<img src="../assets/logo-mgst.png" alt="Logo Minh Group ST" width="40" height="40" style="width: 40px; height: 40px; object-fit: contain; mix-blend-mode: multiply">
+<span style="font-weight: 600; font-size: 15px; letter-spacing: .02em">Minh Group ST</span>
+</a>
+<nav class="nav" aria-label="Main navigation" style="display: flex; gap: 2px">
+<a href="Main.dc.html" class="on">Home</a>
+<a href="About.dc.html">About</a>
+<a href="Services.dc.html">Services</a>
+<a href="News.dc.html">News</a>
+<a href="Gallery.dc.html">Gallery</a>
+<a href="Contact.dc.html">Contact</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 8px">
+<div class="lang" role="group" aria-label="Language / Ngôn ngữ"><a href="Main.dc.html" hreflang="vi" lang="vi">VI</a><a href="MainEN.dc.html" aria-current="true" hreflang="en">EN</a></div>
+<a class="btn btn-p" href="Contact.dc.html">Partner with us</a>
+</div>
+</div>
+</header>
+
+<section class="hero">
+<div class="box">
+<div class="cells" aria-hidden="true"></div>
+<span class="hc ic2" aria-hidden="true" style="left: calc(100% * 0 / 11); top: 0px; animation-delay: 0s"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><span class="hc ht" aria-hidden="true" style="left: calc(100% * 9 / 11); top: 0px"></span><span class="hc ic2" aria-hidden="true" style="left: calc(100% * 10 / 11); top: 96px; animation-delay: 2.2s"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"></rect><path d="M11 18h2"></path></svg></span><span class="hc ht" aria-hidden="true" style="left: calc(100% * 0 / 11); top: 192px"></span><span class="hc ic2" aria-hidden="true" style="left: calc(100% * 0 / 11); top: 288px; animation-delay: 4.4s"><svg viewBox="0 0 24 24"><path d="M3 13l18-7-5 14-4-6z"></path><path d="M12 14l9-8"></path></svg></span><span class="hc ic2" aria-hidden="true" style="left: calc(100% * 10 / 11); top: 384px; animation-delay: 6.6s"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="2"></circle><path d="M12 14v6.5M10.2 11 4 9.5M13.8 11 20 9.5"></path></svg></span><span class="hc ic2" aria-hidden="true" style="left: calc(100% * 10 / 11); top: 0px; animation-delay: 3.3s"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h4"></path></svg></span>
+<span class="hn" aria-hidden="true" style="left: calc(100% * 2 / 11); top: 96px; animation-delay: 0.3s"><svg viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></span><span class="hn rv" aria-hidden="true" style="left: calc(100% * 9 / 11); top: 192px; animation-delay: 0.6s"><svg viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></span><span class="hn rv" aria-hidden="true" style="left: calc(100% * 1 / 11); top: 288px; animation-delay: 0.9s"><svg viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></span><span class="hn" aria-hidden="true" style="left: calc(100% * 10 / 11); top: 384px; animation-delay: 1.2s"><svg viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></span>
+<div class="fade" aria-hidden="true"></div>
+<div class="px" aria-hidden="true" style="left: calc(100% * 0.5 / 11); top: 144px"><span class="on"></span><span></span><span></span><span class="on" style="animation-delay: .4s"></span><span></span><span class="on" style="animation-delay: .8s"></span><span class="on" style="animation-delay: 1.2s"></span><span></span><span class="on" style="animation-delay: 1.6s"></span><span></span><span></span><span class="on" style="animation-delay: .2s"></span></div>
+<div class="px" aria-hidden="true" style="left: calc(100% * 10.5 / 11); top: 336px"><span></span><span class="on" style="animation-delay: .6s"></span><span class="on" style="animation-delay: 1s"></span><span></span><span class="on" style="animation-delay: 1.4s"></span><span></span><span></span><span class="on" style="animation-delay: .3s"></span></div>
+
+<div class="pad" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 112px 40px 0">
+<a href="Services.dc.html" class="pill rise" aria-label="New: EU careers and Driving school. See details"><span class="nb">New</span>EU careers and Driving school <span class="tg"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a>
+<h1 class="h1 rise" style="margin-top: 28px; max-width: 900px; font-size: 72px; line-height: 1.04; letter-spacing:-0.01em; text-wrap: balance; animation-delay: .08s">Pioneering digital, <span style="color: #ca4d25">delivering breakthrough results</span></h1>
+<p class="lead rise" style="margin-top: 22px; animation-delay: .16s">Digital services, finance and insurance for the people of the Mekong Delta, plus vocational training and job opportunities in Europe. One point of contact, right in every ward and commune.</p>
+<div class="rise" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 32px; animation-delay: .24s">
+<a class="btn btn-p" href="Services.dc.html">Explore services <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn btn-s" href="Contact.dc.html">Partner with us</a>
+</div>
+
+</div>
+
+<div class="hs-wrap">
+<ul class="hs-track" aria-label="Activity photos"><li class="ph hs-w hasimg"><img src="../assets/photos/mg-a.jpg" alt="Woman in a conical hat on a boat at Can Tho floating market" loading="lazy" decoding="async"><span class="cr">Photo: Vyacheslav Argenberg · CC BY 4.0</span></li><li class="ph hs-n hasimg"><img src="../assets/photos/mg-c.jpg" alt="Learner car with an L plate in a car park" loading="lazy" decoding="async"><span class="cr">Photo: TudorTulok · CC0</span></li><li class="ph hs-n hasimg"><img src="../assets/photos/mg-b.jpg" alt="Street vendor carrying a basket on her head while checking her phone" loading="lazy" decoding="async"><span class="cr">Photo: Peter van der Sluijs · CC BY-SA 3.0</span></li><li class="ph hs-w hasimg"><img src="../assets/photos/mg-g.jpg" alt="Aerial view of Can Tho Bridge" loading="lazy" decoding="async"><span class="cr">Photo: Tuong Lam Photos · CC BY-SA 4.0</span></li><li class="ph hs-n hasimg"><img src="../assets/photos/mg-f.jpg" alt="Motorbike traffic on a Can Tho street" loading="lazy" decoding="async"><span class="cr">Photo: Dragfyre · CC BY-SA 3.0</span></li><li class="ph hs-n hasimg"><img src="../assets/photos/mg-e.jpg" alt="Terminal hall at Frankfurt International Airport" loading="lazy" decoding="async"><span class="cr">Photo: uggboy · CC BY 2.0</span></li><li class="ph hs-w hasimg" aria-hidden="true"><img src="../assets/photos/mg-a.jpg" alt="Woman in a conical hat on a boat at Can Tho floating market" loading="lazy" decoding="async"><span class="cr">Photo: Vyacheslav Argenberg · CC BY 4.0</span></li><li class="ph hs-n hasimg" aria-hidden="true"><img src="../assets/photos/mg-c.jpg" alt="Learner car with an L plate in a car park" loading="lazy" decoding="async"><span class="cr">Photo: TudorTulok · CC0</span></li><li class="ph hs-n hasimg" aria-hidden="true"><img src="../assets/photos/mg-b.jpg" alt="Street vendor carrying a basket on her head while checking her phone" loading="lazy" decoding="async"><span class="cr">Photo: Peter van der Sluijs · CC BY-SA 3.0</span></li><li class="ph hs-w hasimg" aria-hidden="true"><img src="../assets/photos/mg-g.jpg" alt="Aerial view of Can Tho Bridge" loading="lazy" decoding="async"><span class="cr">Photo: Tuong Lam Photos · CC BY-SA 4.0</span></li><li class="ph hs-n hasimg" aria-hidden="true"><img src="../assets/photos/mg-f.jpg" alt="Motorbike traffic on a Can Tho street" loading="lazy" decoding="async"><span class="cr">Photo: Dragfyre · CC BY-SA 3.0</span></li><li class="ph hs-n hasimg" aria-hidden="true"><img src="../assets/photos/mg-e.jpg" alt="Terminal hall at Frankfurt International Airport" loading="lazy" decoding="async"><span class="cr">Photo: uggboy · CC BY 2.0</span></li></ul>
+</div>
+</div>
+</section></div>
+
+
+<section class="vband" aria-label="Core values: Fast, Trusted, Effective">
+<div class="vb-track" aria-hidden="true"><span>Fast</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Trusted</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Effective</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Fast</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Trusted</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Effective</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Fast</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Trusted</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Effective</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Fast</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Trusted</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg><span>Effective</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></div>
+</section>
+
+<section class="sec">
+<div class="box">
+<span class="x l"></span><span class="x r"></span>
+<div class="rg" style="grid-template-columns: 1.5fr repeat(3, minmax(0, 1fr))">
+<div class="pad" style="display: flex; align-items: center; padding: 36px 40px"><p style="font-size: 26px; line-height: 1.4; letter-spacing: -0.01em; text-wrap: pretty">Every day, our network brings digital services to <span style="color: #ca4d25; font-weight: 600">1,000+ people</span> across the Mekong Delta.</p></div>
+<dl style="display: flex; flex-direction: column-reverse; justify-content: center; align-items: center; text-align: center; gap: 4px; padding: 36px 24px; margin: 0"><dt style="font-size: 15px; color: #5c5c5c; margin-top: 8px">points of sale across the provinces</dt><dd style="font-size: 56px; line-height: 1; font-weight: 600; letter-spacing:-0.02em; color: #ca4d25; font-variant-numeric: tabular-nums">1.000+</dd></dl>
+<dl style="display: flex; flex-direction: column-reverse; justify-content: center; align-items: center; text-align: center; gap: 4px; padding: 36px 24px; margin: 0"><dt style="font-size: 15px; color: #5c5c5c; margin-top: 8px">field advisors</dt><dd style="font-size: 56px; line-height: 1; font-weight: 600; letter-spacing:-0.02em; color: #ca4d25; font-variant-numeric: tabular-nums">200+</dd></dl>
+<dl style="display: flex; flex-direction: column-reverse; justify-content: center; align-items: center; text-align: center; gap: 4px; padding: 36px 24px; margin: 0"><dt style="font-size: 15px; color: #5c5c5c; margin-top: 8px">service lines, one point of contact</dt><dd style="font-size: 56px; line-height: 1; font-weight: 600; letter-spacing:-0.02em; color: #ca4d25; font-variant-numeric: tabular-nums">4</dd></dl>
+</div>
+<p class="mono pad" style="border-top: 1px solid #ebebeb; padding: 12px 40px; font-size: 12px; color: #8a8a8a; text-align: center">Figures from the company capability profile, updated [month/year].</p>
+</div>
+</section>
+
+<section class="sec">
+<div class="box">
+<span class="x l"></span><span class="x r"></span>
+<div class="pad" style="padding: 88px 40px; display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center">
+<h2 class="h2" style="text-wrap: balance">One point of contact, <span>four big needs of every family</span></h2>
+<p class="lead">From a first phone set up with VNeID to vehicle insurance, a driving licence and a visa to Europe.</p>
+</div>
+
+<div class="frow">
+<div class="fcard"><span class="fbg" aria-hidden="true" style="background-image: url('../assets/photos/mg-b.jpg')"></span><h3 style="font-size: 20px">Digital &amp; Finance</h3><p style="font-size: 14px; line-height: 1.6; color: #5c5c5c">With banks and local authorities, right in every commune.</p></div>
+<ul class="rg" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20M6 15h4"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Accounts &amp; digital payments</h4><span class="go" aria-hidden="true">↗</span></div><p>On-site guidance, no need to visit a counter.</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10.5" r="2.5"></circle><path d="M5.5 17c.8-1.6 2.1-2.5 3.5-2.5s2.7.9 3.5 2.5M15 10h3M15 14h2"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>VNeID and eTax Mobile</h4><span class="go" aria-hidden="true">↗</span></div><p>Setup, level-2 identification, filing taxes on your phone.</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Microfinance</h4><span class="go" aria-hidden="true">↗</span></div><p>Safe consumer credit with transparent terms.</p></a></li>
+<li><a href="News.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h13v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13M9 7h6M9 11h4"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Public services guide</h4><span class="go" aria-hidden="true">↗</span></div><p>Step-by-step guides, a 3-minute read.</p></a></li>
+</ul>
+</div>
+
+<div class="frow">
+<div class="fcard"><span class="fbg" aria-hidden="true" style="background-image: url('../assets/photos/mg-f.jpg')"></span><h3 style="font-size: 20px">Non-life insurance</h3><p style="font-size: 14px; line-height: 1.6; color: #5c5c5c">Corporate agent for PVI and PTI.</p></div>
+<ul class="rg" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l2-5.5A2 2 0 0 1 6.9 8h10.2A2 2 0 0 1 19 9.5l2 5.5v3H3z"></path><circle cx="7.5" cy="18" r="1.5"></circle><circle cx="16.5" cy="18" r="1.5"></circle><path d="M3 13h18"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Motorbikes &amp; cars</h4><span class="go" aria-hidden="true">↗</span></div><p>Compulsory liability and physical damage cover.</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 6.6a5 5 0 0 0-8.8-1.9 5 5 0 0 0-8.8 1.9c-.9 4 3 7.6 8.8 12.4 5.8-4.8 9.7-8.4 8.8-12.4z"></path><path d="M3.5 12h4l1.5-2.5 3 5 1.5-2.5h7"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Health &amp; accident</h4><span class="go" aria-hidden="true">↗</span></div><p>For individuals and the whole family.</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path><path d="M9 21v-6h6v6"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Property &amp; fire</h4><span class="go" aria-hidden="true">↗</span></div><p>For companies and household businesses.</p></a></li>
+<li><a href="Contact.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5M9 14l2 2 4-4"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Claims support</h4><span class="go" aria-hidden="true">↗</span></div><p>A local advisor walks you through the paperwork.</p></a></li>
+</ul>
+</div>
+
+<div class="frow">
+<div class="fcard"><span class="fbg" aria-hidden="true" style="background-image: url('../assets/photos/mg-e.jpg')"></span><h3 style="font-size: 20px">Work in Europe</h3><span class="tag" style="align-self: flex-start">New</span><p style="font-size: 14px; line-height: 1.6; color: #5c5c5c">Licence no. [Licence no.].</p></div>
+<ul class="rg" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Germany, Poland, Hungary</h4><span class="go" aria-hidden="true">↗</span></div><p>Plus Romania and Slovakia.</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Five sectors</h4><span class="go" aria-hidden="true">↗</span></div><p>Welding, nursing, food processing, construction, hospitality.</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"></path><path d="M9 8h6M9 12h6M9 16h3"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Transparent costs</h4><span class="go" aria-hidden="true">↗</span></div><p>Every fee itemised in the contract.</p></a></li>
+<li><a href="News.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4z"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Life at work</h4><span class="go" aria-hidden="true">↗</span></div><p>Guides to culture and working conditions.</p></a></li>
+</ul>
+</div>
+
+<div class="frow">
+<div class="fcard"><span class="fbg" aria-hidden="true" style="background-image: url('../assets/photos/mg-c.jpg')"></span><h3 style="font-size: 20px">Driver training</h3><span class="tag" style="align-self: flex-start">New</span><p style="font-size: 14px; line-height: 1.6; color: #5c5c5c">Licence classes under the 2024 law.</p></div>
+<ul class="rg" style="grid-template-columns: repeat(2, minmax(0, 1fr))">
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="17" r="3"></circle><circle cx="19" cy="17" r="3"></circle><path d="M5 17l4-7h5l5 7M14 10l-1.5-4H16"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Motorcycle A1, A</h4><span class="go" aria-hidden="true">↗</span></div><p>All-inclusive fee [price].</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="2"></circle><path d="M12 14v7M10 12H3.5M14 12h6.5"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Car class B</h4><span class="go" aria-hidden="true">↗</span></div><p>Automatic or manual, evening classes available.</p></a></li>
+<li><a href="Services.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9h4l3 3v4h-7z"></path><circle cx="6.5" cy="17.5" r="1.5"></circle><circle cx="17" cy="17.5" r="1.5"></circle></svg></span><div style="display: flex; justify-content: space-between"><h4>Truck class C1</h4><span class="go" aria-hidden="true">↗</span></div><p>Vehicles from 3.5 to 7.5 tonnes.</p></a></li>
+<li><a href="Gallery.dc.html" class="cell"><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4M7 12l3-3 2 2 4-4"></path></svg></span><div style="display: flex; justify-content: space-between"><h4>Training yard, DAT cars, 3D simulator</h4><span class="go" aria-hidden="true">↗</span></div><p>See our facilities.</p></a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="sec mq dk-sec">
+<div class="box">
+<span class="x l"></span><span class="x r"></span>
+<div class="rg" style="grid-template-columns: auto minmax(0, 1fr)">
+<p class="mono pad" style="display: flex; align-items: center; padding: 24px 40px; font-size: 13px; color: #5c5c5c; white-space: nowrap">Partners</p>
+<div style="overflow: hidden; padding: 24px 0; -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)">
+<div class="marq">
+<span class="lgi"><img src="../assets/logos/pvi-w.png" alt="PVI Insurance" style="height: 36px"></span><span class="lgi"><img src="../assets/logos/pti-w.png" alt="PTI – Post &amp; Telecommunication Insurance" style="height: 40px"></span><span class="lgi"><img src="../assets/logos/vcb-w.png" alt="Vietcombank" style="height: 34px"></span><span class="lgi"><img src="../assets/logos/agri-w.png" alt="Agribank" style="height: 22px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/pvi-w.png" alt="" style="height: 36px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/pti-w.png" alt="" style="height: 40px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/vcb-w.png" alt="" style="height: 34px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/agri-w.png" alt="" style="height: 22px"></span>
+<span class="lgi" aria-hidden="true"><img src="../assets/logos/pvi-w.png" alt="" style="height: 36px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/pti-w.png" alt="" style="height: 40px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/vcb-w.png" alt="" style="height: 34px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/agri-w.png" alt="" style="height: 22px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/pvi-w.png" alt="" style="height: 36px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/pti-w.png" alt="" style="height: 40px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/vcb-w.png" alt="" style="height: 34px"></span><span class="lgi" aria-hidden="true"><img src="../assets/logos/agri-w.png" alt="" style="height: 22px"></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="box">
+<span class="x l"></span><span class="x r"></span>
+<div class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)">
+<div class="pad" style="padding: 88px 40px; display: flex; flex-direction: column; gap: 20px">
+<h2 class="h2" style="font-size: 44px">Field presence <span>no app can replicate</span></h2>
+<p class="lead">We work with local authorities on community digital transformation programmes. 200+ field staff operate alongside our online customer care.</p>
+<a href="Market.dc.html" class="btn btn-s" style="align-self: flex-start">See our competitive strengths</a>
+</div>
+<div class="ph hasimg" style="min-height: 460px; border: 0"><img src="../assets/photos/mg-h.jpg" alt="Vegetable stall at a Can Tho market" loading="lazy" decoding="async"><span class="cr">Photo: Franzfoto · CC BY-SA 3.0</span></div>
+</div>
+</div>
+</section>
+
+<section class="sec dk-sec">
+<div class="box">
+<span class="x l"></span><span class="x r"></span>
+<div class="pad" style="padding: 72px 40px 48px; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+<h2 class="h2" style="font-size: 40px">Recent <span>activity</span></h2>
+<a href="News.dc.html" class="btn btn-s">All articles</a>
+</div>
+<div class="rg" style="grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #ebebeb">
+<a href="News.dc.html" class="cell"><div class="ph hasimg" style="height: 180px; border-radius: 10px"><img src="../assets/photos/mg-a.jpg" alt="Woman in a conical hat on a boat at Can Tho floating market" loading="lazy" decoding="async"><span class="cr">Photo: Vyacheslav Argenberg · CC BY 4.0</span></div><span class="mono" style="font-size: 12px; color: #8a8a8a">[dd/mm/yyyy] · Digital</span><h4 style="line-height: 1.4">[Article title]</h4></a>
+<a href="News.dc.html" class="cell"><div class="ph hasimg" style="height: 180px; border-radius: 10px"><img src="../assets/photos/mg-g.jpg" alt="Aerial view of Can Tho Bridge" loading="lazy" decoding="async"><span class="cr">Photo: Tuong Lam Photos · CC BY-SA 4.0</span></div><span class="mono" style="font-size: 12px; color: #8a8a8a">[dd/mm/yyyy] · Agreements</span><h4 style="line-height: 1.4">[Article title]</h4></a>
+<a href="News.dc.html" class="cell"><div class="ph hasimg" style="height: 180px; border-radius: 10px"><img src="../assets/photos/mg-e.jpg" alt="Terminal hall at Frankfurt International Airport" loading="lazy" decoding="async"><span class="cr">Photo: uggboy · CC BY 2.0</span></div><span class="mono" style="font-size: 12px; color: #8a8a8a">[dd/mm/yyyy] · Partnerships</span><h4 style="line-height: 1.4">[Article title]</h4></a>
+</div>
+</div>
+</section>
+
+<section class="sec" aria-labelledby="faq-title">
+<div class="box">
+<span class="x l"></span><span class="x r"></span>
+<div class="pad faq-grid" style="padding: 88px 40px">
+<div>
+<h2 id="faq-title" class="h2" style="font-size: 44px">Frequently asked <span>questions</span></h2>
+<p class="faq-aside">Can’t find what you need?<br><a href="tel:0939980090">Call 0939 980 090</a></p>
+</div>
+<div style="min-width: 0">
+<div class="faq-list" style="margin-top: 0">
+<details class="faq"><summary>What documents should I bring to a service point?<svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></summary><p>Your chip-based citizen ID card covers most procedures: opening an account, activating VNeID level 2, buying vehicle insurance. For a claim, also bring your vehicle registration and insurance certificate.</p></details>
+<details class="faq"><summary>Is buying insurance through Minh Group different from buying directly from PVI or PTI?<svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></summary><p>Policies are issued by PVI and PTI themselves, with the same benefits. The difference is a local advisor in your commune who handles renewals, reminders and claims, so you don’t have to call a hotline yourself.</p></details>
+<details class="faq"><summary>Do you charge fees upfront for the Europe work programme?<svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></summary><p>Consultation and the initial document check are free. Fees apply only after the contract is signed, within the legal caps and itemised in the contract. Overseas employment service licence: [Licence no.].</p></details>
+<details class="faq"><summary>Which licence classes does the driving school teach?<svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></summary><p>We currently train classes A1, A, B (manual and automatic) and C1 under the 2024 Road Traffic Order and Safety Law, with evening and weekend classes for working people.</p></details>
+<details class="faq"><summary>What do I need to become an agent or point of sale?<svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></summary><p>A stable business premises and a person in charge with a smartphone. Minh Group provides training, an account and point-of-sale materials.</p></details>
+<details class="faq"><summary>How soon will someone call me back?<svg class="faq-plus" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg></summary><p>During business hours (7:30 – 17:30, Mon – Sat), a local advisor calls back within 30 minutes. Outside hours, we call at the start of the next working session.</p></details>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="box">
+<span class="x l"></span><span class="x r"></span>
+<div class="rg proc-head" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)">
+<div class="pad" style="padding: 88px 40px 56px; display: flex; flex-direction: column; justify-content: flex-end; gap: 20px">
+<h2 class="h2">You call once, <span>we handle the rest</span></h2>
+</div>
+<div class="proc-art" aria-hidden="true">
+<svg viewBox="0 0 520 240" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M70 170 C 140 170, 150 80, 200 80 S 280 170, 330 170 S 410 80, 450 80" stroke="#ca4d25" stroke-width="1.5" stroke-dasharray="4 6"></path>
+<g><rect x="46" y="146" width="48" height="48" rx="12" fill="#fff8f4" stroke="#ca4d25"></rect><rect x="62" y="156" width="16" height="28" rx="3" stroke="#ca4d25" stroke-width="1.6"></rect><path d="M68 179h4" stroke="#ca4d25" stroke-width="1.6"></path></g>
+<g><rect x="176" y="56" width="48" height="48" rx="12" fill="#fff8f4" stroke="#ca4d25"></rect><circle cx="200" cy="74" r="6" stroke="#ca4d25" stroke-width="1.6"></circle><path d="M189 92c2-6 6-9 11-9s9 3 11 9" stroke="#ca4d25" stroke-width="1.6"></path></g>
+<g><rect x="306" y="146" width="48" height="48" rx="12" fill="#fff8f4" stroke="#ca4d25"></rect><path d="M330 182s-10-8-10-15a10 10 0 0 1 20 0c0 7-10 15-10 15z" stroke="#ca4d25" stroke-width="1.6"></path><circle cx="330" cy="167" r="3" stroke="#ca4d25" stroke-width="1.6"></circle></g>
+<g><rect x="426" y="56" width="48" height="48" rx="12" fill="#ca4d25" stroke="#ca4d25"></rect><path d="M440 80l7 7 13-14" stroke="#fff" stroke-width="2"></path></g>
+<g font-family="Inter, sans-serif" font-size="11" fill="#8a8a8a" stroke="none"><text x="70" y="214" text-anchor="middle">01</text><text x="200" y="124" text-anchor="middle">02</text><text x="330" y="214" text-anchor="middle">03</text><text x="450" y="124" text-anchor="middle">04</text></g>
+</svg>
+</div>
+</div>
+<ol class="rg" style="grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #ebebeb; margin: 0; padding: 0; list-style: none">
+<li class="cell" style="padding: 32px"><span class="num">Step 1</span><h4>Leave your number</h4><p>Via the form below, Zalo OA or our hotline.</p></li>
+<li class="cell" style="padding: 32px"><span class="num">Step 2</span><h4>A local advisor calls back</h4><p>The person responsible for your commune.</p></li>
+<li class="cell" style="padding: 32px"><span class="num">Step 3</span><h4>Meet at the nearest point</h4><p>Or we come to your home.</p></li>
+<li class="cell" style="padding: 32px"><span class="num">Step 4</span><h4>Done, with follow-up</h4><p>Renewal reminders, claims support, check-ins.</p></li>
+</ol>
+<div class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); border-top: 1px solid #ebebeb; gap: 0; background: #ffffff">
+<div class="pad" style="padding: 88px 40px; display: flex; flex-direction: column; gap: 20px">
+<h2 class="h2" style="font-size: 36px">Start with <span>step 1</span></h2>
+<p class="lead">A local advisor calls back during business hours.</p>
+<a href="tel:0939980090" style="display: flex; flex-direction: column; gap: 4px; margin-top: 12px; text-decoration: none; color: #201e1d"><span class="mono" style="font-size: 13px; color: #5c5c5c">Hotline</span><span style="font-size: 36px; font-weight: 500; letter-spacing:-0.01em">0939 980 090</span></a>
+<a href="mailto:minhgroupst@mgst.com.vn" class="mono" style="font-size: 14px">minhgroupst@mgst.com.vn</a>
+</div>
+<form class="pad" style="padding: 56px 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-content: center; background: #ffffff">
+<label>Full name<input type="text" placeholder="Nguyen Van A" autocomplete="name"></label>
+<label>Phone number<input type="tel" placeholder="09xx xxx xxx" autocomplete="tel"></label>
+<label>Service of interest<select><option>Digital, finance</option><option>Non-life insurance</option><option>Work in Europe</option><option>Driver training</option><option>Agent partnership</option></select></label>
+<label>Area<select><option>Can Tho City</option><option>An Giang</option><option>Đồng Tháp</option><option>Vĩnh Long</option><option>Cà Mau</option><option>Other province</option></select></label>
+<button type="button" class="btn btn-p" style="grid-column: 1 / -1; min-height: 48px">Request a consultation</button>
+<p style="grid-column: 1 / -1; font-size: 12px; color: #8a8a8a">Your data is protected under Decree 13/2023/ND-CP.</p>
+</form>
+</div>
+</div>
+</section>
+
+<footer class="fd">
+<div class="box">
+<div class="rg ft" style="grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr))">
+<div class="pad" style="padding: 56px 40px 40px; display: flex; flex-direction: column; gap: 12px"><img src="../assets/logo-mgst.png" alt="Logo Minh Group ST" width="48" height="48" style="width: 48px; height: 48px; object-fit: contain; border-radius: 12px; background: #ffffff; padding: 4px"><span style="font-weight: 600; color: #ffffff">Minh Group ST Co., Ltd.</span><span style="font-size: 14px; line-height: 1.6; color: #a3a3a3">[Head office address], Can Tho City<br>Tax ID: [Tax code]</span><a href="tel:0939980090" style="font-size: 22px; font-weight: 500; color: #ffffff; margin-top: 4px">0939 980 090</a><a href="mailto:minhgroupst@mgst.com.vn" style="font-size: 14px">minhgroupst@mgst.com.vn</a></div>
+<div style="padding: 56px 32px 40px; display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 13px; font-weight: 600; color: #ffffff">About</span><a href="About.dc.html">Company profile</a><a href="History.dc.html">History</a><a href="Organization.dc.html">Organisation</a><a href="Leadership.dc.html">Leadership</a></div>
+<div style="padding: 56px 32px 40px; display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 13px; font-weight: 600; color: #ffffff">Services</span><a href="Services.dc.html">Digital</a><a href="Services.dc.html">Insurance</a><a href="Services.dc.html">Work in Europe</a><a href="Services.dc.html">Driving</a></div>
+<div style="padding: 56px 32px 40px; display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 13px; font-weight: 600; color: #ffffff">Connect</span><a href="https://zalo.me/">Zalo OA</a><a href="https://facebook.com/">Facebook</a><a href="News.dc.html">News</a><a href="Gallery.dc.html">Gallery</a></div>
+</div>
+<p class="mono pad" style="border-top: 1px solid #34302d; padding: 16px 40px; font-size: 12px; color: #8a8a8a; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px"><span>© 2026 Minh Group ST</span><span>Fast · Trusted · Effective</span></p>
+<div class="wm" aria-hidden="true">MINH GROUP<span>.</span></div>
+</div>
+</footer>
+
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<div class="chatpop" role="dialog" aria-label="Quick consult">
+<div class="chat-top">
+<span style="display: flex; align-items: center; gap: 10px"><img src="../assets/logo-mgst.png" alt="" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain"><span style="display: flex; flex-direction: column"><b style="font-size: 15px; font-weight: 600; color: #201e1d">Quick consult</b><span style="font-size: 12px; color: #8a8a8a">Minh Group ST</span></span></span>
+<button type="button" class="chat-x" aria-label="Close quick consult" onClick="{{toggle}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div class="ask">
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div class="ask-done" role="status">
+<span class="ask-ok" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<p class="ask-q">We’ve received your request</p>
+<p style="font-size: 14px; line-height: 1.6; color: #5c5c5c; max-width: 44ch">An advisor for {{svcLabel}} will call {{phone}} back during business hours.</p>
+<button type="button" class="btn btn-s" onClick="{{reset}}">Send another request</button>
+</div>
+</sc-if>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<div class="ask-body">
+<div class="ask-head"><label for="ask-msg" class="ask-q">What do you need help with?</label><span class="ask-note">Pick one or describe it yourself</span></div>
+<div class="ask-chips" role="group" aria-label="Quick service picker">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="6">
+<button type="button" class="chip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button>
+</sc-for>
+</div>
+<textarea id="ask-msg" rows="2" placeholder="{{placeholder}}" onInput="{{onMsg}}"></textarea>
+<div class="ask-row">
+<label class="ask-phone">Phone number<input type="tel" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" onInput="{{onPhone}}" aria-invalid="{{phoneInvalid}}" aria-describedby="ask-err"></label>
+<button type="button" class="btn btn-p ask-send" onClick="{{submit}}">Send request <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+</div>
+<p id="ask-err" class="ask-err" role="alert">{{errText}}</p>
+</div>
+<div class="ask-foot"><a href="tel:0939980090">Or call 0939 980 090</a><a href="https://zalo.me/">Message us on Zalo OA</a></div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<div aria-label="Quick contact" style="position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 8px; z-index: 30">
+<a class="dk" href="https://zalo.me/" aria-label="Zalo OA" style="color: #0068ff">Zalo</a>
+<a class="dk" href="https://m.me/" aria-label="Facebook Messenger"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.6 3 11.2c0 2.5 1.2 4.7 3.1 6.2V21l3-1.7c.9.3 1.9.4 2.9.4 5 0 9-3.6 9-8.3S17 3 12 3z"></path><path d="M7.5 13l3-3 2.5 2 3.5-3"></path></svg></a>
+<a class="dk" href="tel:0939980090" aria-label="Call hotline 0939 980 090"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></a>
+<button type="button" class="dk dk-chat" aria-label="Open quick consult" aria-expanded="{{openStr}}" onClick="{{toggle}}">
+<sc-if value="{{notOpen}}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"></path></svg></sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></sc-if>
+</button>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const svc = st.svc ?? 0;
+    const defs = [
+      { label: 'Accounts, VNeID', ph: 'E.g. I need VNeID level 2 set up for my parents' },
+      { label: 'Vehicle insurance', ph: 'E.g. Renew compulsory liability cover for my motorbike' },
+      { label: 'Claims', ph: 'E.g. My bike was scraped and I need to file a claim' },
+      { label: 'Work in Europe', ph: 'E.g. I’m 25 and want to work as a nurse in Germany' },
+      { label: 'Driving lessons', ph: 'E.g. Class B automatic, evening schedule' },
+      { label: 'Become an agent', ph: 'E.g. I own a shop in Vinh Long and want to become a point of sale' }
+    ];
+    const digits = (st.phone || '').replace(/\D/g, '');
+    const valid = /^0\d{9}$/.test(digits);
+    const bad = !!st.tried && !valid;
+    return {
+      chips: defs.map((d, i) => ({ label: d.label, pressed: i === svc ? 'true' : 'false', pick: () => this.setState({ svc: i }) })),
+      placeholder: defs[svc].ph,
+      svcLabel: defs[svc].label,
+      phone: digits,
+      onMsg: (e) => this.setState({ msg: e.target.value }),
+      onPhone: (e) => this.setState({ phone: e.target.value }),
+      phoneInvalid: bad ? 'true' : 'false',
+      errText: bad ? 'Please enter a 10-digit phone number starting with 0.' : '',
+      submit: () => valid ? this.setState({ sent: true, tried: false }) : this.setState({ tried: true }),
+      reset: () => this.setState({ sent: false, phone: '', msg: '', tried: false }),
+      open: !!st.open,
+      notOpen: !st.open,
+      openStr: st.open ? 'true' : 'false',
+      toggle: () => this.setState({ open: !st.open }),
+      sent: !!st.sent,
+      notSent: !st.sent
+    };
+  }
+}
+</script>
+</body>
+</html>

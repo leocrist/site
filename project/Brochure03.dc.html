@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Brochure 03 · Hệ sinh thái</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap">
+<style>
+body{margin:0}
+
+
+:root{
+  --or:#ca4d25;--or-d:#a93d1b;--or-s:#f7e6dd;
+  --ink:#1c1a17;--mut:#6f685f;--paper:#faf8f4;--dk:#161412;--dk2:#211e1b;
+  --ln:rgba(28,26,23,.10);--lnd:rgba(255,255,255,.08);
+  --u:15mm;--top:13.5mm;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"ss01","cv11","tnum"}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;background-color:var(--paper);
+  background-image:linear-gradient(to right,var(--ln) .18mm,transparent .18mm),linear-gradient(to bottom,var(--ln) .18mm,transparent .18mm);
+  background-size:var(--u) var(--u);background-position:0 var(--top);break-after:page;margin:0 auto}
+.page.dark{background-color:var(--dk);color:#f3efe9;
+  background-image:linear-gradient(to right,var(--lnd) .18mm,transparent .18mm),linear-gradient(to bottom,var(--lnd) .18mm,transparent .18mm)}
+
+/* grid placement: --c col (0..13), --r row (0..18), --w, --h in cells */
+.g{position:absolute;left:calc(var(--c)*var(--u));top:calc(var(--top) + var(--r)*var(--u));
+   width:calc(var(--w,1)*var(--u));height:calc(var(--h,1)*var(--u))}
+.fill{background:var(--paper)}
+.dark .fill{background:var(--dk)}
+.pad{padding:3.2mm 3.4mm}
+
+/* crosshair at intersection */
+.x{position:absolute;left:calc(var(--c)*var(--u) - 2mm);top:calc(var(--top) + var(--r)*var(--u) - 2mm);width:4mm;height:4mm}
+.x:before,.x:after{content:"";position:absolute;background:var(--or)}
+.x:before{left:1.9mm;top:0;width:.22mm;height:4mm}
+.x:after{top:1.9mm;left:0;height:.22mm;width:4mm}
+
+.mono{font-family:'JetBrains Mono',monospace;font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase}
+.lbl{color:var(--or)}
+.mut{color:var(--mut)}
+.dark .mut{color:#a59d93}
+h1,h2,h3{font-weight:300;letter-spacing:-.02em}
+.h2{font-size:25pt;line-height:1.08;font-weight:300;letter-spacing:-.025em}
+.h2 b{font-weight:600;color:var(--or)}
+.h3{font-size:10.5pt;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.p{font-size:8.4pt;line-height:1.5;font-weight:400}
+.ps{font-size:7.4pt;line-height:1.45}
+.ic{width:6mm;height:6mm;stroke:var(--or);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.img{object-fit:cover;display:block}
+.cr{position:absolute;right:1.6mm;bottom:1.4mm;font-family:'JetBrains Mono',monospace;font-size:4.6pt;color:#fff;background:rgba(0,0,0,.45);padding:.5mm 1.2mm;letter-spacing:.04em}
+.hatch{background:repeating-linear-gradient(135deg,var(--or) 0 .3mm,transparent .3mm 2.2mm)}
+.hatch-w{background:repeating-linear-gradient(135deg,rgba(255,255,255,.55) 0 .3mm,transparent .3mm 2.2mm)}
+
+/* running header / footer */
+.hd{display:flex;align-items:center;justify-content:space-between;padding:0 0 0 0}
+.brand{display:flex;align-items:center;gap:2.4mm;font-weight:600;font-size:8pt;letter-spacing:.02em}
+.brand img{height:6.4mm;width:auto;display:block}
+.ft{display:flex;align-items:center;justify-content:space-between}
+.pg{font-family:'JetBrains Mono',monospace;font-size:6.2pt;letter-spacing:.08em}
+.pg b{color:var(--or);font-weight:400}
+
+.big{font-weight:200;font-size:96pt;line-height:.8;letter-spacing:-.06em;color:var(--or)}
+.num{font-weight:600;font-size:34pt;line-height:1;letter-spacing:-.04em;color:var(--or)}
+.chip{display:inline-flex;align-items:center;gap:1.4mm;border:.2mm solid currentColor;border-radius:10mm;padding:1mm 2.6mm;font-size:7pt;font-weight:500}
+.flex{display:flex}.col{flex-direction:column}.jb{justify-content:space-between}.ae{align-items:flex-end}.ac{align-items:center}
+.sv{display:flex;gap:3mm}
+.sv .ib{flex:none;width:var(--u);height:var(--u);background:var(--or-s);display:grid;place-items:center}
+.dark .sv .ib{background:var(--dk2)}
+.tobottom{height:calc(297mm - var(--top) - var(--r)*var(--u))!important}
+.arrow{color:var(--or);font-weight:300}
+
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+  <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+  <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"></path></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 14.5h4"></path></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"></path><circle cx="12" cy="11" r="2.6"></circle><path d="M8 16.5c1-2 7-2 8 0"></path></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"></path></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"></path><circle cx="8" cy="16.5" r="1.6"></circle><circle cx="16" cy="16.5" r="1.6"></circle><path d="M4 12h16"></path></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"></path><path d="M10 20v-5h4v5"></path></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 8h14M5 8l-2.5 6a2.8 2.8 0 0 0 5 0zM19 8l-2.5 6a2.8 2.8 0 0 0 5 0z"></path></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"></path></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.6-4.6"></path></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"></rect><path d="M4 12h16M12 4v16"></path></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"></path></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+</svg>
+<section style="margin:0" class="page dark">
+  <div class="g fill hd" style="--c:1;--r:0;--w:12;--h:1">
+    <div class="brand"><img src="../assets/logo/mgst-logo-white.svg" alt="Minh Group ST"></div>
+    <div class="pg"><b>03</b> / 08</div>
+  </div>
+  <div class="g fill" style="--c:1;--r:1;--w:9;--h:2;padding-top:4mm">
+    <div class="mono lbl">Hệ sinh thái</div>
+    <h2 class="h2" style="margin-top:4mm">7 trụ cột, <b>một</b> hệ sinh thái.</h2>
+  </div>
+
+  <div class="g" style="--c:1;--r:3;--w:7;--h:7">
+    <svg viewBox="0 0 105 105" width="100%" height="100%" style="overflow:visible">
+      <g fill="none" stroke="rgba(255,255,255,.16)" stroke-width=".2">
+        <circle cx="52.5" cy="52.5" r="35"></circle><circle cx="52.5" cy="52.5" r="24" stroke-dasharray=".6 1.2"></circle>
+      </g>
+      <g id="spokes" stroke="rgba(202,77,37,.55)" stroke-width=".25"><line x1="52.5" y1="39.5" x2="52.5" y2="21.5"></line><line x1="62.663809272084386" y1="44.39463257583647" x2="76.73677595650892" y2="33.171816142379264"></line><line x1="65.17406285836371" y1="55.39277214143209" x2="82.72276527763654" y2="59.39814895264575"></line><line x1="58.14048860852826" y1="64.21259528273146" x2="65.9503959126443" y2="80.43003490497499"></line><line x1="46.85951139147174" y1="64.21259528273146" x2="39.0496040873557" y2="80.43003490497499"></line><line x1="39.825937141636295" y1="55.39277214143209" x2="22.277234722363467" y2="59.39814895264575"></line><line x1="42.33619072791561" y1="44.39463257583647" x2="28.26322404349107" y2="33.171816142379264"></line></g>
+      <circle cx="52.5" cy="52.5" r="13" fill="#ca4d25"></circle>
+      <text x="52.5" y="51.2" text-anchor="middle" fill="#fff" font-family="Inter" font-weight="600" font-size="5">MINH</text>
+      <text x="52.5" y="57" text-anchor="middle" fill="#fff" font-family="Inter" font-weight="300" font-size="4">GROUP ST</text>
+      <g id="nodes"><circle cx="52.5" cy="17.5" r="4" fill="#161412" stroke="#ca4d25" stroke-width="0.3"></circle><text x="52.5" y="18.6" text-anchor="middle" fill="#ca4d25" font-family="JetBrains Mono" font-size="3">01</text><text x="52.5" y="8" text-anchor="middle" fill="#f3efe9" font-family="Inter" font-weight="500" font-size="3.6">Công nghệ</text><circle cx="79.86410188638104" cy="30.677856934944327" r="4" fill="#161412" stroke="#ca4d25" stroke-width="0.3"></circle><text x="79.86410188638104" y="31.777856934944328" text-anchor="middle" fill="#ca4d25" font-family="JetBrains Mono" font-size="3">02</text><text x="84.90058522859331" y="24.566448718215728" text-anchor="start" fill="#f3efe9" font-family="Inter" font-weight="500" font-size="3.6">Tài chính</text><circle cx="86.62247692636382" cy="60.288232688471005" r="4" fill="#161412" stroke="#ca4d25" stroke-width="0.3"></circle><text x="86.62247692636382" y="61.38823268847101" text-anchor="middle" fill="#ca4d25" font-family="JetBrains Mono" font-size="3">03</text><text x="93.39682813600024" y="63.490921094077834" text-anchor="start" fill="#f3efe9" font-family="Inter" font-weight="500" font-size="3.6">Bảo hiểm</text><circle cx="67.68593086911454" cy="84.03391037658467" r="4" fill="#161412" stroke="#ca4d25" stroke-width="0.3"></circle><text x="67.68593086911454" y="85.13391037658467" text-anchor="middle" fill="#ca4d25" font-family="JetBrains Mono" font-size="3">04</text><text x="69.59088452117255" y="94.64263018770644" text-anchor="start" fill="#f3efe9" font-family="Inter" font-weight="500" font-size="3.6">An sinh</text><circle cx="37.31406913088547" cy="84.03391037658467" r="4" fill="#161412" stroke="#ca4d25" stroke-width="0.3"></circle><text x="37.31406913088547" y="85.13391037658467" text-anchor="middle" fill="#ca4d25" font-family="JetBrains Mono" font-size="3">05</text><text x="35.409115478827445" y="94.64263018770644" text-anchor="end" fill="#f3efe9" font-family="Inter" font-weight="500" font-size="3.6">Địa phương</text><circle cx="18.377523073636176" cy="60.288232688471005" r="4" fill="#161412" stroke="#ca4d25" stroke-width="0.3"></circle><text x="18.377523073636176" y="61.38823268847101" text-anchor="middle" fill="#ca4d25" font-family="JetBrains Mono" font-size="3">06</text><text x="11.603171863999762" y="63.49092109407784" text-anchor="end" fill="#f3efe9" font-family="Inter" font-weight="500" font-size="3.6">Đối tác</text><circle cx="25.135898113618953" cy="30.67785693494433" r="4" fill="#161412" stroke="#ca4d25" stroke-width="0.3"></circle><text x="25.135898113618953" y="31.77785693494433" text-anchor="middle" fill="#ca4d25" font-family="JetBrains Mono" font-size="3">07</text><text x="20.099414771406686" y="24.56644871821573" text-anchor="end" fill="#f3efe9" font-family="Inter" font-weight="500" font-size="3.6">Doanh nghiệp</text></g>
+    </svg>
+  </div>
+
+  <div class="g fill" style="--c:9;--r:3;--w:4;--h:7;display:grid;grid-template-rows:repeat(7,1fr)" id="pillars"><div style="display: flex; gap: 3mm; align-items: center; border-top: 0.2mm solid rgba(255, 255, 255, 0.3);"><span class="mono lbl" style="width:5mm">01</span><div><div style="font-size:8.6pt;font-weight:600">Công nghệ</div><div class="ps mut" style="margin-top:.6mm">Giải pháp số hóa hiện đại</div></div></div><div style="display: flex; gap: 3mm; align-items: center; border-top: 0.2mm solid rgba(255, 255, 255, 0.12);"><span class="mono lbl" style="width:5mm">02</span><div><div style="font-size:8.6pt;font-weight:600">Tài chính</div><div class="ps mut" style="margin-top:.6mm">Mạng lưới 12+ ngân hàng đối tác</div></div></div><div style="display: flex; gap: 3mm; align-items: center; border-top: 0.2mm solid rgba(255, 255, 255, 0.12);"><span class="mono lbl" style="width:5mm">03</span><div><div style="font-size:8.6pt;font-weight:600">Bảo hiểm</div><div class="ps mut" style="margin-top:.6mm">Sản phẩm bảo vệ từ PVI, PTI, TASCO</div></div></div><div style="display: flex; gap: 3mm; align-items: center; border-top: 0.2mm solid rgba(255, 255, 255, 0.12);"><span class="mono lbl" style="width:5mm">04</span><div><div style="font-size:8.6pt;font-weight:600">An sinh</div><div class="ps mut" style="margin-top:.6mm">Tuyên truyền BHXH, BHYT sâu rộng</div></div></div><div style="display: flex; gap: 3mm; align-items: center; border-top: 0.2mm solid rgba(255, 255, 255, 0.12);"><span class="mono lbl" style="width:5mm">05</span><div><div style="font-size:8.6pt;font-weight:600">Địa phương</div><div class="ps mut" style="margin-top:.6mm">Đồng hành cùng chính quyền</div></div></div><div style="display: flex; gap: 3mm; align-items: center; border-top: 0.2mm solid rgba(255, 255, 255, 0.12);"><span class="mono lbl" style="width:5mm">06</span><div><div style="font-size:8.6pt;font-weight:600">Đối tác</div><div class="ps mut" style="margin-top:.6mm">Cùng phát triển, chia sẻ giá trị</div></div></div><div style="display: flex; gap: 3mm; align-items: center; border-top: 0.2mm solid rgba(255, 255, 255, 0.12);"><span class="mono lbl" style="width:5mm">07</span><div><div style="font-size:8.6pt;font-weight:600">Doanh nghiệp</div><div class="ps mut" style="margin-top:.6mm">Marketing &amp; phát triển thị trường</div></div></div></div>
+  <div class="x" style="--c:9;--r:3"></div><div class="x" style="--c:13;--r:10"></div>
+
+  <div class="g fill" style="--c:1;--r:11;--w:12;--h:1;display:flex;align-items:center"><div class="mono lbl">Lợi thế cạnh tranh cốt lõi</div></div>
+  <div class="g fill pad" style="--c:1;--r:12;--w:4;--h:2;padding-left:0">
+    <svg class="ic"><use href="#i-pin"></use></svg>
+    <div class="h3" style="margin-top:2mm">Mạng lưới phủ rộng</div>
+    <p class="ps mut" style="margin-top:1.4mm;padding-right:4mm">Hơn 300 nhân sự hiện diện khắp các địa bàn miền Tây.</p>
+  </div>
+  <div class="g fill pad" style="--c:5;--r:12;--w:4;--h:2">
+    <svg class="ic"><use href="#i-users"></use></svg>
+    <div class="h3" style="margin-top:2mm">Am hiểu bản địa</div>
+    <p class="ps mut" style="margin-top:1.4mm">Nắm chính xác thói quen, tâm lý người dân và doanh nghiệp ĐBSCL.</p>
+  </div>
+  <div class="g fill pad" style="--c:9;--r:12;--w:4;--h:2">
+    <svg class="ic"><use href="#i-link"></use></svg>
+    <div class="h3" style="margin-top:2mm">Năng lực thực thi kép</div>
+    <p class="ps mut" style="margin-top:1.4mm">Vừa lập chiến lược, vừa có lực lượng triển khai tận cơ sở.</p>
+  </div>
+
+  <div class="g fill" style="--c:1;--r:14;--w:12;--h:1;display:flex;align-items:center;border-top:.2mm solid rgba(255,255,255,.2)"><div class="mono lbl">Lĩnh vực dịch vụ</div></div>
+  <div class="g fill pad flex col jb" style="--c:1;--r:15;--w:3;--h:2;padding-left:0"><div class="h3">Chuyển đổi số &amp; Số hóa y tế</div><div class="mono mut">01 ··········· Tr. 04</div></div>
+  <div class="g fill pad flex col jb" style="--c:4;--r:15;--w:3;--h:2"><div class="h3">Tài chính – Ngân hàng</div><div class="mono mut">02 ··········· Tr. 05</div></div>
+  <div class="g fill pad flex col jb" style="--c:7;--r:15;--w:3;--h:2"><div class="h3">Bảo hiểm &amp; An sinh xã hội</div><div class="mono mut">03 ··········· Tr. 06</div></div>
+  <div class="g fill pad flex col jb" style="--c:10;--r:15;--w:3;--h:2"><div class="h3">Chi trả BTXH &amp; Dự án</div><div class="mono mut">04 ··········· Tr. 07</div></div>
+
+  <div class="g fill ft" style="--c:1;--r:17;--w:12;--h:1"><span class="mono mut">Năng lực cạnh tranh</span><span class="mono mut">mgst.com.vn</span></div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

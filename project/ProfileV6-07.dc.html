@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Profile B6 · 07 · Hành trình phát triển</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap">
+<style>
+body{margin:0}
+
+
+/* tokens: Brochure 1 ("Ruled Field") */
+:root{
+  --b:0mm;
+  --or:#ca4d25;--or-d:#a93d1b;--or-s:#f7e6dd;
+  --ink:#1c1a17;--mut:#6f685f;--paper:#faf8f4;--dk:#161412;--dk2:#211e1b;--dk3:#2c2824;
+  --ln:rgba(28,26,23,.10);--lnd:rgba(255,255,255,.08);
+  --u:15mm;--top:13.5mm;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact;font-feature-settings:"ss01","cv11","tnum"}
+.page{width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));position:relative;overflow:hidden;break-after:page;
+  background-color:var(--paper);
+  background-image:linear-gradient(to right,var(--ln) .18mm,transparent .18mm),linear-gradient(to bottom,var(--ln) .18mm,transparent .18mm);
+  background-size:var(--u) var(--u);background-position:var(--b) calc(var(--b) + var(--top))}
+.page.dark{background-color:var(--dk);color:#f3efe9;
+  background-image:linear-gradient(to right,var(--lnd) .18mm,transparent .18mm),linear-gradient(to bottom,var(--lnd) .18mm,transparent .18mm)}
+.trim{position:absolute;left:var(--b);top:var(--b);width:210mm;height:297mm}
+
+.g{position:absolute;left:calc(var(--c)*var(--u));top:calc(var(--top) + var(--r)*var(--u));width:calc(var(--w,1)*var(--u));height:calc(var(--h,1)*var(--u))}
+.bleed{left:calc(-1*var(--b));right:calc(-1*var(--b));width:auto}
+.fill{background:var(--paper)}
+.dark .fill{background:var(--dk)}
+.pad{padding:3.2mm 3.4mm}
+.x{position:absolute;left:calc(var(--c)*var(--u) - 2mm);top:calc(var(--top) + var(--r)*var(--u) - 2mm);width:4mm;height:4mm;z-index:3}
+.x:before,.x:after{content:"";position:absolute;background:var(--or)}
+.x:before{left:1.9mm;top:0;width:.22mm;height:4mm}
+.x:after{top:1.9mm;left:0;height:.22mm;width:4mm}
+
+.mono{font-family:"JetBrains Mono",monospace;font-size:6.2pt;letter-spacing:.08em;text-transform:uppercase}
+.lbl{color:var(--or)}
+.mut{color:var(--mut)}
+.dark .mut{color:#a59d93}
+.h2{font-size:25pt;line-height:1.08;font-weight:300;letter-spacing:-.025em}
+.h2 b{font-weight:600;color:var(--or)}
+.h3{font-size:10.5pt;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.p{font-size:8.4pt;line-height:1.5}
+.ps{font-size:7.4pt;line-height:1.45}
+.ic{width:6mm;height:6mm;stroke:var(--or);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.img{object-fit:cover;display:block;width:100%;height:100%}
+.cr{position:absolute;right:1.6mm;bottom:1.4mm;font-family:"JetBrains Mono";font-size:4.6pt;color:#fff;background:rgba(0,0,0,.45);padding:.5mm 1.2mm;letter-spacing:.04em}
+.hatch{background:repeating-linear-gradient(135deg,var(--or) 0 .3mm,transparent .3mm 2.2mm)}
+.hatch-w{background:repeating-linear-gradient(135deg,rgba(255,255,255,.55) 0 .3mm,transparent .3mm 2.2mm)}
+.hd{display:flex;align-items:center;justify-content:space-between}
+.hd img{height:6.4mm;display:block}
+.ft{display:flex;align-items:center;justify-content:space-between}
+.pg{font-family:"JetBrains Mono";font-size:6.2pt;letter-spacing:.08em}
+.pg b{color:var(--or);font-weight:400}
+.big{font-weight:200;font-size:88pt;line-height:.8;letter-spacing:-.06em;color:var(--or)}
+.num{font-weight:600;font-size:30pt;line-height:1;letter-spacing:-.04em;color:var(--or)}
+.num i{font-style:normal;font-weight:300}
+.ib{flex:none;width:11mm;height:11mm;background:var(--or-s);display:grid;place-items:center}
+.dark .ib{background:var(--dk2)}
+.row{display:flex;gap:3.4mm;align-items:center}
+.chip{display:inline-block;border:.2mm solid currentColor;border-radius:10mm;padding:1mm 2.6mm;font-size:7pt;font-weight:500;margin:0 1.4mm 1.6mm 0}
+.rule{position:absolute;height:.2mm;background:var(--ln)}
+
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+  <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+  <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"></path></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 14.5h4"></path></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"></path><circle cx="12" cy="11" r="2.6"></circle><path d="M8 16.5c1-2 7-2 8 0"></path></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-6M21 20H3"></path></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"></path><circle cx="8" cy="16.5" r="1.6"></circle><circle cx="16" cy="16.5" r="1.6"></circle><path d="M4 12h16"></path></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"></path><path d="M10 20v-5h4v5"></path></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 8h14M5 8l-2.5 6a2.8 2.8 0 0 0 5 0zM19 8l-2.5 6a2.8 2.8 0 0 0 5 0z"></path></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"></path></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.6-4.6"></path></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"></rect><path d="M4 12h16M12 4v16"></path></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5c.6 5.2 4.3 8.9 9.5 9.5-5.2.6-8.9 4.3-9.5 9.5-.6-5.2-4.3-8.9-9.5-9.5 5.2-.6 8.9-4.3 9.5-9.5z"></path></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+  <symbol id="i-gov" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"></path></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"></path><path d="M9 4v14M15 6v14"></path></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
+</svg>
+<section style="margin:0" class="page dark"><div class="trim">
+  <div class="g fill hd" style="--c:1;--r:0;--w:12;--h:1"><img src="../assets/logo/mgst-logo-white.svg" alt="Minh Group ST"><div class="pg"><b>07</b> / 08</div></div>
+  <div class="g fill" style="--c:1;--r:1;--w:11;--h:2;padding-top:4mm">
+    <div class="mono lbl">03 · Hành trình phát triển</div>
+    <h2 class="h2" style="margin-top:4mm">18 tháng, <b>11 phòng kinh doanh</b> địa bàn.</h2>
+  </div>
+  <div class="g" style="--c:1;--r:3;--w:12;--h:2"><svg id="ruler" viewBox="0 0 180 30" style="width:100%;height:100%;overflow:visible"><line x1="2" x2="178" y1="16" y2="16" stroke="rgba(255,255,255,.35)" stroke-width="0.25"></line><line x1="2" x2="2" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="2" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">03</text><line x1="11.777777777777779" x2="11.777777777777779" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="11.777777777777779" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">04</text><line x1="21.555555555555557" x2="21.555555555555557" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="21.555555555555557" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">05</text><line x1="31.333333333333336" x2="31.333333333333336" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="31.333333333333336" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">06</text><line x1="41.111111111111114" x2="41.111111111111114" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="41.111111111111114" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">07</text><line x1="50.88888888888889" x2="50.88888888888889" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="50.88888888888889" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">08</text><line x1="60.66666666666667" x2="60.66666666666667" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="60.66666666666667" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">09</text><line x1="70.44444444444446" x2="70.44444444444446" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="70.44444444444446" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">10</text><line x1="80.22222222222223" x2="80.22222222222223" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="80.22222222222223" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">11</text><line x1="90" x2="90" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="90" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">12</text><line x1="99.77777777777779" x2="99.77777777777779" y1="11" y2="18" stroke="#ef7a52" stroke-width="0.35"></line><text x="99.77777777777779" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">01</text><line x1="109.55555555555557" x2="109.55555555555557" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="109.55555555555557" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">02</text><line x1="119.33333333333334" x2="119.33333333333334" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="119.33333333333334" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">03</text><line x1="129.11111111111111" x2="129.11111111111111" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="129.11111111111111" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">04</text><line x1="138.8888888888889" x2="138.8888888888889" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="138.8888888888889" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">05</text><line x1="148.66666666666669" x2="148.66666666666669" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="148.66666666666669" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">06</text><line x1="158.44444444444446" x2="158.44444444444446" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="158.44444444444446" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">07</text><line x1="168.22222222222223" x2="168.22222222222223" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="168.22222222222223" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">08</text><line x1="178" x2="178" y1="14" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.2"></line><text x="178" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="2.1" fill="#a59d93">09</text><text x="2" y="6" font-family="JetBrains Mono" font-size="2.6" fill="#f3efe9">2025</text><text x="99.77777777777779" y="6" font-family="JetBrains Mono" font-size="2.6" fill="#ef7a52">2026</text><circle cx="2" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="11.777777777777779" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="60.66666666666667" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="80.22222222222223" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="99.77777777777779" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="119.33333333333334" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="129.11111111111111" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="148.66666666666669" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="158.44444444444446" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle><circle cx="178" cy="16" r="1.5" fill="#ca4d25" stroke="#161412" stroke-width="0.4"></circle></svg></div>
+  <div class="g fill" style="--c:1;--r:5;--w:6;--h:11;padding-right:5mm" id="y25"><div class="mono mut" style="padding:2mm 0">2025 · Đặt nền móng</div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">03/2025</span><div><div class="h3" style="font-size:9.6pt">Thành lập Công ty TNHH Minh Group ST</div><div class="ps mut" style="margin-top:.8mm">Nền móng vận hành tại miền Tây</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">04/2025</span><div><div class="h3" style="font-size:9.6pt">PKD Tổng hợp, PKD Y &amp; PKD địa bàn 1, 2, 3, 5, 6, 7</div><div class="ps mut" style="margin-top:.8mm">Hợp tác hơn 12 ngân hàng; số hóa y tế &amp; địa phương</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">09/2025</span><div><div class="h3" style="font-size:9.6pt">Thành lập PKD 8</div><div class="ps mut" style="margin-top:.8mm">Mở rộng độ phủ chuyển đổi số</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">11/2025</span><div><div class="h3" style="font-size:9.6pt">Thành lập PKD An sinh</div><div class="ps mut" style="margin-top:.8mm">BHXH, BHYT &amp; an sinh cộng đồng</div></div></div><div style="margin-top:9mm"><div style="font-weight:200;font-size:60pt;letter-spacing:-.05em;line-height:.85;color:#ef7a52">11<span style="font-size:30pt">+1</span></div><div class="ps mut" style="margin-top:3mm">phòng kinh doanh địa bàn và PKD Y sau 18 tháng</div></div></div>
+  <div class="g fill" style="--c:7;--r:5;--w:6;--h:11;padding-left:5mm;border-left:.2mm solid var(--dk3)" id="y26"><div class="mono mut" style="padding:2mm 0">2026 · Hoàn thiện mạng lưới</div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">01/2026</span><div><div class="h3" style="font-size:9.6pt">Thành lập Phòng Dự án</div><div class="ps mut" style="margin-top:.8mm">Hạt nhân chiến lược kinh doanh</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">03/2026</span><div><div class="h3" style="font-size:9.6pt">Thành lập PKD 9</div><div class="ps mut" style="margin-top:.8mm">Tăng cường mạng lưới số hóa</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">04/2026</span><div><div class="h3" style="font-size:9.6pt">Phòng Kế toán – Nhân sự*</div><div class="ps mut" style="margin-top:.8mm">Củng cố quản trị nội bộ</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">06/2026</span><div><div class="h3" style="font-size:9.6pt">Thành lập PKD 4</div><div class="ps mut" style="margin-top:.8mm">Hoàn thiện mắt xích mạng lưới</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">07/2026</span><div><div class="h3" style="font-size:9.6pt">Phòng Chi trả Bảo trợ xã hội</div><div class="ps mut" style="margin-top:.8mm">Chi trả hưu trí, trợ cấp, người có công</div></div></div><div style="display:grid;grid-template-columns:15mm 1fr;gap:2mm;padding:3.4mm 0;border-bottom:.2mm solid var(--lnd)"><span class="mono" style="color:#ef7a52;font-size:7pt;letter-spacing:.04em">09/2026</span><div><div class="h3" style="font-size:9.6pt">Thành lập PKD 10 &amp; PKD 11</div><div class="ps mut" style="margin-top:.8mm">Đủ 11 phòng kinh doanh địa bàn</div></div></div></div>
+  <div class="x" style="--c:7;--r:5"></div>
+  <div class="g fill" style="--c:1;--r:16;--w:12;--h:1;display:flex;align-items:center"><span class="mono mut">* Mốc 04/2026 (Kế toán – Nhân sự) giữ theo tài liệu gốc, cần xác nhận lại.</span></div>
+  <div class="g fill ft" style="--c:1;--r:17;--w:12;--h:1"><span class="mono mut">03/2025 – 09/2026</span><span class="mono mut">mgst.com.vn</span></div>
+</div></section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":794,"height":1123}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
