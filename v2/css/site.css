@@ -752,3 +752,29 @@ strong, b { font-weight: 600; }
 .cta.art .lead { color: oklch(0.93 0.015 220); margin-inline: auto; max-width: 52ch; }
 .cta.art .eyebrow { color: oklch(0.9 0.02 220); }
 .cta.art .actions { justify-content: center; }
+
+/* Two-office map (hero) */
+.map { position: relative; margin: 0; }
+.map svg { width: 100%; height: auto; display: block; overflow: visible; }
+.map__dots { fill: none; stroke: oklch(0.96 0.015 210 / .5); stroke-width: 4.4; stroke-linecap: round; }
+.map__arc { fill: none; stroke: oklch(0.9 0.14 118); stroke-width: 3.5; stroke-dasharray: 1 10; stroke-linecap: round; }
+.map__marker circle { fill: var(--paper); stroke: var(--night); stroke-width: 3; }
+.map__marker .ring { fill: oklch(0.75 0.13 118 / .25); stroke: var(--green); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; animation: map-pulse 2.8s cubic-bezier(.16, 1, .3, 1) infinite; }
+@keyframes map-pulse { from { transform: scale(.55); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .map__marker .ring { animation: none; } }
+.map__pin { position: absolute; display: grid; gap: 2px; min-width: 210px; padding: 12px 16px 14px; background: var(--paper); color: var(--ink); border-radius: var(--r-md); box-shadow: 0 20px 50px -20px oklch(0.15 0.04 230 / .6); font-size: var(--t-small); }
+.map__pin .eyebrow { font-size: .9375rem; }
+.map__pin b { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; letter-spacing: -.015em; line-height: 1.2; }
+.map__pin > span { color: var(--ink-2); }
+.map__time { margin-top: 6px; font-family: var(--mono); font-size: .8125rem; color: var(--ink) !important; font-variant-numeric: tabular-nums; }
+.map__pin--ct { transform: translate(28px, -24px); }
+.map__pin--mel { transform: translate(calc(-100% - 28px), calc(-100% + 18px)); }
+.map__dist { position: absolute; transform: translate(-50%, -50%); padding: 5px 12px; border-radius: var(--r-sm); background: var(--night); color: var(--on-night); font-size: var(--t-small); font-weight: 500; white-space: nowrap; }
+.map__credit { margin-top: var(--s3); font-size: var(--t-micro); color: oklch(0.97 0.006 230); text-align: right; }
+.map__credit { display: table; margin-left: auto; padding: 3px 8px; border-radius: var(--r-sm); background: oklch(0.17 0.03 230 / .9); }
+@media (max-width: 760px) {
+  .map { display: grid; gap: 12px; }
+  .map__pin, .map__dist { position: static; transform: none; min-width: 0; }
+  .map__dist { justify-self: start; }
+  .map__credit { margin-left: 0; }
+}
