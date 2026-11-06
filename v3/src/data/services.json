@@ -1,0 +1,1740 @@
+{
+ "/services/ai-and-machine-learning-solutions": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Emerging Technologies",
+    "h1: AI & Machine Learning Solutions",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Smart apps with predictive analytics and automation.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: AI & Machine Learning Solutions work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Generative AI",
+    "p: Simplify the complexity of Generative AI with expert support, from strategic roadmapping to full-scale development and deployment.",
+    "h3: Custom Models",
+    "p: Design and implement tailored machine learning models that align with your business objectives, supported by our end-to-end software development capabilities.",
+    "h3: Data Engineering",
+    "p: Strong data foundations are essential for AI success. Our engineers structure, clean, and prepare your data to ensure seamless and effective implementation.",
+    "h3: AI Consulting",
+    "p: With deep expertise in emerging technologies, we guide your business in identifying and unlocking the most valuable AI opportunities.",
+    "h3: Image Recognition & Classification",
+    "p: Enhance efficiency and stay ahead of the competition with advanced image recognition and classification solutions.",
+    "h3: AI Automation",
+    "p: Streamline routine tasks through AI-powered automation and implement predictive maintenance to ensure your software runs at maximum performance.",
+    "h3: Testing & Quality Assurance",
+    "p: Comprehensive functional, performance, and security testing for reliable, bug-free products"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for ai & machine learning solutions.",
+    "h3: Languages",
+    "li: Python",
+    "li: Julia",
+    "h3: Frameworks",
+    "li: TensorFlow",
+    "li: PyTorch",
+    "li: Keras",
+    "li: Hugging Face",
+    "h3: Cloud AI",
+    "li: AWS SageMaker",
+    "li: Azure ML",
+    "li: Google Vertex AI",
+    "h3: Data",
+    "li: Hadoop",
+    "li: Spark",
+    "li: Kafka",
+    "li: Snowflake",
+    "h3: Specialized AI APIs",
+    "li: OpenAI",
+    "li: Anthropic",
+    "li: LangChai"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: Strong Data Foundation",
+    "p: We empower your AI and ML initiatives with high-quality data. Our engineers can clean raw datasets, mine new sources, or generate synthetic data with millions of records and over 99% accuracy.",
+    "h3: Value-Driven Approach",
+    "p: We evaluate your platform to ensure AI/ML is the right solution. If it fits, we build it; if not, we recommend better alternatives. Our commitment to transparency and trust has earned us long-term partnerships.",
+    "h3: Early AI Adopters",
+    "p: We embrace innovation. From on-device ML to generative AI, we’ve consistently adopted emerging technologies early and continue to lead at the forefront of AI trends. - n to evolving business priorities and requirements.",
+    "h3: Scalable AI Infrastructure",
+    "p: Our cloud-native, secure architectures are built for performance, enabling AI systems that scale seamlessly as your business and data demands grow.",
+    "h3: Generative AI Leadership",
+    "p: Beyond predictive models, we build generative AI applications that unlock creativity, streamline operations, and accelerate innovation across industries.",
+    "h3: Future-Proof AIOur",
+    "p: R&D teams actively explore autonomous agents, multimodal AI, and next-gen innovations to keep your business ahead of the technology curve."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery & AI Strategy",
+    "p: We begin by working closely with your team to understand your business goals, identify key challenges, and determine the most valuable opportunities for AI adoption. This includes assessing existing data sources, defining success metrics, and outlining a tailored roadmap that aligns AI initiatives with your broader business strategy.",
+    "h3: Data Preparation",
+    "p: High-quality data is essential for effective AI solutions. Our engineers clean, transform, and organize raw data, ensuring accuracy, consistency, and usability. We also enrich data when needed by sourcing external datasets or generating synthetic data, so your models have a strong foundation for training.",
+    "h3: Model Development",
+    "p: Using advanced machine learning and AI techniques, we design, train, and validate models tailored to your specific use case. Through multiple iterations and fine-tuning, we optimize accuracy, performance, and reliability while ensuring models remain interpretable and aligned with your business requirements.",
+    "h3: Integration & Testing",
+    "p: Once the models are ready, we integrate them seamlessly into your existing systems, workflows, or applications. Extensive testing ensures the AI works as intended, enhances productivity, and delivers value without disrupting ongoing operations.",
+    "h3: Deployment",
+    "p: Our team manages deployment across your preferred infrastructure, whether cloud-based, hybrid, or on-premises. We set up the necessary pipelines, security, and scalability measures to make sure the solution is production-ready and aligned with your IT environment.",
+    "h3: Monitoring & Scaling",
+    "p: AI models require continuous oversight to maintain accuracy and relevance. We provide monitoring tools and processes to track performance, detect issues early, and retrain models with new data. As your needs evolve, we help scale solutions across teams, departments, or business units to maximize ROI."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About ai & machine learning solutions with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: 1.What is Artificial Intelligence and Machine Learning?",
+    "p: Artificial Intelligence (AI) refers to computer systems that simulate human intelligence, such as reasoning, problem-solving, and decision-making. Machine Learning (ML), a subset of AI, enables systems to learn patterns from data and improve performance over time without being explicitly programmed. Together, AI and ML transform raw data into actionable insights, predictions, and automation.",
+    "summary: Why should companies invest in AI & ML?",
+    "p: Companies that invest in AI & ML gain a competitive edge by automating tasks, enhancing customer experiences, and unlocking new revenue opportunities. These technologies enable smarter decision-making, cost optimization, faster innovation, and predictive capabilities that help businesses adapt quickly to changing market conditions.",
+    "summary: Why is data important for AI & ML?",
+    "p: Data is the foundation of AI & ML. High-quality, relevant, and well-structured data allows models to identify patterns, make accurate predictions, and continuously improve. Without reliable data, even the most advanced algorithms produce weak or biased results. In essence, better data = better AI outcomes.",
+    "summary: What are the common challenges with AI & ML?",
+    "p: Organizations often face challenges such as: - Data quality issues (incomplete, inconsistent, or biased data) - Integration difficulties with legacy systems - High infrastructure and talent costs - Model interpretability and transparency (the “black box” problem) - Ethical concerns around privacy, bias, and compliance Overcoming these challenges requires the right strategy, tools, and expertise.",
+    "summary: How does PTN Global use AI & ML?",
+    "p: PTN leverages AI & ML to build intelligent solutions that optimize business operations and enhance customer value. From predictive analytics and natural language processing to computer vision and generative AI, PTN integrates these technologies into products and services that deliver measurable results. By combining deep technical expertise with domain knowledge, PTN ensures AI solutions are scalable, secure, and aligned with business goals."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/api-development-and-integration": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Core Application Development",
+    "h1: API Development & Integration",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Secure APIs to connect and extend software functionality.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: API Development & Integration work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Custom API Development",
+    "p: Build secure and reliable APIs tailored to your business workflows.",
+    "h3: Third-Party API Integration",
+    "p: Connect your software with payment gateways, CRMs, ERPs, and cloud apps.",
+    "h3: REST & GraphQL API Services",
+    "p: Develop APIs that ensure fast, flexible, and scalable communication between systems.",
+    "h3: Microservices Architecture",
+    "p: Create modular APIs that support scalability and agile application development.",
+    "h3: Legacy System Integration",
+    "p: Modernize older systems with APIs that extend their functionality.",
+    "h3: Cloud API Development",
+    "p: APIs designed for AWS, Azure, and Google Cloud environments.",
+    "h3: API Testing & Optimization",
+    "p: Ensure high performance, reliability, and security of APIs through rigorous QA.",
+    "h3: API Documentation & Support",
+    "p: Clear documentation and ongoing support for both developers and stakeholders"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for api development & integration.",
+    "h3: API Protocols",
+    "li: REST",
+    "li: GraphQL",
+    "li: gRPC",
+    "li: SOAP",
+    "h3: Backend Technologies",
+    "li: Node.js",
+    "li: .NET",
+    "li: Java",
+    "li: Python",
+    "li: PHP",
+    "h3: Databases",
+    "li: MySQL",
+    "li: PostgreSQL",
+    "li: MongoDB",
+    "li: Redis",
+    "h3: Integration Tools",
+    "li: MuleSoft",
+    "li: Apache Kafka",
+    "li: Zapier",
+    "li: Dell Boomi",
+    "h3: Security Standards",
+    "li: OAuth 2.0",
+    "li: JWT",
+    "li: SSL",
+    "li: TLS",
+    "li: API Gateways"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: Integration Expertise",
+    "p: From ERP and CRM platforms to payment gateways and legacy systems, we enable smooth, disruption-free integrations that keep your operations connected.",
+    "h3: Enterprise-Grade Security",
+    "p: Our APIs feature authentication, encryption, and secure gateways, providing robust protection for sensitive business data and ensuring regulatory compliance.",
+    "h3: High Performance",
+    "p: Built for speed and scalability, our APIs deliver reliable performance, capable of handling millions of transactions without compromising efficiency.",
+    "h3: Future-Ready Solutions",
+    "p: Using microservices and cloud-native design, we ensure APIs adapt easily to new technologies and evolving business requirements.",
+    "h3: Proven Experience",
+    "p: Our track record across industries demonstrates the ability to deliver complex API solutions that drive growth and innovation."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery",
+    "p: We begin by understanding your integration needs, business objectives, and existing workflows. This phase involves gathering input from stakeholders, mapping data flows, and identifying potential risks to ensure a clear foundation for the project.",
+    "h3: API Architecture Design",
+    "p: Our team defines the API endpoints, data formats, communication protocols, and security measures. We design an architecture that prioritizes scalability, maintainability, and compliance, while aligning with your technology stack and business requirements.",
+    "h3: Development",
+    "p: Using modern frameworks and best practices, we build secure, efficient, and scalable APIs. Each API is coded for performance and structured to support both current and future business demands.",
+    "h3: Integration",
+    "p: We connect the APIs with your internal applications, third-party services, and external partners. Whether it’s ERP, CRM, payment systems, or legacy software, we ensure smooth, disruption-free integration across all platforms.",
+    "h3: Testing & Quality Assurance",
+    "p: Comprehensive testing is conducted to validate functionality, performance, and security. We simulate real-world scenarios to ensure the APIs are reliable, resilient, and ready to handle high-volume traffic",
+    "h3: Deployment",
+    "p: Once validated, the APIs are deployed into your production environment with complete documentation and developer support. This ensures a seamless rollout and easy adoption by your teams",
+    "h3: Post-Release Maintenance & Support",
+    "p: After launch, we provide continuous monitoring, bug fixes, and performance optimization. Our proactive support ensures your APIs remain secure, efficient, and adaptable as business needs evolve."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About api development & integration with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: 1.How do you ensure the security of APIs?",
+    "p: At PTN Global, we implement enterprise-grade security practices for every API we develop. This includes enforcing secure authentication protocols (OAuth 2.0, JWT), SSL/TLS encryption for data transmission, and strict access controls. We also perform penetration testing and regular audits to ensure that APIs remain resilient against threats while complying with industry standards such as GDPR, HIPAA, or PCI-DSS.",
+    "summary: What types of APIs can you develop and integrate?",
+    "p: We develop and integrate RESTful, GraphQL, SOAP, and gRPC APIs, covering internal business systems, cloud services, mobile apps, and third-party platforms.",
+    "summary: Can you integrate APIs with legacy or third-party systems?",
+    "p: Yes, we specialize in integrating APIs with both legacy infrastructures and modern third-party systems, ensuring seamless data exchange and process automation.",
+    "summary: How do you handle scalability for APIs that process high volumes of requests?",
+    "p: We design APIs with load balancing, caching, and microservices architecture to handle high traffic efficiently, ensuring performance and reliability at scale.",
+    "summary: Do you provide ongoing monitoring and maintenance for APIs?",
+    "p: Yes, we offer continuous monitoring, version upgrades, security patches, and performance optimization to ensure APIs remain stable and secure over time. This comprehensive QA process guarantees that we deliver stable, reliable, and high-quality applications."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/custom-software-development": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Core Application Development",
+    "h1: Custom Software Development",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Tailor-made solutions designed to meet unique business requirements.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Custom Software Development work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Bespoke Business Applications",
+    "p: Tailor-made apps designed around your unique workflows and goals.",
+    "h3: Enterprise Software Solutions",
+    "p: Secure, scalable, and efficient platforms for large-scale operations",
+    "h3: Legacy System Modernization",
+    "p: Upgrade outdated software with modern, cloud-ready, and user-friendly solutions.",
+    "h3: Cross-Platform Applications",
+    "p: Applications that seamlessly work across desktop, mobile, and web.",
+    "h3: Custom API Development",
+    "p: Build APIs that integrate seamlessly with your business ecosystem.",
+    "h3: Cloud-Native Applications",
+    "p: Accelerate innovation with secure and cost-effective cloud-based solutions.",
+    "h3: Process Automation Tools",
+    "p: Simplify repetitive tasks, reduce errors, and improve productivity",
+    "h3: Data-Driven Applications",
+    "p: Harness analytics, AI, and machine learning to make smarter decisions."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for custom software development.",
+    "h3: Frontend",
+    "li: React",
+    "li: Angular",
+    "li: Vue.js",
+    "h3: Backend",
+    "li: Node.js",
+    "li: .NET",
+    "li: Java",
+    "li: Python",
+    "h3: Mobile",
+    "li: Flutter",
+    "li: React Native",
+    "li: Swift",
+    "li: Kotlin",
+    "h3: Database",
+    "li: MySQL",
+    "li: PostgreSQL",
+    "li: MongoDB",
+    "h3: Cloud & DevOps",
+    "li: AWS",
+    "li: Azure",
+    "li: Google Cloud",
+    "li: Docker",
+    "li: Kubernetes"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: Tailored Development",
+    "p: From uniqueness to usability. Every solution is crafted around your exact business needs, workflows, and goals. We listen carefully, validate ideas through workshops, and translate your vision into practical solutions that enhance efficiency and align with your long-term objectives. No generic templates, only solutions that feel like they were made just for you.",
+    "h3: Scalability in Mind",
+    "p: From today’s goals to tomorrow’s growth. Our software solutions are designed with future expansion in mind. We build architectures that adapt seamlessly as your user base, data, and requirements grow. Whether you are serving hundreds of customers now or preparing for thousands tomorrow, your system will remain fast, reliable, and secure.",
+    "h3: Quality-First Approach",
+    "p: From planning to performance. Reliability is at the core of everything we do. Our development process integrates continuous testing, security reviews, and best practices to ensure your solution meets the highest standards. With PTN Global, you can trust that your software will perform consistently, scale smoothly, and operate securely."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery",
+    "p: From vision to reality. We comprehend clients' stories and pain points, validate ideas, and define the project scope and key objectives. Through interactive workshops, stakeholder interviews, and brainstorming sessions, we set the stage for in-depth discussion and solution design.",
+    "h3: Planning",
+    "p: From concept to strategy. We map out a detailed project plan, covering project timelines, budget estimates, and resource allocation. Our experts propose tech stacks, methods, and tools suited for your case, define processes, and structure teams.",
+    "h3: UI/UX Design",
+    "p: From concept to prototype. We translate your ideas into intuitive and visually engaging designs that prioritize user experience. Our UI/UX team conducts research for user personas, creates detailed wireframes and interactive prototypes.",
+    "h3: Software Architecture",
+    "p: From vision to blueprint. We lay the foundation for your custom software by defining its technical structure, design principles, and technology stack. The architecture acts as a blueprint, ensuring scalability, performance, and security, while facilitating the harmonious integration of a robust backend with an intuitive, user-centric frontend.",
+    "h3: Development & Testing",
+    "p: From code to quality. Our professionals bring your idea to life, from prototyping to a full build. We strictly adhere to coding standards, follow quality assurance measures, and apply rigorous testing processes to ensure rolling out a success. We ensure frequent feedback loops for transparency.",
+    "h3: Deployment & Delivery",
+    "p: From staging to live. We work to ensure a smooth final release, whether it is a phased rollout or a full launch. Our team assists with deployment, configuration, and staff training for minimal disruption and easy handover.",
+    "h3: Post-Release Maintenance & Support",
+    "p: From launch to enhancement. Our team remains within reach after the project sign-off. We provide ongoing support, continuous updates, and enhancements as needed to ensure your solution stays robust and relevant, based on our SLA contracts."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About custom software development with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: What is Custom Software Development?",
+    "p: Custom software development is the process of designing, building, and deploying software tailored to your organization’s specific needs. Unlike off-the-shelf products, custom solutions align directly with your workflows, goals, and growth strategy, ensuring greater efficiency, scalability, and competitive advantage.",
+    "summary: How do you protect sensitive data and ensure security in custom software?",
+    "p: We prioritize security at every stage by implementing data encryption, secure authentication protocols, and role-based access control. Our team follows OWASP best practices and conducts regular code reviews and penetration testing to safeguard your data against evolving cyber threats.",
+    "summary: Can you integrate custom software with my existing tools and systems?",
+    "p: Yes. Our custom solutions are built with API-first design and modular architecture, enabling seamless integration with your existing systems-whether ERP, CRM, cloud platforms, or third-party applications. This ensures smooth workflows and improved productivity.",
+    "summary: Do you provide post-launch support and maintenance for custom software?",
+    "p: Absolutely. We offer comprehensive post-launch support, including performance monitoring, regular updates, bug fixes, and feature enhancements. Our goal is to ensure your software continues to evolve with your business and remains reliable long-term.",
+    "summary: What is your process for managing development and ensuring timely delivery?",
+    "p: We follow an Agile development methodology, breaking projects into manageable sprints for transparency and flexibility. This approach ensures: - Clear milestones and progress tracking - Continuous testing and feedback loops - On-time delivery without compromising quality"
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/data-science-and-big-data-solutions": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Emerging Technologies",
+    "h1: Data Science & Big Data Solutions",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Transform data into actionable insights and strategies.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Data Science & Big Data Solutions work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Enterprise Data Management",
+    "p: Collaborate with our data science experts to streamline data storage, design an efficient data lifecycle, and improve searchability, all within a secure and protected environment.",
+    "h3: Big Data & Data Lakes",
+    "p: Optimize data flow and storage with our big data consulting services. We help you build secure, scalable data lakes that enable real-time insights and support smarter business decisions.",
+    "h3: Data Visualization",
+    "p: Transform complex datasets into actionable insights with custom dashboards and visual analytics. Our engineers create intuitive visualizations that empower your teams to make data-driven decisions with confidence.",
+    "h3: Advanced Analytics",
+    "p: Stay ahead of the competition with advanced analytics solutions. From sophisticated data modeling to in-depth diagnostics, we provide cutting-edge techniques that uncover hidden patterns and drive business growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for data science & big data solutions.",
+    "h3: Data Processing",
+    "li: Hadoop",
+    "li: Spark",
+    "li: Flink",
+    "li: Kafka",
+    "h3: Databases",
+    "li: Snowflake",
+    "li: Redshift",
+    "li: BigQuery",
+    "li: MongoDB",
+    "li: Cassandra",
+    "h3: ETL & Orchestration",
+    "li: Airflow",
+    "li: Talend",
+    "li: dbt",
+    "h3: Visualization",
+    "li: Power BI",
+    "li: Tableau",
+    "li: Looker",
+    "li: Superset",
+    "h3: Programming",
+    "li: Python",
+    "li: SQL",
+    "li: Scala",
+    "h3: Cloud Platforms",
+    "li: AWS (EMR, Glue)",
+    "li: Azure Synapse",
+    "li: Google BigQuery"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: End-to-End Data Journey",
+    "p: Comprehensive support across the full data lifecycle, from strategy and architecture to analytics, visualization, and governance.",
+    "h3: Data-Driven",
+    "p: ROIEvery initiative is designed with measurable business outcomes in mind, ensuring your investments translate into tangible value.",
+    "h3: Advanced Analytics",
+    "p: Empower decision-making with everything from real-time dashboards to predictive and prescriptive insights.",
+    "h3: Scalable Data Platforms",
+    "p: Our cloud-native platforms are built to handle today’s rapidly growing data volumes. Designed for elasticity and petabyte-scale workloads, they ensure that as your data grows, your platform grows seamlessly with it-supporting advanced analytics, AI, and machine learning applications without performance trade-offs."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Data Discovery & Strategy",
+    "p: We begin by assessing your current data landscape, including existing systems, sources, and governance processes. Through workshops with stakeholders, we define clear business objectives, identify data gaps, and build a strategic roadmap that aligns technology investments with measurable outcomes.",
+    "h3: Architecture & Design",
+    "p: Based on the strategy, we design robust data architectures, whether data lakes, warehouses, or lakehouse models. Our design emphasizes scalability, security, and seamless integration-ensuring that all data pipelines, storage, and governance frameworks are future-proof and optimized for enterprise use.",
+    "h3: Data Ingestion & Transformation",
+    "p: We implement reliable ETL/ELT pipelines to ingest, cleanse, and transform raw data into structured, high-quality datasets. This ensures consistency across systems, eliminates silos, and creates a single source of truth that enables accurate and timely analytics.",
+    "h3: Analytics & Visualization",
+    "p: With a trusted data foundation, we develop powerful analytics and visualization tools. From real-time dashboards to advanced predictive and prescriptive models, our solutions empower teams to uncover insights, improve decision-making, and anticipate business opportunities or risks.",
+    "h3: Deployment",
+    "p: We deploy scalable and secure data platforms across cloud, on-premise, or hybrid environments. Our deployment approach ensures smooth transitions with minimal disruption while enabling elastic performance, high availability, and cost optimization.",
+    "h3: Monitoring & Optimization",
+    "p: Post-deployment, we continuously monitor platform performance, data quality, and governance compliance. Through proactive optimization, automation, and regular audits, we ensure that your data ecosystem remains efficient, secure, and aligned with evolving business needs."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About data science & big data solutions with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: What is Big Data?",
+    "p: Big Data refers to extremely high volume datasets that require special storage platforms and processing tools. Given the extremely huge data size and data variations by the minute, Big Data can be analysed over a time series to discover trends as well as unearth patterns and associations.",
+    "summary: Can you integrate with our existing data systems and tools?",
+    "p: Yes. Our solutions are designed to seamlessly integrate with your existing infrastructure-whether it’s relational databases, ERP systems, CRM platforms, or BI tools. We use APIs, connectors, and custom integration pipelines to ensure smooth interoperability without disrupting ongoing operations.",
+    "summary: What cloud platforms do you support for big data solutions?",
+    "p: We support all major cloud platforms, including AWS, Microsoft Azure, and Google Cloud Platform (GCP). Depending on your needs, we can also build hybrid or multi-cloud architectures to ensure flexibility, cost efficiency, and compliance with your organization’s IT strategy.",
+    "summary: How do you ensure scalability for rapidly growing datasets?",
+    "p: We design cloud-native, elastic architectures that automatically scale storage and compute resources as your data grows. By leveraging distributed computing frameworks like Apache Spark, Hadoop, and cloud-native services, we ensure that your platform can handle petabyte-scale workloads while maintaining high performance and cost efficiency.",
+    "summary: Do you provide both batch and real-time data analytics?",
+    "p: Yes. We deliver end-to-end solutions that support both batch processing (for analyzing historical data at scale) and real-time analytics (for processing streaming data instantly). This enables organizations to gain timely insights, react quickly to events, and make both strategic and operational decisions effectively."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/desktop-application-development": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Core Application Development",
+    "h1: Desktop Application Development",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Robust applications for Windows, macOS, and Linux environments.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Desktop Application Development work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Cross-Platform Desktop Apps",
+    "p: Applications that run seamlessly on Windows, macOS, and Linux.",
+    "h3: Enterprise Desktop Solutions",
+    "p: Powerful tools for managing business operations, workflows, and data.",
+    "h3: Custom Business Tools",
+    "p: Tailored applications built to optimize specific processes within your organization.",
+    "h3: Integration with Hardware & Devices",
+    "p: Software that communicates with peripherals, sensors, and IoT devices.",
+    "h3: Migration & Modernization",
+    "p: Upgrade legacy desktop applications with modern UI/UX and improved performance.",
+    "h3: Data-Driven Applications",
+    "p: Software with analytics and reporting to drive smarter decisions.",
+    "h3: Offline-Capable Solutions",
+    "p: Upgrade legacy apps with modern features and performance.",
+    "h3: Maintenance & Support",
+    "p: Continuous updates, security patches, and technical support."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for desktop application development.",
+    "h3: Backend",
+    "li: Java",
+    "li: .NET",
+    "li: Python",
+    "li: Node.js",
+    "h3: Frontend",
+    "li: Angular",
+    "li: React",
+    "li: Vue.js",
+    "h3: Databases",
+    "li: Oracle",
+    "li: MS SQL Server",
+    "li: PostgreSQL",
+    "li: MongoDB",
+    "h3: Cloud Platforms",
+    "li: AWS",
+    "li: Azure",
+    "li: Google Cloud",
+    "h3: Integration Tools",
+    "li: MuleSoft",
+    "li: Apache Kafka",
+    "li: REST",
+    "li: GraphQL APIs",
+    "h3: Security",
+    "li: Identity & Access Management",
+    "li: Role-Based Access Control",
+    "li: Data Encryption"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: Tailored Enterprise Solutions",
+    "p: We don’t believe in one-size-fits-all. Every solution is built around your unique workflows, organizational goals, and business processes, ensuring maximum adoption and long-term impact across your teams.",
+    "h3: Cross-Platform Development",
+    "p: Beyond building native applications for Windows, macOS, and Linux, our developers leverage Qt-based solutions to reduce development effort and cost by up to 50%. This approach ensures seamless performance across all major desktop operating systems.",
+    "h3: Smart Installer",
+    "p: We enhance user experience with a smart installer that adapts to system conditions. It automatically detects OS version, language settings, required third-party libraries, and existing app versions to ensure smooth, hassle-free installation.",
+    "h3: Speed, Clarity & Efficiency",
+    "p: We follow Agile practices with CI/CD, code reviews, and unit testing. Our team tracks KPIs, shares regular updates, manages risks proactively, and ensures transparency through detailed documentation and close client collaboration.",
+    "h3: Agile & Collaborative Development",
+    "p: We embrace an agile methodology that prioritizes transparency, iterative delivery, and open communication. Our team works closely with yours to adapt quickly to evolving needs and deliver results that align with your vision."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery",
+    "p: From vision to reality. We comprehend clients' stories and pain points, validate ideas, and define the project scope and key objectives. Through interactive workshops, stakeholder interviews, and brainstorming sessions, we set the stage for in-depth discussion and solution design.",
+    "h3: Planning",
+    "p: From concept to strategy. We map out a detailed project plan, covering project timelines, budget estimates, and resource allocation. Our experts propose tech stacks, methods, and tools suited for your case, define processes, and structure teams.",
+    "h3: UI/UX Design",
+    "p: From concept to prototype. We translate your ideas into intuitive and visually engaging designs that prioritize user experience. Our UI/UX team conducts research for user personas, creates detailed wireframes and interactive prototypes.",
+    "h3: Software Architecture",
+    "p: From vision to blueprint. We lay the foundation for your custom software by defining its technical structure, design principles, and technology stack. The architecture acts as a blueprint, ensuring scalability, performance, and security, while facilitating the harmonious integration of a robust backend with an intuitive, user-centric frontend.",
+    "h3: Development & Testing",
+    "p: From code to quality. Our professionals bring your idea to life, from prototyping to a full build. We strictly adhere to coding standards, follow quality assurance measures, and apply rigorous testing processes to ensure rolling out a success. We ensure frequent feedback loops for transparency.",
+    "h3: Deployment & Delivery",
+    "p: From staging to live. We work to ensure a smooth final release, whether it is a phased rollout or a full launch. Our team assists with deployment, configuration, and staff training for minimal disruption and easy handover.",
+    "h3: Post-Release Maintenance & Support",
+    "p: From launch to enhancement. Our team remains within reach after the project sign-off. We provide ongoing support, continuous updates, and enhancements as needed to ensure your solution stays robust and relevant, based on our SLA contracts."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About desktop application development with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: Do you develop desktop apps for Windows, macOS, and Linux?",
+    "p: Yes, we develop high-performance desktop applications for all major platforms, ensuring seamless functionality across Windows, macOS, and Linux.",
+    "summary: Which programming languages and frameworks do you specialize in?",
+    "p: We work with technologies such as C#, .NET, Java, Python, C++, and Electron, selecting the best stack based on your project’s needs.",
+    "summary: Can you modernize or upgrade existing desktop applications?",
+    "p: Absolutely. We help modernize legacy systems with improved performance, updated frameworks, enhanced UI/UX, and new features.",
+    "summary: How do you ensure security and data protection in desktop apps?",
+    "p: We apply data encryption, secure authentication, and role-based access control, along with compliance to industry security standards.",
+    "summary: Do you provide post-launch updates and technical support?",
+    "p: Yes, we offer ongoing maintenance, bug fixes, updates, and feature enhancements to keep your application reliable and future-ready."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/enterprise-application-development": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Core Application Development",
+    "h1: Enterprise Application Development",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: ERP, CRM, HRM, and SCM systems to streamline operations.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Enterprise Application Development work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Custom Enterprise Application Development",
+    "p: Tailored software aligned with your workflows and goals.",
+    "h3: Enterprise Resource Planning (ERP) Systems",
+    "p: Centralized platforms for finance, HR, supply chain, and operations.",
+    "h3: Customer Relationship Management (CRM) Solutions",
+    "p: Manage customer interactions, sales, and marketing efficiently.",
+    "h3: Legacy System Modernization",
+    "p: Upgrade outdated systems with modern, cloud-ready architectures.",
+    "h3: Cloud-Based Enterprise Solutions",
+    "p: Scalable cloud or hybrid apps for flexibility and collaboration.",
+    "h3: System Integration Services",
+    "p: Connect enterprise apps with legacy and third-party tools.",
+    "h3: Data Management & Business Intelligence (BI)",
+    "p: Enable smarter decisions with analytics and reporting",
+    "h3: Enterprise Mobility",
+    "p: Mobile apps that keep teams secure and productive on the go."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for enterprise application development.",
+    "h3: Backend",
+    "li: Java",
+    "li: .NET",
+    "li: Python",
+    "li: Node.js",
+    "h3: Frontend",
+    "li: Angular",
+    "li: React",
+    "li: Vue.js",
+    "h3: Databases",
+    "li: Oracle",
+    "li: MS SQL Server",
+    "li: PostgreSQL",
+    "li: MongoDB",
+    "h3: Cloud Platforms",
+    "li: AWS",
+    "li: Azure",
+    "li: Google Cloud",
+    "h3: Integration Tools",
+    "li: MuleSoft",
+    "li: Apache Kafka",
+    "li: REST",
+    "li: GraphQL APIs",
+    "h3: Security",
+    "li: Identity & Access Management",
+    "li: Role-Based Access Control",
+    "li: Data Encryption"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: Tailored to Your Enterprise Needs",
+    "p: We don’t believe in one-size-fits-all. Every solution is carefully designed to align with your workflows, industry regulations, and long-term goals.",
+    "h3: Cross-Industry Expertise",
+    "p: With proven experience in finance, healthcare, retail, manufacturing, logistics, and government, we understand diverse challenges and know how to solve them effectively.",
+    "h3: Future-Ready Architecture",
+    "p: Our solutions are built on scalable, flexible architectures that adapt to changing business environments and evolving technologies."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery",
+    "p: From vision to reality. We comprehend clients' stories and pain points, validate ideas, and define the project scope and key objectives. Through interactive workshops, stakeholder interviews, and brainstorming sessions, we set the stage for in-depth discussion and solution design.",
+    "h3: Planning",
+    "p: From concept to strategy. We map out a detailed project plan, covering project timelines, budget estimates, and resource allocation. Our experts propose tech stacks, methods, and tools suited for your case, define processes, and structure teams.",
+    "h3: UI/UX Design",
+    "p: From concept to prototype. We translate your ideas into intuitive and visually engaging designs that prioritize user experience. Our UI/UX team conducts research for user personas, creates detailed wireframes and interactive prototypes.",
+    "h3: Software Architecture",
+    "p: From vision to blueprint. We lay the foundation for your custom software by defining its technical structure, design principles, and technology stack. The architecture acts as a blueprint, ensuring scalability, performance, and security, while facilitating the harmonious integration of a robust backend with an intuitive, user-centric frontend.",
+    "h3: Development & Testing",
+    "p: From code to quality. Our professionals bring your idea to life, from prototyping to a full build. We strictly adhere to coding standards, follow quality assurance measures, and apply rigorous testing processes to ensure rolling out a success. We ensure frequent feedback loops for transparency.",
+    "h3: Deployment & Delivery",
+    "p: From staging to live. We work to ensure a smooth final release, whether it is a phased rollout or a full launch. Our team assists with deployment, configuration, and staff training for minimal disruption and easy handover.",
+    "h3: Post-Release Maintenance & Support",
+    "p: From launch to enhancement. Our team remains within reach after the project sign-off. We provide ongoing support, continuous updates, and enhancements as needed to ensure your solution stays robust and relevant, based on our SLA contracts."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About enterprise application development with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: What is application development?",
+    "p: Application development refers to the process of creating web or mobile software solutions for a specific need. With enterprise application development, this involves building apps for business purposes, such as automating workflows or modernizing legacy systems. The full lifecycle includes ideation, planning, designing, building, testing, integrating, and deployment. ###",
+    "summary: What is an application development platform?",
+    "p: An application development platform is a set of tools, frameworks, and services that help developers build, test, and deploy applications efficiently. These platforms often include pre-built components, cloud integration, scalability features, and security controls, enabling faster development and easier maintenance. ###",
+    "summary: What is low-code application development?",
+    "p: Low-code application development uses visual interfaces, drag-and-drop tools, and pre-built modules to speed up the development process. It allows developers and even non-technical users to create applications with minimal coding, reducing time-to-market and lowering development costs. ###",
+    "summary: What are the challenges of enterprise application development?",
+    "p: Common challenges include: - Scalability and performance under heavy workloads - Integration with existing systems and third-party tools - Ensuring data security and compliance with regulations - Managing complexity in large-scale projects - Balancing speed and quality during development cycles Addressing these challenges requires the right methodologies, tools, and expertise to deliver reliable enterprise solutions."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/generative-ai-application-development": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Emerging Technologies",
+    "h1: Generative AI Application Development",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Build apps powered by LLMs (Large Language Models) for text, code, and media generation with external knowledge bases for accurate, context-aware responses.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Generative AI Application Development work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: GenAI Roadmapping",
+    "p: We help define your objectives, identify high-value AI opportunities, and create a tailored strategy and roadmap with the right tech stack and milestones.",
+    "h3: GenAI Development",
+    "p: We design and build custom AI solutions, from model fine-tuning and agentic AI to integrating public and private models for scalable business impact.",
+    "h3: Data Engineering Services",
+    "p: We clean, prepare, and optimize your data with reliable pipelines, ensuring accuracy and structure for AI/ML, analytics, and monetization.",
+    "h3: GenAI Consulting",
+    "p: We guide you in identifying use cases, setting governance frameworks, and protecting IP and security to confidently scale AI adoption.",
+    "h3: GenAI Integrations",
+    "p: Integrate Generative AI seamlessly into your product suite. We help identify the right tech stack and deliver scalable solutions that grow with your business.",
+    "h3: Agentic AI",
+    "p: Seamlessly embed Generative AI into your products. We guide you in choosing the right stack and building scalable solutions that evolve with your business."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for generative ai application development.",
+    "h3: Model APIs",
+    "li: OpenAI",
+    "li: Anthropic",
+    "li: Cohere",
+    "li: Stability AI",
+    "h3: Frameworks",
+    "li: LangChain",
+    "li: LlamaIndex",
+    "li: Hugging Face Transformers",
+    "h3: Languages",
+    "li: Python",
+    "li: JavaScript",
+    "li: Go",
+    "h3: Cloud AI",
+    "li: Azure OpenAI",
+    "li: AWS Bedrock",
+    "li: Google Vertex AI",
+    "h3: Vector Databases",
+    "li: Pinecone",
+    "li: Weaviate",
+    "li: Milvus",
+    "li: FAISS",
+    "h3: MLOps & Deployment",
+    "li: MLflow",
+    "li: Docker",
+    "li: Kubernetes"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: Data Foundation",
+    "p: We strengthen your GenAI initiatives with reliable data. Our engineers can clean and prepare raw datasets, mine new sources, or generate synthetic data at scale, delivering millions of records with 99%+ accuracy.",
+    "h3: Value-Driven Approach",
+    "p: Before building, we evaluate whether GenAI is the right fit for your platform. If it is, we design the solution; if not, we recommend alternatives that provide better outcomes. This commitment to trust and transparency is why clients stay with us long-term.",
+    "h3: Early Adopters",
+    "p: We embraced generative AI early, investing in R&D to test emerging tools, build real-world projects, and train our teams to effectively apply GenAI across industries.",
+    "h3: Scalable Data Platforms",
+    "p: Our cloud-native platforms are built to handle today’s rapidly growing data volumes. Designed for elasticity and petabyte-scale workloads, they ensure that as your data grows, your platform grows seamlessly with it-supporting advanced analytics, AI, and machine learning applications without performance trade-offs.",
+    "h3: Data Privacy & Compliance",
+    "p: We prioritize secure and responsible AI implementations that comply with international standards such as GDPR, HIPAA, and SOC 2. With robust data protection and governance frameworks, we ensure your proprietary data is handled with the highest level of trust and security.",
+    "h3: Custom Fine-Tuning",
+    "p: We fine-tune foundation models on your proprietary datasets, ensuring outputs are highly relevant to your domain, industry, and use cases. This creates smarter, more accurate AI that speaks your business language and delivers value from day one"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery & Use Case Mapping",
+    "p: We begin by collaborating with your stakeholders to identify high-impact opportunities where generative AI can deliver measurable business value. Through workshops and assessments, we map potential use cases, prioritize them by ROI, feasibility, and strategic alignment, and define a clear roadmap for adoption.",
+    "h3: Data Preparation & Model Selection",
+    "p: Once the use cases are defined, we curate and structure the necessary datasets, ensuring they are clean, relevant, and representative. We then evaluate and select the most suitable foundation or open-source models, balancing accuracy, scalability, and compliance with your organization’s requirements.",
+    "h3: Model Fine-Tuning & Development",
+    "p: We customize generative AI models using your proprietary data to enhance relevance and accuracy. Fine-tuning ensures the models not only understand your domain-specific terminology and workflows but also generate outputs that are context-aware, reliable, and aligned with your business goals.",
+    "h3: Integration & Testing",
+    "p: The trained models are embedded into your existing applications, workflows, or digital platforms-whether web, mobile, or enterprise systems. Rigorous testing is conducted to validate accuracy, performance, and usability, ensuring seamless user experiences and smooth interoperability with your technology stack.",
+    "h3: Deployment",
+    "p: We deploy AI solutions across secure, scalable infrastructures, whether in the cloud, on-premise, or hybrid environments. Deployment strategies are optimized for performance, elasticity, and cost efficiency, enabling your organization to handle increasing demand and evolving business needs.",
+    "h3: Monitoring & Continuous Learning",
+    "p: After deployment, we establish robust monitoring frameworks to track performance, reliability, and compliance. Feedback loops and retraining cycles are applied to ensure the AI evolves over time, improving accuracy, reducing bias, and adapting to new datasets, user behaviors, and market changes."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About generative ai application development with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: What is generative AI?",
+    "p: Generative AI is a broad category of artificial intelligence focused on creating new content such as text, images, music, animations, code, synthetic data, and more. These outputs are produced by models trained on large datasets, where the system learns patterns, structures, and relationships in the data to generate original and contextually relevant results.",
+    "summary: How do you manage compliance and data security with generative AI?",
+    "p: We implement strict data governance frameworks and ensure compliance with global standards such as GDPR, HIPAA, and SOC",
+    "summary: Why should companies invest in generative AI?",
+    "p: Generative AI enables businesses to automate repetitive tasks, personalize customer experiences, accelerate content creation, and unlock new revenue opportunities. By driving efficiency and innovation, it not only reduces operational costs but also positions organizations to stay competitive in a rapidly evolving digital landscape.",
+    "summary: Why is data important for generative AI?",
+    "p: Data is the foundation of generative AI. High-quality, relevant, and well-structured data ensures that models generate accurate, reliable, and context-aware outputs. Without strong data pipelines, governance, and preparation, AI models risk producing biased, inconsistent, or low-value results.",
+    "summary: What are the common challenges with generative AI?",
+    "p: Some of the most common challenges include data privacy and compliance risks, bias in training datasets, high computational costs, integration complexity, and the need for ongoing monitoring. Additionally, ensuring responsible use-such as preventing misinformation or misuse-requires strong ethical and governance frameworks."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/mobile-application-development": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Core Application Development",
+    "h1: Mobile Application Development",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Native and cross-platform apps for iOS, Android, and hybrid platforms.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Mobile Application Development work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Native iOS & Android Apps",
+    "p: Custom apps built with Swift, Objective-C, Kotlin, and Java.",
+    "h3: Cross-Platform Applications",
+    "p: Cost-effective apps using Flutter and React Native for seamless performance.",
+    "h3: Enterprise Mobile Solutions",
+    "p: Secure, scalable apps to optimize business operations.",
+    "h3: Mobile Commerce Applications",
+    "p: E-commerce apps designed to boost sales and improve shopping experiences..",
+    "h3: On-Demand Service Apps",
+    "p: Tailored apps for logistics, healthcare, food delivery, and ride-hailing.",
+    "h3: Mobile UI/UX Design",
+    "p: Engaging, user-friendly designs that improve retention.",
+    "h3: App Modernization & Migration",
+    "p: Upgrade legacy apps with modern features and performance.",
+    "h3: Maintenance & Support",
+    "p: Ongoing updates and support for smooth app performance."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for mobile application development.",
+    "h3: iOS Development",
+    "li: Swift",
+    "li: Objective-C",
+    "h3: Android Development",
+    "li: Kotlin",
+    "li: Java",
+    "h3: Cross-Platform",
+    "li: Flutter",
+    "li: React Native",
+    "li: Xamarin",
+    "h3: Backend & APIs",
+    "li: Node.js",
+    "li: .NET",
+    "li: Python",
+    "h3: Databases",
+    "li: Firebase",
+    "li: MySQL",
+    "li: MongoDB",
+    "li: PostgreSQL",
+    "h3: Cloud & DevOps",
+    "li: AWS",
+    "li: Google Cloud",
+    "li: Azure",
+    "li: Docker"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: User-Centered Design",
+    "p: At PTN Global, we believe a great app starts with the user. Our design approach focuses on creating intuitive, visually appealing, and engaging experiences that not only attract attention but also build long-term loyalty. Every interaction is carefully crafted to ensure that your customers enjoy a seamless journey.",
+    "h3: Cross-Platform Expertise",
+    "p: Reaching a wider audience is essential in today’s digital world. With our cross-platform development expertise, we ensure your application works flawlessly on both iOS and Android, without compromising on speed, quality, or native performance. This allows you to maximize reach and reduce development costs while maintaining a premium user experience.",
+    "h3: Scalability & Security",
+    "p: We design applications with the future in mind. As your business grows, your app will evolve with it-handling more users, more data, and more features without losing efficiency. Security is also at the heart of our process, with strong protection measures in place to safeguard your data and maintain user trust."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery",
+    "p: From vision to reality. We comprehend clients' stories and pain points, validate ideas, and define the project scope and key objectives. Through interactive workshops, stakeholder interviews, and brainstorming sessions, we set the stage for in-depth discussion and solution design.",
+    "h3: Planning",
+    "p: From concept to strategy. We map out a detailed project plan, covering project timelines, budget estimates, and resource allocation. Our experts propose tech stacks, methods, and tools suited for your case, define processes, and structure teams.",
+    "h3: UI/UX Design",
+    "p: From concept to prototype. We translate your ideas into intuitive and visually engaging designs that prioritize user experience. Our UI/UX team conducts research for user personas, creates detailed wireframes and interactive prototypes.",
+    "h3: Software Architecture",
+    "p: From vision to blueprint. We lay the foundation for your custom software by defining its technical structure, design principles, and technology stack. The architecture acts as a blueprint, ensuring scalability, performance, and security, while facilitating the harmonious integration of a robust backend with an intuitive, user-centric frontend.",
+    "h3: Development & Testing",
+    "p: From code to quality. Our professionals bring your idea to life, from prototyping to a full build. We strictly adhere to coding standards, follow quality assurance measures, and apply rigorous testing processes to ensure rolling out a success. We ensure frequent feedback loops for transparency.",
+    "h3: Deployment & Delivery",
+    "p: From staging to live. We work to ensure a smooth final release, whether it is a phased rollout or a full launch. Our team assists with deployment, configuration, and staff training for minimal disruption and easy handover.",
+    "h3: Post-Release Maintenance & Support",
+    "p: From launch to enhancement. Our team remains within reach after the project sign-off. We provide ongoing support, continuous updates, and enhancements as needed to ensure your solution stays robust and relevant, based on our SLA contracts."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About mobile application development with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: Do you develop apps for both iOS and Android platforms?",
+    "p: Yes, we develop applications for both iOS and Android. We offer native app development using Swift, Objective-C, Kotlin, and Java, as well as cross-platform solutions with Flutter and React Native, ensuring seamless performance and a consistent user experience across devices.",
+    "summary: Which frameworks do you use for cross-platform mobile development?",
+    "p: We primarily use Flutter and React Native, two leading frameworks for cross-platform development. These allow us to build apps with a single codebase, ensuring faster development, lower costs, and consistent functionality across iOS and Android platforms.",
+    "summary: How do you ensure the security of mobile applications?",
+    "p: We follow a security-first approach, which includes: - Data encryption in storage and transmission - Secure authentication methods (biometric, OAuth, JWT) - Regular vulnerability testing and code audits - Compliance with industry standards (GDPR, HIPAA, PCI-DSS) where applicable This ensures user data and business information remain protected at all times.",
+    "summary: Can you integrate mobile apps with existing business systems?",
+    "p: Yes. Our solutions are designed with API-driven architectures that enable seamless integration with ERP, CRM, payment gateways, and other enterprise systems. This ensures your mobile app enhances, rather than disrupts, your existing workflows.",
+    "summary: How do you handle updates, maintenance, and long-term support?",
+    "p: We provide comprehensive post-launch services, including: - Regular updates to maintain compatibility with the latest OS versions - Performance monitoring and bug fixes - Feature enhancements to keep apps aligned with evolving business needs - Long-term support packages tailored to ensure stability and scalability over time"
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/product-engineering-services": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Core Application Development",
+    "h1: Product Engineering Services",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: End-to-end product lifecycle development from ideation to deployment.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Product Engineering Services work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Product Strategy & Roadmapping",
+    "p: Align product vision with business goals through strategic planning and market analysis.",
+    "h3: UI/UX Design & Prototyping",
+    "p: Create engaging, intuitive, and user-friendly designs that enhance adoption and customer satisfaction.",
+    "h3: Custom Product Development",
+    "p: Full-cycle engineering for web, mobile, desktop, and cloud-based products.",
+    "h3: Minimum Viable Product (MVP) Development",
+    "p: Rapid prototyping and MVP delivery to validate ideas and attract investors.",
+    "h3: Cloud-Native Product Engineering",
+    "p: Build products optimized for scalability, flexibility, and cost efficiency on AWS, Azure, or Google Cloud.",
+    "h3: Integration & API Enablement",
+    "p: Ensure smooth product interaction with enterprise systems, third-party platforms, and emerging technologies.",
+    "h3: Testing & Quality Assurance",
+    "p: Comprehensive functional, performance, and security testing for reliable, bug-free products.",
+    "h3: Modernization",
+    "p: Upgrade and re-engineer legacy products with new features, modern interfaces, and better performance.",
+    "h3: Ongoing Maintenance & Support",
+    "p: Post-launch support to keep your product optimized, updated, and aligned with evolving customer needs."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for product engineering services.",
+    "h3: Frontend",
+    "li: React",
+    "li: Angular",
+    "li: Vue.js",
+    "h3: Backend",
+    "li: Node.js",
+    "li: .NET",
+    "li: Java",
+    "li: Python",
+    "li: PHP",
+    "h3: Mobile",
+    "li: Flutter",
+    "li: React Native",
+    "li: Swift",
+    "li: Kotlin",
+    "h3: Cloud",
+    "li: AWS",
+    "li: Azure",
+    "li: Google Cloud",
+    "li: Docker",
+    "li: Kubernetes",
+    "h3: Databases",
+    "li: MySQL",
+    "li: PostgreSQL",
+    "li: MongoDB",
+    "li: Redis",
+    "h3: DevOps Tools",
+    "li: Jenkins",
+    "li: GitHub Actions",
+    "li: Terraform"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: End-to-End Product Ownership",
+    "p: From ideation and prototyping through development, testing, deployment, and ongoing support, we manage the full lifecycle to deliver lasting business value.",
+    "h3: Market-Focused Approach",
+    "p: Every product decision is aligned with real market needs and customer expectations, ensuring stronger adoption rates, competitive differentiation, and higher ROI.",
+    "h3: Agile & Scalable Delivery",
+    "p: Using agile methodologies, we deliver in short iterations with continuous feedback, enabling rapid adaptation to evolving business priorities and requirements.",
+    "h3: Cutting-Edge Technology Stack",
+    "p: We leverage modern frameworks, cloud platforms, and DevOps practices to build secure, scalable, and future-ready products that grow with your business.",
+    "h3: Cross-Industry Experience",
+    "p: With proven success across healthcare, fintech, retail, and more, we apply best practices from diverse industries to every project we deliver.",
+    "h3: Innovation-Driven Culture",
+    "p: Our teams continuously explore emerging technologies such as AI, ML, IoT, and blockchain to bring innovation and added value to your product."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery & AI Strategy",
+    "p: We begin by defining your business goals, identifying relevant data sources, and aligning the AI strategy with organizational needs. This ensures the solution is designed with clear objectives and measurable outcomes in mind.",
+    "h3: Data Preparation",
+    "p: Raw data is cleaned, transformed, and structured to ensure accuracy and quality. We address inconsistencies, remove duplicates, and prepare datasets that are optimized for training reliable AI and machine learning models.",
+    "h3: Model Development",
+    "p: Using advanced AI/ML algorithms, we train, validate, and fine-tune models. Our approach emphasizes accuracy, interpretability, and performance, ensuring the models deliver meaningful and actionable insights.",
+    "h3: Integration & Testing",
+    "p: Once developed, the AI models are embedded into your existing workflows, applications, or platforms. Rigorous testing is conducted to validate functionality, performance, and seamless interaction with current systems.",
+    "h3: Deployment",
+    "p: The validated models are deployed into production environments, either on cloud or on-premise infrastructure, with full documentation and support to ensure smooth adoption.",
+    "h3: Monitoring & Scaling",
+    "p: After deployment, we continuously monitor model performance, retrain as needed, and optimize for scalability. This ensures your AI solutions remain accurate, secure, and capable of adapting to growing business demands."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About product engineering services with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: 1.Do you provide both MVP and full-scale product development?",
+    "p: Yes. At PTN Global, we support the complete product journey, from building lean, cost-effective MVPs that validate ideas quickly, to developing fully scalable, enterprise-grade products ready for the market. Whether you’re testing early concepts or expanding to a global audience, our team ensures your product is designed for performance, security, and long-term growth.",
+    "summary: How do you ensure a faster time-to-market without compromising quality?",
+    "p: We leverage agile methodologies, reusable components, and an MVP-first strategy to accelerate delivery. Rigorous testing and quality assurance are embedded throughout the process, ensuring speed never comes at the expense of reliability.",
+    "summary: Can you modernize or re-engineer an existing product?",
+    "p: Absolutely. We help organizations upgrade legacy systems, migrate to modern architectures, and enhance performance with new features. Our team ensures minimal disruption while extending the lifecycle and competitiveness of your existing product.",
+    "summary: How do you ensure product security and compliance with industry standards?",
+    "p: Security is built into every stage of development. We follow industry best practices, implement robust authentication and encryption, and align with relevant compliance standards such as GDPR, HIPAA, or PCI-DSS depending on your industry.",
+    "summary: What type of post-launch support do you provide?",
+    "p: We offer comprehensive post-launch services including monitoring, maintenance, performance optimization, and feature enhancements. Our long-term partnership approach ensures your product remains secure, efficient, and aligned with evolving business needs."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ],
+ "/services/web-application-development": [
+  {
+   "id": "",
+   "cls": "s s--grid s--hero in",
+   "items": [
+    "p: Core Application Development",
+    "h1: Web Application Development",
+    "label: Switch service Custom Software DevelopmentWeb Application DevelopmentMobile Application DevelopmentDesktop Application DevelopmentEnterprise Application DevelopmentAPI Development & IntegrationProduct Engineering ServicesAI & Machine Learning SolutionsData Science & Big Data SolutionsGenerative AI Application DevelopmentAI Agent & Autonomous Workflow Development (content awaiting)Cloud-Native Application Development (content awaiting)DevOps Consulting & Automation (content awaiting)Cloud Migration Services (content awaiting)Manual Testing (content awaiting)Automated Testing (content awaiting)Performance Testing (content awaiting)Security Testing (content awaiting)UI/UX Design & Prototyping (content awaiting)Application Maintenance & Support (content awaiting)Legacy System Modernization (content awaiting)System Integration Services (content awaiting)",
+    "p: Scalable and secure browser-based applications.",
+    "a[#/contact]: Build Your Team",
+    "a[#/contact]: Talk to an engineer",
+    "figcaption: Art directionHero image: Web Application Development work at PTN, same painterly treatment as Home"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: What we offer",
+    "h3: Custom Web Application Development",
+    "p: Tailor-made solutions designed to meet unique business requirements.",
+    "h3: Progressive Web Applications (PWA)",
+    "p: Scalable and secure browser-based applications.",
+    "h3: API Development and Integration",
+    "p: Native and cross-platform apps for iOS, Android, and hybrid platforms.",
+    "h3: AI Automation & Data Analytics Integration",
+    "p: Robust applications for Windows, macOS, and Linux environments.",
+    "h3: Enterprise Web Applications",
+    "p: ERP, CRM, HRM, and SCM systems to streamline operations.",
+    "h3: E-commerce Solutions",
+    "p: Secure APIs to connect and extend software functionality.",
+    "h3: Cloud-Based Solutions",
+    "p: End-to-end product lifecycle development from ideation to deployment.",
+    "h3: Single Page Applications (SPA)",
+    "p: Fast, responsive apps with smooth user experiences",
+    "h3: Web Portal Development",
+    "p: Centralized platforms for employees, partners, or customers.",
+    "h3: Web App Security Enhancement",
+    "p: Security-first approach with advanced protection.",
+    "p: Continuous monitoring, updates, and performance optimization."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our engineering tech stack",
+    "p: The stack we most often use for web application development.",
+    "h3: React.js, Angular, Vue.js, Next.js, Nuxt.js",
+    "h3: HTML5, CSS3, Java",
+    "li: Script (ES6+)",
+    "li: TypeScript Backend",
+    "h3: Node.js (Express.js), Java (Spring Boot)",
+    "h3: Python (Django, Flask), PHP (Laravel)",
+    "h3: .NET Core, Ruby on Rails Cloud / Platforms",
+    "h3: AWS, Microsoft Azure, Google Cloud",
+    "h3: Heroku, Vercel, Netlify",
+    "h3: Docker, Kubernetes Database",
+    "h3: PostgreSQL, MySQL, MariaDB",
+    "h3: MongoDB, Redis",
+    "h3: Elasticsearch, Firebase"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Industry that we work on",
+    "p: Trusted experience in building scalable solutions for multiple industries.",
+    "summary: Finance & Business",
+    "p: Driving innovation with secure, scalable digital solutions for the financial sectors",
+    "p: We deliver comprehensive digital solutions for the financial industry, including banking, insurance, wealth management, real estate, and compliance. From mobile banking apps and claims automation to robo-advisors and contract management platforms, our technologies empower financial institutions with secure, scalable, and innovative systems that enhance customer trust and operational efficiency.",
+    "summary: Healthcare & Life Sciences",
+    "p: Transforming healthcare with intelligent, patient-centered technologies",
+    "p: Our solutions enable healthcare providers, pharmaceutical companies, and life sciences organizations to deliver better care and improved outcomes. From telemedicine platforms and electronic health records (EHR) to AI-driven diagnostics and patient engagement tools, we help organizations streamline workflows, ensure compliance, and harness innovation to improve lives.",
+    "summary: Retail, Commerce & Consumer",
+    "p: Reimagining customer experiences with data-driven retail solutions",
+    "p: We build intelligent solutions that help retailers and consumer businesses thrive in the digital age. From e-commerce platforms and inventory management systems to personalized recommendation engines and loyalty apps, our technologies create seamless customer journeys, boost operational efficiency, and drive revenue growth.",
+    "summary: Travel, Transport & Logistics",
+    "p: Driving smarter operations with connected logistics and travel platforms",
+    "p: Our travel and logistics solutions help businesses optimize operations, manage fleets, and deliver exceptional customer experiences. From booking engines and travel management platforms to IoT-enabled fleet tracking and predictive supply chain systems, we enable companies to stay agile, efficient, and customer-focused in a fast-changing industry.",
+    "summary: Education & Knowledge",
+    "p: Empowering learning with innovative, accessible digital platforms",
+    "p: We create digital solutions that make education more engaging, collaborative, and accessible. From e-learning platforms and virtual classrooms to knowledge-sharing portals and AI-driven personalized learning paths, our technologies help institutions, educators, and enterprises foster continuous learning and knowledge growth."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Why You Should Choose PTN",
+    "h3: Effortless Integration",
+    "p: Agile Alignment, Our development teams adapt seamlessly to Agile, Scrum, or Kanban, ensuring smooth onboarding and quick project starts. - Clear Communication, We keep communication open and transparent, ensuring every detail matches your goals and avoiding misalignment.",
+    "h3: Transparent Pricing",
+    "p: Upfront Clarity, We provide detailed cost breakdowns from the start, with no hidden fees. - Scalable Solutions, Our services grow with your business, allowing you to adjust resources easily without unexpected costs.",
+    "h3: Consistent Quality",
+    "p: Top-Tier Talent, Our certified and highly skilled developers deliver robust, future-ready web applications. - Commitment to Excellence, Through continuous training and upskilling, our teams stay ahead of technology trends to ensure lasting quality."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "p: Process",
+    "h2: How we follow to complete your project",
+    "h3: Discovery",
+    "p: From vision to reality. We comprehend clients' stories and pain points, validate ideas, and define the project scope and key objectives. Through interactive workshops, stakeholder interviews, and brainstorming sessions, we set the stage for in-depth discussion and solution design.",
+    "h3: Planning",
+    "p: From concept to strategy. We map out a detailed project plan, covering project timelines, budget estimates, and resource allocation. Our experts propose tech stacks, methods, and tools suited for your case, define processes, and structure teams.",
+    "h3: UI/UX Design",
+    "p: From concept to prototype. We translate your ideas into intuitive and visually engaging designs that prioritize user experience. Our UI/UX team conducts research for user personas, creates detailed wireframes and interactive prototypes.",
+    "h3: Software Architecture",
+    "p: From vision to blueprint. We lay the foundation for your custom software by defining its technical structure, design principles, and technology stack. The architecture acts as a blueprint, ensuring scalability, performance, and security, while facilitating the harmonious integration of a robust backend with an intuitive, user-centric frontend.",
+    "h3: Development & Testing",
+    "p: From code to quality. Our professionals bring your idea to life, from prototyping to a full build. We strictly adhere to coding standards, follow quality assurance measures, and apply rigorous testing processes to ensure rolling out a success. We ensure frequent feedback loops for transparency.",
+    "h3: Deployment & Delivery",
+    "p: From staging to live. We work to ensure a smooth final release, whether it is a phased rollout or a full launch. Our team assists with deployment, configuration, and staff training for minimal disruption and easy handover.",
+    "h3: Post-Release Maintenance & Support",
+    "p: From launch to enhancement. Our team remains within reach after the project sign-off. We provide ongoing support, continuous updates, and enhancements as needed to ensure your solution stays robust and relevant, based on our SLA contracts."
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Our Case Studies",
+    "a[#/expertise/case-studies]: All case studies",
+    "span: Case study cover",
+    "p: Industry · Service",
+    "h3: Case study title awaiting",
+    "p: Client story, challenge and measurable result will come from the case study list.",
+    "a[#/expertise/case-studies/sample]: Explore more"
+   ]
+  },
+  {
+   "id": "",
+   "cls": "s",
+   "items": [
+    "h2: Frequently Asked Questions",
+    "p: About web application development with PTN.",
+    "a[#/contact]: Ask us directly",
+    "summary: What front-end and back-end technologies do you use in web app development?",
+    "p: We specialize in using modern, scalable front-end technologies like React, Angular, and Vue.js, coupled with efficient back-end solutions such as Node.js, Python with Django, and Ruby on Rails. Our tech stack is chosen for its robustness, scalability, and community support, ensuring that we deliver high-performance, secure, and maintainable web applications.",
+    "summary: How do you ensure the security of the web apps you develop?",
+    "p: Security is integrated into every stage of our development process. We follow industry best practices including: - Data encryption (in transit and at rest) - Secure authentication and authorization protocols (OAuth, JWT, SSO) - Regular code reviews and vulnerability assessments - OWASP guidelines to prevent common threats such as SQL injection, XSS, and CSRF attacks. Additionally, we implement role-based access control and conduct penetration testing to ensure that applications remain resilient against evolving cyber threats.",
+    "summary: How do you handle data management and scalability in web apps?",
+    "p: We design web applications with scalability and efficiency at the core. Our approach includes: - Cloud-native architectures (AWS, Azure, GCP) for flexible scaling - Efficient database design (SQL and NoSQL solutions such as PostgreSQL, MySQL, MongoDB) - Caching strategies (Redis, Memcached) to optimize performance - Microservices architecture for handling high-volume transactions and future growth This ensures that applications can handle increasing workloads seamlessly while maintaining speed and reliability.",
+    "summary: Can you describe your approach to mobile responsiveness and cross-platform compatibility?",
+    "p: We follow a mobile-first design philosophy, ensuring that applications deliver a consistent, user-friendly experience across all devices and platforms. Our approach includes: - Responsive UI frameworks (Bootstrap, Tailwind CSS, Material UI) - Cross-browser testing to ensure compatibility - Progressive Web Apps (PWA) for near-native mobile performance - Optimized layouts, fluid grids, and adaptive images for seamless experiences on desktops, tablets, and smartphones.",
+    "summary: What is your process for testing and quality assurance in web app development?",
+    "p: Quality assurance is a critical part of our workflow. We apply a multi-layered testing strategy that includes: - Unit Testing & Integration Testing to validate code functionality - Automated Testing for faster release cycles and reduced errors - Manual Exploratory Testing to catch edge cases and usability issues - Performance & Load Testing to ensure stability under real-world conditions - User Acceptance Testing (UAT) to confirm the solution meets business requirements. This comprehensive QA process guarantees that we deliver stable, reliable, and high-quality applications."
+   ]
+  },
+  {
+   "id": "contact-cta",
+   "cls": "s s--finale",
+   "items": [
+    "h2: Big projects always start through a simple conversation.",
+    "dt: Phone",
+    "dd: +61 414 734 277",
+    "dt: Email",
+    "dd: enquiry@ptnglobalcorp.com",
+    "a[#/contact]: Contact Us"
+   ]
+  }
+ ]
+}
