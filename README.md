@@ -21,3 +21,4 @@ Then visit <http://localhost:5180/>. The site opens straight on Home; use the **
 - `data/docs.json` – page copy parsed from the "All New Website" layout docs (`scripts/parse-docs.mjs`)
 - `assets/` – PTN logo and mark
 - `site.zip` – the original layout documents
+- `v2/` – high-fidelity rebuild ("Workspace clarity" direction). See `v2/README.md`
