@@ -411,12 +411,19 @@ def organization():
     b = phero(['Tổ chức &amp; Lãnh đạo'], 'Cơ cấu tổ chức', 'Bộ máy gọn, *bốn khối rõ vai trò*',
               'Ban lãnh đạo điều hành bốn khối: Chuyển đổi số, An sinh, Quản lý vận hành và Xây dựng kế hoạch – thực thi dự án.', 'l',
               btn('Xem ban lãnh đạo', '#lanh-dao', arrow=True) + btn('Lĩnh vực hoạt động', 'Services.dc.html', 'secondary'))
-    units = [('Khối 01', 'Chuyển đổi số', ['PKD Lưu động', 'PKD kênh Y tế', 'PKD Tổng hợp']), ('Khối 02', 'An sinh', ['Phòng An sinh (BHXH, BHYT)', 'Phòng Chi trả', 'Bảo hiểm học sinh']),
-             ('Khối 03', 'Quản lý vận hành &amp; Nội bộ', ['Nhân sự', 'Kế toán', 'Hậu cần &amp; Kỹ thuật']), ('Khối 04', 'Kế hoạch &amp; Thực thi dự án', ['Trường dạy lái xe', 'Máy bán hàng tự động', 'Cung ứng nhân lực'])]
-    cols = [f'<div class="org-col"><header><span>{n}</span><h3>{t}</h3></header><ul>' + ''.join(f'<li>{ic("check", 16, 2.2)}{u}</li>' for u in us) + '</ul></div>' for n, t, us in units]
-    b += sec(head('Sơ đồ tổ chức', 'Một ban lãnh đạo, *bốn khối, mười hai đơn vị*') + '<div class="org-root"><b>Ban lãnh đạo</b></div>' + grid(cols, 4, tag='div'), id='so-do')
-    b += sec(head('Vai trò từng khối', 'Mỗi khối *một nhiệm vụ trọng tâm*')
-             + grid([card(k[2], k[3], icon=k[4], num=k[1], href=f'Services.dc.html#{k[0]}', more='Xem chi tiết') for k in KHOI], 4), 'sec--tint')
+    units = [[('truck', 'PKD Lưu động'), ('hos', 'PKD kênh Y tế'), ('bank', 'PKD Tổng hợp')],
+             [('heart', 'Phòng An sinh (BHXH, BHYT)'), ('coins', 'Phòng Chi trả'), ('cap', 'Bảo hiểm học sinh')],
+             [('users', 'Nhân sự'), ('tax', 'Kế toán'), ('cpu', 'Hậu cần &amp; Kỹ thuật')],
+             [('car', 'Trường dạy lái xe'), ('vend', 'Máy bán hàng tự động'), ('globe', 'Cung ứng nhân lực')]]
+    cols = ''.join(
+        f'<li class="org-col"><header><b class="n" aria-hidden="true">0{i + 1}</b><span class="ic">{ic(k[4])}</span><span class="tag" style="background: #fff">{k[1]}</span><h3>{k[2]}</h3><p>{k[3]}</p></header>'
+        + '<ul>' + ''.join(f'<li><span>{ic(u_ic, 18)}</span>{u}</li>' for u_ic, u in units[i]) + '</ul>'
+        + f'<div class="org-ft"><span>{len(units[i])} đơn vị</span><a href="Services.dc.html#{k[0]}">Xem lĩnh vực {ARROW}</a></div></li>' for i, k in enumerate(KHOI))
+    chart = (f'<div class="org"><div class="org-top"><div class="org-root"><span class="ic">{ic("users")}</span><span><b>Ban lãnh đạo</b><span>Điều hành toàn hệ sinh thái</span></span></div></div>'
+             + '<div class="org-bus" aria-hidden="true"><span></span><span></span><span></span><span></span></div>'
+             + f'<ol class="org-cols">{cols}</ol>'
+             + '<p class="org-sum"><span><b>1</b> ban lãnh đạo</span><span aria-hidden="true">→</span><span><b>4</b> khối</span><span aria-hidden="true">→</span><span><b>12</b> đơn vị</span></p></div>')
+    b += sec(head('Sơ đồ tổ chức', 'Một ban lãnh đạo, *bốn khối, mười hai đơn vị*', 'Mỗi khối có một chủ đề hoạt động và ba đơn vị trực thuộc.') + chart, id='so-do')
     ld = [('Ông Đinh Hoàng Minh', 'Cố vấn Cao cấp'), ('Ông Đinh Hoàng Công', 'Giám đốc Công ty'), ('Ông Lư Hồng Huỳnh', 'Phó Giám đốc'),
           ('Bà Nguyễn Thị Hồng Huệ', 'Phó Giám đốc'), ('Ông Phan Hữu Linh', 'Phó Giám đốc'), ('Ông Dương Minh Trường', 'Phó Giám đốc')]
     b += sec(head('Ban lãnh đạo', 'Những người *điều hành hệ sinh thái*', 'Ảnh chân dung và phạm vi phụ trách sẽ được cập nhật khi có xác nhận từ Ban Giám đốc.')
