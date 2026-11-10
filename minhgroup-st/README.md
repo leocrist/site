@@ -4,21 +4,33 @@ Wireframe 10 trang song ngữ (VI chính, có bản EN cho Trang chủ) cho Côn
 
 ## Cấu trúc
 
-- `project/canvas.json`: bố cục các artboard trên canvas.
-- `project/*.dc.html`: từng trang, dạng Design canvas (`<x-dc>` + `DCLogic`). Cần runtime `support.js` của canvas để chạy phần tương tác (popup tư vấn, tab Dịch vụ); phần HTML/CSS tĩnh xem được trực tiếp.
-  - `Main.dc.html`: Trang chủ (VI)
-  - `MainEN.dc.html`: Home (EN)
-  - About, History, Organization, Leadership, Market, Services, News, Gallery, Contact: 9 trang con (chưa đồng bộ hệ lưới mới của Trang chủ)
-- `assets/logo-mgst.png`: logo Minh Group ST.
-- `assets/photos/`: ảnh minh họa từ Wikimedia Commons. Tác giả và giấy phép ghi trong `credits.json` và trên từng ảnh. Đây là ảnh tạm, cần thay bằng ảnh thật của Minh Group trước khi lên production.
-- `assets/logos/`: logo đối tác, bản trắng đơn sắc, lấy từ website chính thức của từng bên.
+Website 7 trang (VI) + Trang chủ EN + 1 trang design system, dựng từ **một stylesheet và một bộ component**:
+
+- `tools/site.css`: toàn bộ token (màu, chữ, khoảng cách, bo góc, lưới 13 ô) và component. Breakpoint: ≤1023, ≤767, ≤479.
+- `tools/site_gen.py`: sinh mọi trang từ các component dùng chung (`sec`, `head`, `grid`, `card`, `stats`, `feat`, `steps`, `split`, `faq`, `cta`, header, footer, dock). `python3 tools/site_gen.py project` ghi ra `project/`; thêm `--preview assets` để ra HTML thường, mở được không cần canvas.
+- `tools/icons.py`, `tools/heights.json`: bộ icon nét và chiều cao artboard ở 1440px.
+- `project/canvas.json` + `project/*.dc.html`: artboard trên Design canvas.
+
+| Trang | File | Nội dung |
+|---|---|---|
+| Trang chủ (VI, EN) | `Main`, `MainEN` | Hero, số liệu, 4 khối, 3 dự án, giá trị cho đối tác, CSR, FAQ |
+| Giới thiệu | `About` | Tổng quan, hệ sinh thái 7 lĩnh vực, triết lý, nhóm đối tác, cột mốc, CSR |
+| Tổ chức & Lãnh đạo | `Organization` | Sơ đồ 4 khối 12 đơn vị, ban lãnh đạo |
+| Lĩnh vực hoạt động | `Services` | 4 khối theo hồ sơ năng lực (`#k1`–`#k4`) |
+| Dự án trọng điểm | `Projects` | Máy bán hàng tự động, đào tạo lái xe, cung ứng nhân lực |
+| Tin tức & Thư viện | `News` | Bài viết (placeholder) + lưới ảnh |
+| Liên hệ | `Contact` | Kênh liên hệ, form, bản đồ (placeholder) |
+| Design system | `System` | Token và component để dựng lại trong Figma |
+
+Nguồn nội dung: `Ho_so_nang_luc_Minh_Group_ST` (PDF) và `MGST.docx`. Các trang cũ History, Leadership, Market, Gallery đã gộp vào About, Organization và News.
+
+- `assets/photos/`: ảnh minh họa từ Wikimedia Commons (tác giả, giấy phép trong `credits.json`), cần thay bằng ảnh thật.
 
 ## Cần xác nhận trước khi bàn giao
 
-- Vietcombank và Agribank đang là đối tác demo, chưa xác nhận là đối tác thật. Cần danh sách ngân hàng và đối tác Đức/Ba Lan thật.
-- Logo đối tác cần bản chính thức (SVG) và sự cho phép dùng bản trắng đơn sắc.
-- Các chỗ `[...]` (số giấy phép, địa chỉ, MST, giá, ngày tháng) là placeholder.
-- Giờ làm việc và cam kết "gọi lại trong 30 phút" trong FAQ là giả định.
+- Logo chính thức của PVI, VPBank, VNPAY, Toro và quyền sử dụng.
+- MST, giờ làm việc, bản đồ, ảnh chân dung và phạm vi phụ trách của lãnh đạo, tiêu đề bài viết: đang là placeholder `[...]`.
+- Mốc 04/2026 (Phòng Kế toán – Nhân sự) có thể là 04/2025.
 
 ## Brochure / Corporate Profile (A4, 8 trang)
 

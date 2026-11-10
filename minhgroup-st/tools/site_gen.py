@@ -1,296 +1,249 @@
-# Generates the website sub-pages in the Home page's design language.
-# usage: python3 site_gen.py <live Main.dc.html> <out project dir>
-import re, sys, os
+# Builds every website page from one stylesheet (site.css) and one set of components.
+# usage: python3 site_gen.py <out project dir> [--preview <assets dir>]
+#   --preview writes plain .html files that open without the canvas runtime
+import re, sys, os, json
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from icons import I
 
-MAIN, OUT = sys.argv[1], sys.argv[2]
-home = open(MAIN, encoding='utf8').read()
-HOME_CSS = re.search(r'<style>(.*?)</style>', home, re.S).group(1)
-SPK = re.search(r'<svg class="vb-spk"[^>]*>(<path d="[^"]+"></path>)</svg>', home).group(1)
+OUT = sys.argv[1]
+PREVIEW = sys.argv[3] if len(sys.argv) > 3 and sys.argv[2] == '--preview' else None
+CSS = open(os.path.join(HERE, 'site.css'), encoding='utf8').read()
+LANG = 'vi'
+def T(vi, en=None):
+    return en if (LANG == 'en' and en is not None) else vi
 
-B = {  # artifact blobs
- 'logo': '/_blob/a59374f9219055b49892dcb2ad96f385',
- 'a': '/_blob/45860b7d149a390970149582f9b89451', 'b': '/_blob/f5040f4716dac4c066f6f0653b44e4e6',
- 'f': '/_blob/35c914cb179315c1ed8aadf2038fe9d7', 'g': '/_blob/79c011ce9bdbe1ced6739433e7fdd9c6',
- 'h': '/_blob/c4dc9283c7a0db1adf5c77c4978be8b0', 'k': '/_blob/7b27c5ec9692f7cb740afbd91ad776cc',
- 'l': '/_blob/731930f256d63826095fbe8b538ce38b',
- 'pvi': '/_blob/5e81120a5d760314400d7c3cd78d07cc', 'pti': '/_blob/d2e087652b3544da1e57390d20c76236',
- 'vcb': '/_blob/15854dcaa6fa5a8fc38f7881b3d38fad', 'agri': '/_blob/5bb1ed721ba769b0c1a9d2fa70312f3b',
+B = {  # artifact blobs -> repo files (used by --preview)
+ 'logo': ('/_blob/a59374f9219055b49892dcb2ad96f385', 'logo-mgst.png'),
+ 'a': ('/_blob/45860b7d149a390970149582f9b89451', 'photos/mg-a.jpg'),
+ 'b': ('/_blob/f5040f4716dac4c066f6f0653b44e4e6', 'photos/mg-b.jpg'),
+ 'f': ('/_blob/35c914cb179315c1ed8aadf2038fe9d7', 'photos/mg-f.jpg'),
+ 'g': ('/_blob/79c011ce9bdbe1ced6739433e7fdd9c6', 'photos/mg-g.jpg'),
+ 'h': ('/_blob/c4dc9283c7a0db1adf5c77c4978be8b0', 'photos/mg-h.jpg'),
+ 'k': ('/_blob/7b27c5ec9692f7cb740afbd91ad776cc', 'photos/mg-k.jpg'),
+ 'l': ('/_blob/731930f256d63826095fbe8b538ce38b', 'photos/mg-l.jpg'),
+ 'pvi': ('/_blob/5e81120a5d760314400d7c3cd78d07cc', 'logos/pvi-w.png'),
 }
+def blob(k):
+    return (PREVIEW + '/' + B[k][1]) if PREVIEW else B[k][0]
 CR = {
- 'a': ('Người phụ nữ đội nón lá trên ghe ở chợ nổi Cần Thơ', 'Ảnh: Vyacheslav Argenberg · CC BY 4.0'),
- 'b': ('Người bán hàng rong vừa đội thúng bánh vừa xem điện thoại', 'Ảnh: Peter van der Sluijs · CC BY-SA 3.0'),
- 'f': ('Dòng xe máy trên đường phố Cần Thơ', 'Ảnh: Dragfyre · CC BY-SA 3.0'),
- 'g': ('Cầu Cần Thơ nhìn từ trên cao', 'Ảnh: Tuong Lam Photos · CC BY-SA 4.0'),
- 'h': ('Sạp rau ở chợ Cần Thơ', 'Ảnh: Franzfoto · CC BY-SA 3.0'),
- 'k': ('Cầu Cần Thơ bắc qua sông Hậu', 'Ảnh: Christophe95 · CC BY-SA 4.0'),
- 'l': ('Trụ tháp cầu Cần Thơ lúc chiều', 'Ảnh: Franzfoto · CC BY-SA 3.0'),
+ 'a': ('Người phụ nữ đội nón lá trên ghe ở chợ nổi Cần Thơ', 'Vyacheslav Argenberg · CC BY 4.0'),
+ 'b': ('Người bán hàng rong vừa đội thúng bánh vừa xem điện thoại', 'Peter van der Sluijs · CC BY-SA 3.0'),
+ 'f': ('Dòng xe máy trên đường phố Cần Thơ', 'Dragfyre · CC BY-SA 3.0'),
+ 'g': ('Cầu Cần Thơ nhìn từ trên cao', 'Tuong Lam Photos · CC BY-SA 4.0'),
+ 'h': ('Sạp rau ở chợ Cần Thơ', 'Franzfoto · CC BY-SA 3.0'),
+ 'k': ('Cầu Cần Thơ bắc qua sông Hậu', 'Christophe95 · CC BY-SA 4.0'),
+ 'l': ('Trụ tháp cầu Cần Thơ lúc chiều', 'Franzfoto · CC BY-SA 3.0'),
 }
-ON, ONP, BGOR = ' class="on"', ' class="on" aria-current="page"', ' style="background: #fdf1eb"'
-HOT, HOT_T = '0977 726 700', 'tel:0977726700'
-MAIL = 'minhgroupst@mgst.com.vn'
+HOT, HOT_T, MAIL = '0977 726 700', 'tel:0977726700', 'minhgroupst@mgst.com.vn'
 ADDR = '323–325 Phú Lợi, phường Phú Lợi, TP. Cần Thơ'
 
-I = {  # 24px stroke icons
- 'id': '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10.5" r="2.5"/><path d="M5.5 17c.8-1.6 2.1-2.5 3.5-2.5s2.7.9 3.5 2.5M15 10h3M15 14h2"/>',
- 'tax': '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
- 'qr': '<rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/>',
- 'hos': '<rect x="4" y="7" width="16" height="14"/><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"/>',
- 'plus': '<circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/>',
- 'bank': '<path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"/>',
- 'card': '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',
- 'scan': '<path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/><circle cx="12" cy="11" r="2.6"/><path d="M8 16.5c1-2 7-2 8 0"/>',
- 'scale': '<path d="M12 4v16M7 20h10M5 8h14M5 8l-2.5 6a2.8 2.8 0 0 0 5 0zM19 8l-2.5 6a2.8 2.8 0 0 0 5 0z"/>',
- 'car': '<path d="M3 15l2-5.5A2 2 0 0 1 6.9 8h10.2A2 2 0 0 1 19 9.5l2 5.5v3H3z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/><path d="M3 13h18"/>',
- 'home': '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-6h6v6"/>',
- 'shield': '<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
- 'heart': '<path d="M20.8 6.6a5 5 0 0 0-8.8-1.9 5 5 0 0 0-8.8 1.9c-.9 4 3 7.6 8.8 12.4 5.8-4.8 9.7-8.4 8.8-12.4z"/>',
- 'users': '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"/>',
- 'gift': '<rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1.5S9 8 12 8zm0 0c2-4 6-4 6-1.5S15 8 12 8z"/>',
- 'medal': '<circle cx="12" cy="14" r="6"/><path d="M8.5 9 6 3h4l2 4 2-4h4l-2.5 6"/><path d="M12 11.5v5M10 14h4"/>',
- 'search': '<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.6-4.6"/>',
- 'grid': '<rect x="4" y="4" width="16" height="16"/><path d="M4 12h16M12 4v16"/>',
- 'link': '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
- 'bolt': '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
- 'trend': '<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
- 'cpu': '<rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
- 'map': '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/>',
- 'gov': '<path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"/>',
- 'phone': '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
- 'mail': '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
- 'pin': '<path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>',
- 'clock': '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
- 'doc': '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/>',
- 'book': '<path d="M4 19V5a2 2 0 0 1 2-2h13v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13M9 7h6M9 11h4"/>',
- 'flag': '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
- 'eye': '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
- 'compass': '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
- 'check': '<path d="M5 12.5l4.2 4.2L19 7"/>',
- 'person': '<circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>',
- 'photo': '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/>',
-}
+I.update({
+ 'menu': '<path d="M4 7h16M4 12h16M4 17h16"/>',
+ 'x': '<path d="M6 6l12 12M18 6L6 18"/>',
+ 'chat': '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/>',
+ 'msg': '<path d="M12 3C7 3 3 6.6 3 11.2c0 2.5 1.2 4.7 3.1 6.2V21l3-1.7c.9.3 1.9.4 2.9.4 5 0 9-3.6 9-8.3S17 3 12 3z"/><path d="M7.5 13l3-3 2.5 2 3.5-3"/>',
+ 'vend': '<rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8 6h5v7H8zM16 6v3M16 12v1M8 17h8"/>',
+ 'globe': '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/>',
+ 'cap': '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c2 2 10 2 12 0v-4.5M22 9v6"/>',
+ 'coins': '<ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v5c0 1.7 2.7 3 6 3M3 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3"/><ellipse cx="15" cy="13" rx="6" ry="3"/><path d="M21 13v4"/>',
+ 'chart': '<path d="M4 20V4M4 20h16M8 16v-5M12 16V8M16 16v-3"/>',
+ 'layers': '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5M3 17.5l9 5 9-5"/>',
+ 'bulb': '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/>',
+ 'hand': '<path d="M3 14l4-1 4 2h4a2 2 0 0 1 0 4H9"/><path d="M15 15l4-2a1.8 1.8 0 0 1 2 3l-6 4H7l-4-2"/><circle cx="14" cy="6" r="3"/>',
+ 'truck': '<path d="M2 6h11v10H2zM13 9h5l3 4v3h-8z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',
+})
+SPK = '<path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path>'
+SP = f'<svg viewBox="0 0 24 24" aria-hidden="true">{SPK}</svg>'
+
+# ---------------------------------------------------------------- components
 def ic(n, size=22, sw=1.7):
     return f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{I[n]}</svg>'
 ARROW = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>'
-SP = f'<svg viewBox="0 0 24 24">{SPK}</svg>'
 
-def img(k, cls='ph hasimg', style='', alt=None):
+def acc(t):  # *text* -> accent span
+    return re.sub(r'\*(.+?)\*', r'<span>\1</span>', t)
+def btn(label, href, kind='primary', arrow=False, lg=False, attrs=''):
+    return f'<a class="btn btn--{kind}{" btn--lg" if lg else ""}" href="{href}"{attrs}>{label}{" " + ARROW if arrow else ""}</a>'
+def photo(k, cls='', alt=None):
     a, c = CR[k]
-    return f'<div class="{cls}" style="{style}"><img src="{B[k]}" alt="{alt or a}" loading="lazy" decoding="async"><span class="cr">{c}</span></div>'
+    return f'<figure class="ph {cls}"><img src="{blob(k)}" alt="{alt or a}" loading="lazy" decoding="async"><figcaption class="cr">Ảnh: {c}</figcaption></figure>'
+def empty(label, cls='', icon='photo'):
+    return f'<div class="ph ph--empty {cls}">{ic(icon, 18)}<span>{label}</span></div>'
+def sec(body, cls='', id=''):
+    i = f' id="{id}"' if id else ''
+    return f'<section class="sec {cls}"{i}>\n<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>\n{body}\n</div>\n</section>\n'
+def head(eyebrow, title, lead='', actions='', center=False, level=2):
+    e = f'<p class="eyebrow">{SP}{eyebrow}</p>' if eyebrow else ''
+    l = f'<p class="lead">{lead}</p>' if lead else ''
+    a = f'<div class="actions">{actions}</div>' if actions else ''
+    return f'<div class="sec-hd{" center" if center else ""}">{e}<h{level} class="h2">{acc(title)}</h{level}>{l}{a}</div>'
+def grid(items, cols=3, cls='', tag='ul'):
+    w = 'li' if tag == 'ul' else 'div'
+    return f'<{tag} class="grid c{cols} {cls}">' + ''.join(f'<{w}>{x}</{w}>' for x in items) + f'</{tag}>'
+def card(title, text='', icon=None, href=None, num=None, more=None, cls='', items=None, tag=None):
+    el = 'a' if href else 'div'
+    h = f' href="{href}"' if href else ''
+    out = f'<{el} class="card {cls}"{h}>'
+    if icon: out += f'<span class="ic">{ic(icon)}</span>'
+    if num: out += f'<span class="num">{num}</span>'
+    if tag: out += f'<span class="tag" style="align-self: flex-start">{tag}</span>'
+    out += f'<h3>{title}</h3>'
+    if text: out += f'<p>{text}</p>'
+    if items: out += '<ul>' + ''.join(f'<li>{x}</li>' for x in items) + '</ul>'
+    if more: out += f'<span class="more">{more} {ARROW}</span>'
+    return out + f'</{el}>'
+def stats(rows, cols=4):
+    return f'<dl class="grid c{cols} keep2">' + ''.join(f'<div class="stat"><dt>{l}</dt><dd>{n}</dd></div>' for n, l in rows) + '</dl>'
+def feat(num, title, text, cards, id='', cols=3, action=''):
+    i = f' id="{id}"' if id else ''
+    return (f'<div class="feat"{i}><div class="feat-hd"><span class="tag" style="align-self: flex-start">{num}</span><h3>{title}</h3><p>{text}</p>{action}</div>'
+            + grid(cards, cols) + '</div>')
+def steps(rows, cols=3):
+    return f'<ol class="grid c{cols}">' + ''.join(f'<li><div class="step"><b>{i:02d}</b><h3>{t}</h3><p>{d}</p></div></li>' for i, (t, d) in enumerate(rows, 1)) + '</ol>'
+def split(left, right, flip=False):
+    return f'<div class="split{" flip" if flip else ""}"><div>{left}</div>{right}</div>'
+def vband(words):
+    one = ''.join(f'<li>{w}{SP}</li>' for w in words)
+    hid = ''.join(f'<li aria-hidden="true">{w}{SP}</li>' for w in words)
+    return f'<div class="vband"><ul>{one}{hid}</ul></div>\n'
+def faq(rows):
+    plus = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>'
+    return '<div class="faq-list">' + ''.join(f'<details class="faq"><summary>{q}{plus}</summary><p>{a}</p></details>' for q, a in rows) + '</div>'
+def cta(title=None, text=None):
+    title = title or T('Cần một đối tác *có mặt tận địa bàn?*', 'Need a partner *already on the ground?*')
+    text = text or T('Để lại yêu cầu, chuyên viên phụ trách đúng mảng sẽ liên hệ trong giờ làm việc.', 'Leave a request and the specialist for that line of work will call you back during office hours.')
+    return sec(f'''<div class="cta"><div><h2 class="h2">{acc(title)}</h2><p class="lead">{text}</p><div class="actions">{btn(T('Gửi yêu cầu hợp tác', 'Send a partnership request'), 'Contact.dc.html#form', arrow=True, lg=True)}{btn(T('Xem lĩnh vực hoạt động', 'See what we do'), 'Services.dc.html', 'secondary', lg=True)}</div></div>
+<div><span class="eyebrow">Hotline</span><a class="tel" href="{HOT_T}">{HOT}</a><a href="mailto:{MAIL}" style="font-size: 15px">{MAIL}</a></div></div>''', 'sec--dk')
 
-EXTRA_CSS = r'''
-/* ---- sub-pages: same system as Home ---- */
-.dk-sec .cell p,.dk-sec .lead{color:#a39d98}
-.crumb{font-size:12px;color:#8a8a8a;letter-spacing:.04em}.crumb a{color:#8a8a8a;text-decoration:none}.crumb a:hover{color:#ca4d25}
-.phero .cells{height:520px}
-.phero .fade{top:360px}
-.subnav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
-.subnav a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:18px 24px;font-size:14px;font-weight:500;color:#5c5c5c;text-decoration:none;transition:background .2s,color .2s}
-.subnav a:hover{background:#fafafa;color:#201e1d}
-.subnav a.on{background:#fdf1eb;color:#a63c1b}
-.subnav a .num{font-size:12px}
-.stat dd{font-size:56px;line-height:1;font-weight:600;letter-spacing:-0.02em;color:#ca4d25;font-variant-numeric:tabular-nums}
-.stat dt{font-size:15px;color:#5c5c5c;margin-top:8px}
-.stat{display:flex;flex-direction:column-reverse;justify-content:center;align-items:center;text-align:center;gap:4px;padding:36px 24px;margin:0}
-.dk-sec .stat dd{color:#ef7a52}.dk-sec .stat dt{color:#a39d98}
-.big-or{background:#ca4d25 !important;color:#fffaf6}
-.big-or h4,.big-or p{color:#fffaf6 !important}
-.big-or .ic{background:rgb(255 255 255 / 16%) !important;color:#fffaf6 !important}
-.lead-q{font-size:30px;line-height:1.35;letter-spacing:-0.01em;font-weight:500;text-wrap:balance}
-.lead-q span{color:#ca4d25}
-.dk-sec .lead-q span{color:#ef7a52}
-.tl-row{display:grid;grid-template-columns:10rem minmax(0,1.1fr) minmax(0,1fr)}
-.tl-row>*{padding:24px 32px;display:flex;flex-direction:column;justify-content:center;gap:4px}
-.tl-row .mo{font-size:28px;font-weight:600;letter-spacing:-0.02em;color:#ca4d25;font-variant-numeric:tabular-nums}
-.tl-row h4{font-size:17px;font-weight:500;margin:0}
-.tl-row p{font-size:14px;line-height:1.6;color:#5c5c5c}
-.yr{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:40px 40px 20px}
-.yr b{font-size:64px;line-height:1;font-weight:600;letter-spacing:-0.03em}
-.pkd{display:grid;grid-template-columns:repeat(11,minmax(0,1fr))}
-.pkd>*{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 4px;gap:2px}
-.pkd b{font-size:24px;font-weight:600;color:#ca4d25;line-height:1}
-.pkd span{font-size:11px;letter-spacing:.06em;color:#8a8a8a}
-.ldr{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;align-items:center;padding:32px}
-.ldr .pt{width:120px;height:120px;border-radius:12px;background:repeating-linear-gradient(135deg,#f6dfd3 0 1px,transparent 1px 8px);border:1px solid #f6dfd3;display:flex;align-items:center;justify-content:center;color:#d9a48b}
-.ldr .pt.on{border:2px solid #ca4d25}
-.ldr h3{font-size:19px;font-weight:600}
-.ldr .role{font-size:13px;font-weight:600;color:#ca4d25;margin-top:4px}
-.ldr p{font-size:14px;line-height:1.6;color:#5c5c5c;margin-top:10px}
-.mx{display:grid;grid-template-columns:15rem repeat(17,minmax(0,1fr));font-size:13px}
-.mx>*{display:flex;align-items:center;justify-content:center;min-height:52px}
-.mx .nm{justify-content:flex-start;padding:0 24px;font-weight:500}
-.mx .hd{font-size:12px;color:#8a8a8a;min-height:44px}
-.mx .d{width:14px;height:14px;border-radius:50%;background:#ca4d25}
-.mx .e{width:4px;height:4px;border-radius:50%;background:#d9d6d3}
-.mx .all{grid-column:span 17;justify-content:flex-start;padding-left:24px;color:#a63c1b;font-size:12px;letter-spacing:.04em}
-.pillar h4{font-size:19px !important}
-.chips-row{display:flex;gap:8px;flex-wrap:wrap}
-.tagline{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#8a8a8a}
-.tagline svg{width:14px;height:14px;fill:#ca4d25;stroke:#ca4d25;stroke-width:2;stroke-linejoin:round}
-.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:260px}
-.gal>.ph{border:0;border-radius:0}
-.gal .w2{grid-column:span 2}.gal .h2r{grid-row:span 2}
-.svc-anchor{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.svc-anchor a{display:flex;flex-direction:column;gap:6px;padding:24px 32px;text-decoration:none;color:#201e1d;transition:background .2s}
-.svc-anchor a:hover{background:#fdf1eb}
-.svc-anchor b{font-size:16px;font-weight:500}
-.logos{display:flex;align-items:center;justify-content:center;gap:56px;flex-wrap:wrap;padding:28px 40px}
-.logos img{display:block;width:auto;opacity:.85}
-.cmt{display:grid;grid-template-columns:72px minmax(0,1fr)}
-.cmt>*{padding:20px 24px;display:flex;flex-direction:column;justify-content:center;gap:4px}
-.cmt b{font-size:28px;font-weight:300;color:#ca4d25}
-.cmt h4{font-size:17px;font-weight:500;margin:0}
-.cmt p{font-size:14px;color:#5c5c5c;line-height:1.6}
-.map{min-height:420px;background-color:#fdf1eb;background-image:linear-gradient(to right,#f6dfd3 1px,transparent 1px),linear-gradient(to bottom,#f6dfd3 1px,transparent 1px);background-size:48px 48px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#a63c1b;font-size:14px;text-align:center}
-.map .pinb{width:56px;height:56px;border-radius:50%;background:#ca4d25;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgb(202 77 37 / 14%)}
-@media (max-width:900px){.subnav{grid-template-columns:repeat(2,minmax(0,1fr))}.tl-row{grid-template-columns:1fr}.pkd{grid-template-columns:repeat(4,minmax(0,1fr))}.ldr{grid-template-columns:80px minmax(0,1fr);padding:24px 20px}.ldr .pt{width:80px;height:80px}.mx{display:none}.gal{grid-template-columns:1fr 1fr}.svc-anchor{grid-template-columns:1fr 1fr}.yr{padding:32px 20px 16px}.yr b{font-size:44px}.lead-q{font-size:22px}}
-'''
-
-NAV = [('Main.dc.html', 'Trang chủ'), ('About.dc.html', 'Giới thiệu'), ('Services.dc.html', 'Dịch vụ'),
-       ('News.dc.html', 'Tin tức'), ('Gallery.dc.html', 'Thư viện'), ('Contact.dc.html', 'Liên hệ')]
-ABOUT_GROUP = ['About.dc.html', 'History.dc.html', 'Organization.dc.html', 'Leadership.dc.html', 'Market.dc.html']
-SUB = [('About.dc.html', '01', 'Thông tin công ty'), ('History.dc.html', '02', 'Lịch sử & Cột mốc'),
-       ('Organization.dc.html', '03', 'Cơ cấu tổ chức'), ('Leadership.dc.html', '04', 'Ban lãnh đạo'),
-       ('Market.dc.html', '05', 'Năng lực & Vị thế')]
-
+NAV = [('About', 'Giới thiệu', 'About'), ('Organization', 'Tổ chức', 'Organization'), ('Services', 'Lĩnh vực', 'What we do'),
+       ('Projects', 'Dự án', 'Projects'), ('News', 'Tin tức', 'News')]
 def header(cur):
-    on = 'About.dc.html' if cur in ABOUT_GROUP else cur
-    links = '\n'.join(f'<a href="{h}"{ON if h == on else ""}>{t}</a>' for h, t in NAV)
-    return f'''<header style="position: sticky; top: 0; z-index: 20; border-bottom: 1px solid #ebebeb; background: rgb(255 255 255 / 90%); backdrop-filter: blur(12px)">
-<div class="box" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 0 20px">
-<a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #201e1d">
-<img src="{B['logo']}" alt="Logo Minh Group ST" width="40" height="40" style="width: 40px; height: 40px; object-fit: contain; mix-blend-mode: multiply">
-<span style="font-weight: 600; font-size: 15px; letter-spacing: .02em">Minh Group ST</span>
-</a>
-<nav class="nav" aria-label="Điều hướng chính" style="display: flex; gap: 2px">
-{links}
-</nav>
-<div style="display: flex; align-items: center; gap: 8px">
-<div class="lang" role="group" aria-label="Ngôn ngữ / Language"><a href="{cur}" aria-current="true" hreflang="vi">VI</a><a href="MainEN.dc.html" hreflang="en" lang="en">EN</a></div>
-<a class="btn btn-p" href="Contact.dc.html">Liên hệ hợp tác</a>
-</div>
-</div>
-</header>'''
-
-FOOTER = f'''<footer class="fd">
+    home = 'MainEN.dc.html' if LANG == 'en' else 'Main.dc.html'
+    def links():
+        return ''.join(f'<a href="{k}.dc.html"{" aria-current=" + chr(34) + "page" + chr(34) if k == cur else ""}>{T(vi, en)}</a>' for k, vi, en in NAV)
+    c_vi = ' aria-current="true"' if LANG == 'vi' else ''
+    c_en = ' aria-current="true"' if LANG == 'en' else ''
+    vi_href = 'Main.dc.html' if cur == 'Main' else cur + '.dc.html'
+    return f'''<header class="hd">
 <div class="box">
-<div class="rg ft" style="grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr))">
-<div class="pad" style="padding: 56px 40px 40px; display: flex; flex-direction: column; gap: 12px"><img src="{B['logo']}" alt="Logo Minh Group ST" width="48" height="48" style="width: 48px; height: 48px; object-fit: contain; border-radius: 12px; background: #ffffff; padding: 4px"><span style="font-weight: 600; color: #ffffff">Công ty TNHH Minh Group ST</span><span style="font-size: 14px; line-height: 1.6; color: #a3a3a3">{ADDR}<br>MST: [Mã số thuế]</span><a href="{HOT_T}" style="font-size: 22px; font-weight: 500; color: #ffffff; margin-top: 4px">{HOT}</a><a href="mailto:{MAIL}" style="font-size: 14px">{MAIL}</a></div>
-<div style="padding: 56px 32px 40px; display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 13px; font-weight: 600; color: #ffffff">Giới thiệu</span><a href="About.dc.html">Thông tin công ty</a><a href="History.dc.html">Lịch sử &amp; Cột mốc</a><a href="Organization.dc.html">Cơ cấu tổ chức</a><a href="Leadership.dc.html">Ban lãnh đạo</a><a href="Market.dc.html">Năng lực &amp; Vị thế</a></div>
-<div style="padding: 56px 32px 40px; display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 13px; font-weight: 600; color: #ffffff">Lĩnh vực</span><a href="Services.dc.html#cds">Chuyển đổi số &amp; Y tế số</a><a href="Services.dc.html#tc">Tài chính – Ngân hàng</a><a href="Services.dc.html#bh">Bảo hiểm &amp; An sinh</a><a href="Services.dc.html#ct">Chi trả BTXH &amp; Dự án</a></div>
-<div style="padding: 56px 32px 40px; display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 13px; font-weight: 600; color: #ffffff">Kết nối</span><a href="https://zalo.me/">Zalo OA</a><a href="https://facebook.com/">Facebook</a><a href="News.dc.html">Tin tức</a><a href="Gallery.dc.html">Thư viện</a></div>
+<a class="brand" href="{home}"><img src="{blob('logo')}" alt="" width="40" height="40"><span>Minh Group ST</span></a>
+<nav class="nav" aria-label="{T('Điều hướng chính', 'Main navigation')}">{links()}</nav>
+<div class="hd-end">
+<div class="lang" role="group" aria-label="Ngôn ngữ / Language"><a href="{vi_href}"{c_vi} hreflang="vi" lang="vi">VI</a><a href="MainEN.dc.html"{c_en} hreflang="en" lang="en">EN</a></div>
+{btn(T('Liên hệ hợp tác', 'Contact us'), 'Contact.dc.html')}
+<details class="mnav"><summary aria-label="{T('Mở menu', 'Open menu')}">{ic('menu', 22, 2)}</summary><nav aria-label="{T('Điều hướng di động', 'Mobile navigation')}"><a href="{home}"{' aria-current="page"' if cur == 'Main' else ''}>{T('Trang chủ', 'Home')}</a>{links()}{btn(T('Liên hệ hợp tác', 'Contact us'), 'Contact.dc.html', lg=True)}</nav></details>
 </div>
-<p class="mono pad" style="border-top: 1px solid #34302d; padding: 16px 40px; font-size: 12px; color: #8a8a8a; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px"><span>© 2026 Minh Group ST</span><span>Tiên phong số hóa · Hiệu quả bứt phá</span></p>
+</div>
+</header>
+'''
+def footer():
+    return f'''<footer class="ft">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="grid">
+<div><img class="logo" src="{blob('logo')}" alt="" width="48" height="48"><span class="co">Công ty TNHH Minh Group ST</span><span class="addr">{ADDR}<br>MST: [Mã số thuế]</span><a class="tel" href="{HOT_T}">{HOT}</a><a href="mailto:{MAIL}">{MAIL}</a></div>
+<div><h2>{T('Công ty', 'Company')}</h2><a href="About.dc.html">{T('Giới thiệu', 'About')}</a><a href="About.dc.html#cot-moc">{T('Lịch sử &amp; Cột mốc', 'Milestones')}</a><a href="Organization.dc.html">{T('Cơ cấu tổ chức', 'Organization')}</a><a href="Organization.dc.html#lanh-dao">{T('Ban lãnh đạo', 'Leadership')}</a><a href="News.dc.html">{T('Tin tức &amp; Thư viện', 'News &amp; media')}</a></div>
+<div><h2>{T('Lĩnh vực', 'What we do')}</h2><a href="Services.dc.html#k1">{T('Chuyển đổi số &amp; Tài chính', 'Digital &amp; financial services')}</a><a href="Services.dc.html#k2">{T('Bảo hiểm &amp; An sinh', 'Insurance &amp; social security')}</a><a href="Services.dc.html#k3">{T('Quản lý vận hành', 'Operations')}</a><a href="Services.dc.html#k4">{T('Dự án &amp; Nhân lực', 'Projects &amp; workforce')}</a></div>
+<div><h2>{T('Dự án &amp; Kết nối', 'Projects &amp; contact')}</h2><a href="Projects.dc.html#may-ban-hang">{T('Máy bán hàng tự động', 'Vending machines')}</a><a href="Projects.dc.html#lai-xe">{T('Đào tạo lái xe', 'Driver training')}</a><a href="Projects.dc.html#nhan-luc">{T('Cung ứng nhân lực', 'Workforce supply')}</a><a href="Contact.dc.html">{T('Liên hệ', 'Contact')}</a><a href="https://zalo.me/">Zalo OA</a></div>
+</div>
+<p class="ft-end"><span>© 2026 Minh Group ST</span><span>{T('Tiên phong số hóa · Hiệu quả bứt phá', 'Digital first · Breakthrough results')}</span></p>
 <div class="wm" aria-hidden="true">MINH GROUP<span>.</span></div>
 </div>
-</footer>'''
-
-DOCK = f'''<div aria-label="Liên hệ nhanh" style="position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 8px; z-index: 30">
-<a class="dk" href="https://zalo.me/" aria-label="Zalo OA" style="color: #0068ff">Zalo</a>
-<a class="dk" href="https://m.me/" aria-label="Facebook Messenger"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.6 3 11.2c0 2.5 1.2 4.7 3.1 6.2V21l3-1.7c.9.3 1.9.4 2.9.4 5 0 9-3.6 9-8.3S17 3 12 3z"></path><path d="M7.5 13l3-3 2.5 2 3.5-3"></path></svg></a>
-<a class="dk" href="{HOT_T}" aria-label="Gọi hotline {HOT}">{ic('phone',20,2)}</a>
-<a class="dk dk-chat" href="Contact.dc.html#tu-van" aria-label="Gửi yêu cầu tư vấn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"></path></svg></a>
-</div>'''
-
-def hero(cur, crumb, pill, h1, lead, deco):
-    """Home-style hero: ruled cells, a few hatched/icon cells and sparkle nodes, centred title."""
-    cells = ''
-    for kind, col, row, extra in deco:
-        if kind == 'ht':
-            cells += f'<span class="hc ht" aria-hidden="true" style="left: calc(100% * {col} / 11); top: {row*96}px"></span>'
-        elif kind == 'ic':
-            cells += f'<span class="hc ic2" aria-hidden="true" style="left: calc(100% * {col} / 11); top: {row*96}px; animation-delay: {extra}s"><svg viewBox="0 0 24 24">{I[deco_icon[(col,row)]]}</svg></span>' if False else f'<span class="hc ic2" aria-hidden="true" style="left: calc(100% * {col} / 11); top: {row*96}px; animation-delay: {extra[1]}s"><svg viewBox="0 0 24 24">{I[extra[0]]}</svg></span>'
-        elif kind == 'hn':
-            cells += f'<span class="hn{" rv" if extra else ""}" aria-hidden="true" style="left: calc(100% * {col} / 11); top: {row*96}px; animation-delay: .{col}s">{SP}</span>'
-    trail = ' / '.join(f'<a href="{h}">{t}</a>' if h else t for h, t in crumb)
-    return f'''<section class="hero phero">
-<div class="box">
-<div class="cells" aria-hidden="true"></div>
-{cells}
-<div class="fade" aria-hidden="true"></div>
-<div class="pad" style="position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 88px 40px 96px">
-<p class="crumb rise">{trail}</p>
-<span class="pill rise" style="margin-top: 20px; animation-delay: .04s"><span class="nb">{pill[0]}</span>{pill[1]}<span class="tg">{ic('compass',12,2.4) if False else '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>'}</span></span>
-<h1 class="h1 rise" style="margin-top: 24px; max-width: 880px; font-size: 54px; line-height: 1.08; letter-spacing:-0.01em; text-wrap: balance; animation-delay: .08s">{h1}</h1>
-<p class="lead rise" style="margin-top: 20px; animation-delay: .16s">{lead}</p>
+</footer>
+'''
+# quick-consult dialog + dock: same component and logic on every page
+POP = '''<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<div class="pop" role="dialog" aria-label="@TITLE@">
+<div class="pop-hd"><span><img src="@LOGO@" alt="" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain"><span><b>@TITLE@</b><span>Minh Group ST</span></span></span><button type="button" class="pop-x" aria-label="@CLOSE@" onClick="{{toggle}}">@XICON@</button></div>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div class="ask-done" role="status"><span class="ask-ok" aria-hidden="true">@CHECK@</span><b class="ask-q">@DONE@</b><p>@DONE1@ {{svcLabel}} @DONE2@ {{phone}} @DONE3@</p><button type="button" class="btn btn--secondary" onClick="{{reset}}">@AGAIN@</button></div>
+</sc-if>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<div class="ask">
+<label for="ask-msg" class="ask-q">@Q@</label>
+<div class="chips" role="group" aria-label="@PICK@"><sc-for list="{{chips}}" as="c" hint-placeholder-count="6"><button type="button" class="chip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for></div>
+<textarea id="ask-msg" rows="2" placeholder="{{placeholder}}" onInput="{{onMsg}}"></textarea>
+<label class="field">@PHONE@<input type="tel" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" onInput="{{onPhone}}" aria-invalid="{{phoneInvalid}}" aria-describedby="ask-err"></label>
+<p id="ask-err" class="err" role="alert">{{errText}}</p>
+<button type="button" class="btn btn--primary btn--lg" onClick="{{submit}}">@SEND@ @ARROW@</button>
 </div>
+<div class="ask-ft"><a href="@HOT_T@">@CALL@ @HOT@</a><a href="https://zalo.me/">Zalo OA</a></div>
+</sc-if>
 </div>
-</section>'''
-
-def subnav(cur):
-    links = ''.join(f'<a href="{h}"{ONP if h == cur else ""}><span>{t}</span><span class="num">{n}</span></a>' for h, n, t in SUB)
-    return f'''<section class="sec">
-<div class="box">
-<span class="x l"></span><span class="x r"></span>
-<nav class="rg subnav" aria-label="Giới thiệu">{links}</nav>
+</sc-if>
+<div class="dock" aria-label="@QUICK@">
+<a class="zalo opt" href="https://zalo.me/" aria-label="Zalo OA">Zalo</a>
+<a class="opt" href="https://m.me/" aria-label="Facebook Messenger">@MSG@</a>
+<a href="@HOT_T@" aria-label="@CALL@ @HOT@">@TEL@</a>
+<button type="button" class="chat" aria-label="@TITLE@" aria-expanded="{{openStr}}" onClick="{{toggle}}">@CHAT@</button>
 </div>
-</section>'''
+'''
+def dock():
+    if PREVIEW:
+        return ''
+    m = {'TITLE': T('Tư vấn nhanh', 'Quick enquiry'), 'CLOSE': T('Đóng', 'Close'), 'LOGO': blob('logo'), 'XICON': ic('x', 18, 2), 'CHECK': ic('check', 24, 2.2),
+         'DONE': T('Đã nhận yêu cầu của bạn', 'We have your request'), 'DONE1': T('Chuyên viên phụ trách mảng', 'The specialist for'),
+         'DONE2': T('sẽ gọi lại số', 'will call'), 'DONE3': T('trong giờ làm việc.', 'during office hours.'), 'AGAIN': T('Gửi yêu cầu khác', 'Send another'),
+         'Q': T('Bạn cần hỗ trợ việc gì?', 'What do you need help with?'), 'PICK': T('Chọn nhanh lĩnh vực', 'Pick a topic'), 'PHONE': T('Số điện thoại', 'Phone number'),
+         'SEND': T('Gửi yêu cầu', 'Send request'), 'ARROW': ARROW, 'HOT_T': HOT_T, 'HOT': HOT, 'CALL': T('Gọi', 'Call'), 'QUICK': T('Liên hệ nhanh', 'Quick contact'),
+         'MSG': ic('msg', 20, 1.8), 'TEL': ic('phone', 20, 2), 'CHAT': ic('chat', 22, 1.9)}
+    return re.sub(r'@([A-Z0-9_]+)@', lambda x: m[x.group(1)], POP)
+def logic(h):
+    defs = T([
+        ('Hợp tác ngân hàng', 'Ví dụ: Ngân hàng cần đội ngũ mở tài khoản số tại 5 xã'),
+        ('Bảo hiểm', 'Ví dụ: Tư vấn bảo hiểm xe cơ giới và tai nạn'),
+        ('BHXH, BHYT', 'Ví dụ: Tôi muốn tham gia BHYT hộ gia đình cho 4 người'),
+        ('Chi trả trợ cấp', 'Ví dụ: Hỏi lịch nhận lương hưu tháng này tại xã'),
+        ('Học lái xe', 'Ví dụ: Tôi muốn đăng ký học lái xe hạng A1'),
+        ('Việc làm ngoài nước', 'Ví dụ: Tìm hiểu đơn hàng đi Nhật Bản')], [
+        ('Bank partnership', 'e.g. We need a field team to open accounts in 5 communes'),
+        ('Insurance', 'e.g. Motor and accident cover'),
+        ('Social insurance', 'e.g. Family health insurance for 4 people'),
+        ('Benefit payments', 'e.g. This month\'s pension payment schedule'),
+        ('Driver training', 'e.g. I would like to register for an A1 licence'),
+        ('Work abroad', 'e.g. Openings in Japan')])
+    err = T('Vui lòng nhập số điện thoại 10 số, bắt đầu bằng 0.', 'Please enter a 10-digit phone number starting with 0.')
+    return ('''<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":%d}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const svc = st.svc ?? 0;
+    const defs = %s;
+    const digits = (st.phone || '').replace(/\\D/g, '');
+    const valid = /^0\\d{9}$/.test(digits);
+    const bad = !!st.tried && !valid;
+    return {
+      chips: defs.map((d, i) => ({ label: d[0], pressed: i === svc ? 'true' : 'false', pick: () => this.setState({ svc: i }) })),
+      placeholder: defs[svc][1],
+      svcLabel: defs[svc][0],
+      phone: digits,
+      onMsg: (e) => this.setState({ msg: e.target.value }),
+      onPhone: (e) => this.setState({ phone: e.target.value }),
+      phoneInvalid: bad ? 'true' : 'false',
+      errText: bad ? %s : '',
+      submit: () => valid ? this.setState({ sent: true, tried: false }) : this.setState({ tried: true }),
+      reset: () => this.setState({ sent: false, phone: '', msg: '', tried: false }),
+      open: !!st.open,
+      openStr: st.open ? 'true' : 'false',
+      toggle: () => this.setState({ open: !st.open }),
+      sent: !!st.sent,
+      notSent: !st.sent
+    };
+  }
+}
+</script>''' % (h, json.dumps([list(d) for d in defs], ensure_ascii=False).replace("'", "\\u2019"), json.dumps(err, ensure_ascii=False)))
 
-def sec(inner, cls='sec', aria=''):
-    return f'''<section class="{cls}"{aria}>
-<div class="box">
-<span class="x l"></span><span class="x r"></span>
-{inner}
-</div>
-</section>'''
-
-def head_block(h2, lead=None, center=True, pad='88px 40px 56px', size=None):
-    st = f' style="font-size: {size}px"' if size else ''
-    al = 'align-items: center; text-align: center' if center else ''
-    lp = f'<p class="lead">{lead}</p>' if lead else ''
-    return f'<div class="pad" style="padding: {pad}; display: flex; flex-direction: column; gap: 20px; {al}"><h2 class="h2"{st}>{h2}</h2>{lp}</div>'
-
-def stats(items, lead=None, note=None, dark=False):
-    cols = ('1.5fr ' if lead else '') + f'repeat({len(items)}, minmax(0, 1fr))'
-    first = f'<div class="pad" style="display: flex; align-items: center; padding: 36px 40px"><p style="font-size: 26px; line-height: 1.4; letter-spacing: -0.01em; text-wrap: pretty">{lead}</p></div>' if lead else ''
-    cells = ''.join(f'<dl class="stat"><dt>{t}</dt><dd>{n}</dd></dl>' for n, t in items)
-    nt = f'<p class="mono pad" style="border-top: 1px solid {"#3a3633" if dark else "#ebebeb"}; padding: 12px 40px; font-size: 12px; color: #8a8a8a; text-align: center">{note}</p>' if note else ''
-    return f'<div class="rg" style="grid-template-columns: {cols}">{first}{cells}</div>{nt}'
-
-def cells(items, cols=2, link=None, top=True):
-    out = []
-    for it in items:
-        icn, h, p = it[:3]; extra = it[3] if len(it) > 3 else ''
-        tag = 'a' if link else 'div'
-        href = f' href="{link}"' if link else ''
-        go = '<span class="go" aria-hidden="true">↗</span>' if link else ''
-        out.append(f'<li><{tag}{href} class="cell {extra}" style="height: 100%; box-sizing: border-box"><span class="ic" aria-hidden="true">{ic(icn)}</span><div style="display: flex; justify-content: space-between; gap: 12px"><h4>{h}</h4>{go}</div><p>{p}</p></{tag}></li>')
-    bt = ' border-top: 1px solid #ebebeb;' if top else ''
-    return f'<ul class="rg" style="grid-template-columns: repeat({cols}, minmax(0, 1fr));{bt} margin: 0">{"".join(out)}</ul>'
-
-def frow(k, h3, p, items, link='Services.dc.html', tag=None, anchor=''):
-    t = f'<span class="tag" style="align-self: flex-start">{tag}</span>' if tag else ''
-    aid = f' id="{anchor}"' if anchor else ''
-    return f'''<div class="frow"{aid}>
-<div class="fcard"><span class="fbg" aria-hidden="true" style="background-image: url('{B[k]}')"></span><h3 style="font-size: 20px">{h3}</h3>{t}<p style="font-size: 14px; line-height: 1.6; color: #5c5c5c">{p}</p></div>
-{cells(items, 2, link, top=False)}
-</div>'''
-
-def vband(words):
-    t = ''
-    for _ in range(4):
-        for w in words:
-            t += f'<span>{w}</span><svg class="vb-spk" viewBox="0 0 24 24" aria-hidden="true">{SPK}</svg>'
-    return f'<section class="vband" aria-label="{", ".join(words)}"><div class="vb-track" aria-hidden="true">{t}</div></section>'
-
-PARTNERS = sec(f'''<div class="rg" style="grid-template-columns: auto minmax(0, 1fr)">
-<p class="mono pad" style="display: flex; align-items: center; padding: 24px 40px; font-size: 13px; color: #5c5c5c; white-space: nowrap">Đồng hành cùng</p>
-<div class="logos" style="justify-content: flex-start"><img src="{B['pvi']}" alt="PVI Insurance" style="height: 36px"><img src="{B['pti']}" alt="PTI – Bảo hiểm Bưu điện" style="height: 40px"><span style="font-size: 22px; font-weight: 800; letter-spacing: .14em; color: #d6d1cc">TASCO</span><img src="{B['vcb']}" alt="Vietcombank" style="height: 34px"><img src="{B['agri']}" alt="Agribank" style="height: 22px"><span class="mono" style="font-size: 13px; color: #a39d98">và hơn 12 ngân hàng thương mại</span></div>
-</div>''', 'sec mq dk-sec')
-
-def cta(h2='Cần một đối tác <span>có mặt tận địa bàn?</span>', lead='Gọi hotline hoặc để lại yêu cầu, chuyên viên khu vực sẽ liên hệ trong giờ hành chính.'):
-    return sec(f'''<div class="rg" style="grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr)">
-<div class="pad" style="padding: 72px 40px; display: flex; flex-direction: column; gap: 20px">
-<h2 class="h2" style="font-size: 40px">{h2}</h2>
-<p class="lead">{lead}</p>
-<div style="display: flex; gap: 10px; flex-wrap: wrap"><a class="btn btn-p" href="Contact.dc.html#tu-van">Gửi yêu cầu {ARROW}</a><a class="btn btn-s" href="Services.dc.html">Xem các lĩnh vực</a></div>
-</div>
-<a href="{HOT_T}" class="pad" style="padding: 72px 40px; display: flex; flex-direction: column; justify-content: center; gap: 6px; text-decoration: none; color: #201e1d; background: #fdf1eb"><span class="mono" style="font-size: 13px; color: #a63c1b">Hotline</span><span style="font-size: 44px; font-weight: 500; letter-spacing: -0.01em">{HOT}</span><span style="font-size: 14px; color: #5c5c5c">{MAIL}</span></a>
-</div>''')
-
-def page(cur, title, body, h):
-    css = HOME_CSS + EXTRA_CSS
-    return f'''<!doctype html>
-<html lang="vi">
+FONT = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&amp;display=swap">'
+HEIGHTS = json.load(open(os.path.join(HERE, 'heights.json'))) if os.path.exists(os.path.join(HERE, 'heights.json')) else {}
+def page(name, title, cur, body):
+    h = HEIGHTS.get(name, 3000)
+    main = f'<div class="page">\n{header(cur)}<main>\n{body}</main>\n{footer()}{dock()}</div>'
+    if PREVIEW:
+        doc = f'<!doctype html>\n<html lang="{LANG}">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>{title}</title>\n{FONT}\n<style>\n{CSS}</style>\n</head>\n<body>\n{main}\n</body>\n</html>\n'
+        open(os.path.join(OUT, name + '.html'), 'w', encoding='utf8').write(doc)
+        return
+    doc = f'''<!doctype html>
+<html lang="{LANG}">
 <head>
 <meta charset="utf-8">
 <title>{title} – Minh Group ST</title>
@@ -299,285 +252,326 @@ def page(cur, title, body, h):
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,800;1,14..32,400&amp;display=swap">
-<style>{css}</style>
+{FONT}
+<style>
+{CSS}</style>
 </helmet>
-<div style="min-height: 100vh">
-{header(cur)}
-{body}
-{FOOTER}
-{DOCK}
-</div>
+{main}
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{{"$preview":{{"width":1440,"height":{h}}}}}'>
-class Component extends DCLogic {{
-  renderVals() {{ return {{}}; }}
-}}
-</script>
+{logic(h)}
 </body>
 </html>
 '''
+    open(os.path.join(OUT, name + '.dc.html'), 'w', encoding='utf8').write(doc)
 
-PAGES = {}
-
-# ================= ABOUT =================
-PAGES['About.dc.html'] = ('Thông tin công ty', '\n'.join([
- hero('About.dc.html', [('Main.dc.html','Trang chủ'), (None,'Giới thiệu'), (None,'Thông tin công ty')], ('Từ 2025', 'Doanh nghiệp đa lĩnh vực · Cần Thơ'),
-      'Đồng hành cùng chính quyền và doanh nghiệp bằng <span style="color: #ca4d25">một hệ sinh thái giải pháp</span>',
-      'Minh Group ST phát triển trên nền tảng chuyển đổi số, nghiên cứu – phát triển thị trường và hệ sinh thái giải pháp toàn diện cho miền Tây.',
-      [('ht',0,0,None),('ic',10,1,('shield',0)),('ic',0,2,('bank',2.2)),('ht',10,3,None),('hn',2,1,0),('hn',9,3,1)]),
- subnav('About.dc.html'),
- sec(f'''<div class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)">
-<div class="pad" style="padding: 88px 40px; display: flex; flex-direction: column; gap: 20px">
-<h2 class="h2" style="font-size: 44px">Không chỉ cung cấp giải pháp, <span>mà trực tiếp đồng hành</span></h2>
-<p class="lead">Công ty TNHH Minh Group ST là doanh nghiệp hoạt động đa lĩnh vực. Chúng tôi đồng hành cùng đối tác, khách hàng và cơ quan quản lý để tối ưu hóa hiệu quả vận hành và mở rộng thị trường.</p>
-<p class="lead">Đội ngũ hơn 300 nhân sự trẻ, năng động phân bổ trực tiếp tại các tỉnh miền Tây: am hiểu sâu thị trường địa phương và chủ động thích ứng với chuyển động công nghệ.</p>
+def backdrop(cells):
+    out = '<div class="cells" aria-hidden="true"></div>'
+    for i, (col, row, kind) in enumerate(cells):
+        pos = f'left: calc(var(--cell) * {col}); top: {row * 96}px'
+        if kind == 'ht':
+            out += f'<span class="hc hc--ht" aria-hidden="true" style="{pos}"></span>'
+        else:
+            out += f'<span class="hc hc--ic" aria-hidden="true" style="{pos}; animation-delay: {i * 1.4:.1f}s"><svg viewBox="0 0 24 24">{I[kind]}</svg></span>'
+    return out
+def phero(crumbs, eyebrow, title, lead, k, actions=''):
+    cr = '<nav aria-label="Breadcrumb"><ol class="crumb"><li><a href="Main.dc.html">Trang chủ</a></li>' + ''.join(f'<li>{c}</li>' for c in crumbs) + '</ol></nav>'
+    a = f'<div class="actions">{actions}</div>' if actions else ''
+    return f'''<section class="hero phero">
+<div class="box">{backdrop([(5, 0, 'ht'), (6, 1, 'shield'), (4, 3, 'link')])}
+<div class="phero-in"><div class="phero-tx rise">{cr}<p class="eyebrow">{SP}{eyebrow}</p><h1 class="h1">{acc(title)}</h1><p class="lead">{lead}</p>{a}</div>{photo(k)}</div>
 </div>
-{img('a', style='min-height: 520px; border: 0')}
-</div>'''),
- sec(stats([('300+','nhân sự trẻ tại các tỉnh miền Tây'),('11+1','phòng kinh doanh địa bàn và PKD Y'),('12+','ngân hàng thương mại đối tác'),('2.000+','lượt người dân được hỗ trợ mỗi ngày')], note='Số liệu theo hồ sơ năng lực Minh Group ST, 2026.')),
- sec(f'''<div class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)">
-<div class="frow" style="grid-template-columns: 1fr; border-top: 0"><div class="fcard" style="min-height: 340px; padding-top: 72px"><span class="fbg" aria-hidden="true" style="background-image: url('{B['g']}')"></span><span class="num">Tầm nhìn</span><h3>Tập đoàn giải pháp đa lĩnh vực hàng đầu miền Tây</h3><p>Dẫn đầu về năng lực triển khai chuyển đổi số, kết nối tài chính và dịch vụ an sinh xã hội.</p></div></div>
-<div class="frow" style="grid-template-columns: 1fr; border-top: 0"><div class="fcard" style="min-height: 340px; padding-top: 72px"><span class="fbg" aria-hidden="true" style="background-image: url('{B['b']}')"></span><span class="num">Sứ mệnh</span><h3>Đưa công nghệ đến gần từng người dân</h3><p>Đưa công nghệ và tiện ích hiện đại đến gần hơn với từng người dân, doanh nghiệp và tổ chức; tạo giá trị thực tiễn, bền vững cho cộng đồng.</p></div></div>
-</div>'''),
- sec(head_block('Triết lý <span>hành động</span>', 'Bốn mệnh đề định hướng mọi quyết định của Minh Group ST.', pad='72px 40px 48px') +
-     '<ul class="rg" style="grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #3a3633; margin: 0">' +
-     ''.join(f'<li class="cell{" big-or" if i==3 else ""}" style="padding: 40px 32px"><span class="ic" aria-hidden="true">{ic(n)}</span><p style="font-size: 14px">{a}</p><h4 style="font-size: 32px; font-weight: 500; letter-spacing: -0.02em">{b}</h4></li>' for i,(n,a,b) in enumerate([('bolt','Công nghệ tạo ra','Tốc độ'),('users','Con người tạo ra','Giá trị'),('trend','Thị trường tạo ra','Cơ hội'),('link','Sự kết nối tạo ra','Sức mạnh')])) + '</ul>', 'sec dk-sec'),
- sec(f'''<div class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)">
-<div class="pad" style="padding: 88px 40px; display: flex; flex-direction: column; gap: 24px">
-<span class="tagline">{SP} Câu chuyện thương hiệu</span>
-<p class="lead-q">Thị trường không nằm trên những con số hay báo cáo lý thuyết. Thị trường được cấu thành từ <span>con người, nhu cầu sống và sự thay đổi từng ngày.</span></p>
+</section>
+'''
+
+# ---------------------------------------------------------------- shared content
+KHOI = [  # id, short, full, theme, icon
+ ('k1', 'Khối 01', 'Chuyển đổi số &amp; Dịch vụ tài chính', 'Kết nối đối tác – Vững vàng địa bàn – Đồng hành cùng cộng đồng', 'bank'),
+ ('k2', 'Khối 02', 'Bảo hiểm &amp; An sinh xã hội', 'Bảo vệ tài chính gia đình – Đồng hành cùng an sinh địa phương', 'shield'),
+ ('k3', 'Khối 03', 'Quản lý vận hành &amp; Nội bộ', 'Quản trị nhân sự vững mạnh – Tài chính minh bạch – Vận hành hiệu quả', 'layers'),
+ ('k4', 'Khối 04', 'Phát triển dự án &amp; Cung ứng nhân lực', 'Tham mưu chiến lược – Chủ động triển khai – Kiểm soát hiệu quả', 'compass'),
+]
+PROJ = [
+ ('may-ban-hang', 'Máy bán hàng tự động', 'Đưa máy bán hàng thiết yếu, thanh toán bằng mã QR về xã, phường; kết hợp hỗ trợ người dân mở tài khoản, thẻ ngân hàng.', 'Toro · VNPAY · VPBank', 'vend', 'h'),
+ ('lai-xe', 'Đào tạo lái xe', 'Tư vấn, tiếp nhận và hoàn thiện hồ sơ học lái xe qua mạng lưới sẵn có; định hướng đầu tư cơ sở đào tạo tại Sóc Trăng.', 'Hạng A1, A, B', 'car', 'f'),
+ ('nhan-luc', 'Cung ứng nhân lực &amp; Tư vấn XKLĐ', 'Tuyển chọn, đào tạo nghề và ngoại ngữ, đưa người lao động Việt Nam đến thị trường Châu Âu và Đông Á.', 'Châu Âu · Đông Á', 'globe', 'k'),
+]
+CSR = [
+ ('bulb', 'Thắp sáng đường quê', 'Tài trợ công trình chiếu sáng, nâng cao an toàn giao thông và diện mạo nông thôn mới.'),
+ ('gift', 'Quà tặng an sinh', 'Trao thẻ bảo hiểm, quà tặng và kinh phí hỗ trợ cho gia đình có hoàn cảnh khó khăn.'),
+ ('scan', 'Phổ cập kỹ năng số', 'Hướng dẫn người dân dùng ngân hàng điện tử, nhận trợ cấp và thanh toán trực tuyến an toàn.'),
+ ('qr', 'Số hóa hộ kinh doanh', 'Hỗ trợ trang bị mã QR thanh toán và tiếp cận các tiện ích tài chính hiện đại.'),
+]
+
+# ---------------------------------------------------------------- pages
+def home():
+    hero = f'''<section class="hero">
+<div class="box">{backdrop([(0, 0, 'shield'), (9, 0, 'ht'), (10, 1, 'card'), (0, 2, 'ht'), (0, 3, 'vend'), (10, 4, 'globe'), (10, 0, 'bank')])}
+<div class="hero-in rise">
+<a class="pill" href="About.dc.html"><b>MGST</b>{T('Hệ sinh thái đa tầng tại Đồng bằng sông Cửu Long', 'A multi-layer ecosystem in the Mekong Delta')}</a>
+<h1 class="h1">{acc(T('Tiên phong số hóa. *Hiệu quả bứt phá.*', 'Digital first. *Breakthrough results.*'))}</h1>
+<p class="lead">{T('Minh Group ST đưa dịch vụ tài chính số, bảo hiểm và an sinh đến tận tay người dân miền Tây, bằng lực lượng tại chỗ và quy trình quản trị khép kín.', 'Minh Group ST brings digital finance, insurance and social security to households across the Mekong Delta, with its own field force and an end-to-end operating process.')}</p>
+<div class="actions">{btn(T('Liên hệ hợp tác', 'Partner with us'), 'Contact.dc.html', arrow=True, lg=True)}{btn(T('Xem lĩnh vực hoạt động', 'See what we do'), 'Services.dc.html', 'secondary', lg=True)}</div>
 </div>
-<div class="pad" style="padding: 88px 40px; display: flex; flex-direction: column; gap: 20px; justify-content: center">
-<p class="lead">Thay vì phát triển riêng lẻ từng mảng kinh doanh, Minh Group ST thiết lập mô hình hệ sinh thái đa tầng. Mỗi lĩnh vực bổ trợ cho nhau, tạo nên sức mạnh tổng hợp.</p>
-<div class="chips-row">{''.join(f'<a class="chip" href="Services.dc.html#{a}" style="text-decoration: none">{t}</a>' for a,t in [('cds','Chuyển đổi số'),('tc','Tài chính – Ngân hàng'),('bh','Bảo hiểm'),('bh','An sinh xã hội'),('ct','Phát triển dự án')])}</div>
 </div>
-</div>'''),
- vband(['Nhanh chóng', 'Tin cậy', 'Hiệu quả']),
- sec(f'''<div class="rg" style="grid-template-columns: minmax(0, 1fr) auto">
-<div class="pad" style="padding: 40px; display: flex; align-items: center; gap: 20px"><span class="ic" style="margin: 0">{ic('doc')}</span><div style="display: flex; flex-direction: column; gap: 4px"><h3 style="font-size: 19px">Hồ sơ năng lực Minh Group ST 2026</h3><span class="mono" style="font-size: 13px; color: #8a8a8a">PDF · 8 trang · song ngữ sẽ cập nhật</span></div></div>
-<div class="pad" style="padding: 40px; display: flex; align-items: center"><a class="btn btn-p" href="#">Tải hồ sơ năng lực {ARROW}</a></div>
-</div>''', 'sec'),
-]), 3600)
+<div class="strip"><ul>{''.join(f'<li>{photo(k, w)}</li>' for k, w in [('k', 'w'), ('b', 'n'), ('h', 'w'), ('a', 'n'), ('g', 'w'), ('f', 'n')])}{''.join(f'<li aria-hidden="true">{photo(k, w, alt="")}</li>' for k, w in [('k', 'w'), ('b', 'n'), ('h', 'w'), ('a', 'n'), ('g', 'w'), ('f', 'n')])}</ul></div>
+</section>
+'''
+    st = sec(stats([('~300', T('nhân sự chuyên trách tại địa bàn', 'dedicated field staff')), ('10+', T('phòng kinh doanh phủ các tỉnh, thành ĐBSCL', 'sales offices across the delta')),
+                    ('40.000', T('tài khoản/tháng, sản lượng cao nhất từng đạt', 'accounts a month at peak output')), ('25+', T('xã, phường đang triển khai mô hình an sinh', 'communes running our social-security model'))]).replace('class="grid', 'style="border-top: 0" class="grid'))
+    kd = T([
+        ('Lực lượng trực tiếp tại thị trường, hiện diện thường trực ở bệnh viện, mở tài khoản và hướng dẫn thanh toán không tiền mặt.', ['~300 nhân sự, 10+ phòng kinh doanh', 'PKD Y tế túc trực tại bệnh viện', 'Đối soát, báo cáo minh bạch']),
+        ('Đại lý tổ chức của các tổng công ty bảo hiểm, phát triển BHXH tự nguyện, BHYT hộ gia đình và chi trả bảo trợ xã hội.', ['Bảo hiểm phi nhân thọ (PVI)', 'BHXH, BHYT trên 25+ xã, phường', 'Chi trả 100% tại 6 xã, phường']),
+        ('Nhân sự và Tài chính – Kế toán trong một bộ máy thống nhất, gắn chi phí với năng suất thực tế.', ['Hệ thống KPI minh bạch', 'Kiểm soát ngân sách, dòng tiền', 'Phòng ngừa rủi ro pháp lý, thuế']),
+        ('Phòng Quản lý Dự án tham mưu, triển khai và giám sát các chương trình trọng điểm của Ban Giám đốc.', ['Máy bán hàng tự động', 'Đào tạo lái xe', 'Cung ứng nhân lực, XKLĐ'])], [
+        ('A direct field force with a standing presence in hospitals, opening accounts and teaching cashless payment.', ['~300 staff, 10+ sales offices', 'Healthcare desk inside hospitals', 'Transparent reconciliation']),
+        ('Corporate agent for national insurers; voluntary social insurance, family health insurance and welfare payments.', ['Non-life insurance (PVI)', 'Social insurance in 25+ communes', '100% payout rate in 6 communes']),
+        ('HR and finance in a single office, tying cost to real productivity.', ['Transparent KPI system', 'Budget and cash-flow control', 'Legal and tax risk prevention']),
+        ('The project office advises on, runs and audits the board\'s priority programmes.', ['Vending machines', 'Driver training', 'Workforce supply'])])
+    names_en = ['Digital &amp; financial services', 'Insurance &amp; social security', 'Operations', 'Projects &amp; workforce']
+    cards = [card(T(k[2], names_en[i]), kd[i][0], icon=k[4], href=f'Services.dc.html#{k[0]}', num=T(k[1], f'Division 0{i + 1}'), items=kd[i][1], more=T('Xem chi tiết', 'Learn more')) for i, k in enumerate(KHOI)]
+    fields = sec(head(T('Lĩnh vực hoạt động', 'What we do'), T('Một hệ sinh thái, *bốn khối bổ trợ lẫn nhau*', 'One ecosystem, *four divisions that reinforce each other*'),
+                      T('Thay vì phát triển riêng lẻ từng mảng, MGST thiết lập mô hình đa tầng: mỗi lĩnh vực là điểm chạm đưa khách hàng đến lĩnh vực kế tiếp.', 'Rather than growing each line on its own, MGST runs a layered model in which every service is a touchpoint for the next.'))
+                 + grid(cards, 4), id='linh-vuc')
+    pj_en = [('Vending machines', 'Essential-goods machines paid by QR in communes, paired with help opening bank accounts and cards.'),
+             ('Driver training', 'Advice, enrolment and paperwork through our existing network; a training site in Sóc Trăng is under study.'),
+             ('Workforce supply', 'Selection, vocational and language training, and placement in Europe and East Asia.')]
+    pcards = [f'<a class="post" href="Projects.dc.html#{p[0]}">{photo(p[5])}<span class="post-tx"><span class="tag" style="align-self: flex-start">{p[3]}</span><h3>{T(p[1], pj_en[i][0])}</h3><p>{T(p[2], pj_en[i][1])}</p></span></a>' for i, p in enumerate(PROJ)]
+    projects = sec(head(T('Dự án trọng điểm', 'Flagship projects'), T('Ba dự án *đang triển khai*', 'Three projects *under way*'),
+                        T('Do Phòng Quản lý Dự án chủ trì, tận dụng chính mạng lưới nhân sự và điểm chạm sẵn có của hệ sinh thái.', 'Led by the project office and built on the ecosystem\'s existing people and touchpoints.'),
+                        btn(T('Xem tất cả dự án', 'All projects'), 'Projects.dc.html', 'secondary', arrow=True)) + grid(pcards, 3))
+    band = vband(T(['Gần dân trong triển khai', 'Minh bạch với đối tác', 'Trách nhiệm với cộng đồng'], ['Close to the people', 'Transparent with partners', 'Responsible to the community']))
+    val = T([('map', 'Mở rộng độ phủ', 'Đưa dịch vụ tài chính số đến người dân và hộ kinh doanh truyền thống qua mạng lưới bán hàng trực tiếp.'),
+             ('bolt', 'Tự chủ, linh hoạt', 'Tự chủ tổ chức bộ máy, phân bổ địa bàn và điều chỉnh nhân sự theo quy mô từng chương trình.'),
+             ('check', 'Quản trị chất lượng', 'Theo sát trải nghiệm sau khi mở tài khoản, hỗ trợ duy trì số dư và giao dịch thường xuyên.'),
+             ('chart', 'Báo cáo xuyên suốt', 'Dữ liệu minh bạch, chuẩn xác phục vụ đối soát và tham mưu điều chỉnh chiến lược kịp thời.')],
+            [('map', 'Wider reach', 'Digital finance delivered to households and traditional traders through direct sales.'),
+             ('bolt', 'Autonomous and flexible', 'We staff, allocate territory and scale teams to fit each programme.'),
+             ('check', 'Quality after sign-up', 'We follow the customer after onboarding to keep balances and transactions active.'),
+             ('chart', 'Reporting throughout', 'Accurate data for reconciliation and timely strategy adjustments.')])
+    why = sec(head(T('Giá trị cho đối tác', 'Value for partners'), T('Đối tác chiến lược của *ngân hàng, bảo hiểm và cơ quan quản lý*', 'A strategic partner to *banks, insurers and public agencies*'),
+                   T('Quy trình khép kín từ tiếp nhận chính sách, đào tạo nghiệp vụ, điều phối địa bàn, kiểm soát chất lượng đến đối soát kết quả.', 'A closed loop from policy intake and training to field coordination, quality control and reconciliation.'))
+              + grid([card(t, d, icon=i) for i, t, d in val], 4), 'sec--dk')
+    partners = sec(f'<ul class="logos" aria-label="{T("Đối tác được nêu trong hồ sơ năng lực", "Partners named in our profile")}"><li><img src="{blob("pvi")}" alt="PVI" style="filter: invert(1) brightness(.35)"></li><li>VPBank</li><li>VNPAY</li><li>Toro</li><li class="tag tag--line" style="font-size: 12px; font-weight: 500">{T("Logo chính thức: chờ đối tác cung cấp", "Official logos pending")}</li></ul>')
+    csr_en = [('Lighting rural roads', 'Sponsored street lighting for safer travel and better-looking villages.'), ('Welfare gifts', 'Insurance cards, gifts and direct support for families in need.'),
+              ('Digital skills for all', 'Teaching e-banking, benefit receipt and safe online payment.'), ('Digitising small traders', 'QR payment codes and access to modern financial tools.')]
+    csr = sec(head(T('Trách nhiệm cộng đồng', 'Community'), T('Hiệu quả kinh doanh *gắn với lợi ích địa phương*', 'Business results *tied to local benefit*'))
+              + split(grid([card(T(t, csr_en[n][0]), T(d, csr_en[n][1]), icon=i) for n, (i, t, d) in enumerate(CSR)], 2).replace('class="grid', 'style="border-top: 0" class="grid'), photo('a')))
+    qa = T([('MGST hợp tác với đối tác theo hình thức nào?', 'MGST tổ chức triển khai các chương trình của ngân hàng, bảo hiểm và cơ quan quản lý tại địa bàn: tự tổ chức nhân sự, phân bổ khu vực, kiểm soát chất lượng và đối soát kết quả theo điều khoản hợp tác.'),
+            ('MGST đang hoạt động ở những khu vực nào?', 'Hơn 10 phòng kinh doanh phủ các tỉnh, thành Đồng bằng sông Cửu Long, trọng tâm là Cần Thơ, Sóc Trăng, An Giang và Đồng Tháp.'),
+            ('Người dân được hỗ trợ những gì khi mở tài khoản?', 'Nhân sự MGST hướng dẫn mở và sử dụng tài khoản, nhận tiền, chuyển khoản, thanh toán không dùng tiền mặt; tại bệnh viện có hỗ trợ thanh toán viện phí.'),
+            ('Chi trả bảo trợ xã hội được thực hiện ra sao?', 'Chi trả cho người hưởng lương hưu, trợ cấp và người có công tại 6 xã, phường, ưu tiên chuyển sang chi trả qua tài khoản; hỗ trợ tận nhà cho người cao tuổi, ốm đau.'),
+            ('Làm sao để đăng ký học lái xe hoặc tìm hiểu việc làm ngoài nước?', 'Gửi yêu cầu qua nút Tư vấn nhanh hoặc gọi hotline. Chuyên viên sẽ tư vấn hạng bằng, hồ sơ, đơn hàng và lộ trình phù hợp.')],
+           [('How does MGST work with partners?', 'We run banks\', insurers\' and agencies\' programmes in the field: staffing, territory allocation, quality control and reconciliation under the partnership terms.'),
+            ('Where does MGST operate?', 'More than 10 sales offices across the Mekong Delta, centred on Cần Thơ, Sóc Trăng, An Giang and Đồng Tháp.'),
+            ('What help do people get when opening an account?', 'Our staff show them how to open and use an account, receive and send money and pay without cash; in hospitals we help with bill payment.'),
+            ('How are welfare payments made?', 'Pensions and allowances are paid in 6 communes, moving from cash to bank accounts, with home visits for the elderly and ill.'),
+            ('How do I ask about driver training or work abroad?', 'Use Quick enquiry or call the hotline. A specialist will advise on licence class, paperwork, openings and timeline.')])
+    faqs = sec(head(T('Câu hỏi thường gặp', 'FAQ'), T('Những điều đối tác và người dân *hay hỏi*', 'What partners and residents *ask most*')) + faq(qa))
+    page('MainEN' if LANG == 'en' else 'Main', T('Trang chủ', 'Home'), 'Main', hero + st + fields + projects + band + why + partners + csr + faqs + cta())
 
-# ================= HISTORY =================
-EV25 = [('03','Thành lập Công ty TNHH Minh Group ST','Đặt nền móng vận hành và cấu trúc hoạt động tại miền Tây.'),
-        ('04','Thành lập PKD Tổng hợp, PKD Y và PKD địa bàn 1, 2, 3, 5, 6, 7','Hợp tác hơn 12 ngân hàng; thúc đẩy chuyển đổi số y tế và địa phương.'),
-        ('09','Thành lập PKD 8','Mở rộng độ phủ hỗ trợ chuyển đổi số.'),
-        ('11','Thành lập PKD An sinh','Đẩy mạnh hoạt động BHXH, BHYT và an sinh cộng đồng.')]
-EV26 = [('01','Thành lập Phòng Dự án','Hạt nhân xây dựng và thúc đẩy chiến lược kinh doanh.'),
-        ('03','Thành lập PKD 9','Tiếp tục tăng cường mạng lưới chuyển đổi số.'),
-        ('04','Thành lập Phòng Kế toán – Nhân sự*','Củng cố quản trị nội bộ và tối ưu vận hành.'),
-        ('06','Thành lập PKD 4','Hoàn thiện mắt xích mạng lưới số hóa miền Tây.'),
-        ('07','Thành lập Phòng Chi trả Bảo trợ xã hội','Chi trả hưu trí, trợ cấp và chế độ người có công.'),
-        ('09','Thành lập PKD 10 và PKD 11','Hoàn thiện mạng lưới 11 phòng kinh doanh địa bàn.')]
-def tl(year, sub, evs, last=False):
-    rows = ''.join(f'<div class="rg tl-row" style="border-top: 1px solid #ebebeb"><div><span class="mo">{m}/{year}</span></div><div><h4>{t}</h4></div><div{BGOR if last and i==len(evs)-1 else ""}><p>{f}</p></div></div>' for i,(m,t,f) in enumerate(evs))
-    return f'<div class="yr"><b>{year}</b><span class="mono" style="font-size: 13px; color: #8a8a8a">{sub}</span></div>{rows}'
-PAGES['History.dc.html'] = ('Lịch sử & Cột mốc', '\n'.join([
- hero('History.dc.html', [('Main.dc.html','Trang chủ'), (None,'Giới thiệu'), (None,'Lịch sử & Cột mốc')], ('03/2025', 'Hành trình phát triển'),
-      '18 tháng, <span style="color: #ca4d25">11 phòng kinh doanh</span> địa bàn',
-      'Từ một pháp nhân mới thành lập đến mạng lưới 11 phòng kinh doanh địa bàn, PKD Y và 5 phòng chức năng.',
-      [('ht',10,0,None),('ic',0,1,('flag',0)),('ic',10,3,('map',2.2)),('ht',0,3,None),('hn',1,1,0),('hn',9,2,1)]),
- subnav('History.dc.html'),
- sec(tl('2025','Đặt nền móng', EV25)),
- sec(tl('2026','Hoàn thiện mạng lưới', EV26, True) + '<p class="mono pad" style="border-top: 1px solid #ebebeb; padding: 12px 40px; font-size: 12px; color: #8a8a8a">* Mốc 04/2026 giữ theo hồ sơ gốc; cần xác nhận lại (có thể là 04/2025).</p>'),
- sec(stats([('03/2025','thành lập tại Cần Thơ'),('11','phòng kinh doanh địa bàn'),('1','PKD Y chuyên trách y tế'),('5','phòng chức năng')]), 'sec dk-sec'),
- cta(),
-]), 2800)
+def about():
+    b = phero(['Giới thiệu'], 'Về Minh Group ST', 'Doanh nghiệp tiên phong với mô hình *hệ sinh thái đa tầng*',
+              'Công ty TNHH Minh Group ST (MGST) hoạt động tại Đồng bằng sông Cửu Long, là đối tác tin cậy của ngân hàng, tập đoàn bảo hiểm, cơ quan quản lý nhà nước và các tổ chức quốc tế.', 'g',
+              btn('Xem cơ cấu tổ chức', 'Organization.dc.html', arrow=True) + btn('Lĩnh vực hoạt động', 'Services.dc.html', 'secondary'))
+    b += sec(stats([('03/2025', 'thành lập tại Cần Thơ'), ('~300', 'nhân sự chuyên trách'), ('10+', 'phòng kinh doanh địa bàn'), ('4', 'khối hoạt động bổ trợ nhau')]).replace('class="grid', 'style="border-top: 0" class="grid'))
+    b += sec(head('Tổng quan', 'Sức mạnh tại chỗ, *thấu hiểu địa bàn*')
+             + split('<div class="pad prose"><p>Với nguồn lực tại chỗ và sự thấu hiểu sâu sắc địa bàn, MGST tổ chức triển khai các chương trình hợp tác ngân hàng, bảo hiểm và an sinh, kết nối sản phẩm của đối tác với nhu cầu thực tế của người dân và hộ kinh doanh.</p><p>Thay vì phát triển riêng lẻ từng mảng, MGST từng bước thiết lập <strong>mô hình hệ sinh thái đa tầng</strong>: từ chuyển đổi số, tài chính – ngân hàng, bảo hiểm, an sinh xã hội đến đào tạo lái xe, máy bán hàng tự động và cung ứng việc làm, mỗi lĩnh vực đều bổ trợ cho lĩnh vực còn lại.</p></div>', photo('k')))
+    eco = [('scan', 'Chuyển đổi số'), ('bank', 'Tài chính – Ngân hàng'), ('shield', 'Bảo hiểm'), ('heart', 'An sinh xã hội'), ('car', 'Đào tạo lái xe'), ('vend', 'Máy bán hàng tự động'), ('globe', 'Cung ứng việc làm')]
+    b += sec(head('Hệ sinh thái', '*Bảy lĩnh vực* tạo nên sức mạnh tổng hợp', 'Mỗi lĩnh vực là một điểm chạm: người dân mở tài khoản tại bệnh viện có thể tham gia bảo hiểm, đăng ký học lái xe hay mua hàng giá hội viên tại máy.')
+             + grid([card(t, icon=i, num=f'{n:02d}') for n, (i, t) in enumerate(eco, 1)] + [card('Xem bốn khối hoạt động', 'Cách các lĩnh vực được tổ chức thành bốn khối.', href='Services.dc.html', cls='card--brand', more='Lĩnh vực')], 4), 'sec--tint')
+    b += vband(['Gần dân trong triển khai', 'Minh bạch với đối tác', 'Trách nhiệm với cộng đồng'])
+    b += sec(head('Triết lý hành động', 'Ba cam kết *định hình cách chúng tôi làm việc*')
+             + grid([card('Gần dân trong triển khai', 'Nhân sự bám sát địa bàn, có mặt ở bệnh viện, trung tâm hành chính công, ấp và khu vực; sẵn sàng đến tận nhà người cao tuổi.', icon='users', num='01'),
+                     card('Minh bạch với đối tác', 'Dữ liệu chuẩn xác, đối soát rõ ràng, báo cáo định kỳ và xử lý phát sinh kịp thời giữa đối tác và lực lượng cơ sở.', icon='eye', num='02'),
+                     card('Trách nhiệm với cộng đồng', 'Gắn hiệu quả kinh doanh với lợi ích thiết thực cho địa phương qua các hoạt động an sinh và phổ cập kỹ năng số.', icon='heart', num='03')], 3), 'sec--dk')
+    b += sec(head('Đối tác chiến lược', 'Chúng tôi đồng hành cùng *bốn nhóm đối tác*')
+             + grid([card('Ngân hàng', 'Mở rộng độ phủ tài khoản số, duy trì chất lượng giao dịch.', icon='bank'), card('Tập đoàn bảo hiểm', 'Đại lý tổ chức, tư vấn và hỗ trợ bồi thường tận nơi.', icon='shield'),
+                     card('Cơ quan quản lý nhà nước', 'Phối hợp phát triển BHXH, BHYT và chi trả bảo trợ xã hội.', icon='gov'), card('Tổ chức quốc tế', 'Hợp tác cung ứng và đào tạo nguồn nhân lực.', icon='globe')], 4))
+    tl = [('2025', 'Đặt nền móng', [('03/2025', 'Thành lập Công ty TNHH Minh Group ST', 'Đặt nền móng vận hành và cấu trúc hoạt động tại miền Tây.'),
+                                    ('04/2025', 'Thành lập PKD Tổng hợp, PKD Y và PKD địa bàn 1, 2, 3, 5, 6, 7', 'Thúc đẩy chuyển đổi số y tế và địa phương.'),
+                                    ('09/2025', 'Thành lập PKD 8', 'Mở rộng độ phủ hỗ trợ chuyển đổi số.'), ('11/2025', 'Thành lập PKD An sinh', 'Đẩy mạnh BHXH, BHYT và an sinh cộng đồng.')]),
+          ('2026', 'Hoàn thiện mạng lưới', [('01/2026', 'Thành lập Phòng Dự án', 'Hạt nhân xây dựng và thúc đẩy chiến lược kinh doanh.'), ('03/2026', 'Thành lập PKD 9', 'Tiếp tục tăng cường mạng lưới.'),
+                                           ('04/2026', 'Thành lập Phòng Kế toán – Nhân sự*', 'Củng cố quản trị nội bộ và tối ưu vận hành.'), ('06/2026', 'Thành lập PKD 4', 'Hoàn thiện mắt xích mạng lưới miền Tây.'),
+                                           ('07/2026', 'Thành lập Phòng Chi trả Bảo trợ xã hội', 'Chi trả hưu trí, trợ cấp và chế độ người có công.'), ('09/2026', 'Thành lập PKD 10 và PKD 11', 'Hoàn thiện mạng lưới phòng kinh doanh địa bàn.')])]
+    t = ''
+    for y, lab, rows in tl:
+        t += f'<div class="tl-yr"><b>{y}</b><span>{lab}</span></div><ol class="tl">' + ''.join(f'<li><time>{d}</time><h3>{h}</h3><p>{p}</p></li>' for d, h, p in rows) + '</ol>'
+    b += sec(head('Lịch sử &amp; Cột mốc', 'Từ một công ty mới đến *mạng lưới phủ miền Tây*') + t + '<p class="pad hint blk">* Mốc 04/2026 giữ theo hồ sơ gốc, cần xác nhận lại (có thể là 04/2025).</p>', id='cot-moc')
+    b += sec(head('Trách nhiệm cộng đồng', 'Đồng hành cùng *địa phương và người dân*') + grid([card(t_, d, icon=i) for i, t_, d in CSR], 4), 'sec--tint')
+    page('About', 'Giới thiệu', 'About', b + cta())
 
-# ================= ORGANIZATION =================
-FUNC = [('grid','Phòng Dự án','"Bộ não" nghiên cứu và thực thi các dự án trọng điểm.'),
-        ('heart','PKD An sinh','Tuyên truyền, vận động BHXH tự nguyện và BHYT hộ gia đình.'),
-        ('gift','Phòng Chi trả BTXH','Chi trả lương hưu, trợ cấp, chế độ người có công.'),
-        ('bank','PKD Tổng hợp','Đầu mối hợp tác với hơn 12 ngân hàng thương mại.'),
-        ('users','Kế toán – Nhân sự','Quản trị nội bộ, tài chính và nguồn lực.')]
-PAGES['Organization.dc.html'] = ('Cơ cấu tổ chức', '\n'.join([
- hero('Organization.dc.html', [('Main.dc.html','Trang chủ'), (None,'Giới thiệu'), (None,'Cơ cấu tổ chức')], ('11 + 1 + 5', 'Mạng lưới & phòng chức năng'),
-      'Bộ máy gọn, <span style="color: #ca4d25">phủ sâu tận địa bàn</span>',
-      'Ban Giám đốc điều phối 11 phòng kinh doanh địa bàn, PKD Y chuyên trách y tế và 5 phòng chức năng.',
-      [('ic',0,0,('users',0)),('ht',10,1,None),('ht',0,3,None),('ic',10,3,('grid',2.2)),('hn',2,2,0),('hn',9,1,1)]),
- subnav('Organization.dc.html'),
- sec(f'''<div class="pad" style="padding: 48px 40px; display: flex; justify-content: center; background: #201e1d; color: #fff"><div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span class="mono" style="font-size: 12px; color: #a39d98">Điều hành</span><span style="font-size: 28px; font-weight: 600">Ban Giám đốc</span><a href="Leadership.dc.html" style="font-size: 14px; color: #ef7a52">Xem phân công phụ trách ↗</a></div></div>
-<div class="rg" style="grid-template-columns: 2.2fr 1fr; border-top: 1px solid #ebebeb">
-<div class="pad" style="padding: 32px 40px; display: flex; justify-content: space-between; align-items: baseline"><h3 style="font-size: 19px">Khối phòng kinh doanh địa bàn</h3><span class="mono" style="font-size: 13px; color: #8a8a8a">11 PKD · phủ các tỉnh miền Tây</span></div>
-<div class="pad" style="padding: 32px 40px"><h3 style="font-size: 19px">Kênh y tế</h3></div>
-</div>
-<div class="rg" style="grid-template-columns: 2.2fr 1fr; border-top: 1px solid #ebebeb">
-<div class="rg pkd">{''.join(f'<div><span>PKD</span><b>{i}</b></div>' for i in range(1,12))}</div>
-<div class="big-or" style="display: flex; flex-direction: column; justify-content: center; padding: 20px 32px; gap: 4px"><span class="mono" style="font-size: 12px; opacity: .8">PKD Y</span><span style="font-size: 15px; line-height: 1.5">Sở Y tế, bệnh viện đa khoa, TTYT huyện, trạm y tế xã/phường</span></div>
-</div>
-<div class="pad" style="padding: 32px 40px; border-top: 1px solid #ebebeb"><h3 style="font-size: 19px">Phòng chức năng</h3></div>
-{cells(FUNC, 5)}'''),
- sec(head_block('Mỗi khối <span>một vai trò rõ ràng</span>', None, pad='72px 40px 40px') + cells([
-   ('map','11 PKD địa bàn','Nhân sự có mặt trực tiếp tại địa phương: hỗ trợ VNeID, eTax, thanh toán QR, mở tài khoản và sản phẩm tài chính.'),
-   ('hos','PKD Y','Đồng hành cùng Sở Y tế, bệnh viện và trạm y tế: số hóa hồ sơ sức khỏe, viện phí không tiền mặt, tiếp đón bệnh nhân qua nền tảng số.'),
-   ('grid','Phòng Dự án','Nghiên cứu thị trường, xây dựng mô hình kinh doanh khả thi, kết nối vốn và đối tác công – tư (PPP).'),
-   ('gift','Phòng Chi trả BTXH','Mảng đặc thù: đúng đối tượng, đúng số tiền, đúng thời gian; kiểm soát tài chính nghiêm ngặt.')], 2)),
- cta(),
-]), 2800)
+def organization():
+    b = phero(['Tổ chức &amp; Lãnh đạo'], 'Cơ cấu tổ chức', 'Bộ máy gọn, *bốn khối rõ vai trò*',
+              'Ban lãnh đạo điều hành bốn khối: Chuyển đổi số, An sinh, Quản lý vận hành và Xây dựng kế hoạch – thực thi dự án.', 'l',
+              btn('Xem ban lãnh đạo', '#lanh-dao', arrow=True) + btn('Lĩnh vực hoạt động', 'Services.dc.html', 'secondary'))
+    units = [('Khối 01', 'Chuyển đổi số', ['PKD Lưu động', 'PKD kênh Y tế', 'PKD Tổng hợp']), ('Khối 02', 'An sinh', ['Phòng An sinh (BHXH, BHYT)', 'Phòng Chi trả', 'Bảo hiểm học sinh']),
+             ('Khối 03', 'Quản lý vận hành &amp; Nội bộ', ['Nhân sự', 'Kế toán', 'Hậu cần &amp; Kỹ thuật']), ('Khối 04', 'Kế hoạch &amp; Thực thi dự án', ['Trường dạy lái xe', 'Máy bán hàng tự động', 'Cung ứng nhân lực'])]
+    cols = [f'<div class="org-col"><header><span>{n}</span><h3>{t}</h3></header><ul>' + ''.join(f'<li>{ic("check", 16, 2.2)}{u}</li>' for u in us) + '</ul></div>' for n, t, us in units]
+    b += sec(head('Sơ đồ tổ chức', 'Một ban lãnh đạo, *bốn khối, mười hai đơn vị*') + '<div class="org-root"><b>Ban lãnh đạo</b></div>' + grid(cols, 4, tag='div'), id='so-do')
+    b += sec(head('Vai trò từng khối', 'Mỗi khối *một nhiệm vụ trọng tâm*')
+             + grid([card(k[2], k[3], icon=k[4], num=k[1], href=f'Services.dc.html#{k[0]}', more='Xem chi tiết') for k in KHOI], 4), 'sec--tint')
+    ld = [('Ông Đinh Hoàng Minh', 'Cố vấn Cao cấp'), ('Ông Đinh Hoàng Công', 'Giám đốc Công ty'), ('Ông Lư Hồng Huỳnh', 'Phó Giám đốc'),
+          ('Bà Nguyễn Thị Hồng Huệ', 'Phó Giám đốc'), ('Ông Phan Hữu Linh', 'Phó Giám đốc'), ('Ông Dương Minh Trường', 'Phó Giám đốc')]
+    b += sec(head('Ban lãnh đạo', 'Những người *điều hành hệ sinh thái*', 'Ảnh chân dung và phạm vi phụ trách sẽ được cập nhật khi có xác nhận từ Ban Giám đốc.')
+             + grid([f'<div class="person"><span class="av" role="img" aria-label="Ảnh chân dung: chờ cập nhật">{ic("person", 32, 1.4)}</span><div><h3>{n}</h3><p>{r}</p></div></div>' for n, r in ld], 3, tag='div'), id='lanh-dao')
+    b += sec(head('Nền tảng quản trị', 'Nhân sự và tài chính trong *một bộ máy thống nhất*')
+             + grid([card('Đồng bộ nguồn lực', 'Gắn kế hoạch chi phí với năng suất lao động thực tế.', icon='link'), card('Phòng ngừa rủi ro', 'Chủ động nhận diện rủi ro pháp lý lao động, BHXH, thuế và an toàn tài chính.', icon='shield'),
+                     card('Tối ưu vận hành', 'Nâng tốc độ xử lý công việc, bảo đảm phát triển bền vững cho toàn công ty.', icon='trend')], 3), 'sec--dk')
+    page('Organization', 'Tổ chức & Lãnh đạo', 'Organization', b + cta())
 
-# ================= LEADERSHIP =================
-LDR = [('Ông Đinh Hoàng Minh','Cố vấn Cao cấp','Phòng Kế toán Tổng hợp, Phòng Kinh doanh Tổng hợp',['TH','KT'],False),
-       ('Ông Đinh Hoàng Công','Giám đốc Công ty','Phòng Kinh doanh Y (PKD Y); phụ trách chung toàn bộ Công ty',['Y'],True),
-       ('Ông Lư Hồng Huỳnh','Phó Giám đốc','Khối PKD địa bàn: PKD 3, 4, 5, 9, 11',['3','4','5','9','11'],False),
-       ('Bà Nguyễn Thị Hồng Huệ','Phó Giám đốc','Khối PKD địa bàn: PKD 2, 6, 7',['2','6','7'],False),
-       ('Ông Phan Hữu Linh','Phó Giám đốc','Khối chuyên trách: Phòng Dự án, Phòng Chi trả, PKD An sinh',['DA','CT','AS'],False),
-       ('Ông Dương Minh Trường','Phó Giám đốc','Khối PKD địa bàn: PKD 1, 8, 10',['1','8','10'],False)]
-U = ['1','2','3','4','5','6','7','8','9','10','11','Y','TH','KT','DA','CT','AS']
-def matrix():
-    h = '<div class="nm hd">Lãnh đạo · đơn vị</div>' + ''.join(f'<div class="hd">{u}</div>' for u in U)
-    rows = ''
-    for n, r, s, us, gm in LDR:
-        rows += f'<div class="nm">{n}</div>' + ''.join(f'<div><span class="{"d" if u in us else "e"}"></span></div>' for u in U)
-    return f'<div class="rg mx" style="border-top: 1px solid #ebebeb">{h}{rows}</div>'
-PAGES['Leadership.dc.html'] = ('Ban lãnh đạo', '\n'.join([
- hero('Leadership.dc.html', [('Main.dc.html','Trang chủ'), (None,'Giới thiệu'), (None,'Ban lãnh đạo')], ('6', 'Lãnh đạo phụ trách theo khối'),
-      'Ban lãnh đạo <span style="color: #ca4d25">phụ trách theo khối</span>',
-      'Mỗi đơn vị có một lãnh đạo phụ trách trực tiếp, nên đối tác luôn biết cần làm việc với ai.',
-      [('ht',0,0,None),('ic',10,0,('person',0)),('ic',0,2,('users',2.2)),('ht',10,3,None),('hn',1,3,0),('hn',9,1,1)]),
- subnav('Leadership.dc.html'),
- sec('<ul class="rg" style="grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0">' + ''.join(
-   f'<li class="ldr"{BGOR if gm else ""}><span class="pt{" on" if gm else ""}" aria-hidden="true">{ic("person",40,1.2)}</span><div><h3>{n}</h3><p class="role">{r}</p><p>{s}</p></div></li>' for n,r,s,us,gm in LDR) + '</ul>'
-   + '<p class="mono pad" style="border-top: 1px solid #ebebeb; padding: 12px 40px; font-size: 12px; color: #8a8a8a">Ảnh chân dung đang để trống, chờ ảnh chụp chính thức cùng phông nền.</p>'),
- sec(head_block('Ai phụ trách <span>đơn vị nào</span>', 'Ma trận phân công theo hồ sơ năng lực. Giám đốc phụ trách PKD Y và điều hành chung toàn công ty.', pad='72px 40px 40px') + matrix()
-   + '<p class="mono pad" style="border-top: 1px solid #ebebeb; padding: 12px 40px; font-size: 12px; color: #8a8a8a">Y · PKD Y   TH · KD Tổng hợp   KT · Kế toán – Nhân sự   DA · Dự án   CT · Chi trả BTXH   AS · An sinh</p>'),
- cta('Làm việc trực tiếp <span>với đúng người phụ trách</span>', 'Liên hệ hotline để được kết nối với lãnh đạo phụ trách khối hoặc địa bàn bạn quan tâm.'),
-]), 2780)
+def services():
+    b = phero(['Lĩnh vực hoạt động'], 'Bốn khối hoạt động', 'Một hệ sinh thái, *bốn khối bổ trợ lẫn nhau*',
+              'Từ dịch vụ tài chính số, bảo hiểm và an sinh đến vận hành nội bộ và các dự án mới: mỗi khối có chủ đề, năng lực và cam kết riêng.', 'b',
+              btn('Liên hệ hợp tác', 'Contact.dc.html', arrow=True))
+    b += sec('<nav class="jump" aria-label="Đi nhanh đến từng khối">' + ''.join(f'<a href="#{k[0]}"><span>{k[1]}</span><b>{k[2]}</b></a>' for k in KHOI) + '</nav>')
+    def khoi(i, lead, rows, cls=''):
+        k = KHOI[i]
+        return sec(head(k[1], k[2], f'<strong style="color: var(--tx); font-weight: 600">{k[3]}.</strong> {lead}') + ''.join(rows), cls, k[0])
+    b += khoi(0, 'MGST tổ chức triển khai các chương trình hợp tác ngân hàng và dịch vụ tài chính tại miền Tây, kết nối sản phẩm của đối tác với nhu cầu thực tế của người dân và hộ kinh doanh.', [
+        stats([('~300', 'nhân sự chuyên trách'), ('10+', 'phòng kinh doanh trực tiếp'), ('20.000–40.000', 'tài khoản/tháng từng đạt')], 3).replace('c3 keep2', 'c3'),
+        feat('1.1', 'Năng lực thực thi tại địa bàn', 'Trọng tâm Cần Thơ, Sóc Trăng, An Giang, Đồng Tháp.', [
+            card('Quy mô lực lượng', 'Khoảng 300 nhân sự cùng hơn 10 phòng kinh doanh trực tiếp phủ các tỉnh, thành ĐBSCL.', icon='users'),
+            card('Hiện diện tại cơ sở y tế', 'PKD Y tế bố trí nhân sự thường trực tại bệnh viện: mở tài khoản, hướng dẫn thanh toán viện phí không tiền mặt.', icon='hos'),
+            card('Quy trình khép kín', 'Tiếp nhận chính sách, đào tạo nghiệp vụ, điều phối địa bàn, kiểm soát chất lượng, đối soát kết quả.', icon='check')]),
+        feat('1.2', 'Giá trị cho đối tác ngân hàng', 'Không chỉ mở tài khoản, mà theo sát cả quá trình sử dụng.', [
+            card('Mở rộng độ phủ', 'Đưa dịch vụ tài chính số đến người dân và hộ kinh doanh truyền thống qua mạng lưới bán hàng trực tiếp.', icon='map'),
+            card('Tự chủ &amp; linh hoạt', 'Tự chủ tổ chức bộ máy, phân bổ địa bàn, điều chỉnh nhân sự theo quy mô chương trình.', icon='bolt'),
+            card('Chất lượng giao dịch', 'Hỗ trợ duy trì số dư và phát sinh giao dịch thường xuyên theo điều khoản hợp tác.', icon='card'),
+            card('Báo cáo xuyên suốt', 'Tổng hợp dữ liệu minh bạch phục vụ đối soát và tham mưu điều chỉnh chiến lược.', icon='chart')], cols=2)])
+    b += khoi(1, 'Đại lý tổ chức của các tổng công ty bảo hiểm, đồng thời là lực lượng phát triển BHXH, BHYT và chi trả bảo trợ xã hội tại cơ sở.', [
+        feat('2.1', 'Bảo hiểm phi nhân thọ', 'Đại lý tổ chức của các tổng công ty bảo hiểm hàng đầu, tiêu biểu là PVI.', [
+            card('Giải pháp toàn diện', 'Bảo hiểm tài sản, xe cơ giới, trách nhiệm dân sự và tai nạn.', icon='shield'),
+            card('Đội ngũ lưu động', 'Phản ứng nhanh, tư vấn và hỗ trợ xử lý bồi thường tận nơi tại từng địa bàn.', icon='truck'),
+            card('Đối tác bảo hiểm', 'PVI và các tổng công ty bảo hiểm theo từng chương trình hợp tác.', icon='link')]),
+        feat('2.2', 'Phòng Kinh doanh An sinh', 'BHXH tự nguyện, BHYT hộ gia đình và bảo hiểm học sinh.', [
+            card('BHXH &amp; BHYT', 'Phối hợp chính quyền địa phương tuyên truyền gần dân. Mạng lưới cộng tác viên uy tín đến từng ấp, khu vực, vận hành trên hơn 25 xã, phường.', icon='heart'),
+            card('Bảo hiểm học sinh', 'Gói bảo hiểm cho học sinh các cấp; bồi thường minh bạch, nhanh chóng; trích đóng góp quỹ khuyến học địa phương.', icon='cap'),
+            card('Nâng cao nhận thức', 'Giúp người dân chủ động thiết lập "màng bọc tài chính" trước rủi ro sức khỏe và lao động.', icon='bulb')]),
+        feat('2.3', 'Phòng Chi trả Bảo trợ xã hội', 'Mảng đặc thù, đòi hỏi chuẩn mực đạo đức và sự chính xác tuyệt đối.', [
+            card('Quy mô triển khai', 'Vận hành ổn định tại 6 xã, phường: lương hưu, trợ cấp bảo trợ xã hội, người có công với cách mạng.', icon='gov'),
+            card('Hiệu quả số hóa', 'Tỷ lệ chi trả 100%, chuyển từ tiền mặt sang chi trả qua tài khoản ngân hàng.', icon='coins'),
+            card('Đội ngũ tận tâm', 'Sẵn sàng đến tận nhà hỗ trợ người cao tuổi, người ốm đau, gia đình chính sách.', icon='home')]),
+        '<ul class="grid c4 keep2">' + ''.join(f'<li><div class="card card--tint"><span class="num">Tiêu chí chi trả</span><h3>{t}</h3></div></li>' for t in ['Đúng đối tượng', 'Đúng số tiền', 'Kịp thời', 'Minh bạch']) + '</ul>'], 'sec--tint')
+    b += khoi(2, 'Khối giữ vai trò "trái tim" điều hành, kết nối hai nguồn lực cốt lõi: quản trị con người và quản trị tài chính.', [
+        feat('3.1', 'Quản trị nhân sự', 'Phát huy giá trị con người.', [
+            card('Hoạch định &amp; phát triển', 'Cơ cấu tổ chức tối ưu, chuẩn hóa tuyển dụng, đào tạo, bố trí nhân lực theo sự mở rộng của dự án.', icon='users'),
+            card('Quản trị hiệu suất (KPI)', 'Đánh giá KPI minh bạch, gắn với lương, thưởng, phúc lợi cạnh tranh.', icon='trend'),
+            card('Đào tạo &amp; môi trường', 'Nâng cao tay nghề, xây dựng văn hóa kỷ luật, nhân văn và chuyên nghiệp.', icon='cap')]),
+        feat('3.2', 'Kế toán – Tài chính', 'Chính xác, minh bạch và hiệu quả.', [
+            card('Hạch toán &amp; tuân thủ', 'Ghi nhận đầy đủ nghiệp vụ, quản lý chứng từ khắt khe, báo cáo tài chính đúng chuẩn mực pháp luật.', icon='tax'),
+            card('Ngân sách &amp; dòng tiền', 'Hoạch định ngân sách, phân tích chi phí, tối ưu nguồn vốn, bảo đảm thanh khoản.', icon='coins'),
+            card('Tham mưu chiến lược', 'Dữ liệu tài chính đa chiều, định kỳ cho quyết định đầu tư và vận hành của Ban Giám đốc.', icon='chart')])])
+    b += khoi(3, 'Phòng Quản lý Dự án là đầu mối tham mưu, thẩm định, triển khai và giám sát các chương trình trọng điểm từ Ban Giám đốc.', [
+        feat('4.1', 'Phòng Quản lý Dự án', 'Chủ động trong triển khai, khách quan trong kiểm tra, hiệu quả trong thực hiện.', [
+            card('Tham mưu &amp; triển khai', 'Xây dựng lộ trình, cơ chế phối hợp và phương án tổ chức nhân sự cho các dự án mới.', icon='compass'),
+            card('Kiểm tra &amp; giám sát', 'Rà soát tuân thủ quy trình nghiệp vụ, phát hiện sớm rủi ro, giữ kỷ luật vận hành toàn hệ thống.', icon='search'),
+            card('Đánh giá &amp; báo cáo', 'Tổng hợp số liệu thực tế, phân tích hiệu quả, đề xuất cải tiến liên tục.', icon='chart')]),
+        grid([card(p[1], p[2], icon=p[4], tag=p[3], href=f'Projects.dc.html#{p[0]}', more='Xem dự án') for p in PROJ], 3)], 'sec--dk')
+    page('Services', 'Lĩnh vực hoạt động', 'Services', b + cta().replace('sec--dk', ''))
 
-# ================= MARKET =================
-PIL = [('cpu','Công nghệ','Giải pháp số hóa hiện đại.'),('bank','Tài chính','Mạng lưới hơn 12 ngân hàng đối tác.'),
-       ('shield','Bảo hiểm','Sản phẩm bảo vệ toàn diện từ PVI, PTI, TASCO.'),('heart','An sinh','Tuyên truyền BHXH, BHYT sâu rộng.'),
-       ('map','Địa phương','Đồng hành khăng khít cùng chính quyền.'),('link','Đối tác','Cùng phát triển, chia sẻ giá trị.'),
-       ('trend','Doanh nghiệp','Giải pháp marketing và phát triển thị trường.')]
-PAGES['Market.dc.html'] = ('Năng lực & Vị thế', '\n'.join([
- hero('Market.dc.html', [('Main.dc.html','Trang chủ'), (None,'Giới thiệu'), (None,'Năng lực & Vị thế')], ('7', 'Trụ cột hệ sinh thái'),
-      'Sức mạnh nằm ở <span style="color: #ca4d25">khả năng kết nối</span>',
-      'Bảy yếu tố liên kết với nhau tạo nên năng lực mà một đơn vị đơn lẻ khó sao chép.',
-      [('ic',0,0,('link',0)),('ht',10,0,None),('ht',0,2,None),('ic',10,2,('cpu',2.2)),('hn',2,3,0),('hn',9,1,1)]),
- subnav('Market.dc.html'),
- sec(head_block('Hệ sinh thái <span>7 trụ cột</span>', None, pad='72px 40px 40px') +
-     '<ul class="rg" style="grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #ebebeb; margin: 0">' +
-     ''.join(f'<li class="cell pillar"><span class="num">0{i+1}</span><span class="ic" aria-hidden="true">{ic(n)}</span><h4>{h}</h4><p>{p}</p></li>' for i,(n,h,p) in enumerate(PIL)) +
-     '<li class="cell big-or" style="justify-content: flex-end"><span style="font-size: 72px; font-weight: 300; line-height: 1">7</span><h4 style="font-size: 19px">trụ cột, một hệ sinh thái</h4><p>Mỗi trụ cột bổ trợ cho các trụ cột còn lại.</p></li></ul>'),
- sec(head_block('Lợi thế cạnh tranh <span>cốt lõi</span>', None, pad='72px 40px 40px') +
-     '<ul class="rg" style="grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #3a3633; margin: 0">' +
-     ''.join(f'<li class="cell" style="padding: 40px 32px"><span class="num">0{i+1}</span><span class="ic" aria-hidden="true">{ic(n)}</span><h4 style="font-size: 20px">{h}</h4><p>{p}</p><span style="font-size: 44px; font-weight: 600; color: #ef7a52; margin-top: 12px">{s}</span></li>' for i,(n,h,p,s) in enumerate([
-        ('map','Mạng lưới phủ rộng','Hơn 300 nhân sự phủ khắp các địa bàn miền Tây.','300+'),
-        ('users','Am hiểu bản địa','Nắm chính xác thói quen, tâm lý người dân và doanh nghiệp ĐBSCL.','ĐBSCL'),
-        ('link','Năng lực thực thi kép','Vừa lập chiến lược, vừa có lực lượng triển khai tận cơ sở.','2×')])) + '</ul>', 'sec dk-sec'),
- sec(f'''<div class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr)">
-{img('k', style='min-height: 460px; border: 0')}
-<div class="pad" style="padding: 72px 40px; display: flex; flex-direction: column; gap: 20px">
-<h2 class="h2" style="font-size: 40px">Định hướng <span>giai đoạn tới</span></h2>
-<ul style="display: flex; flex-direction: column; gap: 0; margin-top: 8px">{''.join(f'<li style="display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 20px 0; border-top: 1px solid #ebebeb"><span class="num" style="font-size: 20px">0{i+1}</span><div><h4 style="font-size: 17px; font-weight: 500; margin: 0">{h}</h4><p style="font-size: 14px; line-height: 1.6; color: #5c5c5c; margin-top: 6px">{p}</p></div></li>' for i,(h,p) in enumerate([
-   ('Mở rộng địa bàn','Gia tăng nhân sự và hoàn thiện mạng lưới chi nhánh tại 13 tỉnh thành ĐBSCL.'),
-   ('Đẩy mạnh AI & Digital','Ứng dụng trí tuệ nhân tạo và tự động hóa vào quản lý, nâng năng lực hỗ trợ số hóa người dân.'),
-   ('Củng cố quan hệ chiến lược','Liên kết sâu rộng với định chế tài chính, tập đoàn bảo hiểm và cơ quan nhà nước.')]))}</ul>
-</div>
-</div>'''),
- PARTNERS,
- cta(),
-]), 3420)
+def projects():
+    b = phero(['Dự án trọng điểm'], 'Phòng Quản lý Dự án', 'Ba dự án *mở rộng hệ sinh thái*',
+              'Các dự án do Phòng Quản lý Dự án chủ trì, tận dụng lực lượng khoảng 300 nhân sự và những điểm chạm sẵn có tại bệnh viện, trung tâm hành chính công.', 'h',
+              btn('Trao đổi về dự án', 'Contact.dc.html', arrow=True))
+    b += sec('<nav class="jump" aria-label="Đi nhanh đến từng dự án" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">' + ''.join(f'<a href="#{p[0]}"><span>Dự án {i:02d}</span><b>{p[1]}</b></a>' for i, p in enumerate(PROJ, 1)) + '</nav>')
+    b += sec(head('Dự án 01', 'Máy bán hàng tự động: *có tài khoản và dùng tài khoản mỗi ngày*',
+                  'Hợp tác cùng ngân hàng VPBank, đơn vị cung cấp máy Toro và trung gian thanh toán VNPAY. Người dân mở tài khoản, thẻ qua MGST được đăng ký hội viên và mua hàng giá ưu đãi tại máy.')
+             + grid([card('Hội viên &amp; tài khoản', icon='id', items=['Hướng dẫn mở tài khoản, thẻ; cài ứng dụng, thanh toán QR', 'Đăng ký bằng số điện thoại và PIN 4 số, dễ với người lớn tuổi', 'Có phiếu đồng ý xử lý thông tin cá nhân']),
+                     card('Lắp đặt &amp; vận hành máy', icon='vend', items=['Đặt tại trung tâm hành chính công, trường học, chợ, tiệm tạp hóa', 'Hiển thị giá hội viên; một mã QR VNPAY', 'Quản lý từ xa, hóa đơn điện tử từng đơn']),
+                     card('Hàng hóa thiết yếu', icon='truck', items=['10 nhóm hàng: nước mắm, dầu ăn, đường, mì gói, sữa…', 'Hàng chính hãng từ nhà phân phối tại Cần Thơ', 'Châm hàng, kiểm tra hạn dùng định kỳ']),
+                     card('Hội chợ không tiền mặt', icon='qr', items=['Mua sắm hàng thiết yếu tại xã, phường', 'Toàn bộ giao dịch thanh toán bằng mã QR', 'Kết hợp hướng dẫn, giao lưu']),
+                     card('Đối soát &amp; báo cáo', icon='chart', items=['Đối soát giao dịch, lượt ưu đãi hằng ngày', 'Theo dõi tài khoản mở, tỷ lệ còn giao dịch, doanh số', 'Báo cáo hằng tuần cho Ban Giám đốc và đối tác']),
+                     card('Gần dân – Rõ ràng – Hiệu quả', 'Gần dân trong triển khai, rõ ràng với đối tác, hiệu quả cho địa phương.', cls='card--brand', num='Phương châm')], 3)
+             + steps([('Thí điểm', '1 máy trong 1 tháng tại 1 xã, phường; đánh giá kết quả trước khi mở rộng.'), ('Hội chợ số', 'Tổ chức hội chợ không dùng tiền mặt với 11 máy trong 30 ngày.'),
+                      ('Nhân rộng', 'Phủ điểm đặt máy tại TP. Cần Thơ, từng bước mở rộng ra các tỉnh ĐBSCL.')]), id='may-ban-hang')
+    b += sec(head('Dự án 02', 'Đào tạo lái xe: *thuận tiện, minh bạch, gần dân*',
+                  'Trước mắt, MGST phối hợp với các cơ sở đào tạo đủ điều kiện để hỗ trợ tuyển sinh, tiếp nhận và hoàn thiện hồ sơ học lái xe mô tô hạng A1, A theo quy định.')
+             + split(grid([card('Mạng lưới tiếp cận', 'Khoảng 300 nhân sự cùng cộng tác viên tại các ấp, khu vực đưa thông tin tuyển sinh đến gần người dân.', icon='users'),
+                           card('Liên kết hệ sinh thái', 'Khoảng 10 bệnh viện và 10 điểm phục vụ hành chính công để tư vấn, hướng dẫn thủ tục, kết nối khám sức khỏe.', icon='link'),
+                           card('Tiện ích số &amp; bảo hiểm', 'Thanh toán không tiền mặt, dịch vụ ngân hàng và bảo hiểm xe cơ giới từ đối tác.', icon='card'),
+                           card('Định hướng đầu tư', 'Nghiên cứu đầu tư cơ sở đào tạo và sân sát hạch tại khu vực Sóc Trăng.', icon='flag')], 2).replace('class="grid', 'style="border-top: 0" class="grid'), photo('f'), flip=True)
+             + steps([('Tư vấn hạng bằng', 'Chọn hạng giấy phép lái xe phù hợp nhu cầu.'), ('Hồ sơ &amp; sức khỏe', 'Hướng dẫn chuẩn bị hồ sơ, ảnh và khám sức khỏe.'), ('Đăng ký đào tạo', 'Kết nối với cơ sở đào tạo đủ điều kiện.'),
+                      ('Lịch học, sát hạch', 'Cập nhật theo thông báo của đơn vị có thẩm quyền.'), ('Kết quả &amp; thủ tục', 'Tiếp nhận thông tin kết quả và các thủ tục liên quan.')], 5)
+             + '<p class="pad hint blk">Việc tổ chức đào tạo, sát hạch chỉ được triển khai khi đáp ứng đầy đủ điều kiện và được cơ quan có thẩm quyền chấp thuận theo quy định.</p>', 'sec--tint', 'lai-xe')
+    b += sec(head('Dự án 03', 'Cung ứng nhân lực &amp; tư vấn XKLĐ: *đúng người, đúng việc, đúng tiến độ*',
+                  'Cầu nối đưa người lao động Việt Nam ra thị trường quốc tế, tập trung nâng chất lượng tay nghề, ngoại ngữ và tác phong công nghiệp.')
+             + grid([card('Nguồn tuyển sâu sát cơ sở', 'Mạng lưới cộng tác viên an sinh tại 25+ xã, phường; liên kết với Sở và Trung tâm Dịch vụ việc làm các tỉnh ĐBSCL.', icon='users'),
+                     card('Đào tạo khép kín', 'Đào tạo nghề nội bộ (lái xe, kỹ thuật) cùng tiếng Nhật, Hàn, Anh và văn hóa doanh nghiệp nước sở tại.', icon='cap'),
+                     card('Đơn hàng chất lượng', 'Hợp tác với tổ chức xúc tiến và nghiệp đoàn uy tín tại từng thị trường.', icon='medal')], 3)
+             + '''<div class="tbl-wrap"><table class="tbl"><caption class="sr">Thị trường và ngành nghề</caption><thead><tr><th scope="col">Thị trường</th><th scope="col">Ngành nghề</th><th scope="col">Đối tác, kênh hợp tác</th></tr></thead><tbody>
+<tr><th scope="row">Châu Âu (Hy Lạp…)</th><td>Kỹ thuật công nghiệp: cơ khí, bảo trì, vận hành máy, lắp ráp ô tô, logistics. Nông nghiệp và dịch vụ: chế biến thực phẩm, nhà hàng – khách sạn.</td><td>Chủ sử dụng lao động tại nước sở tại</td></tr>
+<tr><th scope="row">Đông Á (Nhật Bản, Hàn Quốc, Đài Loan)</th><td>Kỹ sư, thực tập sinh kỹ năng, điều dưỡng, lao động phổ thông.</td><td>JETRO, KOTRA, KOCHAM và các nghiệp đoàn</td></tr>
+</tbody></table></div>'''
+             + grid([card('Tuyển chọn nghiêm ngặt', 'Sàng lọc hồ sơ, sức khỏe, chuyên môn và ý thức kỷ luật.', icon='search'),
+                     card('Minh bạch tài chính, pháp lý', 'Tuân thủ luật lao động Việt Nam và nước sở tại; công khai chi phí, lộ trình xuất cảnh 6–8 tháng.', icon='scale'),
+                     card('Đồng hành suốt hợp đồng', 'Bộ phận quản lý lao động ngoài nước theo sát, hỗ trợ người lao động và chủ sử dụng.', icon='hand')], 3), id='nhan-luc')
+    page('Projects', 'Dự án trọng điểm', 'Projects', b + cta())
 
-# ================= SERVICES =================
-def svc_head(anchor, n, title, lead, k):
-    return f'''<div id="{anchor}" class="rg" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr)">
-<div class="pad" style="padding: 72px 40px; display: flex; flex-direction: column; gap: 16px"><span class="num" style="font-size: 15px">Lĩnh vực {n}</span><h2 class="h2" style="font-size: 44px">{title}</h2><p class="lead">{lead}</p></div>
-{img(k, style='min-height: 360px; border: 0')}
-</div>'''
-HEALTH = '<div class="rg" style="grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #ebebeb">' + ''.join(
-  f'<div class="cell" style="padding: 24px 32px{"; background: #fdf1eb" if i==3 else ""}"><span class="num">0{i+1}</span><h4>{t}</h4></div>' for i,t in enumerate(['Sở Y tế','Bệnh viện đa khoa','Trung tâm Y tế huyện','Trạm Y tế xã/phường'])) + '</div>'
-PAGES['Services.dc.html'] = ('Dịch vụ', '\n'.join([
- hero('Services.dc.html', [('Main.dc.html','Trang chủ'), (None,'Dịch vụ')], ('4', 'Lĩnh vực mũi nhọn'),
-      'Bốn lĩnh vực mũi nhọn, <span style="color: #ca4d25">một hệ sinh thái</span>',
-      'Chuyển đổi số, tài chính – ngân hàng, bảo hiểm và an sinh xã hội, cùng Phòng Dự án làm hạt nhân chiến lược.',
-      [('ic',0,0,('id',0)),('ic',10,1,('bank',2.2)),('ic',0,2,('shield',4.4)),('ic',10,3,('gift',6.6)),('hn',2,1,0),('hn',9,3,1)]),
- sec('<nav class="rg svc-anchor" aria-label="Các lĩnh vực">' + ''.join(f'<a href="#{a}"><span class="num">0{i+1}</span><b>{t}</b></a>' for i,(a,t) in enumerate([('cds','Chuyển đổi số & Y tế số'),('tc','Tài chính – Ngân hàng'),('bh','Bảo hiểm & An sinh'),('ct','Chi trả BTXH & Dự án')])) + '</nav>'),
- sec(svc_head('cds','01','Đưa công nghệ <span>đến gần dân</span>','Mũi nhọn hàng đầu: cầu nối đưa ứng dụng số vào đời sống thực tế của người dân và chính quyền địa phương.','b')
-     + cells([('id','Định danh điện tử VNeID','Hướng dẫn, kích hoạt và xử lý vướng mắc khi sử dụng.'),('tax','Thuế số eTax Mobile','Cài đặt, thao tác cho người dân và hộ kinh doanh.'),('qr','Thanh toán không tiền mặt','Mở tài khoản, tạo mã QR tại chợ, tuyến đường văn minh, cửa hàng.'),('users','2.000+ lượt mỗi ngày','Người dân được nhân sự Minh Group ST tiếp cận và hỗ trợ trực tiếp.')], 4)
-     + '<div class="pad" style="padding: 32px 40px; border-top: 1px solid #ebebeb; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap"><h3 style="font-size: 19px">Số hóa kênh y tế · PKD Y</h3><span class="mono" style="font-size: 13px; color: #8a8a8a">Hồ sơ sức khỏe điện tử · Viện phí không tiền mặt · Tiếp đón bệnh nhân qua nền tảng số</span></div>' + HEALTH),
- sec(svc_head('tc','02','Cầu nối ngân hàng <span>và thị trường miền Tây</span>','Qua Phòng Kinh doanh Tổng hợp, Minh Group ST là đối tác chiến lược tin cậy của hơn 12 ngân hàng thương mại hàng đầu Việt Nam.','f')
-     + cells([('card','Mở rộng mạng lưới khách hàng','Tài khoản, thẻ, tín dụng, giải pháp thanh toán đến cả đô thị và nông thôn.'),('scan','Hỗ trợ ngân hàng chuyển đổi số','Ra quân mở tài khoản số, chuẩn hóa sinh trắc học cho khách hàng tại địa phương.'),('scale','Tư vấn giải pháp tài chính','Đơn vị tư vấn độc lập, giúp chọn giải pháp vốn phù hợp năng lực thực tế.')], 3)),
- sec(svc_head('bh','03','Bảo vệ tài chính <span>từng gia đình</span>','Đại lý tổ chức uy tín của các Tổng Công ty Bảo hiểm lớn như PVI, PTI, TASCO; nhân sự lưu động hỗ trợ thủ tục ngay tại địa bàn.','a')
-     + f'<div class="rg" style="grid-template-columns: minmax(0, 1fr); border-top: 1px solid #ebebeb"><div class="logos"><img src="{B["pvi"]}" alt="PVI Insurance" style="height: 34px; filter: invert(1) brightness(.35)"><img src="{B["pti"]}" alt="PTI – Bảo hiểm Bưu điện" style="height: 38px; filter: invert(1) brightness(.35)"><span style="font-size: 22px; font-weight: 800; letter-spacing: .14em; color: #3a3633">TASCO</span></div></div>'
-     + cells([('home','Bảo hiểm tài sản','Cho hộ gia đình, hộ kinh doanh và doanh nghiệp.'),('car','Xe cơ giới','Bảo hiểm bắt buộc và tự nguyện cho xe máy, ô tô.'),('scale','Trách nhiệm dân sự','Bảo vệ trước nghĩa vụ bồi thường cho bên thứ ba.'),('plus','Tai nạn','Bảo vệ cá nhân và gia đình trước rủi ro.')], 4)
-     + '<div class="pad" style="padding: 32px 40px; border-top: 1px solid #ebebeb"><h3 style="font-size: 19px">Phòng Kinh doanh An sinh</h3></div>'
-     + cells([('shield','BHXH tự nguyện','Phối hợp chính quyền tuyên truyền, vận động người dân tham gia.'),('heart','BHYT hộ gia đình','Giúp người dân tự tin bảo vệ tài chính gia đình trước rủi ro cuộc sống.')], 2)),
- sec(svc_head('ct','04','Trao giá trị – <span>gửi trọn trách nhiệm</span>','Phòng Chi trả Bảo trợ xã hội: mảng đặc thù, đòi hỏi sự chuẩn xác và đạo đức nghề nghiệp nghiêm túc.','k')
-     + '<div class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid #ebebeb">'
-     + '<div class="pad" style="padding: 40px; display: flex; flex-direction: column; gap: 16px"><span class="num">Đối tượng phục vụ</span><div class="chips-row">' + ''.join(f'<span class="chip">{t}</span>' for t in ['Người hưởng lương hưu','Trợ cấp bảo trợ xã hội','Người có công với cách mạng','Thụ hưởng chương trình mục tiêu']) + '</div></div>'
-     + '<div class="rg" style="grid-template-columns: 1fr">' + ''.join(f'<div class="cmt" style="background: {"#fdf1eb" if i==0 else "#ffffff"}"><b>0{i+1}</b><div><h4>{h}</h4><p>{p}</p></div></div>' for i,(h,p) in enumerate([('Chính xác','Đúng đối tượng, đúng số tiền, đúng thời gian.'),('Trách nhiệm','Tuân thủ quy trình kiểm soát tài chính nghiêm ngặt.'),('Tận tâm','Phục vụ chu đáo người lớn tuổi, gia đình chính sách.')])) + '</div></div>'
-     + '<div class="pad" style="padding: 32px 40px; border-top: 1px solid #ebebeb; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap"><h3 style="font-size: 19px">Phòng Dự án · Hạt nhân chiến lược</h3><span class="mono" style="font-size: 13px; color: #8a8a8a">"Bộ não" nghiên cứu và thực thi dự án trọng điểm</span></div>'
-     + '<ol class="rg" style="grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #ebebeb; margin: 0; padding: 0; list-style: none">' + ''.join(f'<li class="cell" style="padding: 32px"><span class="num">Bước {i+1}</span><span class="ic" aria-hidden="true">{ic(n)}</span><h4>{h}</h4><p>{p}</p></li>' for i,(n,h,p) in enumerate([('search','Nghiên cứu thị trường','Khảo sát nhu cầu, phân tích đối thủ và tiềm năng vùng.'),('grid','Xây dựng mô hình','Biến ý tưởng thành phương án vận hành khả thi, có khả năng sinh lời.'),('link','Kết nối nguồn lực','Gọi vốn, kết nối đối tác công – tư (PPP) và nguồn lực xã hội.')])) + '</ol>'),
- vband(['Chính xác', 'Trách nhiệm', 'Tận tâm']),
- cta(),
-]), 4920)
+def news():
+    b = phero(['Tin tức &amp; Thư viện'], 'Tin tức', 'Hoạt động mới nhất *từ địa bàn*',
+              'Tin hoạt động, dự án và hình ảnh từ các khối của Minh Group ST. Nội dung bài viết đang chờ bộ phận truyền thông cung cấp.', 'a')
+    cats = ['Tất cả', 'Chuyển đổi số', 'An sinh', 'Dự án', 'Cộng đồng']
+    chips = '<div class="pad chips" role="group" aria-label="Lọc theo chủ đề" style="padding-top: 20px; padding-bottom: 20px">' + ''.join(f'<button type="button" class="chip" aria-pressed="{"true" if i == 0 else "false"}">{c}</button>' for i, c in enumerate(cats)) + '</div>'
+    posts = [('Dự án', 'h', '[Tiêu đề: Thí điểm máy bán hàng tự động tại xã, phường]'), ('Cộng đồng', 'a', '[Tiêu đề: Công trình Thắp sáng đường quê]'), ('An sinh', 'b', '[Tiêu đề: Tuyên truyền BHXH tự nguyện]'),
+             ('Chuyển đổi số', 'k', '[Tiêu đề: Hỗ trợ thanh toán viện phí không tiền mặt]'), ('Dự án', 'f', '[Tiêu đề: Tiếp nhận hồ sơ học lái xe hạng A1]'), ('Cộng đồng', 'g', '[Tiêu đề: Trao thẻ bảo hiểm cho hộ khó khăn]')]
+    b += sec(chips + grid([f'<a class="post" href="News.dc.html">{photo(k)}<span class="post-tx"><span class="tag" style="align-self: flex-start">{c}</span><h3>{t}</h3><p>[Tóm tắt 1–2 câu]</p><time>[Ngày đăng]</time></span></a>' for c, k, t in posts], 3)
+             + f'<div class="pad blk" style="display: flex; justify-content: center">{btn("Xem thêm bài viết", "News.dc.html", "secondary")}</div>')
+    b += sec(head('Thư viện', 'Hình ảnh *hoạt động*', 'Ảnh hiện tại là ảnh minh họa từ Wikimedia Commons; cần thay bằng ảnh thực tế của Minh Group ST.')
+             + '<div class="gal">' + photo('k', 'w2') + photo('a') + photo('b') + photo('h') + photo('f') + photo('g', 'w2') + '</div>', id='thu-vien')
+    page('News', 'Tin tức & Thư viện', 'News', b + cta())
 
-# ================= NEWS =================
-NEWS = [('b','Chuyển đổi số','[Ra quân hỗ trợ kích hoạt VNeID tại phường …]'),('h','Ngân hàng','[Chiến dịch mở tài khoản số cùng ngân hàng đối tác]'),
-        ('f','Y tế số','[Triển khai viện phí không tiền mặt tại bệnh viện …]'),('a','An sinh','[Tuyên truyền BHXH tự nguyện tại xã …]'),
-        ('g','Nội bộ','[Thành lập PKD 10 và PKD 11]'),('l','Dự án','[Phòng Dự án khảo sát tiềm năng vùng …]')]
-PAGES['News.dc.html'] = ('Tin tức', '\n'.join([
- hero('News.dc.html', [('Main.dc.html','Trang chủ'), (None,'Tin tức')], ('Mới', 'Hoạt động tại địa bàn'),
-      'Tin tức & <span style="color: #ca4d25">hoạt động</span>',
-      'Hoạt động thực địa, hợp tác với đối tác và các mốc phát triển của Minh Group ST.',
-      [('ht',0,0,None),('ic',10,0,('book',0)),('ic',0,3,('photo',2.2)),('ht',10,2,None),('hn',2,2,0),('hn',9,3,1)]),
- sec('<div class="pad" style="padding: 24px 40px; display: flex; gap: 8px; flex-wrap: wrap">' + ''.join(f'<button type="button" class="chip" aria-pressed="{"true" if i==0 else "false"}">{t}</button>' for i,t in enumerate(['Tất cả','Chuyển đổi số','Y tế số','Ngân hàng','Bảo hiểm','An sinh','Dự án','Nội bộ'])) + '</div>'),
- sec(f'''<a href="#" class="rg" style="grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); text-decoration: none; color: #201e1d">
-{img('k', style='min-height: 420px; border: 0')}
-<div class="pad" style="padding: 56px 40px; display: flex; flex-direction: column; justify-content: center; gap: 16px"><span class="tag" style="align-self: flex-start">Nổi bật</span><span class="mono" style="font-size: 12px; color: #8a8a8a">[dd/mm/yyyy] · Nội bộ</span><h2 class="h2" style="font-size: 36px">[Tiêu đề bài viết nổi bật]</h2><p class="lead">[Tóm tắt 2–3 câu về hoạt động, địa bàn, số người dân được hỗ trợ.]</p><span class="btn btn-s" style="align-self: flex-start">Đọc tiếp {ARROW}</span></div>
-</a>'''),
- sec('<div class="rg" style="grid-template-columns: repeat(3, minmax(0, 1fr))">' + ''.join(
-   f'<a href="#" class="cell">{img(k, style="height: 200px; border-radius: 10px")}<span class="mono" style="font-size: 12px; color: #a39d98">[dd/mm/yyyy] · {t}</span><h4 style="line-height: 1.4">{h}</h4></a>' for k,t,h in NEWS) + '</div>'
-   + '<div class="pad" style="padding: 32px 40px; border-top: 1px solid #3a3633; display: flex; justify-content: center"><span class="btn btn-s">Xem thêm bài viết</span></div>', 'sec dk-sec'),
- cta('Báo chí và đối tác <span>cần thêm thông tin?</span>', f'Liên hệ {MAIL} để nhận hồ sơ năng lực và thông cáo báo chí.'),
-]), 2720)
+def contact():
+    b = phero(['Liên hệ'], 'Liên hệ', 'Kết nối đúng *bộ phận phụ trách*',
+              'Chọn nhóm nhu cầu, để lại thông tin. Chuyên viên phụ trách sẽ liên hệ lại trong giờ làm việc.', 'g')
+    b += sec(grid([card(f'<a href="{HOT_T}" style="color: inherit; text-decoration: none">{HOT}</a>', 'Hotline trong giờ làm việc', icon='phone'), card(f'<a href="mailto:{MAIL}" style="color: inherit; text-decoration: none; word-break: break-all">{MAIL}</a>', 'Hợp tác và hồ sơ năng lực', icon='mail'),
+                   card(ADDR, 'Trụ sở chính', icon='pin'), card('[Giờ làm việc]', 'Chờ xác nhận', icon='clock')], 4).replace('class="grid', 'style="border-top: 0" class="grid'))
+    opts = ''.join(f'<option>{o}</option>' for o in ['Hợp tác ngân hàng, tài chính', 'Bảo hiểm phi nhân thọ', 'BHXH, BHYT, bảo hiểm học sinh', 'Chi trả bảo trợ xã hội', 'Máy bán hàng tự động', 'Học lái xe', 'Việc làm ngoài nước', 'Khác'])
+    form = f'''<div class="pad"><h2 class="h2" style="font-size: 28px; margin-bottom: 24px">Gửi yêu cầu</h2>
+<form class="form" aria-label="Gửi yêu cầu liên hệ">
+<label class="field"><span>Họ và tên <i aria-hidden="true">*</i></span><input type="text" autocomplete="name" required></label>
+<label class="field"><span>Số điện thoại <i aria-hidden="true">*</i></span><input type="tel" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" required></label>
+<label class="field">Email<input type="email" autocomplete="email"></label>
+<label class="field">Đơn vị, tổ chức<input type="text" autocomplete="organization"></label>
+<label class="field full">Nhu cầu<select>{opts}</select></label>
+<label class="field full">Nội dung<textarea rows="4" placeholder="Mô tả ngắn nhu cầu của bạn"></textarea></label>
+<p class="hint full">Thông tin được bảo vệ theo Nghị định 13/2023/NĐ-CP. Trường có dấu * là bắt buộc.</p>
+<div class="full"><button type="button" class="btn btn--primary btn--lg">Gửi yêu cầu {ARROW}</button></div>
+</form></div>'''
+    b += sec(split(form, empty('Bản đồ: nhúng Google Maps tại 323–325 Phú Lợi', icon='map')), id='form')
+    b += sec(head('Đúng bộ phận', 'Bạn thuộc *nhóm nào?*')
+             + grid([card('Ngân hàng, tổ chức tài chính', 'Triển khai mở tài khoản, phát triển hộ kinh doanh, đối soát.', icon='bank', num='Khối 01'), card('Doanh nghiệp bảo hiểm, cơ quan BHXH', 'Đại lý tổ chức, phát triển người tham gia, chi trả.', icon='shield', num='Khối 02'),
+                     card('Chính quyền địa phương', 'Phối hợp an sinh, phổ cập kỹ năng số, đặt máy bán hàng.', icon='gov', num='Khối 02 · 04'), card('Người dân, người lao động', 'Bảo hiểm, học lái xe, việc làm ngoài nước.', icon='users', num='Khối 02 · 04')], 4), 'sec--tint')
+    page('Contact', 'Liên hệ', 'Contact', b)
 
-# ================= GALLERY =================
-GAL = [('k','w2'),('a',''),('b','h2r'),('f',''),('g',''),('h','w2'),('l','')]
-PAGES['Gallery.dc.html'] = ('Thư viện', '\n'.join([
- hero('Gallery.dc.html', [('Main.dc.html','Trang chủ'), (None,'Thư viện')], ('Ảnh', 'Miền Tây qua ống kính'),
-      'Thư viện <span style="color: #ca4d25">hình ảnh</span>',
-      'Hình ảnh hoạt động thực địa, sự kiện và địa bàn Minh Group ST phục vụ.',
-      [('ic',0,0,('photo',0)),('ht',10,1,None),('ht',0,2,None),('ic',10,3,('pin',2.2)),('hn',1,2,0),('hn',9,1,1)]),
- sec('<div class="pad" style="padding: 24px 40px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: space-between"><div style="display: flex; gap: 8px; flex-wrap: wrap">' + ''.join(f'<button type="button" class="chip" aria-pressed="{"true" if i==0 else "false"}">{t}</button>' for i,t in enumerate(['Tất cả','Hoạt động thực địa','Sự kiện & ký kết','Đội ngũ','Địa bàn'])) + '</div><span class="mono" style="font-size: 12px; color: #8a8a8a">7 ảnh minh họa · Wikimedia Commons</span></div>'),
- sec('<div class="rg gal">' + ''.join(img(k, cls=f'ph hasimg {c}', style='height: 100%') for k,c in GAL) + '<div class="ph" style="border: 0; flex-direction: column; gap: 8px"><span style="color: #ca4d25">' + ic('photo',28,1.5) + '</span>[Ảnh thực tế của Minh Group ST]</div><div class="ph" style="border: 0">[Ảnh đội ngũ]</div></div>'
-   + '<p class="mono pad" style="border-top: 1px solid #ebebeb; padding: 12px 40px; font-size: 12px; color: #8a8a8a">Ảnh hiện tại là ảnh minh họa có giấy phép mở, cần thay bằng ảnh thực tế của công ty trước khi xuất bản.</p>'),
- cta(),
-]), 2560)
-
-# ================= CONTACT =================
-PAGES['Contact.dc.html'] = ('Liên hệ', '\n'.join([
- hero('Contact.dc.html', [('Main.dc.html','Trang chủ'), (None,'Liên hệ')], ('24h', 'Phản hồi trong giờ hành chính'),
-      'Kết nối cùng <span style="color: #ca4d25">Minh Group ST</span>',
-      'Hợp tác triển khai tại địa phương, cần hỗ trợ dịch vụ hay muốn làm việc với Phòng Dự án: bắt đầu từ đây.',
-      [('ic',0,0,('phone',0)),('ht',10,0,None),('ht',0,3,None),('ic',10,2,('mail',2.2)),('hn',2,1,0),('hn',9,3,1)]),
- sec('<div class="rg" style="grid-template-columns: repeat(3, minmax(0, 1fr))">'
-   + f'<a href="{HOT_T}" class="cell big-or" style="padding: 40px 32px"><span class="ic" aria-hidden="true">{ic("phone")}</span><p>Hotline</p><h4 style="font-size: 32px; font-weight: 500">{HOT}</h4></a>'
-   + f'<a href="mailto:{MAIL}" class="cell" style="padding: 40px 32px"><span class="ic" aria-hidden="true">{ic("mail")}</span><p>Email</p><h4 style="font-size: 20px">{MAIL}</h4></a>'
-   + f'<div class="cell" style="padding: 40px 32px"><span class="ic" aria-hidden="true">{ic("pin")}</span><p>Trụ sở chính</p><h4 style="font-size: 20px; line-height: 1.4">{ADDR}</h4></div></div>'),
- sec(f'''<div id="tu-van" class="rg" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr)">
-<div class="map"><span class="pinb">{ic('pin',26,2)}</span><b style="font-size: 16px; color: #201e1d">Minh Group ST</b><span>{ADDR}</span><span class="mono" style="font-size: 12px">[Nhúng bản đồ Google Maps]</span></div>
-<form class="pad" style="padding: 56px 40px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-content: center; background: #ffffff">
-<h2 class="h2" style="grid-column: 1 / -1; font-size: 36px">Gửi <span>yêu cầu</span></h2>
-<label>Họ và tên<input type="text" placeholder="Nguyễn Văn A" autocomplete="name"></label>
-<label>Số điện thoại<input type="tel" placeholder="09xx xxx xxx" autocomplete="tel"></label>
-<label>Bạn là<select><option>Người dân</option><option>Cơ quan, chính quyền</option><option>Ngân hàng, tổ chức tài chính</option><option>Doanh nghiệp</option><option>Bệnh viện, cơ sở y tế</option></select></label>
-<label>Lĩnh vực quan tâm<select><option>Chuyển đổi số, y tế số</option><option>Tài chính – ngân hàng</option><option>Bảo hiểm</option><option>An sinh (BHXH, BHYT)</option><option>Chi trả bảo trợ xã hội</option><option>Hợp tác dự án</option></select></label>
-<label style="grid-column: 1 / -1">Nội dung<input type="text" placeholder="Mô tả ngắn nhu cầu của bạn"></label>
-<button type="button" class="btn btn-p" style="grid-column: 1 / -1; min-height: 48px">Gửi yêu cầu {ARROW}</button>
-<p style="grid-column: 1 / -1; font-size: 12px; color: #8a8a8a">Thông tin được bảo vệ theo Nghị định 13/2023/NĐ-CP.</p>
-</form>
-</div>'''),
- sec(head_block('Làm việc với <span>đúng đơn vị</span>', None, pad='72px 40px 40px') + cells([
-   ('gov','Cơ quan, chính quyền','Phối hợp triển khai VNeID, eTax, thanh toán không tiền mặt, tuyên truyền BHXH – BHYT.'),
-   ('bank','Ngân hàng','Liên hệ PKD Tổng hợp: chiến dịch mở tài khoản, sinh trắc học, phát triển khách hàng.'),
-   ('hos','Bệnh viện, trạm y tế','Liên hệ PKD Y: số hóa hồ sơ, viện phí không tiền mặt, quy trình tiếp đón.'),
-   ('grid','Doanh nghiệp, nhà đầu tư','Liên hệ Phòng Dự án: nghiên cứu thị trường, mô hình kinh doanh, hợp tác PPP.')], 4)),
-]), 2180)
+def system():
+    def sw(n, v, d=''):
+        return f'<div class="sw"><i style="background: {v}"></i><b>{n}</b><span>{v}{" · " + d if d else ""}</span></div>'
+    b = sec(head('Design system', 'MGST Web · *Tokens &amp; Components*', 'Một stylesheet cho mọi trang. Tên token dưới đây là tên biến CSS, dùng thẳng làm tên Variable và Component khi dựng lại trong Figma.', level=1)
+            + grid([sw('brand/500', '#ca4d25', 'CTA, accent'), sw('brand/600', '#b54320', 'hover'), sw('brand/700', '#a63c1b', 'chữ trên nền tint'), sw('brand/300', '#ef7a52', 'accent trên nền tối'), sw('brand/100', '#f6dfd3', 'đường kẻ tint'), sw('brand/50', '#fdf1eb', 'nền tint'),
+                    sw('ink/900', '#201e1d', 'chữ, nền tối'), sw('ink/700', '#3a3633', 'đường kẻ tối'), sw('ink/600', '#5c5c5c', 'chữ phụ 7:1'), sw('ink/500', '#6f6f6f', 'chú thích 5:1'), sw('line/100', '#ebebeb', 'đường kẻ lưới'), sw('bg/50', '#fafafa', 'nền hover')], 4, 'keep2', tag='div'))
+    typ = [('display/h1', 'var(--fs-h1)', '600', 'clamp 34–60 · 1.06', 'Tiên phong số hóa'), ('display/h2', 'var(--fs-h2)', '600', 'clamp 28–44 · 1.12', 'Bốn khối bổ trợ lẫn nhau'), ('title/card', '18px', '600', '18 · 1.3', 'Quy trình khép kín'),
+           ('body/lead', 'var(--fs-lead)', '400', '16–18 · 1.65', 'Đưa dịch vụ tài chính số đến tận tay người dân.'), ('body/base', '15px', '400', '15 · 1.6', 'Nội dung thẻ và đoạn mô tả.'), ('label/eyebrow', '13px', '600', '13 · uppercase · .06em', 'LĨNH VỰC HOẠT ĐỘNG')]
+    rows = ''.join(f'<div class="spec"><div>{n}<br><span style="font-weight: 400">{m}</span></div><div style="font-size: {s}; font-weight: {w}; line-height: 1.15; letter-spacing: -0.01em">{x}</div></div>' for n, s, w, m, x in typ)
+    sp = ''.join(f'<span style="display: inline-flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--mute)"><i style="display: block; width: {v}px; height: {v}px; background: var(--brand-100); border: 1px solid var(--brand-300)"></i>{v}</span>' for v in [4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80])
+    b += sec(head('Typography', 'Inter, *sáu cấp chữ*') + rows)
+    b += sec(head('Spacing, radius, breakpoints', 'Thang 4pt và *lưới 13 ô*')
+             + f'<div class="spec"><div>space/*</div><div class="row" style="align-items: flex-end">{sp}</div></div>'
+             + '<div class="spec"><div>radius/*</div><div class="row"><span class="tag">sm 8</span><span class="tag">md 12</span><span class="tag">lg 16</span><span class="tag">full 999</span></div></div>'
+             + '<div class="spec"><div>breakpoints</div><div class="row"><span class="tag tag--line">Desktop ≥1024 · 11 ô nội dung, lề 1 ô</span><span class="tag tag--line">Tablet 768–1023 · 10 ô</span><span class="tag tag--line">Mobile ≤767 · lề 16px, 1 cột</span></div></div>')
+    b += sec(head('Components', 'Bộ thành phần *dùng chung*')
+             + f'<div class="spec"><div>Button<br><span style="font-weight: 400">primary · secondary · lg<br>cao tối thiểu 44px</span></div><div class="row">{btn("Liên hệ hợp tác", "#", arrow=True)}{btn("Xem lĩnh vực", "#", "secondary")}{btn("Gửi yêu cầu", "#", lg=True, arrow=True)}</div></div>'
+             + '<div class="spec"><div>Tag · Chip · Pill</div><div class="row"><span class="tag">Khối 01</span><span class="tag tag--line">Chờ xác nhận</span><button type="button" class="chip" aria-pressed="true">Đang chọn</button><button type="button" class="chip" aria-pressed="false">Mặc định</button><span class="pill"><b>MGST</b>Pill giới thiệu</span></div></div>'
+             + '<div class="spec"><div>Card<br><span style="font-weight: 400">default · tint · brand<br>icon, num, list, more</span></div><div style="padding: 0">' + grid([card('Card mặc định', 'Ô trong lưới kẻ, có icon và mô tả.', icon='shield', href='#', more='Xem chi tiết'), card('Card tint', 'Nền brand/50 để nhấn nhóm.', icon='heart', cls='card--tint', num='01'), card('Card brand', 'Một ô nhấn mỗi nhóm.', cls='card--brand', num='Phương châm')], 3).replace('class="grid', 'style="border-top: 0" class="grid') + '</div></div>'
+             + '<div class="spec"><div>Stat</div><div style="padding: 0">' + stats([('~300', 'nhân sự'), ('10+', 'phòng kinh doanh'), ('100%', 'tỷ lệ chi trả')], 3).replace('class="grid', 'style="border-top: 0" class="grid') + '</div></div>'
+             + '<div class="spec"><div>Feature row<br><span style="font-weight: 400">ô tiêu đề 3 ô lưới + lưới card</span></div><div style="padding: 0">' + feat('1.1', 'Tiêu đề nhóm', 'Mô tả ngắn của nhóm.', [card('Card', 'Mô tả.', icon='users'), card('Card', 'Mô tả.', icon='check')], cols=2).replace('class="feat"', 'class="feat" style="border-top: 0"') + '</div></div>'
+             + '<div class="spec"><div>Steps</div><div style="padding: 0">' + steps([('Bước một', 'Mô tả.'), ('Bước hai', 'Mô tả.'), ('Bước ba', 'Mô tả.')]).replace('class="grid', 'style="border-top: 0" class="grid') + '</div></div>'
+             + '<div class="spec"><div>Form field</div><div><div class="form"><label class="field"><span>Họ và tên <i aria-hidden="true">*</i></span><input type="text" placeholder="Mặc định"></label><label class="field">Số điện thoại<input type="tel" aria-invalid="true" value="0912"><span class="err">Vui lòng nhập số điện thoại 10 số.</span></label></div></div></div>'
+             + '<div class="spec"><div>FAQ</div><div style="padding: 0">' + faq([('Câu hỏi mẫu?', 'Câu trả lời mẫu.')]).replace('class="faq-list"', 'class="faq-list" style="border-top: 0"') + '</div></div>')
+    b += sec(head('Section', 'Ba biến thể nền: *default, tint, dark*', 'Thành phần bên trong tự đổi màu theo biến ngữ nghĩa (--bg, --tx, --mute, --line, --accent), không cần viết lại.')
+             + grid([card('Trên nền tối', 'Card, tag, nút và đường kẻ tự đổi theo section.', icon='eye', tag='sec--dk'), card('Tương phản', 'Chữ thường 4.5:1 trở lên, kể cả chú thích 12px.', icon='check'), card('Vùng chạm', 'Nút, chip, mục menu cao từ 44px.', icon='hand')], 3), 'sec--dk')
+    page('System', 'Design system', '', b)
 
 os.makedirs(OUT, exist_ok=True)
-for fn, (title, body, h) in PAGES.items():
-    open(os.path.join(OUT, fn), 'w', encoding='utf8').write(page(fn, title, body, h))
-print('\n'.join(PAGES))
+home(); about(); organization(); services(); projects(); news(); contact(); system()
+LANG = 'en'; home()
+print('ok')
