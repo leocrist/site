@@ -430,7 +430,7 @@ def services():
     b = phero(['Lĩnh vực hoạt động'], 'Bốn khối hoạt động', 'Một hệ sinh thái, *bốn khối bổ trợ lẫn nhau*',
               'Từ dịch vụ tài chính số, bảo hiểm và an sinh đến vận hành nội bộ và các dự án mới: mỗi khối có chủ đề, năng lực và cam kết riêng.', 'b',
               btn('Liên hệ hợp tác', 'Contact.dc.html', arrow=True))
-    b += sec('<nav class="jump" aria-label="Đi nhanh đến từng khối">' + ''.join(f'<a href="#{k[0]}"><span>{k[1]}</span><b>{k[2]}</b></a>' for k in KHOI) + '</nav>')
+    b += sec('<nav class="jump" aria-label="Đi nhanh đến từng khối">' + ''.join(f'<a href="#{k[0]}"><span>{k[1]}</span><b>{k[2]}</b></a>' for k in KHOI) + '</nav>', 'sec--sticky')
     def khoi(i, lead, rows, cls=''):
         k = KHOI[i]
         return sec(head(k[1], k[2], f'<strong style="color: var(--tx); font-weight: 600">{k[3]}.</strong> {lead}') + ''.join(rows), cls, k[0])
@@ -480,7 +480,7 @@ def projects():
     b = phero(['Dự án trọng điểm'], 'Phòng Quản lý Dự án', 'Ba dự án *mở rộng hệ sinh thái*',
               'Các dự án do Phòng Quản lý Dự án chủ trì, tận dụng lực lượng khoảng 300 nhân sự và những điểm chạm sẵn có tại bệnh viện, trung tâm hành chính công.', 'h',
               btn('Trao đổi về dự án', 'Contact.dc.html', arrow=True))
-    b += sec('<nav class="jump" aria-label="Đi nhanh đến từng dự án" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))">' + ''.join(f'<a href="#{p[0]}"><span>Dự án {i:02d}</span><b>{p[1]}</b></a>' for i, p in enumerate(PROJ, 1)) + '</nav>')
+    b += sec('<nav class="jump" aria-label="Đi nhanh đến từng dự án" style="grid-template-columns: repeat(3, minmax(0, 1fr))">' + ''.join(f'<a href="#{p[0]}"><span>Dự án {i:02d}</span><b>{p[1]}</b></a>' for i, p in enumerate(PROJ, 1)) + '</nav>', 'sec--sticky')
     b += sec(head('Dự án 01', 'Máy bán hàng tự động: *có tài khoản và dùng tài khoản mỗi ngày*',
                   'Hợp tác cùng ngân hàng VPBank, đơn vị cung cấp máy Toro và trung gian thanh toán VNPAY. Người dân mở tài khoản, thẻ qua MGST được đăng ký hội viên và mua hàng giá ưu đãi tại máy.')
              + grid([card('Hội viên &amp; tài khoản', icon='id', items=['Hướng dẫn mở tài khoản, thẻ; cài ứng dụng, thanh toán QR', 'Đăng ký bằng số điện thoại và PIN 4 số, dễ với người lớn tuổi', 'Có phiếu đồng ý xử lý thông tin cá nhân']),

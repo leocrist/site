@@ -239,8 +239,11 @@ input[aria-invalid="true"]{border-color:var(--danger)}
 .jump a:hover{background:var(--tint)}
 .jump span{font-size:var(--fs-13);font-weight:600;color:var(--accent)}
 .jump b{font-size:var(--fs-16);font-weight:500}
-@media (max-width:1023px){.jump{grid-template-columns:repeat(2,minmax(0,1fr))}.jump a{padding:var(--sp-4) var(--gut)}}
-@media (max-width:479px){.jump{grid-template-columns:1fr}}
+/* sticky in-page tabs: the section itself sticks under the 65px header */
+.sec--sticky{position:sticky;top:65px;z-index:10;border-bottom:1px solid var(--line);margin-bottom:-1px;box-shadow:0 12px 24px -20px rgb(32 30 29 / 25%)}
+.sec--sticky .x{display:none}
+section[id],div[id].feat{scroll-margin-top:160px}
+@media (max-width:1023px){.jump,.jump[style]{display:flex;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}.jump a{flex:0 0 auto;max-width:70vw;padding:var(--sp-3) var(--sp-5);scroll-snap-align:start}.jump b{font-size:var(--fs-14);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}section[id],div[id].feat{scroll-margin-top:140px}}
 
 /* 5 · PAGE PIECES -------------------------------------------- */
 /* 5.1 header */
@@ -391,9 +394,9 @@ a.post:hover h3{color:var(--accent)}
 <div class="phero-in"><div class="phero-tx rise"><nav aria-label="Breadcrumb"><ol class="crumb"><li><a href="Main.dc.html">Trang chủ</a></li><li>Dự án trọng điểm</li></ol></nav><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Phòng Quản lý Dự án</p><h1 class="h1">Ba dự án <span>mở rộng hệ sinh thái</span></h1><p class="lead">Các dự án do Phòng Quản lý Dự án chủ trì, tận dụng lực lượng khoảng 300 nhân sự và những điểm chạm sẵn có tại bệnh viện, trung tâm hành chính công.</p><div class="actions"><a class="btn btn--primary" href="Contact.dc.html">Trao đổi về dự án <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div></div><figure class="ph "><img src="../assets/photos/mg-h.jpg" alt="Sạp rau ở chợ Cần Thơ" loading="lazy" decoding="async"><figcaption class="cr">Ảnh: Franzfoto · CC BY-SA 3.0</figcaption></figure></div>
 </div>
 </section>
-<section class="sec ">
+<section class="sec sec--sticky">
 <div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
-<nav class="jump" aria-label="Đi nhanh đến từng dự án" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))"><a href="#may-ban-hang"><span>Dự án 01</span><b>Máy bán hàng tự động</b></a><a href="#lai-xe"><span>Dự án 02</span><b>Đào tạo lái xe</b></a><a href="#nhan-luc"><span>Dự án 03</span><b>Cung ứng nhân lực &amp; Tư vấn XKLĐ</b></a></nav>
+<nav class="jump" aria-label="Đi nhanh đến từng dự án" style="grid-template-columns: repeat(3, minmax(0, 1fr))"><a href="#may-ban-hang"><span>Dự án 01</span><b>Máy bán hàng tự động</b></a><a href="#lai-xe"><span>Dự án 02</span><b>Đào tạo lái xe</b></a><a href="#nhan-luc"><span>Dự án 03</span><b>Cung ứng nhân lực &amp; Tư vấn XKLĐ</b></a></nav>
 </div>
 </section>
 <section class="sec " id="may-ban-hang">

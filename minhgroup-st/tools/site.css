@@ -227,8 +227,11 @@ input[aria-invalid="true"]{border-color:var(--danger)}
 .jump a:hover{background:var(--tint)}
 .jump span{font-size:var(--fs-13);font-weight:600;color:var(--accent)}
 .jump b{font-size:var(--fs-16);font-weight:500}
-@media (max-width:1023px){.jump{grid-template-columns:repeat(2,minmax(0,1fr))}.jump a{padding:var(--sp-4) var(--gut)}}
-@media (max-width:479px){.jump{grid-template-columns:1fr}}
+/* sticky in-page tabs: the section itself sticks under the 65px header */
+.sec--sticky{position:sticky;top:65px;z-index:10;border-bottom:1px solid var(--line);margin-bottom:-1px;box-shadow:0 12px 24px -20px rgb(32 30 29 / 25%)}
+.sec--sticky .x{display:none}
+section[id],div[id].feat{scroll-margin-top:160px}
+@media (max-width:1023px){.jump,.jump[style]{display:flex;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}.jump a{flex:0 0 auto;max-width:70vw;padding:var(--sp-3) var(--sp-5);scroll-snap-align:start}.jump b{font-size:var(--fs-14);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}section[id],div[id].feat{scroll-margin-top:140px}}
 
 /* 5 · PAGE PIECES -------------------------------------------- */
 /* 5.1 header */
