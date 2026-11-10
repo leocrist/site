@@ -387,15 +387,22 @@ def about():
     b += sec(head('Đối tác chiến lược', 'Chúng tôi đồng hành cùng *bốn nhóm đối tác*')
              + grid([card('Ngân hàng', 'Mở rộng độ phủ tài khoản số, duy trì chất lượng giao dịch.', icon='bank'), card('Tập đoàn bảo hiểm', 'Đại lý tổ chức, tư vấn và hỗ trợ bồi thường tận nơi.', icon='shield'),
                      card('Cơ quan quản lý nhà nước', 'Phối hợp phát triển BHXH, BHYT và chi trả bảo trợ xã hội.', icon='gov'), card('Tổ chức quốc tế', 'Hợp tác cung ứng và đào tạo nguồn nhân lực.', icon='globe')], 4))
-    tl = [('2025', 'Đặt nền móng', [('03/2025', 'Thành lập Công ty TNHH Minh Group ST', 'Đặt nền móng vận hành và cấu trúc hoạt động tại miền Tây.'),
-                                    ('04/2025', 'Thành lập PKD Tổng hợp, PKD Y và PKD địa bàn 1, 2, 3, 5, 6, 7', 'Thúc đẩy chuyển đổi số y tế và địa phương.'),
-                                    ('09/2025', 'Thành lập PKD 8', 'Mở rộng độ phủ hỗ trợ chuyển đổi số.'), ('11/2025', 'Thành lập PKD An sinh', 'Đẩy mạnh BHXH, BHYT và an sinh cộng đồng.')]),
-          ('2026', 'Hoàn thiện mạng lưới', [('01/2026', 'Thành lập Phòng Dự án', 'Hạt nhân xây dựng và thúc đẩy chiến lược kinh doanh.'), ('03/2026', 'Thành lập PKD 9', 'Tiếp tục tăng cường mạng lưới.'),
-                                           ('04/2026', 'Thành lập Phòng Kế toán – Nhân sự*', 'Củng cố quản trị nội bộ và tối ưu vận hành.'), ('06/2026', 'Thành lập PKD 4', 'Hoàn thiện mắt xích mạng lưới miền Tây.'),
-                                           ('07/2026', 'Thành lập Phòng Chi trả Bảo trợ xã hội', 'Chi trả hưu trí, trợ cấp và chế độ người có công.'), ('09/2026', 'Thành lập PKD 10 và PKD 11', 'Hoàn thiện mạng lưới phòng kinh doanh địa bàn.')])]
+    tl = [('2025', 'Đặt nền móng', 'Thành lập công ty và những phòng kinh doanh đầu tiên.', [
+              ('03/2025', 'Thành lập Công ty TNHH Minh Group ST', 'Đặt nền móng vận hành và cấu trúc hoạt động tại miền Tây.', 'Công ty'),
+              ('04/2025', 'PKD Tổng hợp, PKD Y và PKD địa bàn 1, 2, 3, 5, 6, 7', 'Thúc đẩy chuyển đổi số y tế và địa phương.', '8 phòng kinh doanh'),
+              ('09/2025', 'PKD 8', 'Mở rộng độ phủ hỗ trợ chuyển đổi số.', 'Phòng kinh doanh'),
+              ('11/2025', 'PKD An sinh', 'Đẩy mạnh BHXH, BHYT và an sinh cộng đồng.', 'Khối An sinh')]),
+          ('2026', 'Hoàn thiện mạng lưới', 'Bổ sung phòng chức năng và phủ kín địa bàn.', [
+              ('01/2026', 'Phòng Dự án', 'Hạt nhân xây dựng và thúc đẩy chiến lược kinh doanh.', 'Khối Dự án'),
+              ('03/2026', 'PKD 9', 'Tiếp tục tăng cường mạng lưới.', 'Phòng kinh doanh'),
+              ('04/2026', 'Phòng Kế toán – Nhân sự*', 'Củng cố quản trị nội bộ và tối ưu vận hành.', 'Khối Vận hành'),
+              ('06/2026', 'PKD 4', 'Hoàn thiện mắt xích mạng lưới miền Tây.', 'Phòng kinh doanh'),
+              ('07/2026', 'Phòng Chi trả Bảo trợ xã hội', 'Chi trả hưu trí, trợ cấp và chế độ người có công.', 'Khối An sinh'),
+              ('09/2026', 'PKD 10 và PKD 11', 'Hoàn thiện mạng lưới phòng kinh doanh địa bàn.', '2 phòng kinh doanh')])]
     t = ''
-    for y, lab, rows in tl:
-        t += f'<div class="tl-yr"><b>{y}</b><span>{lab}</span></div><ol class="tl">' + ''.join(f'<li><time>{d}</time><h3>{h}</h3><p>{p}</p></li>' for d, h, p in rows) + '</ol>'
+    for y, lab, note, rows in tl:
+        t += (f'<div class="tl-grp"><div class="tl-yr"><div><b>{y}</b><h3>{lab}</h3><span>{note} {len(rows)} cột mốc.</span></div></div><ol class="tl">'
+              + ''.join(f'<li><time>{d}</time><div><h3>{h}</h3><p>{p}</p><span class="tag">{g}</span></div></li>' for d, h, p, g in rows) + '</ol></div>')
     b += sec(head('Lịch sử &amp; Cột mốc', 'Từ một công ty mới đến *mạng lưới phủ miền Tây*') + t + '<p class="pad hint blk">* Mốc 04/2026 giữ theo hồ sơ gốc, cần xác nhận lại (có thể là 04/2025).</p>', id='cot-moc')
     b += sec(head('Trách nhiệm cộng đồng', 'Đồng hành cùng *địa phương và người dân*') + grid([card(t_, d, icon=i) for i, t_, d in CSR], 4), 'sec--tint')
     page('About', 'Giới thiệu', 'About', b + cta())

@@ -148,17 +148,26 @@ a.card:hover .more svg{transform:translateX(3px)}.card .more svg{transition:tran
 .step h3{font-size:var(--fs-18);margin-top:var(--sp-2)}
 .step p{font-size:var(--fs-15);line-height:1.6;color:var(--mute)}
 @media (max-width:767px){.step{padding:var(--sp-6) var(--gut)}}
-/* 4.9 timeline */
-.tl-yr{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-4);padding:var(--sp-10) var(--gut) var(--sp-5);border-top:1px solid var(--line)}
-.tl-yr b{font-size:var(--fs-stat);line-height:1;font-weight:600;letter-spacing:-0.03em}
+/* 4.9 timeline: year panel (3 cells) + rail with nodes */
+.tl-grp{display:grid;grid-template-columns:calc(var(--cell) * 3) minmax(0,1fr);border-top:1px solid var(--line)}
+.tl-yr{position:relative;overflow:hidden;background:var(--tint);border-right:1px solid var(--tint-line)}
+.tl-yr::before{content:"";position:absolute;top:0;left:0;width:88px;height:88px;background:repeating-linear-gradient(135deg,var(--brand-500) 0 1.5px,transparent 1.5px 7px);opacity:.55;-webkit-mask-image:linear-gradient(135deg,#000 35%,transparent 70%);mask-image:linear-gradient(135deg,#000 35%,transparent 70%)}
+.tl-yr>div{position:sticky;top:64px;display:flex;flex-direction:column;gap:var(--sp-2);padding:72px var(--sp-8) var(--sp-8)}
+.tl-yr b{font-size:clamp(48px,6vw,80px);line-height:.9;font-weight:600;letter-spacing:-0.04em;color:var(--accent);font-variant-numeric:tabular-nums}
+.tl-yr h3{font-size:var(--fs-20)}
 .tl-yr span{font-size:var(--fs-14);color:var(--mute)}
-.tl li{display:grid;grid-template-columns:calc(var(--cell) * 2) minmax(0,5fr) minmax(0,4fr);border-top:1px solid var(--line)}
-.tl li>*{padding:var(--sp-5) var(--sp-8);display:flex;align-items:center}
-.tl li>*+*{border-left:1px solid var(--line)}
-.tl time{font-size:var(--fs-20);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
-.tl h3{font-size:var(--fs-16);font-weight:500}
-.tl p{font-size:var(--fs-14);line-height:1.6;color:var(--mute)}
-@media (max-width:767px){.tl li{grid-template-columns:1fr;padding:var(--sp-4) 0}.tl li>*{padding:2px var(--gut)}.tl li>*+*{border-left:0}}
+.tl{padding:var(--sp-10) var(--gut) var(--sp-4) 0}
+.tl li{display:grid;grid-template-columns:calc(var(--cell) * 1.5) minmax(0,1fr)}
+.tl time{padding:1px var(--sp-6) 0 0;text-align:right;font-size:var(--fs-15);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tl li>div{position:relative;display:flex;flex-direction:column;gap:var(--sp-1);padding:0 0 var(--sp-8) var(--sp-8);border-left:1px solid var(--brand-100)}
+.tl li:last-child>div{border-left-color:transparent}
+.tl li>div::before{content:"";position:absolute;left:-7px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--brand-500)}
+.tl li:first-child>div::before{background:var(--brand-500);box-shadow:0 0 0 4px var(--brand-50)}
+.tl h3{font-size:var(--fs-18);line-height:1.35;font-weight:600}
+.tl p{font-size:var(--fs-15);line-height:1.6;color:var(--mute);max-width:56ch}
+.tl .tag{align-self:flex-start;margin-top:var(--sp-1)}
+@media (max-width:1023px){.tl-grp{grid-template-columns:1fr}.tl-yr{border-right:0;border-bottom:1px solid var(--tint-line)}.tl-yr>div{position:static;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:var(--sp-2) var(--sp-4);padding:56px var(--gut) var(--sp-6)}.tl-yr::before{width:64px;height:64px}.tl-yr span{flex-basis:100%}.tl li{grid-template-columns:96px minmax(0,1fr)}}
+@media (max-width:767px){.tl{padding:var(--sp-8) var(--gut) 0 calc(var(--gut) + 5px)}.tl li{display:block;position:relative;padding:0 0 var(--sp-6) var(--sp-6);border-left:1px solid var(--brand-100)}.tl li:last-child{border-left-color:transparent}.tl li::before{content:"";position:absolute;left:-7px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--brand-500)}.tl li:first-child::before{background:var(--brand-500)}.tl time{display:block;padding:0 0 var(--sp-1);text-align:left}.tl li>div,.tl li:last-child>div{padding:0;border-left:0}.tl li>div::before{display:none}}
 /* 4.10 table */
 .tbl-wrap{overflow-x:auto;border-top:1px solid var(--line)}
 .tbl{width:100%;min-width:640px;border-collapse:collapse;font-size:var(--fs-15);line-height:1.55}
