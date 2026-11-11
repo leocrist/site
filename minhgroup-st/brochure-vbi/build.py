@@ -105,6 +105,8 @@ p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .line{border-top:.25mm solid var(--ln)}
 .ph{position:relative;overflow:hidden;background:#e7e2de}
 .ph img{width:100%;height:100%;object-fit:cover}
+.cp{position:absolute;left:0;right:0;bottom:0;padding:7mm 2.6mm 1.8mm;background:linear-gradient(to top,rgba(20,18,17,.8),rgba(20,18,17,.45) 45%,rgba(20,18,17,0));color:#fff;font:500 6.6pt/1.35 var(--body)}
+.cp i{display:block;font:italic 400 7pt/1.3 var(--enf);color:#f6ddd2}
 .cap{font:400 6.2pt/1.4 var(--body);color:var(--mut);margin-top:1.4mm}
 .cap i{font:italic 6.8pt var(--enf);color:var(--en)}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
@@ -134,8 +136,8 @@ def te(vi, en, s='', se=''):
 def lbl(vi, en, mt='0'):
     return f'<div class="lbl" style="margin-top:{mt}">{vi}<i>{en}</i></div>'
 def ph(k, h, cap=None, flex='1', pos='center'):
-    c = f'<div class="cap">{cap[0]} <i>/ {cap[1]}</i></div>' if cap else ''
-    return f'<div style="flex:{flex};min-width:0"><div class="ph" style="height:{h}"><img src="{src(k)}" alt="" style="object-position:{pos}"></div>{c}</div>'
+    c = f'<div class="cp">{cap[0]}<i>{cap[1]}</i></div>' if cap else ''
+    return f'<div style="flex:{flex};min-width:0"><div class="ph" style="height:{h}"><img src="{src(k)}" alt="" style="object-position:{pos}">{c}</div></div>'
 def stat(n, vi, en):
     return f'<div class="stat"><b>{n}</b><div class="t">{vi}</div><div class="te">{en}</div></div>'
 def page(n, body, cls=''):
@@ -163,8 +165,8 @@ P.append(page(1, f'''
  <div style="text-align:right"><div class="sec" style="font-size:6pt">Corporate Profile 2026</div><div style="font:600 13pt/1.25 var(--head);letter-spacing:-.01em;margin-top:1mm">Hồ sơ năng lực 2026</div></div>
 </div>
 <div class="sq" style="position:absolute;left:8mm;top:29mm;width:5mm;height:5mm"></div><div class="sq" style="position:absolute;right:8mm;top:29mm;width:5mm;height:5mm"></div>
-<div class="ph" style="position:absolute;left:0;right:0;top:46.5mm;height:93mm"><img src="{src('digital-launch')}" alt="" style="object-position:center 62%"></div>
-{slogan('position:absolute;left:0;right:0;top:139.5mm;height:57mm', '7mm 16mm 0', '29pt', '16pt', '<div class="cap" style="position:absolute;left:19mm;bottom:2mm;color:#a39d98;margin:0">Lễ ra quân chuyển đổi số <i style="color:#a39d98">/ Digital transformation launch</i> · Tư liệu Minh Group ST</div>')}
+<div class="ph" style="position:absolute;left:0;right:0;top:46.5mm;height:93mm"><img src="{src('digital-launch')}" alt="" style="object-position:center 62%"><div class="cp" style="padding:9mm 19mm 2.4mm;font-size:7pt">Lễ ra quân chuyển đổi số · Tư liệu Minh Group ST<i style="font-size:7.6pt">Digital transformation launch · Minh Group ST archive</i></div></div>
+{slogan('position:absolute;left:0;right:0;top:139.5mm;height:57mm', '7mm 16mm 0', '29pt', '16pt')}
 <div style="position:absolute;left:18mm;right:18mm;top:196.5mm;height:49mm;border-top:.7mm solid var(--or);border-right:.25mm solid var(--ln);display:grid;grid-template-columns:1.15fr 1fr 1fr">
  {cstat('~300', 'Nhân sự chuyên trách', 'Dedicated field staff')}{cstat('10+', 'Phòng kinh doanh', 'Sales offices')}{cstat('4', 'Khối hoạt động', 'Operating divisions')}
 </div>
@@ -217,8 +219,7 @@ P.append(std(3, 'Năng lực &amp; Tổ chức', 'Capability &amp; organisation'
  <div style="flex:1"><p>Lực lượng tại chỗ kết nối dịch vụ của đối tác với nhu cầu thực tế tại bệnh viện, cơ quan hành chính và hộ gia đình.</p><p class="e" style="margin-top:1.2mm">A local force linking partners' services to real needs in hospitals, public offices and homes.</p></div>
 </div>
 <div class="g3 line" style="margin-top:6mm;padding-top:5mm">{stat('~300', 'nhân sự chuyên trách tại địa bàn', 'dedicated field staff')}{stat('10+', 'phòng kinh doanh tại ĐBSCL', 'sales offices in the Mekong Delta')}{stat('4', 'khối hoạt động bổ trợ nhau', 'mutually reinforcing divisions')}</div>
-<div class="row" style="margin-top:6mm">{ph('field-consultation', '39mm', flex='1.25')}{ph('payment-support', '39mm')}</div>
-<div class="cap">Hoạt động thực tế tại cơ sở <i>/ Field activities</i> · Tư liệu Minh Group ST</div>
+<div class="row" style="margin-top:6mm">{ph('field-consultation', '41mm', ('Hoạt động thực tế tại cơ sở · Tư liệu Minh Group ST', 'Field activities · Minh Group ST archive'), flex='1.25')}{ph('payment-support', '41mm')}</div>
 <div class="g4" style="margin-top:4mm">
  <div class="card" style="padding:3mm">{te('Bệnh viện', 'Hospitals', 'Viện phí không tiền mặt', 'Cashless hospital bills')}</div>
  <div class="card" style="padding:3mm">{te('Hành chính công', 'Public offices', 'Phối hợp triển khai tại cơ sở', 'Joint roll-out on site')}</div>
@@ -339,20 +340,20 @@ P.append(std(8, 'Lộ trình &amp; Lãnh đạo', 'Roadmap &amp; leadership', f'
 
 # 09 achievements -----------------------------------------------------
 def tile(k, h, vi, en, pos='center'):
-    return f'<div><div class="ph" style="height:{h}"><img src="{src(k)}" alt="" style="object-position:{pos}"></div><div class="cap" style="line-height:1.35">{vi}<br><i>{en}</i></div></div>'
+    return f'<div><div class="ph" style="height:{h}"><img src="{src(k)}" alt="" style="object-position:{pos}"><div class="cp">{vi}<i>{en}</i></div></div></div>'
 P.append(std(9, 'Thành tựu', 'Achievements', f'''
-<div class="g3" style="margin-top:5mm;gap:3mm">{tile('community-support', '40mm', 'Đồng hành cùng Quỹ “Vì người nghèo”', 'Supporting the “For the Poor” Fund')}{tile('field-consultation', '40mm', 'Tư vấn, hỗ trợ người dân tại cơ sở', 'Advising residents on site')}{tile('digital-team', '40mm', 'Đội ngũ tham gia chuyển đổi số', 'The digital transformation team')}</div>
+<div class="g3" style="margin-top:5mm;gap:3mm">{tile('community-support', '44mm', 'Đồng hành cùng Quỹ “Vì người nghèo”', 'Supporting the “For the Poor” Fund')}{tile('field-consultation', '44mm', 'Tư vấn, hỗ trợ người dân tại cơ sở', 'Advising residents on site')}{tile('digital-team', '44mm', 'Đội ngũ tham gia chuyển đổi số', 'The digital transformation team')}</div>
 <div style="display:grid;grid-template-columns:1fr 44mm;gap:5mm;margin-top:5mm">
  <div>{h1('Thành tựu<br>*&amp; cộng đồng.*', 'Achievements &amp; community', mt='0')}
   <div class="pair" style="margin-top:3mm;gap:5mm"><p>Sự ghi nhận từ những giá trị sẻ chia.</p><p class="e">Recognition earned by sharing value.</p></div>
-  <div style="margin-top:5mm">{tile('community-lighting', '67mm', 'Công trình “Thắp sáng đường quê”', '“Lighting Rural Roads” project')}</div>
+  <div style="margin-top:5mm">{tile('community-lighting', '75mm', 'Công trình “Thắp sáng đường quê”', '“Lighting Rural Roads” project')}</div>
   <div style="position:relative;height:66mm;margin-top:4mm;background:var(--tint);overflow:hidden">
    <img src="{src('thank-you-vinh-hoa')}" alt="" style="position:absolute;left:50%;top:7mm;height:58mm;margin-left:-41mm;transform:rotate(-8deg);transform-origin:50% 100%;border:.3mm solid #fff;box-shadow:0 1mm 3.5mm rgba(0,0,0,.22)">
    <img src="{src('thank-you-thanh-thoi-an')}" alt="" style="position:absolute;left:50%;top:7mm;height:58mm;margin-left:-1mm;transform:rotate(7deg);transform-origin:50% 100%;border:.3mm solid #fff;box-shadow:0 1mm 3.5mm rgba(0,0,0,.26)">
   </div>
   <div class="cap">Thư cảm ơn từ địa phương, giữ nguyên nội dung gốc <i>/ Letters of thanks from local authorities, reproduced unaltered</i></div>
  </div>
- <div style="display:flex;flex-direction:column;gap:3mm">{tile('payment-support', '50mm', 'Hỗ trợ người dân tại điểm phục vụ', 'Helping residents at service points')}{tile('partner-meeting', '50mm', 'Phối hợp làm việc tại địa phương', 'Working sessions with local partners')}{tile('social-security', '50mm', 'Tư vấn an sinh tại cơ sở', 'Social security advice on site')}</div>
+ <div style="display:flex;flex-direction:column;gap:3mm">{tile('payment-support', '55mm', 'Hỗ trợ người dân tại điểm phục vụ', 'Helping residents at service points')}{tile('partner-meeting', '55mm', 'Phối hợp làm việc tại địa phương', 'Working sessions with local partners')}{tile('social-security', '55mm', 'Tư vấn an sinh tại cơ sở', 'Social security advice on site')}</div>
 </div>
 '''))
 
