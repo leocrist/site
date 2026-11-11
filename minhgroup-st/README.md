@@ -58,7 +58,7 @@ Bản 3 có `SPEC.md` (lưới, typography, tokens, layout từng trang) và `to
 
 ### Brochure VBi: song ngữ VI / EN (10 trang)
 
-`brochure-vbi/`: nội dung của VFinal, mỗi khối chữ có hai giọng trên cùng trang. Tiếng Việt là giọng chính (không chân, đậm, mực đen); tiếng Anh là giọng thứ hai (Lora nghiêng, cam đất nung). Chân mỗi trang có chú giải hai ô vuông.
+`brochure-vbi/`: nội dung của VFinal, mỗi khối chữ có hai giọng trên cùng trang. Tiếng Việt là giọng chính (không chân, đậm, mực đen); tiếng Anh là giọng thứ hai (Lora nghiêng, cam đất nung).
 
 - `build.py`: sinh `brochure-vbi.html`; thêm `--canvas <thư mục>` để ra artboard `ProfileVBi-01–10.dc.html`.
 - `MinhGroupST-Profile-VBi.pdf`: 10 trang, khổ 216 × 303 mm (A4 + 3 mm bleed).

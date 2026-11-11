@@ -50,9 +50,6 @@ img{display:block}
 .sec{font:700 6.4pt var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
 .sec i,.lbl i{font:italic 400 8.4pt var(--enf);letter-spacing:0;text-transform:none;color:var(--or2);margin-left:1.8mm;font-size:9.4pt}
 .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:3.4mm;border-top:.25mm solid var(--ln);font-size:6.4pt;color:var(--mut)}
-.key{display:flex;align-items:center;gap:1.6mm}
-.key b{width:2.2mm;height:2.2mm;background:var(--ink)}.key b+span+b{background:var(--or);margin-left:2.4mm}
-.key i{font:italic 7.4pt var(--enf);color:var(--or2)}
 .pn{font:700 7pt var(--head);letter-spacing:.12em;color:var(--ink)}
 /* the two voices */
 h1{font:700 26pt/1.12 var(--head);letter-spacing:-.022em}
@@ -97,8 +94,7 @@ GF = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="s
 def head(n, vi, en):
     return f'<div class="rh"><img src="{src("logo")}" alt="Minh Group ST"><span class="sec">{n:02d} · {vi}<i>{en}</i></span></div>'
 def foot(n):
-    return (f'<div class="ft"><span class="key"><b></b><span>Tiếng Việt</span><b></b><i>English</i></span>'
-            f'<span>Minh Group ST · Hồ sơ năng lực 2026 <i class="e" style="font-size:7pt">/ Corporate Profile 2026</i></span><span class="pn">{n:02d}</span></div>')
+    return (f'<div class="ft"><span>Minh Group ST · Hồ sơ năng lực 2026 <i class="e" style="font-size:7pt">/ Corporate Profile 2026</i></span><span class="pn">{n:02d}</span></div>')
 def h1(vi, en, mt='7mm', size=None):
     st = f' style="font-size:{size}"' if size else ''
     v = re.sub(r'\*(.+?)\*', r'<span>\1</span>', vi)
@@ -135,9 +131,6 @@ P.append(page(1, f'''
 </div>
 <div style="position:absolute;left:18mm;right:18mm;top:203mm;display:grid;grid-template-columns:repeat(3,1fr) 46mm;gap:6mm;align-items:start">
  {stat('~300', 'Nhân sự chuyên trách', 'Dedicated field staff')}{stat('10+', 'Phòng kinh doanh', 'Sales offices')}{stat('4', 'Khối hoạt động', 'Operating divisions')}
- <div class="card" style="padding:3.5mm"><div class="lbl">Cách đọc<i>How to read</i></div>
-  <div class="key" style="margin-top:2.6mm;font-size:7.4pt"><b></b><span>Tiếng Việt</span></div>
-  <div class="key" style="margin-top:1.6mm"><b style="background:var(--or)"></b><i style="font-size:8.4pt">English</i></div></div>
 </div>
 <div class="band" style="position:absolute;left:0;right:0;top:246mm;height:24mm;padding:0 18mm;display:grid;grid-template-columns:repeat(3,1fr);align-items:center">
  <div><div class="t" style="font-size:13pt">Gần dân</div><div class="te" style="font-size:10pt">Close to the people</div></div>
