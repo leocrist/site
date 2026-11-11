@@ -49,6 +49,15 @@ img{display:block}
 .sec i,.lbl i{font:italic 400 8.4pt var(--enf);letter-spacing:0;text-transform:none;color:var(--or2);margin-left:1.8mm;font-size:9.4pt}
 .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:3.4mm;border-top:.25mm solid var(--ln);font-size:6.4pt;color:var(--mut)}
 .pn{font:700 7pt var(--head);letter-spacing:.12em;color:var(--ink)}
+/* page furniture, as in VFinal: margin hairlines, plus marks, squares */
+.in::before,.in::after{content:"";position:absolute;top:-15mm;bottom:-13mm;width:.25mm;background:#e9e9e9;pointer-events:none}
+.in::before{left:-4mm}.in::after{right:-4mm}
+.rh,.ft{position:relative;margin-left:-4mm;margin-right:-4mm;padding-left:4mm;padding-right:4mm}
+.rh::before,.rh::after,.ft::before,.ft::after,.pl{content:"";position:absolute;width:3.4mm;height:3.4mm;background:linear-gradient(var(--or),var(--or)) center/100% .3mm no-repeat,linear-gradient(var(--or),var(--or)) center/.3mm 100% no-repeat}
+.rh::before{left:-1.6mm;bottom:-1.8mm}.rh::after{right:-1.6mm;bottom:-1.8mm}
+.ft::before{left:-1.6mm;top:-1.8mm}.ft::after{right:-1.6mm;top:-1.8mm}
+.dsq{position:absolute;width:4mm;height:4mm;background:var(--or)}
+.vl{position:absolute;top:0;bottom:0;width:.25mm;background:#e9e9e9}
 /* slogan block */
 .slo{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-left:3mm solid var(--or)}
 .slo-g{position:absolute;right:0;top:0;bottom:0;width:70mm;background-image:linear-gradient(to right,rgba(255,255,255,.1) .25mm,transparent .25mm),linear-gradient(to bottom,rgba(255,255,255,.1) .25mm,transparent .25mm);background-size:10mm 10mm;-webkit-mask-image:linear-gradient(to right,transparent,#000 55%);mask-image:linear-gradient(to right,transparent,#000 55%)}
@@ -140,8 +149,15 @@ def ph(k, h, cap=None, flex='1', pos='center'):
     return f'<div style="flex:{flex};min-width:0"><div class="ph" style="height:{h}"><img src="{src(k)}" alt="" style="object-position:{pos}">{c}</div></div>'
 def stat(n, vi, en):
     return f'<div class="stat"><b>{n}</b><div class="t">{vi}</div><div class="te">{en}</div></div>'
+SQ = {2: (96, 212), 3: (58, 168), 4: (132, 246), 5: (70, 204), 6: (118, 232), 7: (64, 186), 8: (104, 250), 9: (84, 222), 10: (60, 176)}
+COVER_END = '<div class="pl" style="left:12.4mm;top:44.8mm"></div><div class="pl" style="right:12.4mm;top:44.8mm"></div><div class="pl" style="left:12.4mm;top:271.5mm"></div><div class="pl" style="right:12.4mm;top:271.5mm"></div>'
+def deco(n):
+    if n == 1:
+        return '<div class="vl" style="left:14mm"></div><div class="vl" style="right:14mm"></div>'
+    a, b = SQ[n]
+    return f'<div class="dsq" style="left:5mm;top:{a}mm"></div><div class="dsq" style="right:5mm;top:{b}mm"></div>'
 def page(n, body, cls=''):
-    return f'<section class="page {cls}" data-n="{n:02d}">{body}</section>'
+    return f'<section class="page {cls}" data-n="{n:02d}">{deco(n)}{body}{COVER_END if n == 1 else ""}</section>'
 def std(n, sec_vi, sec_en, body):
     return page(n, f'<div class="in">{head(n, sec_vi, sec_en)}{body}{foot(n)}</div>')
 
@@ -333,9 +349,8 @@ P.append(std(8, 'Lộ trình &amp; Lãnh đạo', 'Roadmap &amp; leadership', f'
 {h1('Lộ trình *2025 – 2026*', 'Roadmap 2025 – 2026')}
 <div class="pair" style="margin-top:4mm"><p>Thành lập tháng 03/2025; từng bước phát triển mạng lưới kinh doanh và các phòng chức năng.</p><p class="e">Founded in March 2025; the sales network and functional departments have been built step by step.</p></div>
 <div style="position:relative;margin-top:7mm"><div style="position:absolute;left:0;right:0;top:1.9mm;height:.6mm;background:var(--or)"></div><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:3mm">{tl}</div></div>
-<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:9mm"><div><span class="t" style="font-size:15pt">Ban lãnh đạo</span> <span class="te" style="font-size:12pt;margin-left:2mm">Leadership</span></div><span class="cap" style="margin:0">Kết nối qua hotline công ty <i>/ Reach us via the company hotline</i></span></div>
-<div class="g2" style="margin-top:4mm;gap:3mm 4mm">{''.join(ld(*x) for x in LD)}</div>
-<div class="cap" style="margin-top:5mm">Liên hệ hợp tác <i>/ Partnership enquiries</i>: <b style="color:var(--or)">0977 726 700</b> · minhgroupst@mgst.com.vn</div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:9mm"><div><span class="t" style="font-size:15pt">Ban lãnh đạo</span> <span class="te" style="font-size:12pt;margin-left:2mm">Leadership</span></div></div>
+<div class="cap" style="margin-top:5mm">Liên hệ hợp tác <i>/ Partnership enquiries</i>: <b style="color:var(--or)">0977 726 700</b> · minhgroupst@mgst.com.vn</div><div class="g2" style="margin-top:4mm;gap:3mm 4mm">{''.join(ld(*x) for x in LD)}</div>
 '''))
 
 # 09 achievements -----------------------------------------------------

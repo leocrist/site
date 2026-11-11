@@ -93,9 +93,18 @@ p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .li{padding:3.2mm 0}.li .t{font-size:10pt}.li .te{font-size:10pt}
 .ck{width:4.2mm;height:4.2mm;border:.35mm solid var(--or);flex-shrink:0;position:relative;margin-top:.4mm}
 .ck::after{content:"";position:absolute;left:1.1mm;top:.35mm;width:1.2mm;height:2.2mm;border:solid var(--or);border-width:0 .4mm .4mm 0;transform:rotate(45deg)}
+/* page furniture, as in VFinal: margin hairlines, plus marks, squares */
+.in::before,.in::after{content:"";position:absolute;top:-15mm;bottom:-13mm;width:.25mm;background:#e9e9e9;pointer-events:none}
+.in::before{left:-4mm}.in::after{right:-4mm}
+.rh,.ft{position:relative;margin-left:-4mm;margin-right:-4mm;padding-left:4mm;padding-right:4mm}
+.rh::before,.rh::after,.ft::before,.ft::after,.pl{content:"";position:absolute;width:3.4mm;height:3.4mm;background:linear-gradient(var(--or),var(--or)) center/100% .3mm no-repeat,linear-gradient(var(--or),var(--or)) center/.3mm 100% no-repeat}
+.rh::before{left:-1.6mm;bottom:-1.8mm}.rh::after{right:-1.6mm;bottom:-1.8mm}
+.ft::before{left:-1.6mm;top:-1.8mm}.ft::after{right:-1.6mm;top:-1.8mm}
+.dsq{position:absolute;width:4mm;height:4mm;background:var(--or)}
+.vl{position:absolute;top:0;bottom:0;width:.25mm;background:#e9e9e9}
 </style>
 </helmet>
-<section class="page " data-n="09"><div class="in"><div class="rh"><img src="../assets/logo/mgst-logo.svg" alt="Minh Group ST"><span class="sec">09 · Thành tựu<i>Achievements</i></span></div>
+<section class="page " data-n="09"><div class="dsq" style="left:5mm;top:84mm"></div><div class="dsq" style="right:5mm;top:222mm"></div><div class="in"><div class="rh"><img src="../assets/logo/mgst-logo.svg" alt="Minh Group ST"><span class="sec">09 · Thành tựu<i>Achievements</i></span></div>
 <div class="g3" style="margin-top:5mm;gap:3mm"><div><div class="ph" style="height:44mm"><img src="../assets/canvas/bro-community-support.jpg" alt="" style="object-position:center"><div class="cp">Đồng hành cùng Quỹ “Vì người nghèo”<i>Supporting the “For the Poor” Fund</i></div></div></div><div><div class="ph" style="height:44mm"><img src="../assets/canvas/bro-field-consultation.jpg" alt="" style="object-position:center"><div class="cp">Tư vấn, hỗ trợ người dân tại cơ sở<i>Advising residents on site</i></div></div></div><div><div class="ph" style="height:44mm"><img src="../assets/canvas/bro-digital-team.jpg" alt="" style="object-position:center"><div class="cp">Đội ngũ tham gia chuyển đổi số<i>The digital transformation team</i></div></div></div></div>
 <div style="display:grid;grid-template-columns:1fr 44mm;gap:5mm;margin-top:5mm">
  <div><div style="margin-top:0"><h1>Thành tựu<br><span>&amp; cộng đồng.</span></h1><div class="eh">Achievements &amp; community</div></div>
