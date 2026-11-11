@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Brochure VFinal · 06 · Hệ sinh thái</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+
+
+
+
+
+
+
+
+
+
+
+html,body{background:#d9d9d9}
+@media screen{.page{margin:10mm auto;box-shadow:0 2mm 10mm rgba(32,30,29,.25)}}
+
+/* ---------- design tokens ---------- */
+:root{
+  --b:3mm;                                  /* bleed */
+  --navy:#201E1D;--navy-2:#2A2725;--navy-3:#3A3633;
+  --blue:#CA4D25;--blue-l:#EF7A52;--blue-s:#f5f5f5;
+  --green:#A93D1B;--green-l:#ca4d25;--green-s:#e8e8e8;
+  --slate:#3A3633;--mut:#5C5C5C;--line:#e5e5e5;--off:#fafafa;--white:#FFFFFF;
+  --head:'Plus Jakarta Sans',sans-serif;--body:'Be Vietnam Pro',sans-serif;
+  --cw:11.3333mm;--gut:4mm;--step:15.3333mm;   /* 12-col grid inside 180mm safe width */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));position:relative;overflow:hidden;background:var(--white);break-after:page}
+.page.navy{background:var(--navy);color:#fff}
+.page.off{background:var(--off)}
+.trim{position:absolute;left:var(--b);top:var(--b);width:210mm;height:297mm}
+.a{position:absolute}
+/* grid column helper: --c start col (1-12), --s span */
+.gx{position:absolute;left:calc(15mm + (var(--c) - 1)*var(--step));width:calc(var(--s)*var(--step) - var(--gut))}
+.bleed-l{left:calc(-1*var(--b))!important}
+.full{left:calc(-1*var(--b));width:calc(210mm + 2*var(--b))}
+
+/* ---------- type ---------- */
+.lbl,.display,.h1,.h2,.h3,.stat,.chip,.pn{word-spacing:.09em}
+.lbl{font-family:var(--head);font-size:6.8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.display{font-family:var(--head);font-weight:800;font-size:42pt;line-height:1.04;letter-spacing:-.03em}
+.h1{font-family:var(--head);font-weight:800;font-size:25pt;line-height:1.1;letter-spacing:-.025em;color:var(--navy)}
+.navy .h1{color:#fff}
+.h2{font-family:var(--head);font-weight:800;font-size:16pt;line-height:1.18;letter-spacing:-.02em;color:var(--navy)}
+.h3{font-family:var(--head);font-weight:700;font-size:11pt;line-height:1.3;letter-spacing:-.01em;color:var(--navy)}
+.navy .h2,.navy .h3,.on-navy .h2,.on-navy .h3{color:#fff}
+.body{font-size:9.5pt;line-height:1.45}
+.sm{font-size:9pt;line-height:1.42}
+.xs{font-size:7.6pt;line-height:1.4}
+.mut{color:var(--mut)}
+.navy .mut,.on-navy .mut{color:#999999}
+.stat{font-family:var(--head);font-weight:800;font-size:46pt;line-height:.95;letter-spacing:-.04em;color:var(--navy)}
+.stat em{font-style:normal;color:var(--blue)}
+.ic{width:5.2mm;height:5.2mm;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.icb{width:9mm;height:9mm;border-radius:50%;display:grid;place-items:center;flex:none}
+.blue-t{color:var(--blue)}.green-t{color:var(--green)}.navy-t{color:var(--navy)}
+.card{border-radius:2.4mm;padding:5mm}
+.chip{display:inline-flex;align-items:center;gap:1.6mm;font-family:var(--head);font-weight:700;font-size:7pt;border-radius:10mm;padding:1.2mm 3mm}
+.row{display:flex;gap:3mm;align-items:flex-start}
+.hr{height:.25mm;background:var(--line)}
+/* running header/footer (inside trim, safe area) */
+.rh{left:15mm;right:15mm;top:11mm;display:flex;justify-content:space-between;align-items:center}
+.rf{left:15mm;right:15mm;bottom:9mm;display:flex;justify-content:space-between;align-items:center;font-size:6.6pt;letter-spacing:.06em}
+.dot{display:inline-block;width:1.4mm;height:1.4mm;border-radius:50%;background:var(--green-l);margin:0 2.4mm;vertical-align:middle}
+.pn{font-family:var(--head);font-weight:800;font-size:9pt;letter-spacing:0}
+
+
+html,body{overflow:hidden!important;margin:0!important;background:#ffffff!important} .page{margin:0!important;box-shadow:none!important;break-after:auto!important}
+.dark,.navy{background:#f5f5f5!important;color:#201e1d!important}.dark .mut,.navy .mut,.dark-band .mut{color:#5c5c5c!important}
+.dark .ic2,.dark-band .ic2,.ic2.dk{background:#e8e8e8!important;color:#ca4d25!important}
+.dark .pill,.dark-band .pill{background:#ffffff;color:#201e1d;border-color:#dedede}
+.dark .boxv{background:#dedede}.dark .srule{background:#dedede}.dark .or{color:#ca4d25}
+.v8-footer{position:absolute;left:15mm;right:15mm;bottom:8mm;display:flex;justify-content:space-between;border-top:.2mm solid #dedede;padding-top:3mm;font-size:6.7pt;color:#5c5c5c;background:#ffffff}
+.draft-note{font-size:7.5pt;color:#555555;line-height:1.5}
+
+
+.ecosystem-v3{background:#ffffff!important;color:#201e1d}
+.ecosystem-v3 .benefit{background:#f5f5f5!important;border:.25mm solid #dedede;border-radius:2.4mm}
+.ecosystem-v3 .benefit .mut{color:#5c5c5c!important}
+.ecosystem-v3 .benefit:last-child>div:first-child{background:#e8e8e8!important}
+.ecosystem-v3 .rf{color:#5c5c5c!important}
+.ecosystem-v3 .rh .lbl{color:#ca4d25!important}
+
+
+
+
+
+.editorial{--line:#dedede;--head:Inter;--body:Inter}
+.editorial .rh{padding-bottom:4mm;border-bottom:.25mm solid #dedede}
+.editorial .rh .lbl{color:#a93d1b!important;letter-spacing:.12em}
+.editorial .rf{border-top:.25mm solid #dedede;padding-top:3mm;color:#5c5c5c!important}
+.editorial .h1,.editorial .h2,.editorial h1,.editorial h2{font-family:Inter,sans-serif;letter-spacing:-.035em}
+.editorial .pill{border:0;padding-left:0;background:transparent;font-weight:600;color:#a93d1b}
+.editorial .pill .nb{border-radius:1mm}
+.editorial .x{opacity:.5}
+.editorial .boxv{opacity:.55}
+.editorial .cap{font-size:5.5pt}
+.editorial .fcard:after{background:linear-gradient(135deg,#f5f5f5 0%,rgba(245,245,245,.94) 32%,rgba(245,245,245,.58) 60%,transparent 92%)}
+.editorial .fcard .h3{font-size:13pt;line-height:1.25}
+.editorial .stat{font-variant-numeric:tabular-nums}
+.editorial .cover-figures{border-top:1mm solid #ca4d25!important}
+.editorial .cover-figures .kf{gap:4mm!important}
+.editorial .cover-figures .sm{font-weight:600;color:#3d3a38!important}
+.editorial .hero .oc{opacity:.5}
+.editorial .oc{display:none!important}
+.editorial .hero h1{font-weight:700;letter-spacing:-.04em}
+.editorial .benefit{border-radius:0!important;border:0!important;border-bottom:.25mm solid #dedede!important}
+.editorial .benefit>div:first-child{background:#ca4d25!important;color:#fff!important}
+.editorial #leaders{border:0!important;gap:3mm!important;background:transparent!important}
+.editorial #leaders>div{border:.25mm solid #dedede;border-top:.7mm solid #ca4d25}
+.editorial .closing-slogan{border-radius:0;min-height:38mm}
+.editorial.closing-v3 .card{border-radius:3mm;border:0!important}
+.editorial.closing-v3 .card .h3{font-size:11pt;line-height:1.35}
+.editorial.closing-v3 .card .sm{font-size:8.3pt;line-height:1.5}
+.editorial .letter{box-shadow:.5mm 1mm 2mm #dddddd;border:.3mm solid #bbbbbb}
+.editorial .top{padding-bottom:5mm}
+.editorial .eyebrow{color:#a93d1b}
+
+
+.final-org{display:grid;grid-template-columns:repeat(4,1fr);height:100%;border-top:.4mm solid #ca4d25}
+.final-org>div{padding:2mm 2.5mm;border-right:.2mm solid #dedede;background:#fff}
+.final-org b{font:600 7.2pt/1.25 Inter;display:block;min-height:8mm;color:#a93d1b}
+.final-org ul{margin:1mm 0 0;padding-left:3mm;font:400 6.8pt/1.4 Inter}
+.final-leader{display:flex!important;gap:4mm!important;align-items:center;padding:5mm!important}
+.final-leader .monogram{width:17mm;height:17mm;background:#f5f5f5;color:#ca4d25;display:grid;place-items:center;font:700 13pt Inter;flex:none}
+.csr-hero{height:48mm;position:relative;margin:6mm 0 0;overflow:hidden}
+.csr-hero img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.csr-hero figcaption{position:absolute;bottom:0;right:0;background:#fff;padding:1.5mm 2mm;font:400 6.5pt Inter;color:#5c5c5c}
+.csr-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:.25mm solid #dedede;border-left:.25mm solid #dedede;margin-top:6mm}
+.csr-card{min-height:46mm;padding:5mm;border-right:.25mm solid #dedede;border-bottom:.25mm solid #dedede}
+.csr-card .index{font:700 18pt Inter;color:#ca4d25;margin-bottom:3mm}
+.csr-card h2{font-size:12pt;line-height:1.3;margin-bottom:2mm}
+.csr-card p{font-size:9pt;line-height:1.5;color:#5c5c5c}
+.csr-band{margin-top:6mm;padding:5mm;background:#f5f5f5;border-left:1mm solid #ca4d25;font:600 12pt/1.4 Inter}
+.final-facts{font-size:8pt;line-height:1.5;color:#5c5c5c}
+
+
+:root{--mgst-photo-bg:#f5f5f5;--mgst-caption:#5c5c5c;--mgst-photo-gap:3mm}
+.page-section-title{font-family:Inter,sans-serif!important;font-size:7pt!important;line-height:1.35!important;font-weight:600!important;letter-spacing:.1em!important;text-transform:uppercase;color:#a93d1b!important;margin-left:auto;text-align:right}
+.mgst-crop{position:relative;display:block;overflow:hidden;background:var(--mgst-photo-bg);isolation:isolate;min-width:0;min-height:0}
+.mgst-crop>.mgst-framed-image{position:absolute!important;display:block!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:fill!important;margin:0!important;transform:none!important;inset:auto;}
+.mgst-photo-panel{background:#fff!important}
+.mgst-photo-panel:after{display:none!important}
+.mgst-photo-panel>.mgst-crop{position:absolute;left:0;top:0;width:100%;height:44mm}
+.mgst-photo-panel>.in{position:absolute!important;top:46mm!important;left:5mm!important;right:5mm!important;bottom:auto!important;z-index:2}
+.mgst-photo-panel .h2{font-size:11.3pt!important;line-height:1.25!important;margin-top:1.5mm!important;width:auto!important}
+.mgst-photo-panel .pill{font-size:6.5pt!important;line-height:1.3}
+.mgst-photo-panel>.cap{display:none!important}
+.mgst-photo-overview>.mgst-crop{height:42mm}
+.mgst-photo-overview>.in{top:45mm!important}
+.mgst-photo-overview .h3{font-size:10pt!important;line-height:1.4!important;width:auto!important;margin-top:2mm!important}
+.mgst-photo-overview .lbl{font-size:6.5pt}
+.real-field-strip{display:grid;grid-template-columns:1fr 1fr;gap:1mm;background:#fff}
+.real-field-strip>.mgst-crop{width:100%;height:100%}
+.real-field-strip .source{position:absolute;right:3mm;bottom:1mm;background:#fff;padding:.8mm 1.5mm;font:400 6pt Inter;color:var(--mgst-caption)}
+.hero.mgst-clean-cover{background:#201e1d}
+.hero.mgst-clean-cover:after{display:none}
+.hero.mgst-clean-cover>.mgst-crop{position:absolute;left:0;top:0;width:100%;height:93mm}
+.hero.mgst-clean-cover .hin{left:19mm!important;right:19mm!important;bottom:0!important;height:42mm;display:flex;align-items:center}
+.hero.mgst-clean-cover h1.h1{font-size:34pt!important;line-height:1.06!important;margin:0!important;letter-spacing:-.035em!important;color:#fff!important}
+.hero.mgst-clean-cover .cap{top:auto;bottom:1.2mm;right:3mm;font-size:5.5pt;background:transparent;color:#c8c4c1;padding:0}
+#leaders.leaders-seven{grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:repeat(4,32mm)!important;gap:3mm!important;background:transparent!important}
+#leaders.leaders-seven>.final-leader{grid-column:span 2;gap:3.5mm!important;padding:2.5mm!important;min-width:0;background:#fff;border:.25mm solid #dedede;border-top:.7mm solid #ca4d25}
+#leaders.leaders-seven>.final-leader:last-child{grid-column:2 / span 2;grid-row:4}
+#leaders.leaders-seven .leader-photo{width:20mm;height:26mm;flex:none;background:var(--mgst-photo-bg)}
+#leaders.leaders-seven .leader-copy{min-width:0}
+#leaders.leaders-seven .leader-copy .h3{font-size:10pt!important;line-height:1.35!important}
+#leaders.leaders-seven .leader-copy .sm{font-size:8pt!important;line-height:1.4!important;margin-top:1.4mm}
+.real-achievements figure{background:#fff!important;display:flex;flex-direction:column;align-items:stretch}
+.real-achievements figure>.mgst-crop{width:100%;flex:none}
+.real-achievements header+div figure>.mgst-crop{height:32mm}
+.real-achievements figcaption{position:static!important;inset:auto!important;background:#fff!important;padding:1.2mm 0 0!important;font:400 6.7pt/1.35 Inter!important;color:var(--mgst-caption)!important;text-align:left;flex:none}
+.real-achievements header+div figcaption{height:8mm}
+.real-achievements .achievement-main>.mgst-crop{height:73mm}
+.real-achievements .achievement-main>figcaption{height:6mm}
+.real-achievements aside figure>.mgst-crop{height:52mm}
+.real-achievements aside figcaption{height:8.5mm}
+.real-achievements .letter{border:.2mm solid #dedede!important;padding:1mm!important;box-shadow:.4mm .8mm 1.4mm #00000014!important}
+.real-achievements .letter img{object-fit:contain!important}
+.mgst-org{font-family:Inter,sans-serif;background:transparent!important;border:0!important;padding:0!important}
+.mgst-org__root{width:54mm;height:8mm;margin:0 auto;background:#ca4d25;color:#fff;display:flex;align-items:center;justify-content:center;font-size:8.5pt;font-weight:600;letter-spacing:.025em}
+.mgst-org__links{width:180mm;height:6mm;display:block;overflow:visible}
+.mgst-org__branches{display:grid;grid-template-columns:repeat(4,42mm);gap:4mm;list-style:none;margin:0;padding:0}
+.mgst-org__branch{min-width:0;list-style:none;margin:0;padding:0}
+.mgst-org__heading{height:10mm;box-sizing:border-box;margin:0;padding:1mm 2mm;border:.25mm solid #dedede;border-top:.7mm solid #ca4d25;background:#fdf1eb;color:#a93d1b;font-size:8pt;line-height:1.2;font-weight:600;display:flex;align-items:center;justify-content:center;text-align:center}
+.mgst-org__units{position:relative;list-style:none;margin:0;padding:1mm 0 0 4mm}
+.mgst-org__units:before{content:"";position:absolute;left:2mm;top:1mm;bottom:2.75mm;width:.2mm;background:#b8b4b0}
+.mgst-org__units li{position:relative;list-style:none;min-height:5.5mm;display:flex;align-items:center;margin:0;padding:0 0 0 1mm;font-size:7.5pt;line-height:1.2;color:#201e1d}
+.mgst-org__units li:before{content:"";position:absolute;left:-2mm;top:50%;width:2mm;height:.2mm;background:#b8b4b0}
+
+html,body{margin:0;background:transparent}.page,.sheet{margin:0;box-shadow:none}
+.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1{color: rgb(32, 30, 29) !important}
+.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2{background-color: rgb(245, 245, 245) !important}
+.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3{background: rgb(202, 77, 37) !important;color: rgb(255, 255, 255) !important}
+.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4{background-color: rgb(245, 245, 245) !important}
+.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5{background: rgb(202, 77, 37) !important;color: rgb(255, 255, 255) !important}
+.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6{background-color: rgb(245, 245, 245) !important}
+.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7{background: rgb(202, 77, 37) !important;color: rgb(255, 255, 255) !important}
+.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8{color: rgb(202, 77, 37) !important}
+.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9{color: rgb(32, 30, 29) !important}
+</style>
+</helmet>
+<svg height="0" style="position:absolute" width="0">
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></symbol>
+<symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+<symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+<symbol id="i-id" viewBox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+<symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+<symbol id="i-qr" viewBox="0 0 24 24"><rect height="6" width="6" x="4" y="4"></rect><rect height="6" width="6" x="14" y="4"></rect><rect height="6" width="6" x="4" y="14"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+<symbol id="i-hos" viewBox="0 0 24 24"><rect height="14" width="16" x="4" y="7"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></symbol>
+<symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"></path></symbol>
+<symbol id="i-card" viewBox="0 0 24 24"><rect height="12" rx="2" width="18" x="3" y="6"></rect><path d="M3 10h18M7 14.5h4"></path></symbol>
+<symbol id="i-finger" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5M8.5 8.5A4 4 0 0 1 16 11v2.5M16 17a14 14 0 0 1-.6 3M5.5 13.5V11a6.5 6.5 0 0 1 11-4.7M19 10v3"></path></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"></path><path d="M10 20v-5h4v5"></path></symbol>
+<symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"></path><circle cx="8" cy="16.5" r="1.6"></circle><circle cx="16" cy="16.5" r="1.6"></circle><path d="M4 12h16"></path></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"></path></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.6-4.6"></path></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect height="16" width="16" x="4" y="4"></rect><path d="M4 12h16M12 4v16"></path></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="M3 7l9 6 9-6"></path></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect height="12" rx="1.5" width="12" x="6" y="6"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"></path><path d="M9 4v14M15 6v14"></path></symbol>
+<symbol id="i-gov" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"></path></symbol>
+<symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"></path><path d="M6 9.5V20h12V9.5"></path><path d="M10 20v-5h4v5"></path></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></symbol>
+</svg>
+<!-- ===================== P1 · FRONT COVER ===================== -->
+<!-- ===================== P2 · OVERVIEW ===================== -->
+<!-- ===================== P3 · LOCAL EXECUTION ===================== -->
+<!-- ===================== P4 · SPREAD L: FIELDS 01 & 02 ===================== -->
+<!-- ===================== P5 · SPREAD R: FIELDS 03 & 04 ===================== -->
+<!-- ===================== P6 · ECOSYSTEM (navy) ===================== -->
+<section class="page ecosystem-v3 editorial"><div class="trim">
+<div class="a rh"><img alt="Minh Group ST" src="../assets/logo/mgst-logo.svg" style="height:6.5mm; display:block"><span class="page-section-title">Hệ sinh thái</span></div>
+<div class="gx" style="--c: 1; --s: 12; top: 28mm"><h1 class="h1 imp1" style="font-size: 27pt; font-size:25pt">Bốn khối hoạt động.<br><span>Bảy lĩnh vực kết nối.</span></h1></div>
+<svg aria-label="Bốn khối hoạt động và bảy lĩnh vực trong hệ sinh thái Minh Group ST" class="gx" id="hepta" role="img" style="--c: 1; --s: 12; top: 50mm; height: 139mm" viewBox="0 0 180 136"><svg aria-label="Bốn lĩnh vực Công nghệ, Tài chính, Bảo hiểm và An sinh, Dự án cùng kết nối trong hệ sinh thái Minh Group ST" role="img" viewBox="0 0 180 136" xmlns="http://www.w3.org/2000/svg">
+<circle cx="90" cy="65" fill="#f5f5f5" r="48"></circle>
+<g fill="none" stroke="#ca4d25" stroke-width=".5"><path d="M53 28L127 28L127 102L53 102Z"></path><path d="M53 28L90 17L127 28L138 65L127 102L90 113L53 102L42 65Z" stroke-opacity=".35"></path><path d="M53 28L127 102M127 28L53 102" stroke-opacity=".4"></path></g>
+<g fill="none" stroke="#bbbbbb" stroke-width=".25"><path d="M90 17L42 65L90 113L138 65Z"></path><path d="M53 28L138 65L53 102M127 28L42 65L127 102"></path></g>
+<circle cx="90" cy="65" fill="#ffffff" r="21" stroke="#ca4d25" stroke-width=".45"></circle>
+<image height="25" href="../assets/logo/mgst-mark.svg" preserveAspectRatio="xMidYMid meet" width="26" x="77" y="52.5"></image>
+<circle cx="53" cy="28" fill="#ca4d25" r="6.5"></circle><text fill="white" font-family="Inter" font-size="3.7" font-weight="700" text-anchor="middle" x="53" y="29.3">01</text><text fill="#201e1d" font-family="Inter" font-size="3.4" font-weight="600" text-anchor="middle" x="53" y="12">Chuyển đổi số &amp; Tài chính</text><text fill="#5c5c5c" font-family="Inter" font-size="2.6" text-anchor="middle" x="53" y="17">Ngân hàng · Dịch vụ số</text><circle cx="127" cy="28" fill="#ca4d25" r="6.5"></circle><text fill="white" font-family="Inter" font-size="3.7" font-weight="700" text-anchor="middle" x="127" y="29.3">02</text><text fill="#201e1d" font-family="Inter" font-size="3.4" font-weight="600" text-anchor="middle" x="127" y="12">Bảo hiểm &amp; An sinh</text><text fill="#5c5c5c" font-family="Inter" font-size="2.6" text-anchor="middle" x="127" y="17">BHXH · BHYT · Chi trả</text><circle cx="127" cy="102" fill="#ca4d25" r="6.5"></circle><text fill="white" font-family="Inter" font-size="3.7" font-weight="700" text-anchor="middle" x="127" y="103.3">03</text><text fill="#201e1d" font-family="Inter" font-size="3.4" font-weight="600" text-anchor="middle" x="127" y="122">Quản lý vận hành</text><text fill="#5c5c5c" font-family="Inter" font-size="2.6" text-anchor="middle" x="127" y="127">Nhân sự · Kế toán · Hậu cần</text><circle cx="53" cy="102" fill="#ca4d25" r="6.5"></circle><text fill="white" font-family="Inter" font-size="3.7" font-weight="700" text-anchor="middle" x="53" y="103.3">04</text><text fill="#201e1d" font-family="Inter" font-size="3.4" font-weight="600" text-anchor="middle" x="53" y="122">Dự án &amp; Nhân lực</text><text fill="#5c5c5c" font-family="Inter" font-size="2.6" text-anchor="middle" x="53" y="127">Lái xe · Máy bán hàng · Việc làm</text></svg></svg>
+<div class="gx" style="--c:1; --s:12; top:188mm"><div class="lbl" style="color:#999999">Lợi thế cạnh tranh cốt lõi</div></div>
+<div class="gx benefits" style="--c:1; --s:12; top:195mm; display:grid; grid-template-rows:repeat(3,22mm); gap:3.2mm">
+<div class="benefit imp2" style="display: grid; grid-template-columns: 22mm 1fr 44mm; background-image:; background-position-x:; background-position-y:; background-size:; background-repeat:; background-attachment:; background-origin:; background-clip:; border-radius: 2.4mm; overflow: hidden">
+<div class="imp3" style="display: grid; place-items: center; font-family: var(--head); font-weight: 800; font-size: 15pt">01</div>
+<div style="padding:3.6mm 5mm"><div class="h3" style="color: rgb(32, 30, 29)">Nguồn lực tại chỗ</div><p class="sm mut" style="margin-top:.8mm">Khoảng 300 nhân sự, hơn 10 phòng kinh doanh tại ĐBSCL.</p></div>
+<div style="display: flex; align-items: center; justify-content: flex-end; padding-right: 5mm; font-family: var(--head); font-weight: 800; font-size: 17pt; color: rgb(202, 77, 37)">~300</div>
+</div>
+<div class="benefit imp4" style="display: grid; grid-template-columns: 22mm 1fr 44mm; background-image:; background-position-x:; background-position-y:; background-size:; background-repeat:; background-attachment:; background-origin:; background-clip:; border-radius: 2.4mm; overflow: hidden">
+<div class="imp5" style="display: grid; place-items: center; font-family: var(--head); font-weight: 800; font-size: 15pt">02</div>
+<div style="padding:3.6mm 5mm"><div class="h3" style="color: rgb(32, 30, 29)">Bảy lĩnh vực bổ trợ</div><p class="sm mut" style="margin-top:.8mm">Số hóa · Tài chính · Bảo hiểm · An sinh · Lái xe · Máy bán hàng · Việc làm.</p></div>
+<div style="display: flex; align-items: center; justify-content: flex-end; padding-right: 5mm; font-family: var(--head); font-weight: 800; font-size: 12pt; color: rgb(202, 77, 37); font-size:11pt">7 lĩnh vực</div>
+</div>
+<div class="benefit imp6" style="display: grid; grid-template-columns: 22mm 1fr 44mm; background-image:; background-position-x:; background-position-y:; background-size:; background-repeat:; background-attachment:; background-origin:; background-clip:; border-radius: 2.4mm; overflow: hidden">
+<div class="imp7" style="display: grid; place-items: center; font-family: var(--head); font-weight: 800; font-size: 15pt">03</div>
+<div style="padding:3.6mm 5mm"><div class="h3" style="color: rgb(32, 30, 29)">Vận hành minh bạch</div><p class="sm mut" style="margin-top:.8mm">KPI rõ ràng; kiểm soát ngân sách, dòng tiền và rủi ro.</p></div>
+<div class="imp8" style="display: flex; align-items: center; justify-content: flex-end; padding-right: 5mm; font-family: Inter; font-weight: 800; font-size: 16px; text-align: start; line-height: normal">Quản trị<br>+ Thực thi</div>
+</div>
+</div>
+<div class="a rf" style="color:#999999"><span>Minh Group ST · Hồ sơ năng lực 2026</span><span class="pn imp9" >06</span></div>
+</div></section>
+<!-- ===================== P7 · ROADMAP & LEADERSHIP ===================== -->
+<!-- ===================== P8 · BACK COVER / CTA (navy) ===================== -->
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":816,"height":1145}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

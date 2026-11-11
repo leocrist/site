@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Giới thiệu – Minh Group ST</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&amp;display=swap">
+<style>
+/* ============================================================
+   MGST website · one stylesheet for every page
+   1 Tokens  2 Base  3 Layout  4 Components  5 Page pieces
+   Breakpoints: lg <=1023px · md <=767px · sm <=479px
+   ============================================================ */
+
+/* 1 · TOKENS ------------------------------------------------- */
+:root{
+  /* brand */
+  --brand-50:#fdf1eb;--brand-100:#f6dfd3;--brand-300:#ef7a52;--brand-500:#ca4d25;--brand-600:#b54320;--brand-700:#a63c1b;
+  /* neutrals */
+  --ink-900:#201e1d;--ink-800:#2a2725;--ink-700:#3a3633;--ink-600:#5c5c5c;--ink-500:#6f6f6f;--ink-300:#a39d98;
+  --line-200:#e0e0e0;--line-100:#ebebeb;--bg-0:#ffffff;--bg-50:#fafafa;--bg-100:#f4f4f5;
+  --danger:#b42318;
+  /* semantic (re-scoped by .sec--dk / .sec--tint) */
+  --bg:var(--bg-0);--bg-soft:var(--bg-50);--tx:var(--ink-900);--mute:var(--ink-600);--faint:var(--ink-500);
+  --line:var(--line-100);--accent:var(--brand-500);--tint:var(--brand-50);--tint-line:var(--brand-100);
+  /* type */
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --fs-12:12px;--fs-13:13px;--fs-14:14px;--fs-15:15px;--fs-16:16px;--fs-18:18px;--fs-20:20px;--fs-24:24px;
+  --fs-lead:clamp(16px,1.25vw,18px);
+  --fs-h2:clamp(28px,3.4vw,44px);
+  --fs-h1:clamp(34px,5vw,60px);
+  --fs-stat:clamp(36px,4.2vw,56px);
+  /* space (4pt) */
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-8:32px;--sp-10:40px;--sp-12:48px;--sp-16:64px;--sp-20:80px;
+  --gut:40px;          /* horizontal padding inside the ruled box */
+  --sec-y:80px;        /* vertical rhythm of a section head */
+  /* shape, depth, motion */
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-full:999px;
+  --sh-1:0 1px 2px rgb(32 30 29 / 5%);--sh-2:0 16px 40px -20px rgb(32 30 29 / 22%);
+  --ease:cubic-bezier(.25,1,.5,1);
+  /* ruled grid: page = 13 cells, content = 11 */
+  --inner:11;--cell:min(calc(100vw / 13),128px);
+}
+@media (max-width:1023px){:root{--inner:10;--cell:calc(100vw / 12);--gut:28px;--sec-y:64px}}
+@media (max-width:767px){:root{--inner:6;--cell:calc((100vw - 32px) / 6);--gut:20px;--sec-y:48px}}
+
+/* 2 · BASE --------------------------------------------------- */
+body{margin:0;background:var(--bg-0);color:var(--ink-900);font-family:var(--font);font-size:var(--fs-16);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,dl,dd,ul,ol,figure{margin:0}ul,ol{padding:0;list-style:none}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-0.01em;text-wrap:balance}
+img{max-width:100%}
+a{color:var(--brand-500)}a:hover{color:var(--brand-600)}
+:focus-visible{outline:2px solid var(--brand-500);outline-offset:2px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.page{min-height:100vh;overflow-x:clip}
+
+/* 3 · LAYOUT ------------------------------------------------- */
+.sec{border-top:1px solid var(--line);background:var(--bg);color:var(--tx)}
+.box{position:relative;width:calc(var(--cell) * var(--inner));margin:0 auto;border-left:1px solid var(--line);border-right:1px solid var(--line);box-sizing:border-box}
+@media (max-width:767px){.box{width:auto;margin:0 16px}}
+.x{position:absolute;top:-5px;width:9px;height:9px;z-index:3;pointer-events:none}
+.x::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;background:var(--brand-500)}
+.x::after{content:"";position:absolute;top:0;bottom:0;left:4px;width:1px;background:var(--brand-500)}
+.x.l{left:-5px}.x.r{right:-5px}
+.sec--dk{--bg:var(--ink-900);--bg-soft:var(--ink-800);--tx:#f5f3f1;--mute:var(--ink-300);--faint:var(--ink-300);--line:var(--ink-700);--accent:var(--brand-300);--tint:var(--ink-800);--tint-line:var(--ink-700);border-top-color:var(--ink-900)}
+.sec--dk + .sec{border-top-color:var(--ink-900)}
+.sec--tint{--bg:var(--brand-50);--bg-soft:#fff;--tint:#fff;--line:var(--brand-100)}
+.blk{border-top:1px solid var(--line)}
+.pad{padding:var(--sp-10) var(--gut)}
+/* ruled grid: 1px rules between cells, any item count */
+.grid{display:grid;overflow:hidden;border-top:1px solid var(--line)}
+.grid>*{border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0;min-width:0}
+.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.c5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:1023px){.c4,.c5{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(2,minmax(0,1fr))}.c3.keep{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:767px){.c2,.c3,.c3.keep{grid-template-columns:1fr}}
+@media (max-width:479px){.c4,.c5{grid-template-columns:1fr}.c4.keep2,.c5.keep2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* two-column split aligned to the cell grid */
+.split{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);border-top:1px solid var(--line)}
+.split>*+*{border-left:1px solid var(--line)}
+.split.flip>:first-child{order:2;border-left:1px solid var(--line)}.split.flip>:last-child{border-left:0}
+@media (max-width:1023px){.split{grid-template-columns:1fr}.split>*+*{border-left:0;border-top:1px solid var(--line)}.split.flip>:first-child{order:0;border-left:0}.split.flip>:last-child{border-top:1px solid var(--line)}}
+
+/* 4 · COMPONENTS --------------------------------------------- */
+/* 4.1 section head */
+.sec-hd{display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-4);padding:var(--sec-y) var(--gut) var(--sp-12)}
+.sec-hd.center{align-items:center;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:var(--sp-2);font-size:var(--fs-13);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.eyebrow svg{width:14px;height:14px;fill:currentColor;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
+.h1{font-size:var(--fs-h1);line-height:1.06;letter-spacing:-0.025em;max-width:16ch}
+.h2{font-size:var(--fs-h2);line-height:1.12;letter-spacing:-0.02em;max-width:22ch}
+.h1 span,.h2 span{color:var(--accent)}
+.lead{font-size:var(--fs-lead);line-height:1.65;color:var(--mute);max-width:62ch;text-wrap:pretty}
+.prose{display:flex;flex-direction:column;gap:var(--sp-4);font-size:var(--fs-16);line-height:1.7;color:var(--mute);max-width:64ch}
+.prose strong{color:var(--tx);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:var(--sp-3)}
+/* 4.2 button */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);min-height:44px;padding:0 var(--sp-5);border-radius:var(--r-md);border:1px solid transparent;font-family:inherit;font-size:var(--fs-14);font-weight:500;text-decoration:none;box-sizing:border-box;cursor:pointer;white-space:nowrap;transition:background .2s var(--ease),border-color .2s,color .2s}
+.btn svg{transition:transform .3s var(--ease)}.btn:hover svg{transform:translateX(3px)}
+.btn--primary{background:var(--brand-500);border-color:var(--brand-500);color:#fffaf6}.btn--primary:hover{background:var(--brand-600);border-color:var(--brand-600);color:#fffaf6}
+.btn--secondary{background:var(--bg);border-color:var(--line-200);color:var(--tx);box-shadow:var(--sh-1)}.btn--secondary:hover{border-color:var(--tx);color:var(--tx)}
+.sec--dk .btn--secondary{background:transparent;border-color:#4a4542;box-shadow:none}.sec--dk .btn--secondary:hover{border-color:var(--brand-300);color:var(--brand-300)}
+.btn--lg{min-height:52px;padding:0 var(--sp-6);font-size:var(--fs-15)}
+/* 4.3 tag, chip, pill */
+.tag{display:inline-flex;align-items:center;min-height:24px;padding:0 var(--sp-2);border-radius:6px;background:var(--tint);color:var(--brand-700);font-size:var(--fs-12);font-weight:500;letter-spacing:.02em}
+.sec--dk .tag{color:var(--brand-300)}
+.tag--line{background:transparent;border:1px solid var(--line-200);color:var(--mute)}
+.chip{display:inline-flex;align-items:center;min-height:40px;padding:0 var(--sp-4);border-radius:var(--r-full);border:1px solid var(--line-100);background:var(--bg-0);font-family:inherit;font-size:var(--fs-13);color:var(--ink-600);cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s,background .2s}
+.chip:hover{border-color:var(--brand-500);color:var(--ink-900)}
+.chip[aria-pressed="true"],.chip.on{background:var(--brand-50);border-color:var(--brand-500);color:var(--brand-700)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:4px 12px 4px 4px;border-radius:var(--r-full);border:1px solid var(--line-200);background:var(--bg-0);font-size:var(--fs-13);font-weight:500;color:var(--ink-900);text-decoration:none;box-shadow:var(--sh-1)}
+.pill:hover{border-color:var(--brand-500);color:var(--ink-900)}
+.pill b{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:var(--r-full);background:var(--brand-500);color:#fff;font-size:var(--fs-12);font-weight:600}
+/* 4.4 card (a cell of the ruled grid) */
+.card{display:flex;flex-direction:column;gap:var(--sp-2);height:100%;padding:var(--sp-8);box-sizing:border-box;background:var(--bg);color:var(--tx);text-decoration:none;transition:background .25s}
+.eco-map{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:72px;padding:30px 48px 64px;border-top:1px solid var(--line)}
+.eco-map::before,.eco-map::after{content:"";position:absolute;background:var(--brand-500);opacity:.7;pointer-events:none}
+.eco-map::before{width:2px;top:25%;bottom:25%;left:calc(50% - 1px)}
+.eco-map::after{height:2px;left:25%;right:25%;top:calc(50% - 1px)}
+.eco-map>.card{position:relative;z-index:1;min-height:310px;border:1px solid var(--line);background:var(--bg);padding:28px 34px}
+.eco-map>.card:hover{background:var(--tint);border-color:var(--brand-500)}
+.eco-hub{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:132px;border:2px solid var(--brand-500);border-radius:50%;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 8px 25px rgb(32 30 29 / 10%)}
+.eco-hub img{width:62px;height:62px;object-fit:contain}.eco-hub span{font-size:11px;line-height:1.3;max-width:90px;color:var(--mute)}
+@media(max-width:767px){.eco-map{grid-template-columns:1fr;gap:14px;padding:24px var(--gut) 48px}.eco-map::before,.eco-map::after,.eco-hub{display:none}.eco-map>.card{min-height:0;padding:24px}}
+.card h3{font-size:var(--fs-18);line-height:1.3;font-weight:600}
+.card p{font-size:var(--fs-15);line-height:1.6;color:var(--mute)}
+.card .num{font-size:var(--fs-13);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.card .more{display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:var(--sp-3);font-size:var(--fs-14);font-weight:500;color:var(--accent)}
+a.card:hover{background:var(--bg-soft);color:var(--tx)}
+a.card:hover .ic{background:var(--brand-500);color:#fffaf6;transform:translateY(-2px)}
+a.card:hover .more svg{transform:translateX(3px)}.card .more svg{transition:transform .3s var(--ease)}
+.card--tint{background:var(--tint)}
+.card--brand{background:var(--brand-500);color:#fffaf6}.card--brand p,.card--brand .num{color:#fffaf6}.card--brand .ic{background:rgb(255 255 255 / 16%);color:#fffaf6}
+.card ul{display:flex;flex-direction:column;gap:6px;margin-top:var(--sp-1)}
+.card li{position:relative;padding-left:18px;font-size:var(--fs-15);line-height:1.55;color:var(--mute)}
+.card li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:2px;background:var(--accent)}
+.ic{width:48px;height:48px;flex-shrink:0;border-radius:var(--r-md);background:var(--tint);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-2);transition:background .3s var(--ease),color .3s,transform .3s var(--ease)}
+@media (max-width:767px){.card{padding:var(--sp-6) var(--gut)}}
+/* 4.5 stat */
+.stat{display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:var(--sp-2);padding:var(--sp-8);background:var(--bg)}
+.stat dd{font-size:var(--fs-stat);text-wrap:balance;line-height:1;font-weight:600;letter-spacing:-0.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat dt{font-size:var(--fs-14);line-height:1.5;color:var(--mute)}
+@media (max-width:767px){.stat{padding:var(--sp-6) var(--gut)}}
+/* 4.6 feature row: tinted title panel (3 cells) + cards */
+.feat{display:grid;grid-template-columns:calc(var(--cell) * 3) minmax(0,1fr);border-top:1px solid var(--tint-line)}
+.feat-hd{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:var(--sp-3);padding:72px var(--sp-8) var(--sp-8);background:var(--tint);border-right:1px solid var(--tint-line)}
+.feat-hd::before{content:"";position:absolute;top:0;left:0;width:88px;height:88px;background:repeating-linear-gradient(135deg,var(--brand-500) 0 1.5px,transparent 1.5px 7px);opacity:.55;-webkit-mask-image:linear-gradient(135deg,#000 35%,transparent 70%);mask-image:linear-gradient(135deg,#000 35%,transparent 70%);pointer-events:none}
+.feat-hd h3{font-size:var(--fs-24);line-height:1.2}
+.feat-hd p{font-size:var(--fs-15);line-height:1.6;color:var(--mute)}
+.feat-hd .btn{align-self:flex-start;margin-top:auto}
+.feat .grid{border-top:0;--line:var(--tint-line)}
+@media (max-width:1023px){.feat{grid-template-columns:1fr}.feat-hd{border-right:0;border-bottom:1px solid var(--tint-line);padding:56px var(--gut) var(--sp-6)}.feat-hd::before{width:64px;height:64px}}
+/* 4.7 media / photo */
+.ph{position:relative;overflow:hidden;background:#e7e2de;min-height:240px}
+.ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ph>.cr{position:absolute;right:6px;bottom:6px;padding:2px 6px;border-radius:4px;background:rgb(32 30 29 / 60%);color:#fff;font-size:10px;line-height:1.4;max-width:calc(100% - 12px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph--empty{display:flex;align-items:center;justify-content:center;gap:var(--sp-2);padding:var(--sp-4);box-sizing:border-box;background:repeating-linear-gradient(135deg,var(--bg-100) 0 10px,var(--bg-50) 10px 20px);color:var(--ink-600);font-size:var(--fs-13);text-align:center}
+.ratio-43{aspect-ratio:4 / 3;min-height:0}.ratio-169{aspect-ratio:16 / 9;min-height:0}.ratio-11{aspect-ratio:1;min-height:0}
+/* 4.8 steps */
+.step{display:flex;flex-direction:column;gap:var(--sp-2);padding:var(--sp-8);background:var(--bg)}
+.step b{font-size:var(--fs-stat);line-height:1;font-weight:300;letter-spacing:-0.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.step h3{font-size:var(--fs-18);margin-top:var(--sp-2)}
+.step p{font-size:var(--fs-15);line-height:1.6;color:var(--mute)}
+@media (max-width:767px){.step{padding:var(--sp-6) var(--gut)}}
+/* 4.9 timeline: year panel (3 cells) + rail with nodes */
+.tl-grp{display:grid;grid-template-columns:calc(var(--cell) * 3) minmax(0,1fr);border-top:1px solid var(--line)}
+.tl-yr{position:relative;overflow:hidden;background:var(--tint);border-right:1px solid var(--tint-line)}
+.tl-yr::before{content:"";position:absolute;top:0;left:0;width:88px;height:88px;background:repeating-linear-gradient(135deg,var(--brand-500) 0 1.5px,transparent 1.5px 7px);opacity:.55;-webkit-mask-image:linear-gradient(135deg,#000 35%,transparent 70%);mask-image:linear-gradient(135deg,#000 35%,transparent 70%)}
+.tl-yr>div{position:sticky;top:64px;display:flex;flex-direction:column;gap:var(--sp-2);padding:72px var(--sp-8) var(--sp-8)}
+.tl-yr b{font-size:clamp(48px,6vw,80px);line-height:.9;font-weight:600;letter-spacing:-0.04em;color:var(--accent);font-variant-numeric:tabular-nums}
+.tl-yr h3{font-size:var(--fs-20)}
+.tl-yr span{font-size:var(--fs-14);color:var(--mute)}
+.tl{padding:var(--sp-10) var(--gut) var(--sp-4) 0}
+.tl li{display:grid;grid-template-columns:calc(var(--cell) * 1.5) minmax(0,1fr)}
+.tl time{padding:1px var(--sp-6) 0 0;text-align:right;font-size:var(--fs-15);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tl li>div{position:relative;display:flex;flex-direction:column;gap:var(--sp-1);padding:0 0 var(--sp-8) var(--sp-8);border-left:1px solid var(--brand-100)}
+.tl li:last-child>div{border-left-color:transparent}
+.tl li>div::before{content:"";position:absolute;left:-7px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--brand-500)}
+.tl li:first-child>div::before{background:var(--brand-500);box-shadow:0 0 0 4px var(--brand-50)}
+.tl h3{font-size:var(--fs-18);line-height:1.35;font-weight:600}
+.tl p{font-size:var(--fs-15);line-height:1.6;color:var(--mute);max-width:56ch}
+.tl .tag{align-self:flex-start;margin-top:var(--sp-1)}
+@media (max-width:1023px){.tl-grp{grid-template-columns:1fr}.tl-yr{border-right:0;border-bottom:1px solid var(--tint-line)}.tl-yr>div{position:static;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:var(--sp-2) var(--sp-4);padding:56px var(--gut) var(--sp-6)}.tl-yr::before{width:64px;height:64px}.tl-yr span{flex-basis:100%}.tl li{grid-template-columns:96px minmax(0,1fr)}}
+@media (max-width:767px){.tl{padding:var(--sp-8) var(--gut) 0 calc(var(--gut) + 5px)}.tl li{display:block;position:relative;padding:0 0 var(--sp-6) var(--sp-6);border-left:1px solid var(--brand-100)}.tl li:last-child{border-left-color:transparent}.tl li::before{content:"";position:absolute;left:-7px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--brand-500)}.tl li:first-child::before{background:var(--brand-500)}.tl time{display:block;padding:0 0 var(--sp-1);text-align:left}.tl li>div,.tl li:last-child>div{padding:0;border-left:0}.tl li>div::before{display:none}}
+/* 4.10 table */
+.tbl-wrap{overflow-x:auto;border-top:1px solid var(--line)}
+.tbl{width:100%;min-width:640px;border-collapse:collapse;font-size:var(--fs-15);line-height:1.55}
+.tbl th,.tbl td{padding:var(--sp-5) var(--sp-8);text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.tbl tr:last-child>*{border-bottom:0}
+.tbl thead th{font-size:var(--fs-13);font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);background:var(--bg-soft)}
+.tbl tbody th{font-weight:600;color:var(--tx);white-space:nowrap}
+.tbl td{color:var(--mute)}
+.tbl td+td,.tbl th+td,.tbl th+th{border-left:1px solid var(--line)}
+/* 4.11 FAQ */
+.faq-list{border-top:1px solid var(--line)}
+.faq{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);min-height:44px;padding:var(--sp-5) var(--gut);font-size:var(--fs-18);font-weight:500;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--accent)}
+.faq summary svg{flex-shrink:0;color:var(--faint);transition:transform .2s}
+.faq[open] summary svg{transform:rotate(45deg);color:var(--accent)}
+.faq p{padding:0 calc(var(--gut) + 36px) var(--sp-6) var(--gut);font-size:var(--fs-15);line-height:1.65;color:var(--mute);max-width:72ch}
+@media (max-width:767px){.faq summary{font-size:var(--fs-16)}.faq p{padding-right:var(--gut)}}
+/* 4.12 form */
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-5)}
+.field{display:flex;flex-direction:column;gap:var(--sp-2);font-size:var(--fs-13);font-weight:500;color:var(--mute)}
+.field.full,.form .full{grid-column:1 / -1}
+.field i{font-style:normal;color:var(--danger)}
+input,select,textarea{min-height:48px;border:1px solid var(--line-200);border-radius:var(--r-md);padding:0 14px;font-family:inherit;font-size:var(--fs-16);background:var(--bg-0);color:var(--ink-900);box-sizing:border-box;width:100%;transition:border-color .2s}
+textarea{padding:12px 14px;min-height:112px;line-height:1.5;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid rgb(202 77 37 / 25%);outline-offset:1px;border-color:var(--brand-500)}
+input::placeholder,textarea::placeholder{color:var(--ink-500)}
+input[aria-invalid="true"]{border-color:var(--danger)}
+.hint{font-size:var(--fs-13);line-height:1.5;color:var(--faint)}
+.err{min-height:18px;font-size:var(--fs-13);color:var(--danger)}
+@media (max-width:767px){.form{grid-template-columns:1fr}}
+/* 4.13 value band */
+.vband{background:var(--brand-500);color:#fff;overflow:hidden;padding:28px 0}
+.vband ul{display:flex;align-items:center;gap:40px;width:max-content;animation:marq 36s linear infinite;font-size:clamp(32px,5vw,72px);font-weight:500;letter-spacing:-0.02em;line-height:1;white-space:nowrap}
+.vband li{display:flex;align-items:center;gap:40px}
+.vband svg{width:.5em;height:.5em;fill:#fff;stroke:#fff;stroke-width:2;stroke-linejoin:round;flex-shrink:0}
+.vband:hover ul{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+/* 4.14 logo strip */
+.logos{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:var(--sp-4) var(--sp-12);padding:var(--sp-8) var(--gut)}
+.logos li{display:inline-flex;align-items:center;min-height:44px;font-size:var(--fs-20);font-weight:700;letter-spacing:.02em;color:var(--mute)}
+.logos img{display:block;height:36px;width:auto;opacity:.85}
+/* 4.15 CTA */
+.cta{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr)}
+.cta>div{padding:var(--sec-y) var(--gut);display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-5)}
+.cta>div+div{border-left:1px solid var(--line);justify-content:center;gap:var(--sp-2)}
+.cta .tel{font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:-0.02em;color:var(--tx);text-decoration:none}
+.cta .tel:hover{color:var(--accent)}
+@media (max-width:1023px){.cta{grid-template-columns:1fr}.cta>div+div{border-left:0;border-top:1px solid var(--line);padding-top:var(--sp-8);padding-bottom:var(--sp-8)}}
+/* 4.16 breadcrumb + in-page nav */
+.crumb{display:flex;flex-wrap:wrap;gap:6px;font-size:var(--fs-13);color:var(--faint)}
+.crumb a{color:var(--faint);text-decoration:none}.crumb a:hover{color:var(--accent)}
+.crumb li+li::before{content:"/";margin-right:6px;color:var(--line-200)}
+.jump{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:hidden}
+.jump a{display:flex;flex-direction:column;gap:var(--sp-1);min-height:44px;padding:var(--sp-5) var(--sp-8);border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0;text-decoration:none;color:var(--tx);transition:background .2s}
+.jump a:hover{background:var(--tint)}
+.jump span{font-size:var(--fs-13);font-weight:600;color:var(--accent)}
+.jump b{font-size:var(--fs-16);font-weight:500}
+/* sticky in-page tabs: the section itself sticks under the 65px header */
+.sec--sticky{position:sticky;top:65px;z-index:10;border-bottom:1px solid var(--line);margin-bottom:-1px;box-shadow:0 12px 24px -20px rgb(32 30 29 / 25%)}
+.sec--sticky .x{display:none}
+section[id],div[id].feat{scroll-margin-top:160px}
+@media (max-width:1023px){.jump,.jump[style]{display:flex;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}.jump a{flex:0 0 auto;max-width:70vw;padding:var(--sp-3) var(--sp-5);scroll-snap-align:start}.jump b{font-size:var(--fs-14);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}section[id],div[id].feat{scroll-margin-top:140px}}
+
+/* 5 · PAGE PIECES -------------------------------------------- */
+/* 5.1 header */
+.hd{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line-100);background:rgb(255 255 255 / 92%);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.hd .box{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);min-height:64px;padding:0 var(--sp-5);border-color:transparent}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink-900);font-weight:600;font-size:var(--fs-15);letter-spacing:.02em;white-space:nowrap}
+.brand img{width:40px;height:40px;object-fit:contain}
+.nav{display:flex;gap:2px}
+.nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 12px;border-radius:var(--r-sm);color:var(--ink-600);text-decoration:none;font-size:var(--fs-14);white-space:nowrap;transition:background .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{background:var(--bg-100);color:var(--ink-900)}
+.hd-end{display:flex;align-items:center;gap:var(--sp-2)}
+.lang{display:flex;gap:2px;padding:3px;border-radius:10px;background:var(--bg-100)}
+.lang a{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:38px;border-radius:7px;font-size:var(--fs-12);font-weight:500;color:var(--ink-600);text-decoration:none}
+.lang a[aria-current="true"]{background:#fff;color:var(--ink-900);box-shadow:0 1px 2px rgb(32 30 29 / 8%)}
+.mnav{display:none}
+.mnav summary{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line-200);border-radius:var(--r-md);cursor:pointer;list-style:none;color:var(--ink-900)}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav[open] summary{background:var(--bg-100)}
+.mnav nav{position:absolute;left:0;right:0;top:100%;display:flex;flex-direction:column;padding:var(--sp-3) 16px var(--sp-5);background:#fff;border-bottom:1px solid var(--line-100);box-shadow:var(--sh-2)}
+.mnav nav a:not(.btn){display:flex;align-items:center;min-height:48px;padding:0 var(--sp-3);border-bottom:1px solid var(--line-100);color:var(--ink-900);text-decoration:none;font-size:var(--fs-16);font-weight:500}
+.mnav nav a[aria-current="page"]{color:var(--brand-500)}
+.mnav nav .btn{margin-top:var(--sp-4)}
+@media (max-width:1023px){.nav{display:none}.mnav{display:block}}
+@media (max-width:599px){.hd-end>.btn{display:none}.hd .box{padding:0 var(--sp-1)}}
+/* 5.2 hero backdrop (shared by home + inner pages) */
+.hero{position:relative;overflow:hidden;background:var(--bg-0)}
+.cells{position:absolute;top:-1px;left:calc(-1 * var(--cell) - 1px);right:calc(-1 * var(--cell) - 1px);height:577px;pointer-events:none;background-image:linear-gradient(to right,var(--line-100) 1px,transparent 1px),linear-gradient(to bottom,var(--line-100) 1px,transparent 1px);background-size:var(--cell) 96px;-webkit-mask-image:radial-gradient(44% 62% at 50% 45%,transparent 55%,#000 100%);mask-image:radial-gradient(44% 62% at 50% 45%,transparent 55%,#000 100%)}
+.cells::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(to bottom,rgb(255 255 255 / 0%),#fff)}
+.hc{position:absolute;box-sizing:border-box;margin:-1px 0 0 -1px;width:calc(var(--cell) + 1px);height:97px;display:none;place-items:center;pointer-events:none;border:1px solid var(--line-100)}
+.hc--ic{background:var(--brand-50);opacity:0;animation:hcfill 9s ease-in-out infinite}
+.hc--ic svg{width:24px;height:24px;fill:none;stroke:var(--brand-500);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hc--ht{background:repeating-linear-gradient(135deg,var(--brand-100) 0 1px,transparent 1px 8px)}
+@keyframes hcfill{0%,8%{opacity:0}18%,62%{opacity:1}72%,100%{opacity:0}}
+@media (min-width:1024px){.hc{display:grid}}
+.hero-in{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--sp-6);padding:96px var(--gut) var(--sp-16)}
+.hero-in .h1{max-width:18ch}
+.rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.strip{overflow:hidden;border-top:1px solid var(--line-100);background:var(--line-100)}
+.strip ul{display:flex;gap:1px;width:max-content;animation:marq 60s linear infinite}
+.strip:hover ul{animation-play-state:paused}
+.strip .ph{height:320px;min-height:0;flex-shrink:0}
+.strip .w{width:520px}.strip .n{width:320px}
+@media (max-width:1023px){.hero-in{padding-top:72px}}
+@media (max-width:767px){.hero-in{padding-top:56px;padding-bottom:var(--sp-12)}.hero-in .actions,.hero-in .actions .btn{width:100%}.strip .ph{height:200px}.strip .w{width:320px}.strip .n{width:200px}}
+/* 5.3 page hero (inner pages) */
+.phero-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr)}
+.phero-tx{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-5);padding:var(--sp-12) var(--gut) var(--sp-16)}
+.phero-tx .crumb{margin-bottom:var(--sp-5)}
+.phero-in .ph{border-left:1px solid var(--line-100);min-height:360px}
+@media (max-width:1023px){.phero-in{grid-template-columns:1fr}.phero-in .ph{border-left:0;border-top:1px solid var(--line-100);min-height:0;aspect-ratio:16 / 9}.phero-tx{padding-bottom:var(--sp-12)}}
+@media (max-width:767px){.phero-tx{padding-top:var(--sp-8)}.phero-tx .actions,.phero-tx .actions .btn{width:100%}}
+/* 5.4 org chart: root node, connector bus, one card per division */
+.org{padding:var(--sp-12) var(--gut) var(--sp-16);border-top:1px solid var(--line)}
+.org-top{display:flex;justify-content:center}
+.org-root{display:flex;align-items:center;gap:var(--sp-4);padding:var(--sp-4) var(--sp-8) var(--sp-4) var(--sp-4);border-radius:var(--r-lg);background:var(--ink-900);color:#fff;box-shadow:var(--sh-2)}
+.org-root .ic{margin:0;background:var(--brand-500);color:#fff}
+.org-root b{display:block;font-size:var(--fs-20);font-weight:600;line-height:1.2}
+.org-root span span{font-size:var(--fs-13);color:var(--ink-300)}
+.org-bus{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);height:64px}
+.org-bus::before{content:"";position:absolute;left:50%;top:0;width:2px;height:32px;margin-left:-1px;background:var(--brand-500)}
+.org-bus span{position:relative;background:radial-gradient(circle at 50% calc(100% - 6px),var(--brand-500) 5px,transparent 5.5px)}
+.org-bus span::before{content:"";position:absolute;left:50%;top:31px;bottom:6px;width:2px;margin-left:-1px;background:var(--brand-500)}
+.org-bus span::after{content:"";position:absolute;top:31px;height:2px;left:-8px;right:-8px;background:var(--brand-500)}
+.org-bus span:first-child::after{left:calc(50% - 1px);border-radius:2px 0 0 2px}
+.org-bus span:last-child::after{right:calc(50% - 1px);border-radius:0 2px 2px 0}
+.org-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4)}
+.org-col{display:flex;flex-direction:column;border:1px solid var(--brand-100);border-radius:var(--r-lg);overflow:hidden;background:var(--bg-0);box-shadow:var(--sh-1)}
+.org-col header{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:var(--sp-2);min-height:236px;padding:var(--sp-6);box-sizing:border-box;background:var(--brand-50);border-bottom:1px solid var(--brand-100)}
+.org-col header .n{position:absolute;right:var(--sp-5);top:var(--sp-3);font-size:72px;line-height:1;font-weight:300;letter-spacing:-0.04em;color:#efc9b8;font-variant-numeric:tabular-nums}
+.org-col header .ic{background:var(--brand-500);color:#fff;margin-bottom:var(--sp-3)}
+.org-col h3{font-size:var(--fs-20);line-height:1.25}
+.org-col header p{font-size:var(--fs-14);line-height:1.55;color:var(--mute)}
+.org-col li{display:flex;align-items:center;gap:var(--sp-3);min-height:68px;box-sizing:border-box;padding:var(--sp-2) var(--sp-6);border-bottom:1px solid var(--line);font-size:var(--fs-15);font-weight:500}
+.org-col li span{display:flex;align-items:center;justify-content:center;width:36px;height:36px;flex-shrink:0;border-radius:var(--r-sm);background:var(--brand-50);color:var(--brand-500)}
+.org-ft{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);min-height:52px;margin-top:auto;padding:0 var(--sp-6);font-size:var(--fs-13);color:var(--faint)}
+.org-ft a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:var(--fs-14);font-weight:500;text-decoration:none}
+.org-sum{display:flex;justify-content:center;flex-wrap:wrap;gap:var(--sp-2) var(--sp-4);margin-top:var(--sp-10);font-size:var(--fs-14);color:var(--mute)}
+.org-sum b{color:var(--accent);font-weight:600}
+@media (max-width:1023px){.org-bus{display:block;height:40px}.org-bus::before{height:40px}.org-bus span{display:none}.org-cols{grid-template-columns:repeat(2,minmax(0,1fr))}.org-col header{min-height:0}}
+@media (max-width:767px){.org{padding:var(--sp-8) var(--gut) var(--sp-10)}.org-cols{grid-template-columns:1fr;gap:0;position:relative}.org-col+.org-col{margin-top:var(--sp-8);overflow:visible;position:relative}.org-col+.org-col header{border-radius:var(--r-lg) var(--r-lg) 0 0}.org-col+.org-col::before{content:"";position:absolute;left:50%;top:calc(-1 * var(--sp-8) - 1px);width:2px;height:var(--sp-8);margin-left:-1px;background:var(--brand-500)}.org-root{width:100%;box-sizing:border-box}}
+/* 5.5 people */
+.person{display:flex;align-items:center;gap:var(--sp-5);padding:var(--sp-8);background:var(--bg)}
+.person .av{width:88px;height:88px;flex-shrink:0;border-radius:var(--r-md);border:1px solid var(--brand-100);background:repeating-linear-gradient(135deg,var(--brand-100) 0 1px,transparent 1px 8px);display:flex;align-items:center;justify-content:center;color:#c98f74}
+.person h3{font-size:var(--fs-18)}
+.person p{font-size:var(--fs-14);font-weight:600;color:var(--accent);margin-top:var(--sp-1)}
+@media (max-width:767px){.person{padding:var(--sp-5) var(--gut)}.person .av{width:64px;height:64px}}
+/* 5.6 news */
+.post{display:flex;flex-direction:column;height:100%;background:var(--bg);color:var(--tx);text-decoration:none}
+.post .ph{aspect-ratio:16 / 10;min-height:0}
+.post-tx{display:flex;flex-direction:column;gap:var(--sp-2);padding:var(--sp-6)}
+.post h3{font-size:var(--fs-18);line-height:1.35}
+.post p{font-size:var(--fs-14);line-height:1.6;color:var(--mute)}
+.post time{font-size:var(--fs-13);color:var(--faint)}
+a.post:hover h3{color:var(--accent)}
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.gal .ph{min-height:0;aspect-ratio:1}
+.gal .w2{grid-column:span 2;aspect-ratio:2 / 1}
+@media (max-width:767px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* 5.7 footer */
+.ft{--bg:var(--ink-900);--line:#34302d;background:var(--ink-900);color:#d4d4d4;overflow:hidden}
+.ft .grid{border-top:0;grid-template-columns:1.4fr repeat(3,minmax(0,1fr))}
+.ft .grid>div{display:flex;flex-direction:column;gap:10px;padding:56px var(--sp-8) var(--sp-10)}
+.ft .grid>div:first-child{padding-left:var(--gut)}
+.ft h2{font-size:var(--fs-13);font-weight:600;letter-spacing:.04em;color:#fff;margin-bottom:var(--sp-1)}
+.ft a{display:inline-flex;align-items:center;min-height:28px;color:#bdb6b0;text-decoration:none;font-size:var(--fs-14)}.ft a:hover{color:#fff}
+.ft .co{font-weight:600;color:#fff}
+.ft .addr{font-size:var(--fs-14);line-height:1.6;color:var(--ink-300)}
+.ft .tel{font-size:22px;font-weight:500;color:#fff}
+.ft .logo{width:48px;height:48px;object-fit:contain;border-radius:var(--r-md);background:#fff;padding:4px;box-sizing:border-box}
+.ft-end{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-2);padding:var(--sp-4) var(--gut);border-top:1px solid var(--line);font-size:var(--fs-12);color:var(--ink-300)}
+.wm{font-size:clamp(44px,10.5vw,150px);line-height:.78;font-weight:600;letter-spacing:-0.01em;color:#2c2927;white-space:nowrap;text-align:center;padding-top:var(--sp-10);transform:translateY(14%);user-select:none}
+.wm span{color:var(--brand-500)}
+@media (max-width:1023px){.ft .grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ft .grid>div{padding:var(--sp-10) var(--gut) var(--sp-8)}}
+@media (max-width:479px){.ft .grid{grid-template-columns:1fr}.ft .grid>div{padding:var(--sp-8) var(--gut) var(--sp-6)}}
+/* 5.8 dock + quick-consult dialog */
+.dock{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:var(--sp-2);z-index:30}
+.dock>*{width:48px;height:48px;padding:0;box-sizing:border-box;border-radius:var(--r-md);background:#fff;border:1px solid var(--line-200);display:flex;align-items:center;justify-content:center;color:var(--ink-900);box-shadow:0 8px 24px -12px rgb(32 30 29 / 30%);text-decoration:none;font-family:inherit;font-size:var(--fs-12);font-weight:600;cursor:pointer}
+.dock .zalo{color:#0057d9}
+.dock .chat{width:56px;height:56px;margin-left:-8px;border-radius:var(--r-lg);background:var(--brand-500);border-color:var(--brand-500);color:#fffaf6}
+.dock .chat:hover{background:var(--brand-600)}
+@media (max-width:767px){.dock{right:12px;bottom:12px}.dock .opt{display:none}}
+.pop{position:fixed;right:88px;bottom:20px;width:400px;max-width:calc(100vw - 108px);max-height:calc(100vh - 40px);overflow:auto;z-index:31;background:#fff;border:1px solid var(--line-200);border-radius:var(--r-lg);box-shadow:0 28px 64px -24px rgb(32 30 29 / 40%);animation:pop .28s cubic-bezier(.16,1,.3,1) both;transform-origin:bottom right}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.pop-hd{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3);padding:var(--sp-3) var(--sp-3) var(--sp-3) var(--sp-4);border-bottom:1px solid var(--line-100)}
+.pop-hd b{display:block;font-size:var(--fs-15);font-weight:600}.pop-hd span span{font-size:var(--fs-12);color:var(--ink-500)}
+.pop-hd>span{display:flex;align-items:center;gap:10px}
+.pop-x{width:44px;height:44px;border:0;border-radius:10px;background:transparent;color:var(--ink-600);display:flex;align-items:center;justify-content:center;cursor:pointer}.pop-x:hover{background:var(--bg-100);color:var(--ink-900)}
+.ask{display:flex;flex-direction:column;gap:14px;padding:var(--sp-4)}
+.ask-q{font-size:var(--fs-16);font-weight:600;color:var(--ink-900)}
+.ask .btn{width:100%}
+.ask-ft{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-2) var(--sp-4);padding:var(--sp-3) var(--sp-4);border-top:1px solid var(--line-100);background:var(--bg-50);font-size:var(--fs-14)}
+.ask-ft a{color:var(--ink-900);font-weight:500}.ask-ft a:hover{color:var(--brand-500)}
+.ask-done{display:flex;flex-direction:column;align-items:center;gap:var(--sp-3);padding:28px var(--sp-4);text-align:center}
+.ask-done p{font-size:var(--fs-14);line-height:1.6;color:var(--ink-600);max-width:44ch}
+.ask-ok{width:52px;height:52px;border-radius:50%;background:var(--brand-50);color:var(--brand-500);display:flex;align-items:center;justify-content:center}
+@media (max-width:767px){.pop{left:12px;right:12px;bottom:80px;width:auto;max-width:none;max-height:calc(100vh - 100px)}}
+/* 5.9 design-system sheet */
+.sw{display:flex;flex-direction:column;gap:var(--sp-2);padding:var(--sp-5);background:var(--bg)}
+.sw i{display:block;height:56px;border-radius:var(--r-sm);border:1px solid rgb(32 30 29 / 8%)}
+.sw b{font-size:var(--fs-13);font-weight:600}.sw span{font-size:var(--fs-12);color:var(--mute);font-variant-numeric:tabular-nums}
+.spec{display:grid;grid-template-columns:calc(var(--cell) * 2) minmax(0,1fr);border-top:1px solid var(--line)}
+.spec>*{padding:var(--sp-6) var(--sp-8)}
+.spec>div:first-child{font-size:var(--fs-13);font-weight:600;color:var(--faint);border-right:1px solid var(--line)}
+.spec .row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-4)}
+@media (max-width:767px){.spec{grid-template-columns:1fr}.spec>div:first-child{border-right:0;padding-bottom:0}.spec>*{padding-left:var(--gut);padding-right:var(--gut)}}
+
+@media (prefers-reduced-motion:reduce){.rise,.hc--ic,.vband ul,.strip ul,.pop{animation:none}.hc--ic{opacity:1}.strip{overflow-x:auto}}
+</style>
+</helmet>
+<div class="page">
+<header class="hd">
+<div class="box">
+<a class="brand" href="Main.dc.html"><img src="/_blob/a59374f9219055b49892dcb2ad96f385" alt="" width="40" height="40"><span>Minh Group ST</span></a>
+<nav class="nav" aria-label="Điều hướng chính"><a href="About.dc.html" aria-current="page">Giới thiệu</a><a href="Organization.dc.html">Tổ chức</a><a href="Services.dc.html">Lĩnh vực</a><a href="Projects.dc.html">Dự án</a><a href="News.dc.html">Tin tức</a></nav>
+<div class="hd-end">
+<div class="lang" role="group" aria-label="Ngôn ngữ / Language"><a href="About.dc.html" aria-current="true" hreflang="vi" lang="vi">VI</a><a href="MainEN.dc.html" hreflang="en" lang="en">EN</a></div>
+<a class="btn btn--primary" href="Contact.dc.html">Liên hệ hợp tác</a>
+<details class="mnav"><summary aria-label="Mở menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></summary><nav aria-label="Điều hướng di động"><a href="Main.dc.html">Trang chủ</a><a href="About.dc.html" aria-current="page">Giới thiệu</a><a href="Organization.dc.html">Tổ chức</a><a href="Services.dc.html">Lĩnh vực</a><a href="Projects.dc.html">Dự án</a><a href="News.dc.html">Tin tức</a><a class="btn btn--primary btn--lg" href="Contact.dc.html">Liên hệ hợp tác</a></nav></details>
+</div>
+</div>
+</header>
+<main>
+<section class="hero phero">
+<div class="box"><div class="cells" aria-hidden="true"></div><span class="hc hc--ht" aria-hidden="true" style="left: calc(var(--cell) * 5); top: 0px"></span><span class="hc hc--ic" aria-hidden="true" style="left: calc(var(--cell) * 6); top: 96px; animation-delay: 1.4s"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="hc hc--ic" aria-hidden="true" style="left: calc(var(--cell) * 4); top: 288px; animation-delay: 2.8s"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span>
+<div class="phero-in"><div class="phero-tx rise"><nav aria-label="Breadcrumb"><ol class="crumb"><li><a href="Main.dc.html">Trang chủ</a></li><li>Giới thiệu</li></ol></nav><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Về Minh Group ST</p><h1 class="h1">Doanh nghiệp tiên phong với mô hình <span>hệ sinh thái đa tầng</span></h1><p class="lead">Công ty TNHH Minh Group ST (MGST) hoạt động tại Đồng bằng sông Cửu Long, là đối tác tin cậy của ngân hàng, tập đoàn bảo hiểm, cơ quan quản lý nhà nước và các tổ chức quốc tế.</p><div class="actions"><a class="btn btn--primary" href="Organization.dc.html">Xem cơ cấu tổ chức <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><a class="btn btn--secondary" href="Services.dc.html">Lĩnh vực hoạt động</a></div></div><figure class="ph "><img src="/_blob/79c011ce9bdbe1ced6739433e7fdd9c6" alt="Cầu Cần Thơ nhìn từ trên cao" loading="lazy" decoding="async"><figcaption class="cr">Ảnh: Tuong Lam Photos · CC BY-SA 4.0</figcaption></figure></div>
+</div>
+</section>
+<section class="sec ">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<dl style="border-top: 0" class="grid c4 keep2"><div class="stat"><dt>thành lập tại Cần Thơ</dt><dd>03/2025</dd></div><div class="stat"><dt>nhân sự chuyên trách</dt><dd>~300</dd></div><div class="stat"><dt>phòng kinh doanh địa bàn</dt><dd>10+</dd></div><div class="stat"><dt>khối hoạt động bổ trợ nhau</dt><dd>4</dd></div></dl>
+</div>
+</section>
+<section class="sec ">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="sec-hd"><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Tổng quan</p><h2 class="h2">Sức mạnh tại chỗ, <span>thấu hiểu địa bàn</span></h2></div><div class="split"><div><div class="pad prose"><p>Với nguồn lực tại chỗ và sự thấu hiểu sâu sắc địa bàn, MGST tổ chức triển khai các chương trình hợp tác ngân hàng, bảo hiểm và an sinh, kết nối sản phẩm của đối tác với nhu cầu thực tế của người dân và hộ kinh doanh.</p><p>Thay vì phát triển riêng lẻ từng mảng, MGST từng bước thiết lập <strong>mô hình hệ sinh thái đa tầng</strong>: từ chuyển đổi số, tài chính – ngân hàng, bảo hiểm, an sinh xã hội đến đào tạo lái xe, máy bán hàng tự động và cung ứng việc làm, mỗi lĩnh vực đều bổ trợ cho lĩnh vực còn lại.</p></div></div><figure class="ph "><img src="/_blob/7b27c5ec9692f7cb740afbd91ad776cc" alt="Cầu Cần Thơ bắc qua sông Hậu" loading="lazy" decoding="async"><figcaption class="cr">Ảnh: Christophe95 · CC BY-SA 4.0</figcaption></figure></div>
+</div>
+</section>
+<section class="sec sec--tint">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="sec-hd"><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Hệ sinh thái</p><h2 class="h2"><span>Bảy lĩnh vực</span> tạo nên sức mạnh tổng hợp</h2><p class="lead">Mỗi lĩnh vực là một điểm chạm: người dân mở tài khoản tại bệnh viện có thể tham gia bảo hiểm, đăng ký học lái xe hay mua hàng giá hội viên tại máy.</p></div><ul class="grid c4 "><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/><circle cx="12" cy="11" r="2.6"/><path d="M8 16.5c1-2 7-2 8 0"/></svg></span><span class="num">01</span><h3>Chuyển đổi số</h3></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"/></svg></span><span class="num">02</span><h3>Tài chính – Ngân hàng</h3></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="num">03</span><h3>Bảo hiểm</h3></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 6.6a5 5 0 0 0-8.8-1.9 5 5 0 0 0-8.8 1.9c-.9 4 3 7.6 8.8 12.4 5.8-4.8 9.7-8.4 8.8-12.4z"/></svg></span><span class="num">04</span><h3>An sinh xã hội</h3></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15l2-5.5A2 2 0 0 1 6.9 8h10.2A2 2 0 0 1 19 9.5l2 5.5v3H3z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/><path d="M3 13h18"/></svg></span><span class="num">05</span><h3>Đào tạo lái xe</h3></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2"/><path d="M8 6h5v7H8zM16 6v3M16 12v1M8 17h8"/></svg></span><span class="num">06</span><h3>Máy bán hàng tự động</h3></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></span><span class="num">07</span><h3>Cung ứng việc làm</h3></div></li><li><a class="card card--brand" href="Services.dc.html"><h3>Xem bốn khối hoạt động</h3><p>Cách các lĩnh vực được tổ chức thành bốn khối.</p><span class="more">Lĩnh vực <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></a></li></ul>
+</div>
+</section>
+<div class="vband"><ul><li>Gần dân trong triển khai<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></li><li>Minh bạch với đối tác<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></li><li>Trách nhiệm với cộng đồng<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></li><li aria-hidden="true">Gần dân trong triển khai<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></li><li aria-hidden="true">Minh bạch với đối tác<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></li><li aria-hidden="true">Trách nhiệm với cộng đồng<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg></li></ul></div>
+<section class="sec sec--dk">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="sec-hd"><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Triết lý hành động</p><h2 class="h2">Ba cam kết <span>định hình cách chúng tôi làm việc</span></h2></div><ul class="grid c3 "><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"/></svg></span><span class="num">01</span><h3>Gần dân trong triển khai</h3><p>Nhân sự bám sát địa bàn, có mặt ở bệnh viện, trung tâm hành chính công, ấp và khu vực; sẵn sàng đến tận nhà người cao tuổi.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="num">02</span><h3>Minh bạch với đối tác</h3><p>Dữ liệu chuẩn xác, đối soát rõ ràng, báo cáo định kỳ và xử lý phát sinh kịp thời giữa đối tác và lực lượng cơ sở.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 6.6a5 5 0 0 0-8.8-1.9 5 5 0 0 0-8.8 1.9c-.9 4 3 7.6 8.8 12.4 5.8-4.8 9.7-8.4 8.8-12.4z"/></svg></span><span class="num">03</span><h3>Trách nhiệm với cộng đồng</h3><p>Gắn hiệu quả kinh doanh với lợi ích thiết thực cho địa phương qua các hoạt động an sinh và phổ cập kỹ năng số.</p></div></li></ul>
+</div>
+</section>
+<section class="sec ">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="sec-hd"><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Đối tác chiến lược</p><h2 class="h2">Chúng tôi đồng hành cùng <span>bốn nhóm đối tác</span></h2></div><ul class="grid c4 "><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"/></svg></span><h3>Ngân hàng</h3><p>Mở rộng độ phủ tài khoản số, duy trì chất lượng giao dịch.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Tập đoàn bảo hiểm</h3><p>Đại lý tổ chức, tư vấn và hỗ trợ bồi thường tận nơi.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"/></svg></span><h3>Cơ quan quản lý nhà nước</h3><p>Phối hợp phát triển BHXH, BHYT và chi trả bảo trợ xã hội.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></span><h3>Tổ chức quốc tế</h3><p>Hợp tác cung ứng và đào tạo nguồn nhân lực.</p></div></li></ul>
+</div>
+</section>
+<section class="sec " id="cot-moc">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="sec-hd"><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Lịch sử &amp; Cột mốc</p><h2 class="h2">Từ một công ty mới đến <span>mạng lưới phủ miền Tây</span></h2></div><div class="tl-grp"><div class="tl-yr"><div><b>2025</b><h3>Đặt nền móng</h3><span>Thành lập công ty và những phòng kinh doanh đầu tiên. 4 cột mốc.</span></div></div><ol class="tl"><li><time>03/2025</time><div><h3>Thành lập Công ty TNHH Minh Group ST</h3><p>Đặt nền móng vận hành và cấu trúc hoạt động tại miền Tây.</p><span class="tag">Công ty</span></div></li><li><time>04/2025</time><div><h3>PKD Tổng hợp, PKD Y và PKD địa bàn 1, 2, 3, 5, 6, 7</h3><p>Thúc đẩy chuyển đổi số y tế và địa phương.</p><span class="tag">8 phòng kinh doanh</span></div></li><li><time>09/2025</time><div><h3>PKD 8</h3><p>Mở rộng độ phủ hỗ trợ chuyển đổi số.</p><span class="tag">Phòng kinh doanh</span></div></li><li><time>11/2025</time><div><h3>PKD An sinh</h3><p>Đẩy mạnh BHXH, BHYT và an sinh cộng đồng.</p><span class="tag">Khối An sinh</span></div></li></ol></div><div class="tl-grp"><div class="tl-yr"><div><b>2026</b><h3>Hoàn thiện mạng lưới</h3><span>Bổ sung phòng chức năng và phủ kín địa bàn. 6 cột mốc.</span></div></div><ol class="tl"><li><time>01/2026</time><div><h3>Phòng Dự án</h3><p>Hạt nhân xây dựng và thúc đẩy chiến lược kinh doanh.</p><span class="tag">Khối Dự án</span></div></li><li><time>03/2026</time><div><h3>PKD 9</h3><p>Tiếp tục tăng cường mạng lưới.</p><span class="tag">Phòng kinh doanh</span></div></li><li><time>04/2026</time><div><h3>Phòng Kế toán – Nhân sự*</h3><p>Củng cố quản trị nội bộ và tối ưu vận hành.</p><span class="tag">Khối Vận hành</span></div></li><li><time>06/2026</time><div><h3>PKD 4</h3><p>Hoàn thiện mắt xích mạng lưới miền Tây.</p><span class="tag">Phòng kinh doanh</span></div></li><li><time>07/2026</time><div><h3>Phòng Chi trả Bảo trợ xã hội</h3><p>Chi trả hưu trí, trợ cấp và chế độ người có công.</p><span class="tag">Khối An sinh</span></div></li><li><time>09/2026</time><div><h3>PKD 10 và PKD 11</h3><p>Hoàn thiện mạng lưới phòng kinh doanh địa bàn.</p><span class="tag">2 phòng kinh doanh</span></div></li></ol></div><p class="pad hint blk">* Mốc 04/2026 giữ theo hồ sơ gốc, cần xác nhận lại (có thể là 04/2025).</p>
+</div>
+</section>
+<section class="sec sec--tint">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="sec-hd"><p class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>Trách nhiệm cộng đồng</p><h2 class="h2">Đồng hành cùng <span>địa phương và người dân</span></h2></div><ul class="grid c4 "><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>Thắp sáng đường quê</h3><p>Tài trợ công trình chiếu sáng, nâng cao an toàn giao thông và diện mạo nông thôn mới.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1.5S9 8 12 8zm0 0c2-4 6-4 6-1.5S15 8 12 8z"/></svg></span><h3>Quà tặng an sinh</h3><p>Trao thẻ bảo hiểm, quà tặng và kinh phí hỗ trợ cho gia đình có hoàn cảnh khó khăn.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/><circle cx="12" cy="11" r="2.6"/><path d="M8 16.5c1-2 7-2 8 0"/></svg></span><h3>Phổ cập kỹ năng số</h3><p>Hướng dẫn người dân dùng ngân hàng điện tử, nhận trợ cấp và thanh toán trực tuyến an toàn.</p></div></li><li><div class="card "><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"/></svg></span><h3>Số hóa hộ kinh doanh</h3><p>Hỗ trợ trang bị mã QR thanh toán và tiếp cận các tiện ích tài chính hiện đại.</p></div></li></ul>
+</div>
+</section>
+<section class="sec sec--dk">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="cta"><div><h2 class="h2">Cần một đối tác <span>có mặt tận địa bàn?</span></h2><p class="lead">Để lại yêu cầu, chuyên viên phụ trách đúng mảng sẽ liên hệ trong giờ làm việc.</p><div class="actions"><a class="btn btn--primary btn--lg" href="Contact.dc.html#form">Gửi yêu cầu hợp tác <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><a class="btn btn--secondary btn--lg" href="Services.dc.html">Xem lĩnh vực hoạt động</a></div></div>
+<div><span class="eyebrow">Hotline</span><a class="tel" href="tel:0977726700">0977 726 700</a><a href="mailto:minhgroupst@mgst.com.vn" style="font-size: 15px">minhgroupst@mgst.com.vn</a></div></div>
+</div>
+</section>
+</main>
+<footer class="ft">
+<div class="box"><span class="x l" aria-hidden="true"></span><span class="x r" aria-hidden="true"></span>
+<div class="grid">
+<div><img class="logo" src="/_blob/a59374f9219055b49892dcb2ad96f385" alt="" width="48" height="48"><span class="co">Công ty TNHH Minh Group ST</span><span class="addr">323–325 Phú Lợi, phường Phú Lợi, TP. Cần Thơ<br>MST: [Mã số thuế]</span><a class="tel" href="tel:0977726700">0977 726 700</a><a href="mailto:minhgroupst@mgst.com.vn">minhgroupst@mgst.com.vn</a></div>
+<div><h2>Công ty</h2><a href="About.dc.html">Giới thiệu</a><a href="About.dc.html#cot-moc">Lịch sử &amp; Cột mốc</a><a href="Organization.dc.html">Cơ cấu tổ chức</a><a href="Organization.dc.html#lanh-dao">Ban lãnh đạo</a><a href="News.dc.html">Tin tức &amp; Thư viện</a></div>
+<div><h2>Lĩnh vực</h2><a href="Services.dc.html#k1">Chuyển đổi số &amp; Tài chính</a><a href="Services.dc.html#k2">Bảo hiểm &amp; An sinh</a><a href="Services.dc.html#k3">Quản lý vận hành</a><a href="Services.dc.html#k4">Dự án &amp; Nhân lực</a></div>
+<div><h2>Dự án &amp; Kết nối</h2><a href="Projects.dc.html#may-ban-hang">Máy bán hàng tự động</a><a href="Projects.dc.html#lai-xe">Đào tạo lái xe</a><a href="Projects.dc.html#nhan-luc">Cung ứng nhân lực</a><a href="Contact.dc.html">Liên hệ</a><a href="https://zalo.me/">Zalo OA</a></div>
+</div>
+<p class="ft-end"><span>© 2026 Minh Group ST</span><span>Tiên phong số hóa · Hiệu quả bứt phá</span></p>
+<div class="wm" aria-hidden="true">MINH GROUP<span>.</span></div>
+</div>
+</footer>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<div class="pop" role="dialog" aria-label="Tư vấn nhanh">
+<div class="pop-hd"><span><img src="/_blob/a59374f9219055b49892dcb2ad96f385" alt="" width="28" height="28" style="width: 28px; height: 28px; object-fit: contain"><span><b>Tư vấn nhanh</b><span>Minh Group ST</span></span></span><button type="button" class="pop-x" aria-label="Đóng" onClick="{{toggle}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div class="ask-done" role="status"><span class="ask-ok" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span><b class="ask-q">Đã nhận yêu cầu của bạn</b><p>Chuyên viên phụ trách mảng {{svcLabel}} sẽ gọi lại số {{phone}} trong giờ làm việc.</p><button type="button" class="btn btn--secondary" onClick="{{reset}}">Gửi yêu cầu khác</button></div>
+</sc-if>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<div class="ask">
+<label for="ask-msg" class="ask-q">Bạn cần hỗ trợ việc gì?</label>
+<div class="chips" role="group" aria-label="Chọn nhanh lĩnh vực"><sc-for list="{{chips}}" as="c" hint-placeholder-count="6"><button type="button" class="chip" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button></sc-for></div>
+<textarea id="ask-msg" rows="2" placeholder="{{placeholder}}" onInput="{{onMsg}}"></textarea>
+<label class="field">Số điện thoại<input type="tel" inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx" onInput="{{onPhone}}" aria-invalid="{{phoneInvalid}}" aria-describedby="ask-err"></label>
+<p id="ask-err" class="err" role="alert">{{errText}}</p>
+<button type="button" class="btn btn--primary btn--lg" onClick="{{submit}}">Gửi yêu cầu <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+</div>
+<div class="ask-ft"><a href="tel:0977726700">Gọi 0977 726 700</a><a href="https://zalo.me/">Zalo OA</a></div>
+</sc-if>
+</div>
+</sc-if>
+<div class="dock" aria-label="Liên hệ nhanh">
+<a class="zalo opt" href="https://zalo.me/" aria-label="Zalo OA">Zalo</a>
+<a class="opt" href="https://m.me/" aria-label="Facebook Messenger"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.6 3 11.2c0 2.5 1.2 4.7 3.1 6.2V21l3-1.7c.9.3 1.9.4 2.9.4 5 0 9-3.6 9-8.3S17 3 12 3z"/><path d="M7.5 13l3-3 2.5 2 3.5-3"/></svg></a>
+<a href="tel:0977726700" aria-label="Gọi 0977 726 700"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></a>
+<button type="button" class="chat" aria-label="Tư vấn nhanh" aria-expanded="{{openStr}}" onClick="{{toggle}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":6220}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const svc = st.svc ?? 0;
+    const defs = [["Hợp tác ngân hàng", "Ví dụ: Ngân hàng cần đội ngũ mở tài khoản số tại 5 xã"], ["Bảo hiểm", "Ví dụ: Tư vấn bảo hiểm xe cơ giới và tai nạn"], ["BHXH, BHYT", "Ví dụ: Tôi muốn tham gia BHYT hộ gia đình cho 4 người"], ["Chi trả trợ cấp", "Ví dụ: Hỏi lịch nhận lương hưu tháng này tại xã"], ["Học lái xe", "Ví dụ: Tôi muốn đăng ký học lái xe hạng A1"], ["Việc làm ngoài nước", "Ví dụ: Tìm hiểu đơn hàng đi Nhật Bản"]];
+    const digits = (st.phone || '').replace(/\D/g, '');
+    const valid = /^0\d{9}$/.test(digits);
+    const bad = !!st.tried && !valid;
+    return {
+      chips: defs.map((d, i) => ({ label: d[0], pressed: i === svc ? 'true' : 'false', pick: () => this.setState({ svc: i }) })),
+      placeholder: defs[svc][1],
+      svcLabel: defs[svc][0],
+      phone: digits,
+      onMsg: (e) => this.setState({ msg: e.target.value }),
+      onPhone: (e) => this.setState({ phone: e.target.value }),
+      phoneInvalid: bad ? 'true' : 'false',
+      errText: bad ? "Vui lòng nhập số điện thoại 10 số, bắt đầu bằng 0." : '',
+      submit: () => valid ? this.setState({ sent: true, tried: false }) : this.setState({ tried: true }),
+      reset: () => this.setState({ sent: false, phone: '', msg: '', tried: false }),
+      open: !!st.open,
+      openStr: st.open ? 'true' : 'false',
+      toggle: () => this.setState({ open: !st.open }),
+      sent: !!st.sent,
+      notSent: !st.sent
+    };
+  }
+}
+</script>
+</body>
+</html>

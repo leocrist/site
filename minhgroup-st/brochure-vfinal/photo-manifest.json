@@ -1,0 +1,508 @@
+{
+  "sourceDirectory": "assets/photo_mgst",
+  "date": "2026-11-10",
+  "assets": [
+    {
+      "name": "digital-launch",
+      "source": "CĐS/1793936102797_1866508725009026622_5022609873118725738_e555681591d4059e8d7dde65897703eb.jpg",
+      "output": "assets/photos/digital-launch.jpg",
+      "size": [
+        1280,
+        706
+      ]
+    },
+    {
+      "name": "digital-team",
+      "source": "CĐS/1793951269063_1866508725009026622_g2659716592490364208_d091adf2cb31f89de641e53c6728916b.jpg",
+      "output": "assets/photos/digital-team.jpg",
+      "size": [
+        1264,
+        772
+      ]
+    },
+    {
+      "name": "partner-meeting",
+      "source": "CĐS/1764683231263_2102304777735177185_g141124832461538872_747142007e80cb1e3a0fe27dfbe9297a.jpg",
+      "output": "assets/photos/partner-meeting.jpg",
+      "size": [
+        2560,
+        1920
+      ]
+    },
+    {
+      "name": "field-consultation",
+      "source": "NHÁNH DỰ ÁN/1793936527961_6336530257690544182_6336530257690544182_52bc4b1d2ee9855fedaf501bec26eda8.jpg",
+      "output": "assets/photos/field-consultation.jpg",
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "name": "social-security",
+      "source": "NHÁNH AN SINH VÀ CHI TRẢ/1791118688869_5666088618759462776_5666088618759462776_50178794a71d615b229fee778957c460.jpg",
+      "output": "assets/photos/social-security.jpg",
+      "size": [
+        1280,
+        960
+      ]
+    },
+    {
+      "name": "payment-support",
+      "source": "NHÁNH AN SINH VÀ CHI TRẢ/1793856899382_4669936223272304151_g4006423451682332224_8a3a2d4605856969ce8639a7a6f102f4.jpg",
+      "output": "assets/photos/payment-support.jpg",
+      "size": [
+        1276,
+        956
+      ]
+    },
+    {
+      "name": "community-lighting",
+      "source": "TÀI TRỢ/1793955382782_1866508725009026622_g2659716592490364208_8645b597cc3b1ef403f4ec355fecdf9e.jpg",
+      "output": "assets/photos/community-lighting.jpg",
+      "size": [
+        1290,
+        853
+      ]
+    },
+    {
+      "name": "community-support",
+      "source": "TÀI TRỢ/1793955723522_1866508725009026622_g2659716592490364208_948d83dd6c18864ad5fca82758f3b759.jpg",
+      "output": "assets/photos/community-support.jpg",
+      "size": [
+        1478,
+        1109
+      ]
+    },
+    {
+      "name": "dinh-hoang-minh",
+      "source": "BAN LÃNH ĐẠO/ĐINH HOÀNG MINH.jpg",
+      "output": "assets/photos/dinh-hoang-minh.jpg",
+      "size": [
+        1023,
+        1537
+      ]
+    },
+    {
+      "name": "dinh-hoang-cong",
+      "source": "BAN LÃNH ĐẠO/ĐINH HOÀNG CÔNG.jpg",
+      "output": "assets/photos/dinh-hoang-cong.jpg",
+      "size": [
+        1086,
+        1448
+      ]
+    },
+    {
+      "name": "lu-hong-huynh",
+      "source": "BAN LÃNH ĐẠO/LƯ HỒNG HUỲNH.jpg",
+      "output": "assets/photos/lu-hong-huynh.jpg",
+      "size": [
+        402,
+        567
+      ]
+    },
+    {
+      "name": "nguyen-thi-hong-hue",
+      "source": "BAN LÃNH ĐẠO/NGUYỄN THỊ HỒNG HUỆ.png",
+      "output": "assets/photos/nguyen-thi-hong-hue.png",
+      "size": [
+        1070,
+        1470
+      ]
+    },
+    {
+      "name": "phan-huu-linh",
+      "source": "BAN LÃNH ĐẠO/PHAN HỮU LINH.jpg",
+      "output": "assets/photos/phan-huu-linh.jpg",
+      "size": [
+        960,
+        1280
+      ]
+    },
+    {
+      "name": "duong-minh-truong",
+      "source": "BAN LÃNH ĐẠO/DƯƠNG MINH TRƯỜNG.jpg",
+      "output": "assets/photos/duong-minh-truong.jpg",
+      "size": [
+        960,
+        1280
+      ]
+    },
+    {
+      "name": "tran-thi-lam-thy",
+      "source": "BAN LÃNH ĐẠO/TRẦN THỊ LAM THY.jpg",
+      "output": "assets/photos/tran-thi-lam-thy.jpg",
+      "size": [
+        1440,
+        1920
+      ]
+    },
+    {
+      "name": "thank-you-thanh-thoi-an",
+      "source": "THƯ CẢM ƠN/THƯ CẢM ƠN (4).pdf",
+      "output": "assets/documents/thank-you-thanh-thoi-an.pdf",
+      "caption": "UBND xã Thạnh Thới An · 10/12/2025",
+      "preview": "assets/documents/thank-you-thanh-thoi-an.png"
+    },
+    {
+      "name": "thank-you-vinh-hoa",
+      "source": "THƯ CẢM ƠN/THƯ CẢM ƠN 1.pdf",
+      "output": "assets/documents/thank-you-vinh-hoa.pdf",
+      "caption": "UBND xã Vĩnh Hoà · 15/01/2026",
+      "preview": "assets/documents/thank-you-vinh-hoa.png"
+    }
+  ],
+  "pendingRoles": [],
+  "provisionalRoles": [
+    "Bà Trần Thị Lam Thy"
+  ],
+  "projectPhotoScope": "Field-consultation photos are used only for field capacity, not as evidence of vending machines, driving schools or overseas job placement.",
+  "framing": [
+    {
+      "id": "cover",
+      "photo": "digital-launch",
+      "frameMm": [
+        216,
+        93
+      ],
+      "sourceRegionPx": [
+        0,
+        93.118,
+        1280,
+        551.111
+      ],
+      "protect": "All group faces, both end participants and event banners; crop ceiling and chair bottoms."
+    },
+    {
+      "id": "overview-meeting",
+      "photo": "partner-meeting",
+      "frameMm": [
+        90,
+        42
+      ],
+      "sourceRegionPx": [
+        0,
+        537.579,
+        2560,
+        1194.667
+      ],
+      "protect": "Full table width and participant faces; remove excess ceiling and foreground desk."
+    },
+    {
+      "id": "overview-team",
+      "photo": "digital-team",
+      "frameMm": [
+        90,
+        42
+      ],
+      "sourceRegionPx": [
+        0,
+        169.965,
+        1264,
+        589.867
+      ],
+      "protect": "Both end participants, full blue banner and group; crop roof/sky only."
+    },
+    {
+      "id": "field-team",
+      "photo": "field-consultation",
+      "frameMm": [
+        107.5,
+        60
+      ],
+      "sourceRegionPx": [
+        0,
+        2.791,
+        1280,
+        714.419
+      ],
+      "protect": "Full field consultation."
+    },
+    {
+      "id": "field-payment",
+      "photo": "payment-support",
+      "frameMm": [
+        107.5,
+        60
+      ],
+      "sourceRegionPx": [
+        0,
+        84.623,
+        1276,
+        712.186
+      ],
+      "protect": "Full photo width and the interaction with elderly participants."
+    },
+    {
+      "id": "digital-launch",
+      "photo": "digital-launch",
+      "frameMm": [
+        90,
+        44
+      ],
+      "sourceRegionPx": [
+        0,
+        77.776,
+        1280,
+        625.778
+      ],
+      "protect": "All faces, event banners and both side participants."
+    },
+    {
+      "id": "finance-meeting",
+      "photo": "partner-meeting",
+      "frameMm": [
+        90,
+        44
+      ],
+      "sourceRegionPx": [
+        0,
+        480.142,
+        2560,
+        1251.556
+      ],
+      "protect": "Full table width, central speaker and participant faces."
+    },
+    {
+      "id": "insurance-service",
+      "photo": "social-security",
+      "frameMm": [
+        90,
+        44
+      ],
+      "sourceRegionPx": [
+        0,
+        268.871,
+        1280,
+        625.778
+      ],
+      "protect": "Staff and residents at the consultation table; crop ceiling and floor."
+    },
+    {
+      "id": "social-payment",
+      "photo": "payment-support",
+      "frameMm": [
+        90,
+        44
+      ],
+      "sourceRegionPx": [
+        0,
+        124.503,
+        1276,
+        623.822
+      ],
+      "protect": "Staff and residents' faces across the full photo width."
+    },
+    {
+      "id": "portrait-dinh-hoang-minh",
+      "photo": "dinh-hoang-minh",
+      "frameMm": [
+        20,
+        26
+      ],
+      "sourceRegionPx": [
+        304.854,
+        192.04,
+        500.247,
+        650.321
+      ],
+      "protect": "Full hair, ears, face and upper chest."
+    },
+    {
+      "id": "portrait-dinh-hoang-cong",
+      "photo": "dinh-hoang-cong",
+      "frameMm": [
+        20,
+        26
+      ],
+      "sourceRegionPx": [
+        0,
+        0,
+        1086,
+        1411.8
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    {
+      "id": "portrait-lu-hong-huynh",
+      "photo": "lu-hong-huynh",
+      "frameMm": [
+        20,
+        26
+      ],
+      "sourceRegionPx": [
+        0,
+        0.087,
+        402,
+        522.6
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    {
+      "id": "portrait-nguyen-thi-hong-hue",
+      "photo": "nguyen-thi-hong-hue",
+      "frameMm": [
+        20,
+        26
+      ],
+      "sourceRegionPx": [
+        0,
+        0,
+        1070,
+        1391.0
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    {
+      "id": "portrait-phan-huu-linh",
+      "photo": "phan-huu-linh",
+      "frameMm": [
+        20,
+        26
+      ],
+      "sourceRegionPx": [
+        219.84,
+        128.016,
+        500.16,
+        650.208
+      ],
+      "protect": "Full hair, face and upper chest; remove excess waist/arms."
+    },
+    {
+      "id": "portrait-duong-minh-truong",
+      "photo": "duong-minh-truong",
+      "frameMm": [
+        20,
+        26
+      ],
+      "sourceRegionPx": [
+        0,
+        0,
+        960,
+        1248.0
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    {
+      "id": "portrait-tran-thi-lam-thy",
+      "photo": "tran-thi-lam-thy",
+      "frameMm": [
+        20,
+        26
+      ],
+      "sourceRegionPx": [
+        453.6,
+        380.496,
+        653.76,
+        849.888
+      ],
+      "protect": "Full hair, face and upper chest; remove ceiling, dining table and chair."
+    },
+    {
+      "id": "achievement-support",
+      "photo": "community-support",
+      "frameMm": [
+        58.666666666666664,
+        32
+      ],
+      "sourceRegionPx": [
+        0,
+        44.557,
+        1478,
+        806.182
+      ],
+      "protect": "Company name, donation banner and central participants; no amount altered."
+    },
+    {
+      "id": "achievement-field",
+      "photo": "field-consultation",
+      "frameMm": [
+        58.666666666666664,
+        32
+      ],
+      "sourceRegionPx": [
+        0,
+        7.201,
+        1280,
+        698.182
+      ],
+      "protect": "Full outreach activity."
+    },
+    {
+      "id": "achievement-team",
+      "photo": "digital-team",
+      "frameMm": [
+        58.666666666666664,
+        32
+      ],
+      "sourceRegionPx": [
+        0,
+        76.978,
+        1264,
+        689.455
+      ],
+      "protect": "Full group width and full event banner."
+    },
+    {
+      "id": "achievement-lighting",
+      "photo": "community-lighting",
+      "frameMm": [
+        132,
+        73
+      ],
+      "sourceRegionPx": [
+        11.997,
+        138.273,
+        1266.006,
+        700.14
+      ],
+      "protect": "Both end participants, lighting banner, ribbon and Dong Thap watermark; crop only sky and outer screenshot border."
+    },
+    {
+      "id": "achievement-payment-detail",
+      "photo": "payment-support",
+      "frameMm": [
+        44,
+        52
+      ],
+      "sourceRegionPx": [
+        433.84,
+        94.4,
+        535.92,
+        633.36
+      ],
+      "protect": "Central staff/resident interaction and PVI shirt; no partial cut through the main subjects' heads."
+    },
+    {
+      "id": "achievement-meeting-detail",
+      "photo": "partner-meeting",
+      "frameMm": [
+        44,
+        52
+      ],
+      "sourceRegionPx": [
+        716.8,
+        269.382,
+        1331.2,
+        1573.236
+      ],
+      "protect": "Central speaker and surrounding discussion context."
+    },
+    {
+      "id": "achievement-insurance-detail",
+      "photo": "social-security",
+      "frameMm": [
+        44,
+        52
+      ],
+      "sourceRegionPx": [
+        320.0,
+        153.775,
+        652.8,
+        771.491
+      ],
+      "protect": "Consultation staff, residents at the table and paperwork."
+    }
+  ],
+  "framingVersion": "image-polish-20261110"
+}
