@@ -25,11 +25,42 @@ img{display:block}
 .sec i,.lbl i{font:italic 400 8.4pt var(--enf);letter-spacing:0;text-transform:none;color:var(--or2);margin-left:1.8mm;font-size:9.4pt}
 .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:3.4mm;border-top:.25mm solid var(--ln);font-size:6.4pt;color:var(--mut)}
 .pn{font:700 7pt var(--head);letter-spacing:.12em;color:var(--ink)}
+/* slogan block */
+.slo{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-left:3mm solid var(--or)}
+.slo-g{position:absolute;right:0;top:0;bottom:0;width:70mm;background-image:linear-gradient(to right,rgba(255,255,255,.1) .25mm,transparent .25mm),linear-gradient(to bottom,rgba(255,255,255,.1) .25mm,transparent .25mm);background-size:10mm 10mm;-webkit-mask-image:linear-gradient(to right,transparent,#000 55%);mask-image:linear-gradient(to right,transparent,#000 55%)}
+.slo-g i{position:absolute;width:10mm;height:10mm}
+.slo-t{position:relative}
+.slo-k{display:flex;align-items:center;gap:2mm;font:700 6.2pt var(--head);letter-spacing:.18em;text-transform:uppercase;color:#ef7a52}
+.slo-k em{font:italic 400 8.6pt var(--enf);letter-spacing:0;text-transform:none;color:#d6d1cc}
+.slo h1{color:#fff;margin-top:3mm}
+.slo h1 span{color:#ef7a52;font-weight:700}
+.slo .eh{color:#f6c4ae}
+/* organisation chart */
+.obus{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;height:8mm}
+.obus::before{content:"";position:absolute;left:50%;top:0;width:.5mm;height:4mm;margin-left:-.25mm;background:var(--or)}
+.obus span{position:relative;background:radial-gradient(circle at 50% calc(100% - 1.1mm),var(--or) 1.05mm,transparent 1.15mm)}
+.obus span::before{content:"";position:absolute;left:50%;top:3.75mm;bottom:1.1mm;width:.5mm;margin-left:-.25mm;background:var(--or)}
+.obus span::after{content:"";position:absolute;top:3.75mm;height:.5mm;left:-1.5mm;right:-1.5mm;background:var(--or)}
+.obus span:first-child::after{left:calc(50% - .25mm)}
+.obus span:last-child::after{right:calc(50% - .25mm)}
+.ocard{border:.25mm solid var(--ln);border-radius:2mm;overflow:hidden;background:#fff}
+.ocard header{position:relative;display:block;background:var(--tint);padding:3mm 3mm 2.6mm;min-height:20.5mm;border-bottom:.25mm solid var(--ln)}
+.ocard header b{display:inline-flex;align-items:center;justify-content:center;width:6mm;height:6mm;border-radius:1.2mm;background:var(--or);color:#fff;font:700 7pt var(--head);margin-bottom:1.8mm}
+.ocard .t{font-size:8.2pt}.ocard .te{font-size:8.2pt}
+.ocard li{display:flex;gap:2.2mm;align-items:flex-start;padding:1.7mm 3mm;border-top:.25mm solid var(--ln);font:500 7.2pt/1.3 var(--body);list-style:none}
+.ocard li:first-child{border-top:0}
+.ocard li i{width:1.6mm;height:1.6mm;background:var(--or);flex-shrink:0;margin-top:1mm}
+.ocard li em{display:block;font:italic 400 7.3pt/1.3 var(--enf);color:var(--en)}
+/* process steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm}
+.steps>div{position:relative;background:var(--tint);border-top:.7mm solid var(--or);padding:3mm 3mm 3.4mm}
+.steps b{display:block;font:700 13pt/1 var(--head);color:var(--or);margin-bottom:2.2mm}
+.steps .t{font-size:8.4pt}.steps .te{font-size:8.6pt}
+.big b{display:block;font:700 36pt/1 var(--head);letter-spacing:-.03em;color:var(--or)}
 /* the two voices */
 h1{font:600 25pt/1.14 var(--head);letter-spacing:-.02em}
 h1 span{color:var(--or)}
-.eh{display:flex;align-items:center;gap:3mm;margin-top:3mm;font:italic 400 17pt/1.2 var(--enf);color:var(--or)}
-.eh::before{content:"";flex:0 0 9mm;height:.35mm;background:var(--or)}
+.eh{margin-top:2.6mm;font:italic 400 17pt/1.2 var(--enf);color:var(--or)}
 p{font:400 8.7pt/1.55 var(--body);color:var(--tx)}
 p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .lbl{font:700 6.2pt var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
@@ -53,12 +84,11 @@ p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .cap{font:400 6.2pt/1.4 var(--body);color:var(--mut);margin-top:1.4mm}
 .cap i{font:italic 6.8pt var(--enf);color:var(--en)}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
-.pair>.e{padding-left:6mm;border-left:.35mm solid var(--or)}
 .band{background:var(--or);color:#fff;padding:4.5mm 6mm}
-.band .t{color:#fff}.band .te{color:#ffe1d3}.band .eh::before{background:#fff}
+.band .t{color:#fff}.band .te{color:#ffe1d3}
 .dk{background:var(--ink);color:#fff}
 .li{display:flex;gap:3.2mm;align-items:flex-start;padding:2.6mm 0;border-top:.25mm solid var(--ln)}
-.li .t{font-size:9pt}.li .te{font-size:9.2pt}
+.li{padding:3.2mm 0}.li .t{font-size:10pt}.li .te{font-size:10pt}
 .ck{width:4.2mm;height:4.2mm;border:.35mm solid var(--or);flex-shrink:0;position:relative;margin-top:.4mm}
 .ck::after{content:"";position:absolute;left:1.1mm;top:.35mm;width:1.2mm;height:2.2mm;border:solid var(--or);border-width:0 .4mm .4mm 0;transform:rotate(45deg)}
 </style>
@@ -69,7 +99,7 @@ p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
  <div style="flex:1"><p>Lực lượng tại chỗ kết nối dịch vụ của đối tác với nhu cầu thực tế tại bệnh viện, cơ quan hành chính và hộ gia đình.</p><p class="e" style="margin-top:1.2mm">A local force linking partners' services to real needs in hospitals, public offices and homes.</p></div>
 </div>
 <div class="g3 line" style="margin-top:6mm;padding-top:5mm"><div class="stat"><b>~300</b><div class="t">nhân sự chuyên trách tại địa bàn</div><div class="te">dedicated field staff</div></div><div class="stat"><b>10+</b><div class="t">phòng kinh doanh tại ĐBSCL</div><div class="te">sales offices in the Mekong Delta</div></div><div class="stat"><b>4</b><div class="t">khối hoạt động bổ trợ nhau</div><div class="te">mutually reinforcing divisions</div></div></div>
-<div class="row" style="margin-top:6mm"><div style="flex:1.25;min-width:0"><div class="ph" style="height:53mm"><img src="/_blob/563d895edec49aacfbe5cdecc4193d28" alt="" style="object-position:center"></div></div><div style="flex:1;min-width:0"><div class="ph" style="height:53mm"><img src="/_blob/26a36c7696e6a180356dfe1a5a6cad46" alt="" style="object-position:center"></div></div></div>
+<div class="row" style="margin-top:6mm"><div style="flex:1.25;min-width:0"><div class="ph" style="height:39mm"><img src="/_blob/563d895edec49aacfbe5cdecc4193d28" alt="" style="object-position:center"></div></div><div style="flex:1;min-width:0"><div class="ph" style="height:39mm"><img src="/_blob/26a36c7696e6a180356dfe1a5a6cad46" alt="" style="object-position:center"></div></div></div>
 <div class="cap">Hoạt động thực tế tại cơ sở <i>/ Field activities</i> · Tư liệu Minh Group ST</div>
 <div class="g4" style="margin-top:4mm">
  <div class="card" style="padding:3mm"><div class="t">Bệnh viện</div><div class="te">Hospitals</div><div class="s">Viện phí không tiền mặt</div><div class="se">Cashless hospital bills</div></div>
@@ -78,9 +108,7 @@ p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
  <div class="card" style="padding:3mm"><div class="t">Hộ gia đình</div><div class="te">Households</div><div class="s">Hỗ trợ người cao tuổi</div><div class="se">Support for the elderly</div></div>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:6mm"><div class="lbl" style="margin-top:0">Cơ cấu tổ chức<i>Organisation</i></div><span class="cap" style="margin:0">1 ban lãnh đạo · 4 khối · 12 đơn vị <i>/ 1 board · 4 divisions · 12 units</i></span></div>
-<div style="display:flex;justify-content:center;margin-top:3mm"><div style="background:var(--or);color:#fff;padding:1.8mm 9mm;text-align:center"><div class="t" style="font-size:8.6pt;color:#fff">Ban lãnh đạo</div><div class="te" style="font-size:8pt;color:#ffe1d3;margin:0">Board of management</div></div></div>
-<div style="width:.35mm;height:3.5mm;background:var(--or);margin:0 auto"></div>
-<div class="g4"><div><div style="border-top:.7mm solid var(--or);background:var(--tint);padding:2.6mm 3mm;min-height:17mm"><div class="t" style="font-size:8pt">Chuyển đổi số &amp; Tài chính</div><div class="te" style="font-size:8pt">Digital &amp; finance</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">PKD Lưu động</div><div class="se" style="margin:0;font-size:7.2pt">Mobile sales</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">PKD kênh Y tế</div><div class="se" style="margin:0;font-size:7.2pt">Healthcare channel</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">PKD Tổng hợp</div><div class="se" style="margin:0;font-size:7.2pt">General sales</div></div></div><div><div style="border-top:.7mm solid var(--or);background:var(--tint);padding:2.6mm 3mm;min-height:17mm"><div class="t" style="font-size:8pt">Bảo hiểm &amp; An sinh</div><div class="te" style="font-size:8pt">Insurance &amp; social security</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Phòng An sinh</div><div class="se" style="margin:0;font-size:7.2pt">Social security</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Phòng Chi trả</div><div class="se" style="margin:0;font-size:7.2pt">Benefit payments</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Bảo hiểm học sinh</div><div class="se" style="margin:0;font-size:7.2pt">Student insurance</div></div></div><div><div style="border-top:.7mm solid var(--or);background:var(--tint);padding:2.6mm 3mm;min-height:17mm"><div class="t" style="font-size:8pt">Quản lý vận hành &amp; Nội bộ</div><div class="te" style="font-size:8pt">Operations</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Nhân sự</div><div class="se" style="margin:0;font-size:7.2pt">Human resources</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Kế toán</div><div class="se" style="margin:0;font-size:7.2pt">Accounting</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Hậu cần &amp; Kỹ thuật</div><div class="se" style="margin:0;font-size:7.2pt">Logistics &amp; technical</div></div></div><div><div style="border-top:.7mm solid var(--or);background:var(--tint);padding:2.6mm 3mm;min-height:17mm"><div class="t" style="font-size:8pt">Dự án &amp; Cung ứng nhân lực</div><div class="te" style="font-size:8pt">Projects &amp; workforce</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Đào tạo lái xe</div><div class="se" style="margin:0;font-size:7.2pt">Driver training</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Máy bán hàng tự động</div><div class="se" style="margin:0;font-size:7.2pt">Vending machines</div></div><div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">Cung ứng nhân lực</div><div class="se" style="margin:0;font-size:7.2pt">Workforce supply</div></div></div></div>
+<div style="display:flex;justify-content:center;margin-top:3mm"><div style="display:flex;align-items:center;gap:3mm;background:var(--ink);color:#fff;padding:2mm 7mm 2mm 2mm;border-radius:2mm"><span style="width:8.5mm;height:8.5mm;background:var(--or);border-radius:1.4mm;display:flex;align-items:center;justify-content:center"><svg width="4.6mm" height="4.6mm" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></svg></span><div><div class="t" style="color:#fff;font-size:9.4pt">Ban lãnh đạo</div><div class="te" style="color:#f6c4ae;font-size:8.8pt;margin:0">Board of management</div></div></div></div><div class="obus"><span></span><span></span><span></span><span></span></div><div class="g4"><div class="ocard"><header><b>01</b><div class="t">Chuyển đổi số &amp; Tài chính</div><div class="te">Digital &amp; finance</div></header><ul><li><i></i><span>PKD Lưu động<em>Mobile sales</em></span></li><li><i></i><span>PKD kênh Y tế<em>Healthcare channel</em></span></li><li><i></i><span>PKD Tổng hợp<em>General sales</em></span></li></ul></div><div class="ocard"><header><b>02</b><div class="t">Bảo hiểm &amp; An sinh</div><div class="te">Insurance &amp; social security</div></header><ul><li><i></i><span>Phòng An sinh<em>Social security</em></span></li><li><i></i><span>Phòng Chi trả<em>Benefit payments</em></span></li><li><i></i><span>Bảo hiểm học sinh<em>Student insurance</em></span></li></ul></div><div class="ocard"><header><b>03</b><div class="t">Quản lý vận hành &amp; Nội bộ</div><div class="te">Operations</div></header><ul><li><i></i><span>Nhân sự<em>Human resources</em></span></li><li><i></i><span>Kế toán<em>Accounting</em></span></li><li><i></i><span>Hậu cần &amp; Kỹ thuật<em>Logistics &amp; technical</em></span></li></ul></div><div class="ocard"><header><b>04</b><div class="t">Dự án &amp; Cung ứng nhân lực</div><div class="te">Projects &amp; workforce</div></header><ul><li><i></i><span>Đào tạo lái xe<em>Driver training</em></span></li><li><i></i><span>Máy bán hàng tự động<em>Vending machines</em></span></li><li><i></i><span>Cung ứng nhân lực<em>Workforce supply</em></span></li></ul></div></div>
 <div class="ft"><span>Minh Group ST · Hồ sơ năng lực 2026 <i class="e" style="font-size:7pt">/ Corporate Profile 2026</i></span><span class="pn">03</span></div></div></section>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":816,"height":1145}}'>

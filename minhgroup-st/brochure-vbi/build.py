@@ -49,11 +49,42 @@ img{display:block}
 .sec i,.lbl i{font:italic 400 8.4pt var(--enf);letter-spacing:0;text-transform:none;color:var(--or2);margin-left:1.8mm;font-size:9.4pt}
 .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:3.4mm;border-top:.25mm solid var(--ln);font-size:6.4pt;color:var(--mut)}
 .pn{font:700 7pt var(--head);letter-spacing:.12em;color:var(--ink)}
+/* slogan block */
+.slo{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-left:3mm solid var(--or)}
+.slo-g{position:absolute;right:0;top:0;bottom:0;width:70mm;background-image:linear-gradient(to right,rgba(255,255,255,.1) .25mm,transparent .25mm),linear-gradient(to bottom,rgba(255,255,255,.1) .25mm,transparent .25mm);background-size:10mm 10mm;-webkit-mask-image:linear-gradient(to right,transparent,#000 55%);mask-image:linear-gradient(to right,transparent,#000 55%)}
+.slo-g i{position:absolute;width:10mm;height:10mm}
+.slo-t{position:relative}
+.slo-k{display:flex;align-items:center;gap:2mm;font:700 6.2pt var(--head);letter-spacing:.18em;text-transform:uppercase;color:#ef7a52}
+.slo-k em{font:italic 400 8.6pt var(--enf);letter-spacing:0;text-transform:none;color:#d6d1cc}
+.slo h1{color:#fff;margin-top:3mm}
+.slo h1 span{color:#ef7a52;font-weight:700}
+.slo .eh{color:#f6c4ae}
+/* organisation chart */
+.obus{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;height:8mm}
+.obus::before{content:"";position:absolute;left:50%;top:0;width:.5mm;height:4mm;margin-left:-.25mm;background:var(--or)}
+.obus span{position:relative;background:radial-gradient(circle at 50% calc(100% - 1.1mm),var(--or) 1.05mm,transparent 1.15mm)}
+.obus span::before{content:"";position:absolute;left:50%;top:3.75mm;bottom:1.1mm;width:.5mm;margin-left:-.25mm;background:var(--or)}
+.obus span::after{content:"";position:absolute;top:3.75mm;height:.5mm;left:-1.5mm;right:-1.5mm;background:var(--or)}
+.obus span:first-child::after{left:calc(50% - .25mm)}
+.obus span:last-child::after{right:calc(50% - .25mm)}
+.ocard{border:.25mm solid var(--ln);border-radius:2mm;overflow:hidden;background:#fff}
+.ocard header{position:relative;display:block;background:var(--tint);padding:3mm 3mm 2.6mm;min-height:20.5mm;border-bottom:.25mm solid var(--ln)}
+.ocard header b{display:inline-flex;align-items:center;justify-content:center;width:6mm;height:6mm;border-radius:1.2mm;background:var(--or);color:#fff;font:700 7pt var(--head);margin-bottom:1.8mm}
+.ocard .t{font-size:8.2pt}.ocard .te{font-size:8.2pt}
+.ocard li{display:flex;gap:2.2mm;align-items:flex-start;padding:1.7mm 3mm;border-top:.25mm solid var(--ln);font:500 7.2pt/1.3 var(--body);list-style:none}
+.ocard li:first-child{border-top:0}
+.ocard li i{width:1.6mm;height:1.6mm;background:var(--or);flex-shrink:0;margin-top:1mm}
+.ocard li em{display:block;font:italic 400 7.3pt/1.3 var(--enf);color:var(--en)}
+/* process steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm}
+.steps>div{position:relative;background:var(--tint);border-top:.7mm solid var(--or);padding:3mm 3mm 3.4mm}
+.steps b{display:block;font:700 13pt/1 var(--head);color:var(--or);margin-bottom:2.2mm}
+.steps .t{font-size:8.4pt}.steps .te{font-size:8.6pt}
+.big b{display:block;font:700 36pt/1 var(--head);letter-spacing:-.03em;color:var(--or)}
 /* the two voices */
 h1{font:600 25pt/1.14 var(--head);letter-spacing:-.02em}
 h1 span{color:var(--or)}
-.eh{display:flex;align-items:center;gap:3mm;margin-top:3mm;font:italic 400 17pt/1.2 var(--enf);color:var(--or)}
-.eh::before{content:"";flex:0 0 9mm;height:.35mm;background:var(--or)}
+.eh{margin-top:2.6mm;font:italic 400 17pt/1.2 var(--enf);color:var(--or)}
 p{font:400 8.7pt/1.55 var(--body);color:var(--tx)}
 p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .lbl{font:700 6.2pt var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
@@ -77,12 +108,11 @@ p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .cap{font:400 6.2pt/1.4 var(--body);color:var(--mut);margin-top:1.4mm}
 .cap i{font:italic 6.8pt var(--enf);color:var(--en)}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
-.pair>.e{padding-left:6mm;border-left:.35mm solid var(--or)}
 .band{background:var(--or);color:#fff;padding:4.5mm 6mm}
-.band .t{color:#fff}.band .te{color:#ffe1d3}.band .eh::before{background:#fff}
+.band .t{color:#fff}.band .te{color:#ffe1d3}
 .dk{background:var(--ink);color:#fff}
 .li{display:flex;gap:3.2mm;align-items:flex-start;padding:2.6mm 0;border-top:.25mm solid var(--ln)}
-.li .t{font-size:9pt}.li .te{font-size:9.2pt}
+.li{padding:3.2mm 0}.li .t{font-size:10pt}.li .te{font-size:10pt}
 .ck{width:4.2mm;height:4.2mm;border:.35mm solid var(--or);flex-shrink:0;position:relative;margin-top:.4mm}
 .ck::after{content:"";position:absolute;left:1.1mm;top:.35mm;width:1.2mm;height:2.2mm;border:solid var(--or);border-width:0 .4mm .4mm 0;transform:rotate(45deg)}
 '''
@@ -116,8 +146,15 @@ def std(n, sec_vi, sec_en, body):
 P = []
 # 01 cover (VFinal layout, second voice added) ----------------------
 SPK = '<svg viewBox="0 0 24 24" width="4.2mm" height="4.2mm" fill="#fff" aria-hidden="true"><path d="M12 1.5c.7 5.6 4.9 9.8 10.5 10.5-5.6.7-9.8 4.9-10.5 10.5-.7-5.6-4.9-9.8-10.5-10.5C7.1 11.3 11.3 7.1 12 1.5z"></path></svg>'
+def slogan(style, pad, size, en, extra=''):
+    cells = [(6, 0, .95), (5, 0, .3), (4, 1, .7), (6, 2, .45), (3, 0, .16), (5, 2, .22), (3, 2, .8), (4, 3, .4), (2, 1, .26), (6, 4, .3), (2, 3, .55), (5, 4, .75), (4, 5, .2), (6, 5, .5)]
+    g = ''.join(f'<i style="left:{x * 10}mm;top:{y * 10}mm;background:rgba(239,122,82,{a})"></i>' for x, y, a in cells)
+    return (f'<div class="slo" style="{style}"><div class="slo-g">{g}</div><div class="slo-t" style="padding:{pad}">'
+            f'<div class="slo-k">Thông điệp thương hiệu<em>Brand message</em></div>'
+            f'<h1 style="font-size:{size}">Tiên phong số hóa –<br><span>Hiệu quả bứt phá</span></h1>'
+            f'<div class="eh" style="font-size:{en}">Digital first. Breakthrough results.</div></div>{extra}</div>')
 def cstat(n, vi, en):
-    return f'<div style="padding:7mm 6mm 0;border-left:.25mm solid var(--ln)"><div style="font:700 43pt/1 var(--head);letter-spacing:-.03em;color:var(--or)">{n}</div><div class="t" style="margin-top:4mm;font-size:9.6pt">{vi}</div><div class="te" style="font-size:10.4pt">{en}</div></div>'
+    return f'<div style="padding:6mm 6mm 0;border-left:.25mm solid var(--ln)"><div style="font:700 40pt/1 var(--head);letter-spacing:-.03em;color:var(--or)">{n}</div><div class="t" style="margin-top:4mm;font-size:9.6pt">{vi}</div><div class="te" style="font-size:10.4pt">{en}</div></div>'
 def cval(vi, en):
     return f'<div style="text-align:center"><div style="font:600 14.5pt/1.2 var(--head);color:#fff">{vi}</div><div class="te" style="font-size:10.4pt;color:#ffe1d3;margin-top:1mm">{en}</div></div>'
 P.append(page(1, f'''
@@ -127,19 +164,15 @@ P.append(page(1, f'''
 </div>
 <div class="sq" style="position:absolute;left:8mm;top:29mm;width:5mm;height:5mm"></div><div class="sq" style="position:absolute;right:8mm;top:29mm;width:5mm;height:5mm"></div>
 <div class="ph" style="position:absolute;left:0;right:0;top:46.5mm;height:93mm"><img src="{src('digital-launch')}" alt="" style="object-position:center 62%"></div>
-<div class="dk" style="position:absolute;left:0;right:0;top:139.5mm;height:48mm;padding:7.5mm 19mm 0">
- <h1 style="font-size:27pt;color:#fff">Tiên phong số hóa –<br><span style="color:#ef7a52">Hiệu quả bứt phá</span></h1>
- <div class="eh" style="font-size:15.5pt;color:#f6c4ae;margin-top:3mm">Digital first. Breakthrough results.</div>
- <div class="cap" style="position:absolute;right:4mm;bottom:2mm;color:#d6d1cc;margin:0">Lễ ra quân chuyển đổi số <i style="color:#d6d1cc">/ Digital transformation launch</i> · Tư liệu Minh Group ST</div>
-</div>
-<div style="position:absolute;left:18mm;right:18mm;top:187.5mm;height:54mm;border-top:.7mm solid var(--or);border-right:.25mm solid var(--ln);display:grid;grid-template-columns:1.15fr 1fr 1fr">
+{slogan('position:absolute;left:0;right:0;top:139.5mm;height:57mm', '7mm 16mm 0', '29pt', '16pt', '<div class="cap" style="position:absolute;left:19mm;bottom:2mm;color:#a39d98;margin:0">Lễ ra quân chuyển đổi số <i style="color:#a39d98">/ Digital transformation launch</i> · Tư liệu Minh Group ST</div>')}
+<div style="position:absolute;left:18mm;right:18mm;top:196.5mm;height:49mm;border-top:.7mm solid var(--or);border-right:.25mm solid var(--ln);display:grid;grid-template-columns:1.15fr 1fr 1fr">
  {cstat('~300', 'Nhân sự chuyên trách', 'Dedicated field staff')}{cstat('10+', 'Phòng kinh doanh', 'Sales offices')}{cstat('4', 'Khối hoạt động', 'Operating divisions')}
 </div>
-<div class="sq" style="position:absolute;left:8mm;top:194mm;width:5mm;height:5mm"></div><div class="sq" style="position:absolute;right:8mm;top:224mm;width:5mm;height:5mm"></div>
-<div style="position:absolute;left:0;right:0;top:241.5mm;height:27mm;background:var(--or);padding:0 26mm;display:flex;align-items:center;justify-content:space-between">
+<div class="sq" style="position:absolute;left:8mm;top:202mm;width:5mm;height:5mm"></div><div class="sq" style="position:absolute;right:8mm;top:230mm;width:5mm;height:5mm"></div>
+<div style="position:absolute;left:0;right:0;top:245.5mm;height:25mm;background:var(--or);padding:0 26mm;display:flex;align-items:center;justify-content:space-between">
  {cval('Gần dân', 'Close to the people')}{SPK}{cval('Minh bạch', 'Transparent')}{SPK}{cval('Trách nhiệm', 'Responsible')}
 </div>
-<div style="position:absolute;left:21mm;right:21mm;top:276mm;display:flex;justify-content:space-between;align-items:flex-start">
+<div style="position:absolute;left:21mm;right:21mm;top:278mm;display:flex;justify-content:space-between;align-items:flex-start">
  <div><div style="font:700 7.4pt var(--head);letter-spacing:.08em">CÔNG TY TNHH MINH GROUP ST</div><div class="e" style="font-size:8.4pt;margin-top:.8mm">Minh Group ST Co., Ltd.</div></div>
  <div style="text-align:right;font-size:6.6pt;color:var(--mut)">Tài chính số · Bảo hiểm &amp; An sinh · Dự án &amp; Nhân lực<div class="e" style="font-size:7.6pt;margin-top:.8mm">Digital finance · Insurance &amp; social security · Projects &amp; workforce</div></div>
 </div>'''))
@@ -171,13 +204,20 @@ ORG = [('Chuyển đổi số &amp; Tài chính', 'Digital &amp; finance', [('PK
        ('Dự án &amp; Cung ứng nhân lực', 'Projects &amp; workforce', [('Đào tạo lái xe', 'Driver training'), ('Máy bán hàng tự động', 'Vending machines'), ('Cung ứng nhân lực', 'Workforce supply')])]
 org = ''.join(f'<div><div style="border-top:.7mm solid var(--or);background:var(--tint);padding:2.6mm 3mm;min-height:17mm"><div class="t" style="font-size:8pt">{a}</div><div class="te" style="font-size:8pt">{b}</div></div>'
               + ''.join(f'<div style="padding:1.7mm 3mm;border-bottom:.25mm solid var(--ln)"><div style="font:500 7.2pt var(--body)">{u}</div><div class="se" style="margin:0;font-size:7.2pt">{e}</div></div>' for u, e in us) + '</div>' for a, b, us in ORG)
+USERS = '<svg width="4.6mm" height="4.6mm" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></svg>'
+orgchart = ('<div style="display:flex;justify-content:center;margin-top:3mm"><div style="display:flex;align-items:center;gap:3mm;background:var(--ink);color:#fff;padding:2mm 7mm 2mm 2mm;border-radius:2mm">'
+            f'<span style="width:8.5mm;height:8.5mm;background:var(--or);border-radius:1.4mm;display:flex;align-items:center;justify-content:center">{USERS}</span>'
+            '<div><div class="t" style="color:#fff;font-size:9.4pt">Ban lãnh đạo</div><div class="te" style="color:#f6c4ae;font-size:8.8pt;margin:0">Board of management</div></div></div></div>'
+            '<div class="obus"><span></span><span></span><span></span><span></span></div><div class="g4">'
+            + ''.join(f'<div class="ocard"><header><b>0{i}</b><div class="t">{a}</div><div class="te">{b}</div></header><ul>'
+                      + ''.join(f'<li><i></i><span>{u}<em>{e}</em></span></li>' for u, e in us) + '</ul></div>' for i, (a, b, us) in enumerate(ORG, 1)) + '</div>')
 P.append(std(3, 'Năng lực &amp; Tổ chức', 'Capability &amp; organisation', f'''
 <div class="row" style="align-items:flex-end;gap:8mm">
  <div style="flex:1.25">{h1('Bám sát cơ sở.<br>*Triển khai đến tận nơi.*', 'On the ground. Delivered to the door.')}</div>
  <div style="flex:1"><p>Lực lượng tại chỗ kết nối dịch vụ của đối tác với nhu cầu thực tế tại bệnh viện, cơ quan hành chính và hộ gia đình.</p><p class="e" style="margin-top:1.2mm">A local force linking partners' services to real needs in hospitals, public offices and homes.</p></div>
 </div>
 <div class="g3 line" style="margin-top:6mm;padding-top:5mm">{stat('~300', 'nhân sự chuyên trách tại địa bàn', 'dedicated field staff')}{stat('10+', 'phòng kinh doanh tại ĐBSCL', 'sales offices in the Mekong Delta')}{stat('4', 'khối hoạt động bổ trợ nhau', 'mutually reinforcing divisions')}</div>
-<div class="row" style="margin-top:6mm">{ph('field-consultation', '53mm', flex='1.25')}{ph('payment-support', '53mm')}</div>
+<div class="row" style="margin-top:6mm">{ph('field-consultation', '39mm', flex='1.25')}{ph('payment-support', '39mm')}</div>
 <div class="cap">Hoạt động thực tế tại cơ sở <i>/ Field activities</i> · Tư liệu Minh Group ST</div>
 <div class="g4" style="margin-top:4mm">
  <div class="card" style="padding:3mm">{te('Bệnh viện', 'Hospitals', 'Viện phí không tiền mặt', 'Cashless hospital bills')}</div>
@@ -186,60 +226,47 @@ P.append(std(3, 'Năng lực &amp; Tổ chức', 'Capability &amp; organisation'
  <div class="card" style="padding:3mm">{te('Hộ gia đình', 'Households', 'Hỗ trợ người cao tuổi', 'Support for the elderly')}</div>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:6mm">{lbl('Cơ cấu tổ chức', 'Organisation')}<span class="cap" style="margin:0">1 ban lãnh đạo · 4 khối · 12 đơn vị <i>/ 1 board · 4 divisions · 12 units</i></span></div>
-<div style="display:flex;justify-content:center;margin-top:3mm"><div style="background:var(--or);color:#fff;padding:1.8mm 9mm;text-align:center"><div class="t" style="font-size:8.6pt;color:#fff">Ban lãnh đạo</div><div class="te" style="font-size:8pt;color:#ffe1d3;margin:0">Board of management</div></div></div>
-<div style="width:.35mm;height:3.5mm;background:var(--or);margin:0 auto"></div>
-<div class="g4">{org}</div>
+{orgchart}
 '''))
 
 # 04 digital + finance ------------------------------------------------
 def rows(items):
-    return ''.join(f'<div class="li"><div class="ck"></div><div>{te(a, b, c, d)}</div></div>' for a, b, c, d in items)
+    return ''.join(f'<div class="li"><div class="ck" style="margin-top:.8mm"></div><div>{te(a, b)}</div></div>' for a, b in items)
+def colhead(lv, le, v1, v2, en):
+    return f'{lbl(lv, le)}<div class="t" style="font-size:14.5pt;line-height:1.2;margin-top:2.4mm">{v1} <span style="color:var(--or)">{v2}</span></div><div class="te" style="font-size:11.4pt;margin-top:1mm">{en}</div>'
+def big(n, vi, en):
+    return f'<div class="big" style="display:flex;align-items:center;gap:6mm"><b>{n}</b><div><div class="t" style="font-size:9.4pt;font-weight:500">{vi}</div><div class="te" style="font-size:9.8pt">{en}</div></div></div>'
+STEPS = [('Tiếp nhận chính sách', 'Policy intake'), ('Đào tạo', 'Training'), ('Điều phối địa bàn', 'Field coordination'), ('Kiểm soát chất lượng', 'Quality control'), ('Đối soát', 'Reconciliation')]
 P.append(std(4, 'Chuyển đổi số &amp; Tài chính', 'Digital transformation &amp; finance', f'''
 {h1('Công nghệ *&amp;* Tài chính', 'Technology &amp; finance', size='28pt')}
-<div class="row" style="margin-top:6mm">{ph('digital-launch', '42mm')}{ph('partner-meeting', '42mm')}</div>
-<div class="g2" style="margin-top:5mm;gap:8mm">
- <div>{lbl('Chuyển đổi số &amp; Y tế số', 'Digital &amp; e-health')}<div class="t" style="font-size:13pt;margin-top:2mm">Đưa công nghệ <span style="color:var(--or)">đến gần dân.</span></div><div class="te" style="font-size:10.5pt">Bringing technology closer to people.</div>
-  <div style="margin-top:3mm">{rows([('Mở tài khoản &amp; thẻ', 'Accounts &amp; cards', 'Kết nối người dân với ngân hàng đối tác', 'Connecting residents with partner banks'), ('Hướng dẫn sử dụng', 'Hands-on guidance', 'Cài ứng dụng, hỗ trợ giao dịch số', 'App set-up and help with digital transactions'), ('Thanh toán bằng mã QR', 'QR payment', 'Phổ cập thanh toán không tiền mặt', 'Making cashless payment an everyday habit')])}</div></div>
- <div>{lbl('Tài chính – Ngân hàng', 'Banking &amp; finance')}<div class="t" style="font-size:13pt;margin-top:2mm">Cầu nối ngân hàng <span style="color:var(--or)">với miền Tây.</span></div><div class="te" style="font-size:10.5pt">The bridge between banks and the Delta.</div>
-  <div style="margin-top:3mm">{rows([('Mở rộng độ phủ', 'Wider reach', 'Tiếp cận người dân và hộ kinh doanh', 'Reaching residents and small traders'), ('Quản trị chất lượng', 'Quality management', 'Theo sát trải nghiệm sau khi mở tài khoản', 'Following the customer after onboarding'), ('Đối soát minh bạch', 'Transparent reconciliation', 'Báo cáo kết quả xuyên suốt cho đối tác', 'Continuous results reporting to partners')])}</div></div>
+<div class="row" style="margin-top:7mm">{ph('digital-launch', '44mm', flex='1.35')}{ph('partner-meeting', '44mm')}</div>
+<div class="g2" style="margin-top:8mm;gap:10mm">
+ <div>{colhead('Chuyển đổi số &amp; Y tế số', 'Digital &amp; e-health', 'Đưa công nghệ', 'đến gần dân.', 'Bringing technology closer to people.')}
+  <div style="margin-top:4mm">{rows([('Mở tài khoản &amp; thẻ', 'Accounts &amp; cards'), ('Hướng dẫn sử dụng', 'Hands-on guidance'), ('Thanh toán bằng mã QR', 'QR payment')])}</div></div>
+ <div>{colhead('Tài chính – Ngân hàng', 'Banking &amp; finance', 'Cầu nối ngân hàng', 'với miền Tây.', 'The bridge between banks and the Delta.')}
+  <div style="margin-top:4mm">{rows([('Mở rộng độ phủ', 'Wider reach'), ('Quản trị chất lượng', 'Quality management'), ('Đối soát minh bạch', 'Transparent reconciliation')])}</div></div>
 </div>
-<div class="g2 line" style="margin-top:2mm;padding-top:5mm;gap:8mm">
- <div class="row" style="align-items:center;gap:5mm"><div class="stat"><b>10+</b></div><div><div class="s" style="margin:0">phòng kinh doanh trực tiếp triển khai tại địa bàn</div><div class="se">sales offices delivering directly in the field</div></div></div>
- <div class="row" style="align-items:center;gap:5mm"><div class="stat"><b>40.000</b></div><div><div class="s" style="margin:0">tài khoản/tháng, sản lượng cao nhất từng đạt</div><div class="se">accounts a month at peak output</div></div></div>
-</div>
-<div class="g2" style="margin-top:5mm;gap:8mm">
- <div class="card">{lbl('Kênh y tế số · PKD Y', 'E-health channel')}<div class="g3" style="margin-top:3mm;gap:3mm">
-  <div>{te('Nhân sự thường trực', 'Standing staff')}</div><div>{te('Mở tài khoản', 'Account opening')}</div><div>{te('Viện phí không tiền mặt', 'Cashless bills')}</div></div>
-  <div class="s" style="margin-top:2.6mm">Hướng dẫn người dân tại bệnh viện</div><div class="se">Guiding patients inside hospitals</div></div>
- <div class="band">{lbl('Quy trình triển khai khép kín', 'Closed-loop delivery').replace('class="lbl"', 'class="lbl" style="color:#ffe1d3"').replace('<i>', '<i style="color:#fff">')}
-  <div class="t" style="font-size:8.8pt;margin-top:3mm;line-height:1.5">Tiếp nhận chính sách → Đào tạo → Điều phối địa bàn → Kiểm soát chất lượng → Đối soát</div>
-  <div class="te" style="font-size:8.6pt;line-height:1.45;margin-top:1.4mm">Policy intake → Training → Field coordination → Quality control → Reconciliation</div></div>
-</div>
+<div class="g2 line" style="margin-top:3mm;padding-top:7mm;gap:10mm">{big('10+', 'phòng kinh doanh triển khai tại địa bàn', 'sales offices delivering in the field')}{big('40.000', 'tài khoản/tháng, sản lượng cao nhất', 'accounts a month at peak output')}</div>
+{lbl('Quy trình triển khai khép kín', 'Closed-loop delivery', '8mm')}
+<div class="steps" style="margin-top:3mm">''' + ''.join(f'<div><b>0{i}</b><div class="t">{a}</div><div class="te">{b}</div></div>' for i, (a, b) in enumerate(STEPS, 1)) + f'''</div>
+<div class="row" style="margin-top:6mm;align-items:flex-start;gap:4mm"><div class="sq" style="margin-top:.6mm"></div><div>{lbl('Kênh y tế số · PKD Y', 'E-health channel')}<div class="s">Nhân sự thường trực tại bệnh viện · Mở tài khoản · Viện phí không tiền mặt</div><div class="se">Standing staff in hospitals · Account opening · Cashless hospital bills</div></div></div>
 '''))
 
 # 05 insurance + social security -------------------------------------
 P.append(std(5, 'Bảo hiểm &amp; An sinh', 'Insurance &amp; social security', f'''
 {h1('Bảo hiểm *&amp;* An sinh', 'Insurance &amp; social security', size='28pt')}
-<div class="row" style="margin-top:6mm">{ph('social-security', '42mm')}{ph('payment-support', '42mm')}</div>
-<div class="g2" style="margin-top:5mm;gap:8mm">
- <div>{lbl('Bảo hiểm &amp; An sinh xã hội', 'Insurance &amp; social security')}<div class="t" style="font-size:13pt;margin-top:2mm">Bảo vệ tài chính <span style="color:var(--or)">từng gia đình.</span></div><div class="te" style="font-size:10.5pt">Protecting every family's finances.</div>
-  {lbl('Đại lý tổ chức · PVI', 'Corporate agent · PVI', '4mm')}
-  <div class="g3" style="margin-top:2mm;gap:2.5mm"><div class="card" style="padding:2.6mm 3mm">{te('Tài sản', 'Property')}</div><div class="card" style="padding:2.6mm 3mm">{te('Cơ giới', 'Motor')}</div><div class="card" style="padding:2.6mm 3mm">{te('Tai nạn', 'Accident')}</div></div>
-  {lbl('Phòng Kinh doanh An sinh', 'Social security sales', '4mm')}
-  <div style="margin-top:1.5mm">{rows([('BHXH tự nguyện', 'Voluntary social insurance', 'Tuyên truyền cùng chính quyền', 'Outreach together with local authorities'), ('BHYT hộ gia đình', 'Family health insurance', 'Bảo vệ tài chính gia đình', 'Protecting household finances')])}</div></div>
- <div>{lbl('Chi trả bảo trợ xã hội', 'Social welfare payments')}<div class="t" style="font-size:13pt;margin-top:2mm">Trao giá trị, <span style="color:var(--or)">gửi trọn trách nhiệm.</span></div><div class="te" style="font-size:10.5pt">Delivering value with full responsibility.</div>
-  {lbl('3 cam kết vận hành', '3 operating commitments', '4mm')}
-  <div style="margin-top:1.5mm">''' + ''.join(f'<div class="li"><div class="num" style="width:6.5mm;height:6.5mm;font-size:7.4pt">{n}</div><div>{te(a, b, c, d)}</div></div>' for n, a, b, c, d in [
-      ('01', 'Chính xác', 'Accurate', 'Đúng người, đúng tiền, đúng hẹn', 'Right person, right amount, right time'), ('02', 'Trách nhiệm', 'Accountable', 'Kiểm soát tài chính chặt chẽ', 'Strict financial control'),
-      ('03', 'Tận tâm', 'Devoted', 'Với người có công, người cao tuổi', 'To veterans and the elderly')]) + f'''</div></div>
+<div class="row" style="margin-top:7mm">{ph('social-security', '62mm', flex='1.35')}{ph('payment-support', '62mm')}</div>
+<div class="g2" style="margin-top:8mm;gap:10mm">
+ <div>{colhead('Bảo hiểm &amp; An sinh xã hội', 'Insurance &amp; social security', 'Bảo vệ tài chính', 'từng gia đình.', "Protecting every family's finances.")}
+  <div style="margin-top:4mm">{rows([('Bảo hiểm phi nhân thọ · PVI', 'Non-life insurance · PVI corporate agent'), ('BHXH tự nguyện', 'Voluntary social insurance'), ('BHYT hộ gia đình', 'Family health insurance')])}</div></div>
+ <div>{colhead('Chi trả bảo trợ xã hội', 'Social welfare payments', 'Trao giá trị,', 'gửi trọn trách nhiệm.', 'Delivering value with full responsibility.')}
+  <div style="margin-top:4mm">''' + ''.join(f'<div class="li"><div class="num" style="width:6.5mm;height:6.5mm;font-size:7.4pt">{n}</div><div>{te(a, b)}</div></div>' for n, a, b in [
+      ('01', 'Chính xác: đúng người, đúng tiền, đúng hẹn', 'Accurate: right person, amount and time'), ('02', 'Trách nhiệm trong kiểm soát tài chính', 'Accountable financial control'),
+      ('03', 'Tận tâm với người có công, người cao tuổi', 'Devoted to veterans and the elderly')]) + f'''</div></div>
 </div>
-<div class="g2" style="margin-top:4mm;gap:8mm">
- <div class="card">{lbl('Mạng lưới an sinh', 'Social security network')}<div class="stat" style="margin-top:2.5mm"><b style="font-size:22pt">25+ <span style="font-size:11pt;letter-spacing:0">xã, phường</span></b><div class="te" style="font-size:9.4pt;margin-top:1mm">25+ communes and wards</div></div>
-  <div class="s" style="margin-top:2.6mm">BHXH tự nguyện · BHYT hộ gia đình · Bảo hiểm học sinh</div><div class="se">Voluntary social insurance · Family health insurance · Student insurance</div></div>
- <div class="card">{lbl('Chi trả bảo trợ xã hội', 'Welfare payments')}<div class="stat" style="margin-top:2.5mm"><b style="font-size:22pt">6 <span style="font-size:11pt;letter-spacing:0">xã, phường</span></b><div class="te" style="font-size:9.4pt;margin-top:1mm">6 communes and wards</div></div>
-  <div class="s" style="margin-top:2.6mm">Tỷ lệ chi trả 100% trong phạm vi triển khai. Đúng đối tượng · Đúng số tiền · Kịp thời · Minh bạch.</div><div class="se">100% payout rate within the roll-out area. Right recipient · Right amount · On time · Transparent.</div></div>
-</div>
-<div class="row" style="margin-top:4mm;align-items:flex-start;gap:4mm"><div class="sq" style="margin-top:.6mm"></div><div>{lbl('Đối tượng phục vụ', 'Who we serve')}<div class="s">Người hưởng lương hưu · Người nhận trợ cấp bảo trợ xã hội · Người có công với cách mạng</div><div class="se">Pensioners · Social welfare recipients · People with meritorious service to the nation</div></div></div>
+<div class="g2 line" style="margin-top:3mm;padding-top:7mm;gap:10mm">{big('25+', 'xã, phường trong mạng lưới an sinh', 'communes and wards in the network')}{big('6', 'xã, phường chi trả, tỷ lệ 100%', 'communes and wards, 100% payout rate')}</div>
+<div class="g3" style="margin-top:8mm;gap:3mm"><div class="card">{te('Tài sản', 'Property')}</div><div class="card">{te('Cơ giới', 'Motor')}</div><div class="card">{te('Tai nạn', 'Accident')}</div></div>
+<div class="row" style="margin-top:6mm;align-items:flex-start;gap:4mm"><div class="sq" style="margin-top:.6mm"></div><div>{lbl('Đối tượng phục vụ', 'Who we serve')}<div class="s">Người hưởng lương hưu · Người nhận trợ cấp bảo trợ xã hội · Người có công với cách mạng</div><div class="se">Pensioners · Social welfare recipients · People with meritorious service to the nation</div></div></div>
 '''))
 
 # 06 ecosystem --------------------------------------------------------
@@ -282,8 +309,8 @@ P.append(std(7, 'Dự án trọng điểm', 'Flagship projects', f'''
 <div class="band" style="margin-top:7mm;display:grid;grid-template-columns:44mm 1fr;gap:6mm;align-items:center"><div>{te('Kết nối nguồn lực', 'Connecting resources')}</div>
  <div style="border-left:.3mm solid #f0a78d;padding-left:6mm"><div class="s" style="color:#fff;margin:0">Phòng Quản lý Dự án chủ trì. Tận dụng mạng lưới và điểm chạm sẵn có.</div><div class="se" style="color:#ffe1d3">Led by the Project Management Office, building on the existing network and touchpoints.</div></div></div>
 <div style="margin-top:5mm;display:flex;flex-direction:column;gap:3mm">''' + ''.join(
-    f'<div class="card" style="display:grid;grid-template-columns:20mm 1fr;gap:2mm;padding:5mm 6mm"><div style="font:700 24pt/1 var(--head);color:var(--or);letter-spacing:-.03em">{n}</div><div>{te(a, b)}<div class="pair" style="margin-top:2.6mm;gap:5mm"><p style="font-size:7.8pt">{c}</p><p class="e" style="font-size:8pt;padding-left:5mm">{d}</p></div></div></div>' for n, a, b, c, d in PJ) + f'''</div>
-<div class="pair" style="margin-top:4mm;gap:5mm"><p style="font-size:6.8pt;color:var(--mut)">Đào tạo, sát hạch và đưa người lao động đi làm việc ở nước ngoài phải đáp ứng điều kiện của từng chương trình và đơn vị có thẩm quyền.</p><p class="e" style="font-size:7.2pt;padding-left:5mm">Training, testing and overseas placement are subject to the conditions of each programme and of the competent authorities.</p></div>
+    f'<div class="card" style="display:grid;grid-template-columns:20mm 1fr;gap:2mm;padding:5mm 6mm"><div style="font:700 24pt/1 var(--head);color:var(--or);letter-spacing:-.03em">{n}</div><div>{te(a, b)}<div class="pair" style="margin-top:2.6mm;gap:5mm"><p style="font-size:7.8pt">{c}</p><p class="e" style="font-size:8pt">{d}</p></div></div></div>' for n, a, b, c, d in PJ) + f'''</div>
+<div class="pair" style="margin-top:4mm;gap:5mm"><p style="font-size:6.8pt;color:var(--mut)">Đào tạo, sát hạch và đưa người lao động đi làm việc ở nước ngoài phải đáp ứng điều kiện của từng chương trình và đơn vị có thẩm quyền.</p><p class="e" style="font-size:7.2pt">Training, testing and overseas placement are subject to the conditions of each programme and of the competent authorities.</p></div>
 {lbl('Từ ý tưởng đến triển khai', 'From idea to delivery', '7mm')}
 <div class="g3" style="margin-top:3mm">
  <div style="border-top:.7mm solid var(--or);padding-top:3mm">{te('Tham mưu &amp; triển khai', 'Advise &amp; deliver', 'Xây dựng lộ trình, cơ chế phối hợp và phương án nhân sự.', 'Roadmaps, coordination mechanisms and staffing plans.')}</div>
@@ -306,8 +333,7 @@ P.append(std(8, 'Lộ trình &amp; Lãnh đạo', 'Roadmap &amp; leadership', f'
 <div class="pair" style="margin-top:4mm"><p>Thành lập tháng 03/2025; từng bước phát triển mạng lưới kinh doanh và các phòng chức năng.</p><p class="e">Founded in March 2025; the sales network and functional departments have been built step by step.</p></div>
 <div style="position:relative;margin-top:7mm"><div style="position:absolute;left:0;right:0;top:1.9mm;height:.6mm;background:var(--or)"></div><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:3mm">{tl}</div></div>
 <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:9mm"><div><span class="t" style="font-size:15pt">Ban lãnh đạo</span> <span class="te" style="font-size:12pt;margin-left:2mm">Leadership</span></div><span class="cap" style="margin:0">Kết nối qua hotline công ty <i>/ Reach us via the company hotline</i></span></div>
-<div class="g2" style="margin-top:4mm;gap:3mm 4mm">{''.join(ld(*x) for x in LD[:6])}</div>
-<div style="width:calc(50% - 2mm);margin:3mm auto 0">{ld(*LD[6])}</div>
+<div class="g2" style="margin-top:4mm;gap:3mm 4mm">{''.join(ld(*x) for x in LD)}</div>
 <div class="cap" style="margin-top:5mm">Liên hệ hợp tác <i>/ Partnership enquiries</i>: <b style="color:var(--or)">0977 726 700</b> · minhgroupst@mgst.com.vn</div>
 '''))
 
@@ -318,11 +344,11 @@ P.append(std(9, 'Thành tựu', 'Achievements', f'''
 <div class="g3" style="margin-top:5mm;gap:3mm">{tile('community-support', '40mm', 'Đồng hành cùng Quỹ “Vì người nghèo”', 'Supporting the “For the Poor” Fund')}{tile('field-consultation', '40mm', 'Tư vấn, hỗ trợ người dân tại cơ sở', 'Advising residents on site')}{tile('digital-team', '40mm', 'Đội ngũ tham gia chuyển đổi số', 'The digital transformation team')}</div>
 <div style="display:grid;grid-template-columns:1fr 44mm;gap:5mm;margin-top:5mm">
  <div>{h1('Thành tựu<br>*&amp; cộng đồng.*', 'Achievements &amp; community', mt='0')}
-  <div class="pair" style="margin-top:3mm;gap:5mm"><p>Sự ghi nhận từ những giá trị sẻ chia.</p><p class="e" style="padding-left:5mm">Recognition earned by sharing value.</p></div>
-  <div style="margin-top:5mm">{tile('community-lighting', '72mm', 'Công trình “Thắp sáng đường quê”', '“Lighting Rural Roads” project')}</div>
-  <div class="row" style="margin-top:4mm;gap:5mm;align-items:flex-start">
-   <div style="flex:1"><div style="background:var(--tint);padding:3mm;display:flex;justify-content:center"><img src="{src('thank-you-vinh-hoa')}" alt="" style="height:56mm;box-shadow:0 .6mm 2mm rgba(0,0,0,.18)"></div></div>
-   <div style="flex:1"><div style="background:var(--tint);padding:3mm;display:flex;justify-content:center"><img src="{src('thank-you-thanh-thoi-an')}" alt="" style="height:56mm;box-shadow:0 .6mm 2mm rgba(0,0,0,.18)"></div></div>
+  <div class="pair" style="margin-top:3mm;gap:5mm"><p>Sự ghi nhận từ những giá trị sẻ chia.</p><p class="e">Recognition earned by sharing value.</p></div>
+  <div style="margin-top:5mm">{tile('community-lighting', '67mm', 'Công trình “Thắp sáng đường quê”', '“Lighting Rural Roads” project')}</div>
+  <div style="position:relative;height:66mm;margin-top:4mm;background:var(--tint);overflow:hidden">
+   <img src="{src('thank-you-vinh-hoa')}" alt="" style="position:absolute;left:50%;top:7mm;height:58mm;margin-left:-41mm;transform:rotate(-8deg);transform-origin:50% 100%;border:.3mm solid #fff;box-shadow:0 1mm 3.5mm rgba(0,0,0,.22)">
+   <img src="{src('thank-you-thanh-thoi-an')}" alt="" style="position:absolute;left:50%;top:7mm;height:58mm;margin-left:-1mm;transform:rotate(7deg);transform-origin:50% 100%;border:.3mm solid #fff;box-shadow:0 1mm 3.5mm rgba(0,0,0,.26)">
   </div>
   <div class="cap">Thư cảm ơn từ địa phương, giữ nguyên nội dung gốc <i>/ Letters of thanks from local authorities, reproduced unaltered</i></div>
  </div>
@@ -338,7 +364,7 @@ P.append(std(10, 'Hợp tác &amp; Liên hệ', 'Partnership &amp; contact', f''
  <div class="card"><div class="num">02</div><div style="margin-top:4mm">{te('Bảo hiểm &amp; An sinh', 'Insurance &amp; social security', 'Phối hợp tư vấn bảo hiểm, phát triển BHXH, BHYT và chi trả tại cơ sở.', 'Joint insurance advice, social and health insurance growth, and local payments.')}</div></div>
  <div class="card"><div class="num">03</div><div style="margin-top:4mm">{te('Dự án &amp; Nhân lực', 'Projects &amp; workforce', 'Kết nối nguồn lực để triển khai dự án, đào tạo và phát triển việc làm.', 'Connecting resources for projects, training and job creation.')}</div></div>
 </div>
-<div class="card" style="margin-top:6mm;padding:7mm;display:grid;grid-template-columns:1fr 46mm;gap:8mm;align-items:center">
+<div class="card" style="margin-top:5mm;padding:6mm;display:grid;grid-template-columns:1fr 46mm;gap:8mm;align-items:center">
  <div>{lbl('Liên hệ hợp tác', 'Partnership enquiries')}<div class="t" style="font-size:17pt;margin-top:2.5mm">Kết nối cùng Minh Group ST</div><div class="te" style="font-size:12.5pt">Get in touch with Minh Group ST</div>
   <div style="margin-top:6mm;display:flex;flex-direction:column;gap:4mm">
    <div class="row" style="align-items:center"><div class="sq"></div><div>{lbl('Hotline', 'Hotline')}<div class="t" style="font-size:18pt;color:var(--or);margin-top:.6mm">0977 726 700</div></div></div>
@@ -347,8 +373,8 @@ P.append(std(10, 'Hợp tác &amp; Liên hệ', 'Partnership &amp; contact', f''
   </div></div>
  <div style="background:#fff;padding:5mm;text-align:center"><img src="{src('qr')}" alt="QR mgst.com.vn" style="width:36mm;height:36mm;image-rendering:pixelated"><div class="t" style="font-size:8.6pt;margin-top:3mm">Quét để kết nối</div><div class="te" style="font-size:8.4pt">Scan to connect</div><div class="s" style="color:var(--or);font-weight:600">mgst.com.vn</div></div>
 </div>
-<div class="band" style="margin-top:6mm;padding:7mm"><div class="t" style="font-size:22pt;line-height:1.15">Tiên phong số hóa –<br>Hiệu quả bứt phá</div><div class="eh" style="color:#fff;font-size:15pt;margin-top:3.5mm">Digital first. Breakthrough results.</div></div>
-<div class="pair" style="margin-top:5mm;gap:5mm"><p style="font-size:6.6pt;color:var(--mut)">Hồ sơ năng lực 2026 · Hình ảnh hoạt động, chân dung và thư cảm ơn do Minh Group ST cung cấp. Tên và chức danh lãnh đạo đối chiếu nội dung website.</p><p class="e" style="font-size:7pt;padding-left:5mm">Corporate Profile 2026 · Activity photos, portraits and letters of thanks supplied by Minh Group ST. Names and titles checked against the company website.</p></div>
+{slogan('margin-top:5mm', '6mm 9mm 7mm', '25pt', '14pt')}
+<div class="pair" style="margin-top:5mm;gap:5mm"><p style="font-size:6.6pt;color:var(--mut)">Hồ sơ năng lực 2026 · Hình ảnh hoạt động, chân dung và thư cảm ơn do Minh Group ST cung cấp. Tên và chức danh lãnh đạo đối chiếu nội dung website.</p><p class="e" style="font-size:7pt">Corporate Profile 2026 · Activity photos, portraits and letters of thanks supplied by Minh Group ST. Names and titles checked against the company website.</p></div>
 '''))
 
 if CANVAS:
