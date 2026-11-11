@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Brochure V8 · 08 · Lộ trình &amp; Điều hành</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+
+
+
+
+
+
+
+
+
+
+
+html,body{background:#d9d9d9}
+@media screen{.page{margin:10mm auto;box-shadow:0 2mm 10mm rgba(32,30,29,.25)}}
+
+/* ---------- design tokens ---------- */
+:root{
+  --b:3mm;                                  /* bleed */
+  --navy:#201E1D;--navy-2:#2A2725;--navy-3:#3A3633;
+  --blue:#CA4D25;--blue-l:#EF7A52;--blue-s:#f5f5f5;
+  --green:#A93D1B;--green-l:#ca4d25;--green-s:#e8e8e8;
+  --slate:#3A3633;--mut:#5C5C5C;--line:#e5e5e5;--off:#fafafa;--white:#FFFFFF;
+  --head:'Plus Jakarta Sans',sans-serif;--body:'Be Vietnam Pro',sans-serif;
+  --cw:11.3333mm;--gut:4mm;--step:15.3333mm;   /* 12-col grid inside 180mm safe width */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));position:relative;overflow:hidden;background:var(--white);break-after:page}
+.page.navy{background:var(--navy);color:#fff}
+.page.off{background:var(--off)}
+.trim{position:absolute;left:var(--b);top:var(--b);width:210mm;height:297mm}
+.a{position:absolute}
+/* grid column helper: --c start col (1-12), --s span */
+.gx{position:absolute;left:calc(15mm + (var(--c) - 1)*var(--step));width:calc(var(--s)*var(--step) - var(--gut))}
+.bleed-l{left:calc(-1*var(--b))!important}
+.full{left:calc(-1*var(--b));width:calc(210mm + 2*var(--b))}
+
+/* ---------- type ---------- */
+.lbl,.display,.h1,.h2,.h3,.stat,.chip,.pn{word-spacing:.09em}
+.lbl{font-family:var(--head);font-size:6.8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.display{font-family:var(--head);font-weight:800;font-size:42pt;line-height:1.04;letter-spacing:-.03em}
+.h1{font-family:var(--head);font-weight:800;font-size:25pt;line-height:1.1;letter-spacing:-.025em;color:var(--navy)}
+.navy .h1{color:#fff}
+.h2{font-family:var(--head);font-weight:800;font-size:16pt;line-height:1.18;letter-spacing:-.02em;color:var(--navy)}
+.h3{font-family:var(--head);font-weight:700;font-size:11pt;line-height:1.3;letter-spacing:-.01em;color:var(--navy)}
+.navy .h2,.navy .h3,.on-navy .h2,.on-navy .h3{color:#fff}
+.body{font-size:9.5pt;line-height:1.45}
+.sm{font-size:9pt;line-height:1.42}
+.xs{font-size:7.6pt;line-height:1.4}
+.mut{color:var(--mut)}
+.navy .mut,.on-navy .mut{color:#999999}
+.stat{font-family:var(--head);font-weight:800;font-size:46pt;line-height:.95;letter-spacing:-.04em;color:var(--navy)}
+.stat em{font-style:normal;color:var(--blue)}
+.ic{width:5.2mm;height:5.2mm;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.icb{width:9mm;height:9mm;border-radius:50%;display:grid;place-items:center;flex:none}
+.blue-t{color:var(--blue)}.green-t{color:var(--green)}.navy-t{color:var(--navy)}
+.card{border-radius:2.4mm;padding:5mm}
+.chip{display:inline-flex;align-items:center;gap:1.6mm;font-family:var(--head);font-weight:700;font-size:7pt;border-radius:10mm;padding:1.2mm 3mm}
+.row{display:flex;gap:3mm;align-items:flex-start}
+.hr{height:.25mm;background:var(--line)}
+/* running header/footer (inside trim, safe area) */
+.rh{left:15mm;right:15mm;top:11mm;display:flex;justify-content:space-between;align-items:center}
+.rf{left:15mm;right:15mm;bottom:9mm;display:flex;justify-content:space-between;align-items:center;font-size:6.6pt;letter-spacing:.06em}
+.dot{display:inline-block;width:1.4mm;height:1.4mm;border-radius:50%;background:var(--green-l);margin:0 2.4mm;vertical-align:middle}
+.pn{font-family:var(--head);font-weight:800;font-size:9pt;letter-spacing:0}
+
+
+html,body{overflow:hidden!important;margin:0!important;background:#ffffff!important} .page{margin:0!important;box-shadow:none!important;break-after:auto!important}
+.dark,.navy{background:#f5f5f5!important;color:#201e1d!important}.dark .mut,.navy .mut,.dark-band .mut{color:#5c5c5c!important}
+.dark .ic2,.dark-band .ic2,.ic2.dk{background:#e8e8e8!important;color:#ca4d25!important}
+.dark .pill,.dark-band .pill{background:#ffffff;color:#201e1d;border-color:#dedede}
+.dark .boxv{background:#dedede}.dark .srule{background:#dedede}.dark .or{color:#ca4d25}
+.v8-footer{position:absolute;left:15mm;right:15mm;bottom:8mm;display:flex;justify-content:space-between;border-top:.2mm solid #dedede;padding-top:3mm;font-size:6.7pt;color:#5c5c5c;background:#ffffff}
+.draft-note{font-size:7.5pt;color:#555555;line-height:1.5}
+
+
+
+
+
+#leaders .h3{font-family:Inter,sans-serif;font-weight:600;line-height:1.25}
+#leaders .sm{font-size:8.2pt;line-height:1.4}
+#leaders .xs{font-size:7.3pt;line-height:1.4}
+#leaders .or{color:#ca4d25}
+#leaders .ht{background:repeating-linear-gradient(135deg,#ffffff 0 2mm,#e8e8e8 2mm 2.2mm)}
+
+
+
+
+
+.editorial{--line:#dedede;--head:Inter;--body:Inter}
+.editorial .rh{padding-bottom:4mm;border-bottom:.25mm solid #dedede}
+.editorial .rh .lbl{color:#a93d1b!important;letter-spacing:.12em}
+.editorial .rf{border-top:.25mm solid #dedede;padding-top:3mm;color:#5c5c5c!important}
+.editorial .h1,.editorial .h2,.editorial h1,.editorial h2{font-family:Inter,sans-serif;letter-spacing:-.035em}
+.editorial .pill{border:0;padding-left:0;background:transparent;font-weight:600;color:#a93d1b}
+.editorial .pill .nb{border-radius:1mm}
+.editorial .x{opacity:.5}
+.editorial .boxv{opacity:.55}
+.editorial .cap{font-size:5.5pt}
+.editorial .fcard:after{background:linear-gradient(135deg,#f5f5f5 0%,rgba(245,245,245,.94) 32%,rgba(245,245,245,.58) 60%,transparent 92%)}
+.editorial .fcard .h3{font-size:13pt;line-height:1.25}
+.editorial .stat{font-variant-numeric:tabular-nums}
+.editorial .cover-figures{border-top:1mm solid #ca4d25!important}
+.editorial .cover-figures .kf{gap:4mm!important}
+.editorial .cover-figures .sm{font-weight:600;color:#3d3a38!important}
+.editorial .hero .oc{opacity:.5}
+.editorial .oc{display:none!important}
+.editorial .hero h1{font-weight:700;letter-spacing:-.04em}
+.editorial .benefit{border-radius:0!important;border:0!important;border-bottom:.25mm solid #dedede!important}
+.editorial .benefit>div:first-child{background:#ca4d25!important;color:#fff!important}
+.editorial #leaders{border:0!important;gap:3mm!important;background:transparent!important}
+.editorial #leaders>div{border:.25mm solid #dedede;border-top:.7mm solid #ca4d25}
+.editorial .closing-slogan{border-radius:0;min-height:38mm}
+.editorial.closing-v3 .card{border-radius:3mm;border:0!important}
+.editorial.closing-v3 .card .h3{font-size:11pt;line-height:1.35}
+.editorial.closing-v3 .card .sm{font-size:8.3pt;line-height:1.5}
+.editorial .letter{box-shadow:.5mm 1mm 2mm #dddddd;border:.3mm solid #bbbbbb}
+.editorial .top{padding-bottom:5mm}
+.editorial .eyebrow{color:#a93d1b}
+
+html,body{margin:0;background:transparent}.page,.sheet{margin:0;box-shadow:none}
+.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1{background: rgb(255, 255, 255) !important}
+.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2{background: rgb(255, 255, 255) !important}
+.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3{background: rgb(255, 255, 255) !important}
+.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4{background: rgb(255, 255, 255) !important}
+.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5{background: rgb(255, 255, 255) !important}
+.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6{background: rgb(255, 255, 255) !important}
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></symbol>
+ <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></symbol>
+ <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+ <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+ <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+ <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+ <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+ <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></symbol>
+ <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"></path></symbol>
+ <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 14.5h4"></path></symbol>
+ <symbol id="i-finger" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5M8.5 8.5A4 4 0 0 1 16 11v2.5M16 17a14 14 0 0 1-.6 3M5.5 13.5V11a6.5 6.5 0 0 1 11-4.7M19 10v3"></path></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></symbol>
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"></path><path d="M10 20v-5h4v5"></path></symbol>
+ <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"></path><circle cx="8" cy="16.5" r="1.6"></circle><circle cx="16" cy="16.5" r="1.6"></circle><path d="M4 12h16"></path></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"></path></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.6-4.6"></path></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"></rect><path d="M4 12h16M12 4v16"></path></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+ <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+ <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"></path><path d="M9 4v14M15 6v14"></path></symbol>
+ <symbol id="i-gov" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"></path></symbol>
+ <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"></path><path d="M6 9.5V20h12V9.5"></path><path d="M10 20v-5h4v5"></path></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
+ <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></symbol>
+</svg>
+
+<!-- ===================== P1 · FRONT COVER ===================== -->
+
+
+<!-- ===================== P2 · OVERVIEW ===================== -->
+
+
+<!-- ===================== P3 · LOCAL EXECUTION ===================== -->
+
+
+<!-- ===================== P4 · SPREAD L: FIELDS 01 & 02 ===================== -->
+
+
+<!-- ===================== P5 · SPREAD R: FIELDS 03 & 04 ===================== -->
+
+
+<!-- ===================== P6 · ECOSYSTEM (navy) ===================== -->
+
+
+<!-- ===================== P7 · ROADMAP & LEADERSHIP ===================== -->
+<section class="page editorial"><div class="trim">
+  <div class="a rh"><img src="../assets/logo/mgst-logo.svg" style="height:6.5mm; display:block" alt="Minh Group ST"><span class="lbl blue-t">08 / Lộ trình &amp; Điều hành</span></div>
+  <div class="gx" style="--c:1; --s:12; top:28mm"><h1 class="h1" style="font-size: 25pt">Lộ trình 2025 – 2026</h1><p class="body mut" style="margin-top:2mm">Từ một pháp nhân đến mạng lưới 11 phòng kinh doanh địa bàn trong 18 tháng.</p></div>
+  <svg class="gx" id="roadmap" style="--c:1; --s:12; top:52mm; height:66mm; overflow:visible" viewBox="0 0 180 66"><rect x="0" y="0" width="89" height="8" rx="1.2" fill="#f5f5f5"></rect><text x="3" y="5.5" font-family="'Plus Jakarta Sans'" font-size="4" font-weight="800" fill="#CA4D25">2025</text><rect x="91" y="0" width="89" height="8" rx="1.2" fill="#e8e8e8"></rect><text x="94" y="5.5" font-family="'Plus Jakarta Sans'" font-size="4" font-weight="800" fill="#A93D1B">2026</text><path d="M2 22 H90" stroke="#CA4D25" stroke-width="1.6" stroke-linecap="round"></path><path d="M90 22 H178" stroke="#A93D1B" stroke-width="1.6" stroke-linecap="round"></path><circle cx="15" cy="22" r="3" fill="#fff" stroke="#CA4D25" stroke-width="1"></circle><text x="15" y="33" font-family="'Plus Jakarta Sans'" font-size="3.5" text-anchor="middle" font-weight="800" fill="#201E1D">03/2025</text><text x="15" y="38.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">Thành lập Minh</text><text x="15" y="42.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">Group ST</text><circle cx="45" cy="22" r="3" fill="#fff" stroke="#CA4D25" stroke-width="1"></circle><text x="45" y="33" font-family="'Plus Jakarta Sans'" font-size="3.5" text-anchor="middle" font-weight="800" fill="#201E1D">04/2025</text><text x="45" y="38.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">PKD Tổng hợp, PKD</text><text x="45" y="42.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">Y &amp; hệ thống PKD</text><text x="45" y="46.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">địa bàn</text><circle cx="75" cy="22" r="3" fill="#fff" stroke="#CA4D25" stroke-width="1"></circle><text x="75" y="33" font-family="'Plus Jakarta Sans'" font-size="3.5" text-anchor="middle" font-weight="800" fill="#201E1D">09 – 11/2025</text><text x="75" y="38.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">PKD 8 &amp; PKD An</text><text x="75" y="42.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">sinh</text><circle cx="105" cy="22" r="3" fill="#fff" stroke="#A93D1B" stroke-width="1"></circle><text x="105" y="33" font-family="'Plus Jakarta Sans'" font-size="3.5" text-anchor="middle" font-weight="800" fill="#201E1D">01 – 03/2026</text><text x="105" y="38.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">Phòng Dự án &amp; PKD</text><text x="105" y="42.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">9</text><circle cx="135" cy="22" r="3" fill="#fff" stroke="#A93D1B" stroke-width="1"></circle><text x="135" y="33" font-family="'Plus Jakarta Sans'" font-size="3.5" text-anchor="middle" font-weight="800" fill="#201E1D">06 – 07/2026</text><text x="135" y="38.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">PKD 4 &amp; Phòng Chi</text><text x="135" y="42.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">trả BTXH</text><circle cx="165" cy="22" r="4" fill="#A93D1B" stroke="#A93D1B" stroke-width="1"></circle><circle cx="165" cy="22" r="6.4" fill="none" stroke="#A93D1B" stroke-opacity="0.35" stroke-width="0.4"></circle><text x="165" y="33" font-family="'Plus Jakarta Sans'" font-size="3.5" text-anchor="middle" font-weight="800" fill="#201E1D">09/2026</text><text x="165" y="38.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">Hoàn thiện 11 PKD</text><text x="165" y="42.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">địa bàn (PKD 10,</text><text x="165" y="46.5" font-family="'Be Vietnam Pro'" font-size="3.05" text-anchor="middle" fill="#3A3633">11)</text></svg>
+
+  <div class="gx" style="--c: 1; --s: 12; top: 112mm; display: flex; justify-content: space-between; align-items: baseline">
+    <h2 class="h2">Danh bạ điều hành</h2><span class="xs mut">Liên hệ trực tiếp theo khối phụ trách</span>
+  </div>
+  <div class="gx" style="--c: 1; --s: 12; top: 125mm; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 45mm); gap: 0.25mm; background: rgb(222, 222, 222); border: 0.25mm solid rgb(222, 222, 222); font-family: Inter, sans-serif" id="leaders"><div style="display: grid; align-items: center; grid-template-columns: 22mm 1fr; gap: 3.5mm; padding: 5mm 4mm; background: rgb(255, 255, 255)"><span class="ht imp1" style="width: 22mm; height: 26mm; display: grid; place-items: center; color: rgb(204, 204, 204); outline: .5mm solid var(--or); outline-offset: -0.5mm"><svg class="ic" style="width:12mm; height:12mm; stroke-width:1.2"><use href="#i-person"></use></svg></span><div><div class="h3" style="font-size:10.4pt">Ông Đinh Hoàng Minh</div><div class="sm or" style="font-weight:600; margin-top:.6mm">Cố vấn Cao cấp</div><div style="font-size:10pt; font-weight:700; margin-top:2mm; letter-spacing:.01em">0939 980 090</div><div class="xs mut" style="margin-top:1.4mm">Phòng Kế toán Tổng hợp, Phòng Kinh doanh Tổng hợp</div></div></div><div style="display: grid; align-items: center; grid-template-columns: 22mm 1fr; gap: 3.5mm; padding: 5mm 4mm; background: rgb(255, 255, 255)"><span class="ht imp2" style="width: 22mm; height: 26mm; display: grid; place-items: center; color: rgb(204, 204, 204); outline: .5mm solid var(--or); outline-offset: -0.5mm"><svg class="ic" style="width:12mm; height:12mm; stroke-width:1.2"><use href="#i-person"></use></svg></span><div><div class="h3" style="font-size:10.4pt">Ông Đinh Hoàng Công</div><div class="sm or" style="font-weight:600; margin-top:.6mm">Giám đốc Công ty</div><div style="font-size:10pt; font-weight:700; margin-top:2mm; letter-spacing:.01em">0933 999 010</div><div class="xs mut" style="margin-top:1.4mm">PKD Y; phụ trách chung toàn Công ty</div></div></div><div style="display: grid; align-items: center; grid-template-columns: 22mm 1fr; gap: 3.5mm; padding: 5mm 4mm; background: rgb(255, 255, 255)"><span class="ht imp3" style="width: 22mm; height: 26mm; display: grid; place-items: center; color: rgb(204, 204, 204); outline: .5mm solid var(--or); outline-offset: -0.5mm"><svg class="ic" style="width:12mm; height:12mm; stroke-width:1.2"><use href="#i-person"></use></svg></span><div><div class="h3" style="font-size:10.4pt">Ông Lư Hồng Huỳnh</div><div class="sm or" style="font-weight:600; margin-top:.6mm">Phó Giám đốc</div><div style="font-size:10pt; font-weight:700; margin-top:2mm; letter-spacing:.01em">0907 769 456</div><div class="xs mut" style="margin-top:1.4mm">Khối PKD địa bàn: PKD 3, 4, 5, 9, 11</div></div></div><div style="display: grid; align-items: center; grid-template-columns: 22mm 1fr; gap: 3.5mm; padding: 5mm 4mm; background: rgb(255, 255, 255)"><span class="ht imp4" style="width: 22mm; height: 26mm; display: grid; place-items: center; color: rgb(204, 204, 204); outline: .5mm solid var(--or); outline-offset: -0.5mm"><svg class="ic" style="width:12mm; height:12mm; stroke-width:1.2"><use href="#i-person"></use></svg></span><div><div class="h3" style="font-size:10.4pt">Bà Nguyễn Thị Hồng Huệ</div><div class="sm or" style="font-weight:600; margin-top:.6mm">Phó Giám đốc</div><div style="font-size:10pt; font-weight:700; margin-top:2mm; letter-spacing:.01em">0989 094 139</div><div class="xs mut" style="margin-top:1.4mm">Khối PKD địa bàn: PKD 2, 6, 7</div></div></div><div style="display: grid; align-items: center; grid-template-columns: 22mm 1fr; gap: 3.5mm; padding: 5mm 4mm; background: rgb(255, 255, 255)"><span class="ht imp5" style="width: 22mm; height: 26mm; display: grid; place-items: center; color: rgb(204, 204, 204); outline: .5mm solid var(--or); outline-offset: -0.5mm"><svg class="ic" style="width:12mm; height:12mm; stroke-width:1.2"><use href="#i-person"></use></svg></span><div><div class="h3" style="font-size:10.4pt">Ông Phan Hữu Linh</div><div class="sm or" style="font-weight:600; margin-top:.6mm">Phó Giám đốc</div><div style="font-size:10pt; font-weight:700; margin-top:2mm; letter-spacing:.01em">0948 897 976</div><div class="xs mut" style="margin-top:1.4mm">Khối chuyên trách: Dự án, Chi trả, An sinh</div></div></div><div style="display: grid; align-items: center; grid-template-columns: 22mm 1fr; gap: 3.5mm; padding: 5mm 4mm; background: rgb(255, 255, 255)"><span class="ht imp6" style="width: 22mm; height: 26mm; display: grid; place-items: center; color: rgb(204, 204, 204); outline: .5mm solid var(--or); outline-offset: -0.5mm"><svg class="ic" style="width:12mm; height:12mm; stroke-width:1.2"><use href="#i-person"></use></svg></span><div><div class="h3" style="font-size:10.4pt">Ông Dương Minh Trường</div><div class="sm or" style="font-weight:600; margin-top:.6mm">Phó Giám đốc</div><div style="font-size:10pt; font-weight:700; margin-top:2mm; letter-spacing:.01em">0865 555 416</div><div class="xs mut" style="margin-top:1.4mm">Khối PKD địa bàn: PKD 1, 8, 10</div></div></div></div>
+
+  <div class="a rf mut"><span class="pn navy-t">08</span><span>Minh Group ST · Corporate Profile 2026</span></div>
+<div class="gx" style="--c: 1; --s: 12; top: 272mm; font-family: Inter, sans-serif; font-size: 6.5pt; color: rgb(102, 102, 102)">Ảnh chân dung: chờ ảnh chính thức của từng lãnh đạo.</div></div><svg width="0" height="0" style="position:absolute"><symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></symbol></svg></section>
+
+<!-- ===================== P8 · BACK COVER / CTA (navy) ===================== -->
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":816,"height":1145}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

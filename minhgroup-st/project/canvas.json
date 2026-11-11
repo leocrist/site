@@ -56,133 +56,14 @@
       "x": 4560,
       "y": 0
     },
-    "ProfileV3-01.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 01 · Bìa trước",
-      "w": 794,
-      "x": 0,
-      "y": 8974
-    },
-    "ProfileV3-02.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 02 · Tổng quan",
-      "w": 794,
-      "x": 874,
-      "y": 8974
-    },
-    "ProfileV3-03.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 03 · Năng lực thực địa",
-      "w": 794,
-      "x": 1748,
-      "y": 8974
-    },
-    "ProfileV3-04.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 04 · Trang đôi trái · 01 & 02",
-      "w": 794,
-      "x": 2622,
-      "y": 8974
-    },
-    "ProfileV3-05.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 05 · Trang đôi phải · 03 & 04",
-      "w": 794,
-      "x": 3496,
-      "y": 8974
-    },
-    "ProfileV3-06.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 06 · Hệ sinh thái",
-      "w": 794,
-      "x": 4370,
-      "y": 8974
-    },
-    "ProfileV3-07.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 07 · Lộ trình & Điều hành",
-      "w": 794,
-      "x": 5244,
-      "y": 8974
-    },
-    "ProfileV3-08.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B3 · 08 · Bìa sau · CTA",
-      "w": 794,
-      "x": 6118,
-      "y": 8974
-    },
-    "ProfileV5-01.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 01 · Bìa trước",
-      "w": 794,
-      "x": 0,
-      "y": 10739
-    },
-    "ProfileV5-02.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 02 · Tổng quan",
-      "w": 794,
-      "x": 874,
-      "y": 10739
-    },
-    "ProfileV5-03.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 03 · Năng lực thực địa",
-      "w": 794,
-      "x": 1748,
-      "y": 10739
-    },
-    "ProfileV5-04.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 04 · Trang đôi trái · Công nghệ & Tài chính",
-      "w": 794,
-      "x": 2622,
-      "y": 10739
-    },
-    "ProfileV5-05.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 05 · Trang đôi phải · An sinh & Dự án",
-      "w": 794,
-      "x": 3496,
-      "y": 10739
-    },
-    "ProfileV5-06.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 06 · Hệ sinh thái",
-      "w": 794,
-      "x": 4370,
-      "y": 10739
-    },
-    "ProfileV5-07.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 07 · Lộ trình & Ban lãnh đạo",
-      "w": 794,
-      "x": 5244,
-      "y": 10739
-    },
-    "ProfileV5-08.dc.html": {
-      "h": 1123,
-      "paper": "a4",
-      "title": "Profile B5 · 08 · Bìa sau",
-      "w": 794,
-      "x": 6118,
-      "y": 10739
+    "Projects.dc.html": {
+      "expand": "fill",
+      "h": 5020,
+      "is_interactive": true,
+      "title": "05 · Dự án trọng điểm / Projects",
+      "w": 1440,
+      "x": 7600,
+      "y": 0
     },
     "Services.dc.html": {
       "expand": "fill",
@@ -193,15 +74,6 @@
       "x": 6080,
       "y": 0
     },
-    "Projects.dc.html": {
-      "expand": "fill",
-      "h": 5020,
-      "is_interactive": true,
-      "title": "05 · Dự án trọng điểm / Projects",
-      "w": 1440,
-      "x": 7600,
-      "y": 0
-    },
     "System.dc.html": {
       "expand": "fill",
       "h": 4680,
@@ -210,6 +82,146 @@
       "w": 1440,
       "x": 12160,
       "y": 0
+    },
+    "ProfileV8-01.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 0,
+      "y": 6800,
+      "title": "Brochure V8 · 01 · Bìa"
+    },
+    "ProfileV8-02.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 896,
+      "y": 6800,
+      "title": "Brochure V8 · 02 · Tổng quan"
+    },
+    "ProfileV8-03.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 1792,
+      "y": 6800,
+      "title": "Brochure V8 · 03 · Năng lực thực địa"
+    },
+    "ProfileV8-04.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 2688,
+      "y": 6800,
+      "title": "Brochure V8 · 04 · Công nghệ & Tài chính"
+    },
+    "ProfileV8-05.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 3584,
+      "y": 6800,
+      "title": "Brochure V8 · 05 · Bảo hiểm & An sinh"
+    },
+    "ProfileV8-06.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 4480,
+      "y": 6800,
+      "title": "Brochure V8 · 06 · Hệ sinh thái"
+    },
+    "ProfileV8-07.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 5376,
+      "y": 6800,
+      "title": "Brochure V8 · 07 · Dự án trọng điểm"
+    },
+    "ProfileV8-08.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 6272,
+      "y": 6800,
+      "title": "Brochure V8 · 08 · Lộ trình & Điều hành"
+    },
+    "ProfileV8-09.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 7168,
+      "y": 6800,
+      "title": "Brochure V8 · 09 · Thành tựu"
+    },
+    "ProfileV8-10.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 8064,
+      "y": 6800,
+      "title": "Brochure V8 · 10 · Định hướng & Liên hệ"
+    },
+    "ProfileVFinal-01.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 0,
+      "y": 8420,
+      "title": "Brochure VFinal · 01 · Bìa"
+    },
+    "ProfileVFinal-02.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 896,
+      "y": 8420,
+      "title": "Brochure VFinal · 02 · Tổng quan"
+    },
+    "ProfileVFinal-03.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 1792,
+      "y": 8420,
+      "title": "Brochure VFinal · 03 · Năng lực & tổ chức"
+    },
+    "ProfileVFinal-04.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 2688,
+      "y": 8420,
+      "title": "Brochure VFinal · 04 · Chuyển đổi số & Tài chính"
+    },
+    "ProfileVFinal-05.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 3584,
+      "y": 8420,
+      "title": "Brochure VFinal · 05 · Bảo hiểm & An sinh"
+    },
+    "ProfileVFinal-06.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 4480,
+      "y": 8420,
+      "title": "Brochure VFinal · 06 · Hệ sinh thái"
+    },
+    "ProfileVFinal-07.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 5376,
+      "y": 8420,
+      "title": "Brochure VFinal · 07 · Dự án trọng điểm"
+    },
+    "ProfileVFinal-08.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 6272,
+      "y": 8420,
+      "title": "Brochure VFinal · 08 · Lộ trình & Lãnh đạo"
+    },
+    "ProfileVFinal-09.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 7168,
+      "y": 8420,
+      "title": "Brochure VFinal · 09 · Thành tựu"
+    },
+    "ProfileVFinal-10.dc.html": {
+      "h": 1145,
+      "w": 816,
+      "x": 8064,
+      "y": 8420,
+      "title": "Brochure VFinal · 10 · Hợp tác & Liên hệ"
     }
   },
   "createdOnFiles": {
@@ -220,7 +232,22 @@
   "launch": {
     "view": "canvas"
   },
-  "notes": {},
+  "notes": {
+    "bro-v8": {
+      "x": 0,
+      "y": 6500,
+      "text": "Brochure V8 · 10 trang",
+      "kind": "title1",
+      "maxW": 8880
+    },
+    "bro-vfinal": {
+      "x": 0,
+      "y": 8120,
+      "text": "Brochure VFinal · 10 trang (ảnh thật)",
+      "kind": "title1",
+      "maxW": 8880
+    }
+  },
   "order": [
     "Main.dc.html",
     "MainEN.dc.html",
@@ -231,22 +258,26 @@
     "News.dc.html",
     "Contact.dc.html",
     "System.dc.html",
-    "ProfileV3-01.dc.html",
-    "ProfileV3-02.dc.html",
-    "ProfileV3-03.dc.html",
-    "ProfileV3-04.dc.html",
-    "ProfileV3-05.dc.html",
-    "ProfileV3-06.dc.html",
-    "ProfileV3-07.dc.html",
-    "ProfileV3-08.dc.html",
-    "ProfileV5-01.dc.html",
-    "ProfileV5-02.dc.html",
-    "ProfileV5-03.dc.html",
-    "ProfileV5-04.dc.html",
-    "ProfileV5-05.dc.html",
-    "ProfileV5-06.dc.html",
-    "ProfileV5-07.dc.html",
-    "ProfileV5-08.dc.html"
+    "ProfileV8-01.dc.html",
+    "ProfileV8-02.dc.html",
+    "ProfileV8-03.dc.html",
+    "ProfileV8-04.dc.html",
+    "ProfileV8-05.dc.html",
+    "ProfileV8-06.dc.html",
+    "ProfileV8-07.dc.html",
+    "ProfileV8-08.dc.html",
+    "ProfileV8-09.dc.html",
+    "ProfileV8-10.dc.html",
+    "ProfileVFinal-01.dc.html",
+    "ProfileVFinal-02.dc.html",
+    "ProfileVFinal-03.dc.html",
+    "ProfileVFinal-04.dc.html",
+    "ProfileVFinal-05.dc.html",
+    "ProfileVFinal-06.dc.html",
+    "ProfileVFinal-07.dc.html",
+    "ProfileVFinal-08.dc.html",
+    "ProfileVFinal-09.dc.html",
+    "ProfileVFinal-10.dc.html"
   ],
   "pages": [
     {

@@ -46,3 +46,13 @@ Ba phương án, mỗi bản có HTML nguồn, PDF và ảnh preview; đồng th
 | `brochure-v3/` | Bản 3: Corporate Profile in ấn, màu website (cam #ca4d25, than #201e1d), Plus Jakarta Sans + Be Vietnam Pro, bleed 3mm | `project/ProfileV3-01–08.dc.html` |
 
 Bản 3 có `SPEC.md` (lưới, typography, tokens, layout từng trang) và `tokens.json`. Logo vector ở `assets/logo/`.
+
+### Brochure V8 và VFinal (10 trang)
+
+| Thư mục | Nội dung | Artboard canvas |
+|---|---|---|
+| `brochure-v8/` | Bản V8, ảnh minh họa | `project/ProfileV8-01–10.dc.html` |
+| `brochure-vfinal/` | Bản VFinal: nội dung rà theo website, ảnh và thư cảm ơn thật do MGST cung cấp | `project/ProfileVFinal-01–10.dc.html` |
+
+`tools/brochure_to_canvas.py` chuyển DOM đã render của từng trang thành artboard (khổ 216 × 303 mm, gồm 3 mm bleed). `assets/canvas/` là bản ảnh nhẹ dùng cho canvas; ảnh gốc độ phân giải in nằm trong thư mục từng bản.
+

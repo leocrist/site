@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Brochure V8 · 10 · Định hướng &amp; Liên hệ</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+
+
+
+
+
+
+
+
+
+
+
+html,body{background:#d9d9d9}
+@media screen{.page{margin:10mm auto;box-shadow:0 2mm 10mm rgba(32,30,29,.25)}}
+
+/* ---------- design tokens ---------- */
+:root{
+  --b:3mm;                                  /* bleed */
+  --navy:#201E1D;--navy-2:#2A2725;--navy-3:#3A3633;
+  --blue:#CA4D25;--blue-l:#EF7A52;--blue-s:#f5f5f5;
+  --green:#A93D1B;--green-l:#ca4d25;--green-s:#e8e8e8;
+  --slate:#3A3633;--mut:#5C5C5C;--line:#e5e5e5;--off:#fafafa;--white:#FFFFFF;
+  --head:'Plus Jakarta Sans',sans-serif;--body:'Be Vietnam Pro',sans-serif;
+  --cw:11.3333mm;--gut:4mm;--step:15.3333mm;   /* 12-col grid inside 180mm safe width */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--slate);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:calc(210mm + 2*var(--b));height:calc(297mm + 2*var(--b));position:relative;overflow:hidden;background:var(--white);break-after:page}
+.page.navy{background:var(--navy);color:#fff}
+.page.off{background:var(--off)}
+.trim{position:absolute;left:var(--b);top:var(--b);width:210mm;height:297mm}
+.a{position:absolute}
+/* grid column helper: --c start col (1-12), --s span */
+.gx{position:absolute;left:calc(15mm + (var(--c) - 1)*var(--step));width:calc(var(--s)*var(--step) - var(--gut))}
+.bleed-l{left:calc(-1*var(--b))!important}
+.full{left:calc(-1*var(--b));width:calc(210mm + 2*var(--b))}
+
+/* ---------- type ---------- */
+.lbl,.display,.h1,.h2,.h3,.stat,.chip,.pn{word-spacing:.09em}
+.lbl{font-family:var(--head);font-size:6.8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.display{font-family:var(--head);font-weight:800;font-size:42pt;line-height:1.04;letter-spacing:-.03em}
+.h1{font-family:var(--head);font-weight:800;font-size:25pt;line-height:1.1;letter-spacing:-.025em;color:var(--navy)}
+.navy .h1{color:#fff}
+.h2{font-family:var(--head);font-weight:800;font-size:16pt;line-height:1.18;letter-spacing:-.02em;color:var(--navy)}
+.h3{font-family:var(--head);font-weight:700;font-size:11pt;line-height:1.3;letter-spacing:-.01em;color:var(--navy)}
+.navy .h2,.navy .h3,.on-navy .h2,.on-navy .h3{color:#fff}
+.body{font-size:9.5pt;line-height:1.45}
+.sm{font-size:9pt;line-height:1.42}
+.xs{font-size:7.6pt;line-height:1.4}
+.mut{color:var(--mut)}
+.navy .mut,.on-navy .mut{color:#999999}
+.stat{font-family:var(--head);font-weight:800;font-size:46pt;line-height:.95;letter-spacing:-.04em;color:var(--navy)}
+.stat em{font-style:normal;color:var(--blue)}
+.ic{width:5.2mm;height:5.2mm;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.icb{width:9mm;height:9mm;border-radius:50%;display:grid;place-items:center;flex:none}
+.blue-t{color:var(--blue)}.green-t{color:var(--green)}.navy-t{color:var(--navy)}
+.card{border-radius:2.4mm;padding:5mm}
+.chip{display:inline-flex;align-items:center;gap:1.6mm;font-family:var(--head);font-weight:700;font-size:7pt;border-radius:10mm;padding:1.2mm 3mm}
+.row{display:flex;gap:3mm;align-items:flex-start}
+.hr{height:.25mm;background:var(--line)}
+/* running header/footer (inside trim, safe area) */
+.rh{left:15mm;right:15mm;top:11mm;display:flex;justify-content:space-between;align-items:center}
+.rf{left:15mm;right:15mm;bottom:9mm;display:flex;justify-content:space-between;align-items:center;font-size:6.6pt;letter-spacing:.06em}
+.dot{display:inline-block;width:1.4mm;height:1.4mm;border-radius:50%;background:var(--green-l);margin:0 2.4mm;vertical-align:middle}
+.pn{font-family:var(--head);font-weight:800;font-size:9pt;letter-spacing:0}
+
+
+html,body{overflow:hidden!important;margin:0!important;background:#ffffff!important} .page{margin:0!important;box-shadow:none!important;break-after:auto!important}
+.dark,.navy{background:#f5f5f5!important;color:#201e1d!important}.dark .mut,.navy .mut,.dark-band .mut{color:#5c5c5c!important}
+.dark .ic2,.dark-band .ic2,.ic2.dk{background:#e8e8e8!important;color:#ca4d25!important}
+.dark .pill,.dark-band .pill{background:#ffffff;color:#201e1d;border-color:#dedede}
+.dark .boxv{background:#dedede}.dark .srule{background:#dedede}.dark .or{color:#ca4d25}
+.v8-footer{position:absolute;left:15mm;right:15mm;bottom:8mm;display:flex;justify-content:space-between;border-top:.2mm solid #dedede;padding-top:3mm;font-size:6.7pt;color:#5c5c5c;background:#ffffff}
+.draft-note{font-size:7.5pt;color:#555555;line-height:1.5}
+
+.closing-v3{background:#ffffff!important;color:#201e1d}.closing-v3 .h3{color:#201e1d!important}.closing-slogan{background:#ca4d25;padding:7mm 8mm;border-radius:3mm;min-height:36mm}.closing-v3 .card .ic{color:#fff!important}
+
+
+
+
+.editorial{--line:#dedede;--head:Inter;--body:Inter}
+.editorial .rh{padding-bottom:4mm;border-bottom:.25mm solid #dedede}
+.editorial .rh .lbl{color:#a93d1b!important;letter-spacing:.12em}
+.editorial .rf{border-top:.25mm solid #dedede;padding-top:3mm;color:#5c5c5c!important}
+.editorial .h1,.editorial .h2,.editorial h1,.editorial h2{font-family:Inter,sans-serif;letter-spacing:-.035em}
+.editorial .pill{border:0;padding-left:0;background:transparent;font-weight:600;color:#a93d1b}
+.editorial .pill .nb{border-radius:1mm}
+.editorial .x{opacity:.5}
+.editorial .boxv{opacity:.55}
+.editorial .cap{font-size:5.5pt}
+.editorial .fcard:after{background:linear-gradient(135deg,#f5f5f5 0%,rgba(245,245,245,.94) 32%,rgba(245,245,245,.58) 60%,transparent 92%)}
+.editorial .fcard .h3{font-size:13pt;line-height:1.25}
+.editorial .stat{font-variant-numeric:tabular-nums}
+.editorial .cover-figures{border-top:1mm solid #ca4d25!important}
+.editorial .cover-figures .kf{gap:4mm!important}
+.editorial .cover-figures .sm{font-weight:600;color:#3d3a38!important}
+.editorial .hero .oc{opacity:.5}
+.editorial .oc{display:none!important}
+.editorial .hero h1{font-weight:700;letter-spacing:-.04em}
+.editorial .benefit{border-radius:0!important;border:0!important;border-bottom:.25mm solid #dedede!important}
+.editorial .benefit>div:first-child{background:#ca4d25!important;color:#fff!important}
+.editorial #leaders{border:0!important;gap:3mm!important;background:transparent!important}
+.editorial #leaders>div{border:.25mm solid #dedede;border-top:.7mm solid #ca4d25}
+.editorial .closing-slogan{border-radius:0;min-height:38mm}
+.editorial.closing-v3 .card{border-radius:3mm;border:0!important}
+.editorial.closing-v3 .card .h3{font-size:11pt;line-height:1.35}
+.editorial.closing-v3 .card .sm{font-size:8.3pt;line-height:1.5}
+.editorial .letter{box-shadow:.5mm 1mm 2mm #dddddd;border:.3mm solid #bbbbbb}
+.editorial .top{padding-bottom:5mm}
+.editorial .eyebrow{color:#a93d1b}
+
+html,body{margin:0;background:transparent}.page,.sheet{margin:0;box-shadow:none}
+.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1.imp1{color: rgb(32, 30, 29) !important}
+.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2.imp2{background: rgb(245, 245, 245) !important}
+.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3.imp3{background: rgb(202, 77, 37) !important;color: rgb(255, 255, 255) !important}
+.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4.imp4{color: rgb(32, 30, 29) !important}
+.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5.imp5{color: rgb(92, 92, 92) !important}
+.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6.imp6{background: rgb(245, 245, 245) !important}
+.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7.imp7{background: rgb(202, 77, 37) !important;color: rgb(255, 255, 255) !important}
+.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8.imp8{color: rgb(32, 30, 29) !important}
+.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9.imp9{color: rgb(92, 92, 92) !important}
+.imp10.imp10.imp10.imp10.imp10.imp10.imp10.imp10.imp10.imp10.imp10.imp10{background: rgb(245, 245, 245) !important}
+.imp11.imp11.imp11.imp11.imp11.imp11.imp11.imp11.imp11.imp11.imp11.imp11{background: rgb(202, 77, 37) !important;color: rgb(255, 255, 255) !important}
+.imp12.imp12.imp12.imp12.imp12.imp12.imp12.imp12.imp12.imp12.imp12.imp12{color: rgb(32, 30, 29) !important}
+.imp13.imp13.imp13.imp13.imp13.imp13.imp13.imp13.imp13.imp13.imp13.imp13{color: rgb(92, 92, 92) !important}
+.imp14.imp14.imp14.imp14.imp14.imp14.imp14.imp14.imp14.imp14.imp14.imp14{color: rgb(92, 92, 92) !important}
+.imp15.imp15.imp15.imp15.imp15.imp15.imp15.imp15.imp15.imp15.imp15.imp15{color: rgb(92, 92, 92) !important}
+.imp16.imp16.imp16.imp16.imp16.imp16.imp16.imp16.imp16.imp16.imp16.imp16{color: rgb(92, 92, 92) !important}
+</style>
+</helmet>
+<svg width="0" height="0" style="position:absolute">
+ <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></symbol>
+ <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></symbol>
+ <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></symbol>
+ <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><circle cx="17" cy="9" r="2.3"></circle><path d="M16.5 14c2.6.2 4.5 2.3 4.5 5"></path></symbol>
+ <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></symbol>
+ <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></symbol>
+ <symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2.2"></circle><path d="M5.8 16.4c.8-2 5.6-2 6.4 0M14.5 10h4M14.5 13.5h3"></path></symbol>
+ <symbol id="i-tax" viewBox="0 0 24 24"><path d="M6 3h12v18l-2-1.4-2 1.4-2-1.4-2 1.4-2-1.4L6 21z"></path><path d="M9 8h6M9 11.5h6M9 15h3"></path></symbol>
+ <symbol id="i-qr" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"></rect><rect x="14" y="4" width="6" height="6"></rect><rect x="4" y="14" width="6" height="6"></rect><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2M18 14h2"></path></symbol>
+ <symbol id="i-hos" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14"></rect><path d="M12 10.5v6M9 13.5h6M9 7V4h6v3"></path></symbol>
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7"></path></symbol>
+ <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5 9 5M5 10.5v7M9.7 10.5v7M14.3 10.5v7M19 10.5v7M3 20h18"></path></symbol>
+ <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"></rect><path d="M3 10h18M7 14.5h4"></path></symbol>
+ <symbol id="i-finger" viewBox="0 0 24 24"><path d="M12 11v3a8 8 0 0 1-2 5M8.5 8.5A4 4 0 0 1 16 11v2.5M16 17a14 14 0 0 1-.6 3M5.5 13.5V11a6.5 6.5 0 0 1 11-4.7M19 10v3"></path></symbol>
+ <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2.2 2.2L15.5 10"></path></symbol>
+ <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"></path><path d="M10 20v-5h4v5"></path></symbol>
+ <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-4l2.2-5h11.6L20 12v4z"></path><circle cx="8" cy="16.5" r="1.6"></circle><circle cx="16" cy="16.5" r="1.6"></circle><path d="M4 12h16"></path></symbol>
+ <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 8v8M8 12h8"></path></symbol>
+ <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 12 7.6 4.2 4.2 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"></path></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.6-4.6"></path></symbol>
+ <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"></rect><path d="M4 12h16M12 4v16"></path></symbol>
+ <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></symbol>
+ <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"></path><circle cx="12" cy="10" r="2.3"></circle></symbol>
+ <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"></rect><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"></path></symbol>
+ <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"></path><path d="M9 4v14M15 6v14"></path></symbol>
+ <symbol id="i-gov" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M10 10v8M14 10v8M19 10v8M3 21h18"></path></symbol>
+ <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"></path><path d="M6 9.5V20h12V9.5"></path><path d="M10 20v-5h4v5"></path></symbol>
+ <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"></path></symbol>
+ <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></symbol>
+</svg>
+
+<!-- ===================== P1 · FRONT COVER ===================== -->
+
+
+<!-- ===================== P2 · OVERVIEW ===================== -->
+
+
+<!-- ===================== P3 · LOCAL EXECUTION ===================== -->
+
+
+<!-- ===================== P4 · SPREAD L: FIELDS 01 & 02 ===================== -->
+
+
+<!-- ===================== P5 · SPREAD R: FIELDS 03 & 04 ===================== -->
+
+
+<!-- ===================== P6 · ECOSYSTEM (navy) ===================== -->
+
+
+<!-- ===================== P7 · ROADMAP & LEADERSHIP ===================== -->
+
+
+<!-- ===================== P8 · BACK COVER / CTA (navy) ===================== -->
+<section class="page closing-v3 editorial"><div class="trim">
+  <svg class="a" id="back-net" style="left:calc(-1*var(--b)); top:calc(-1*var(--b)); width:calc(210mm + 2*var(--b)); height:calc(297mm + 2*var(--b))" viewBox="-3 -3 216 303"><path d="M128 303 C 167.6 302.55, 198.4 300.75, 216 300" fill="none" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.35" stroke-linecap="round"></path><circle cx="176.41" cy="301.76" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="202.81" cy="300.61" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><path d="M128 303 C 167.6 301.2, 198.4 294, 216 291" fill="none" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.35" stroke-linecap="round"></path><circle cx="176.62" cy="298.02" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="202.89" cy="293.42" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><path d="M128 303 C 167.6 299.85, 198.4 287.25, 216 282" fill="none" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.35" stroke-linecap="round"></path><circle cx="177.04" cy="294.18" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="203.05" cy="286.18" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><path d="M128 303 C 167.6 298.5, 198.4 280.5, 216 273" fill="none" stroke="#CA4D25" stroke-opacity="1" stroke-width="0.7" stroke-linecap="round"></path><circle cx="177.62" cy="290.17" r="1.5" fill="#ffffff" stroke="#CA4D25" stroke-opacity="1" stroke-width="0.55"></circle><circle cx="203.27" cy="278.86" r="1.5" fill="#ffffff" stroke="#CA4D25" stroke-opacity="1" stroke-width="0.55"></circle><path d="M128 303 C 167.6 297.15, 198.4 273.75, 216 264" fill="none" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.35" stroke-linecap="round"></path><circle cx="178.3" cy="285.97" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="203.52" cy="271.47" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><path d="M128 303 C 167.6 295.8, 198.4 267, 216 255" fill="none" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.35" stroke-linecap="round"></path><circle cx="179.02" cy="281.59" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="203.77" cy="264" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><path d="M128 303 C 167.6 294.45, 198.4 260.25, 216 246" fill="none" stroke="#A93D1B" stroke-opacity="1" stroke-width="0.7" stroke-linecap="round"></path><circle cx="179.73" cy="277.03" r="1.5" fill="#ffffff" stroke="#A93D1B" stroke-opacity="1" stroke-width="0.55"></circle><circle cx="204.01" cy="256.47" r="1.5" fill="#ffffff" stroke="#A93D1B" stroke-opacity="1" stroke-width="0.55"></circle><path d="M128 303 C 167.6 293.1, 198.4 253.5, 216 237" fill="none" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.35" stroke-linecap="round"></path><circle cx="180.41" cy="272.33" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="204.24" cy="248.89" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><path d="M128 303 C 167.6 291.75, 198.4 246.75, 216 228" fill="none" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.35" stroke-linecap="round"></path><circle cx="181.03" cy="267.52" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="204.44" cy="241.27" r="0.9" fill="#ffffff" stroke="#bbbbbb" stroke-opacity=".55" stroke-width="0.3"></circle><circle cx="128" cy="303" r="2.4" fill="#CA4D25"></circle><circle cx="128" cy="303" r="5" fill="none" stroke="#CA4D25" stroke-opacity="0.5" stroke-width="0.3"></circle></svg>
+  <div class="a rh"><img src="../assets/logo/mgst-logo.svg" style="height:6.5mm; display:block" alt="Minh Group ST"><span class="lbl" style="color: rgb(202, 77, 37)">10 / Định hướng &amp; Liên hệ</span></div>
+  <div class="gx" style="--c:1; --s:11; top:28mm"><h1 class="h1 imp1" style="font-size: 23pt">Giai đoạn tới: <span style="color: rgb(202, 77, 37)">ba mũi nhọn chiến lược.</span></h1></div>
+
+  <div class="gx" style="--c:1; --s:12; top:52mm; display:grid; grid-template-columns:repeat(3,1fr); gap:4mm">
+    <div class="card imp2" style="min-height: 56mm; border: 0.25mm solid rgb(222, 222, 222)"><span class="icb imp3" ><svg class="ic"><use href="#i-map"></use></svg></span><div class="h3 imp4" style="margin-top: 5mm">Mở rộng 13 tỉnh thành ĐBSCL</div><p class="sm mut imp5" style="margin-top: 1.4mm">Tăng nhân sự, hoàn thiện mạng lưới chi nhánh.</p></div>
+    <div class="card imp6" style="min-height: 56mm; border: 0.25mm solid rgb(222, 222, 222)"><span class="icb imp7" ><svg class="ic"><use href="#i-cpu"></use></svg></span><div class="h3 imp8" style="margin-top: 5mm">AI &amp; tự động hóa quy trình hỗ trợ dân</div><p class="sm mut imp9" style="margin-top: 1.4mm">Nâng năng lực quản lý và hỗ trợ số hóa người dân.</p></div>
+    <div class="card imp10" style="min-height: 56mm; border: 0.25mm solid rgb(222, 222, 222)"><span class="icb imp11" ><svg class="ic"><use href="#i-link"></use></svg></span><div class="h3 imp12" style="margin-top: 5mm">Liên kết tài chính, bảo hiểm &amp; nhà nước</div><p class="sm mut imp13" style="margin-top: 1.4mm">Tăng cường quan hệ với định chế tài chính, tập đoàn bảo hiểm, cơ quan nhà nước.</p></div>
+  </div>
+
+  <!-- CTA box -->
+  <div class="gx" style="--c: 1; --s: 12; top: 116mm; height: 104mm; background: rgb(255, 255, 255); color: var(--slate); border-radius: 3mm; display: grid; grid-template-columns: 1fr 58mm; overflow: hidden; border: 0.25mm solid rgb(222, 222, 222)">
+    <div style="padding:8mm 8mm 7mm">
+      <div class="lbl blue-t">Liên hệ hợp tác</div>
+      <div class="h2" style="font-size:19pt; margin-top:2.6mm; color:var(--navy)">Kết nối cùng Minh Group ST</div>
+      <div class="row" style="margin-top:7mm; align-items:center"><span class="icb" style="background:var(--blue); color:#fff; width:11mm; height:11mm"><svg class="ic"><use href="#i-phone"></use></svg></span><div><div class="xs mut imp14" >Hotline</div><div style="font-family:var(--head); font-weight:800; font-size:21pt; letter-spacing:-.01em; color:var(--navy); line-height:1.1"><a href="tel:+84977726700" style="color: inherit; text-decoration: none">0977 726 700</a></div></div></div>
+      <div class="row" style="margin-top:4.5mm; align-items:center"><span class="icb" style="background:var(--blue-s); color:var(--blue); width:11mm; height:11mm"><svg class="ic"><use href="#i-mail"></use></svg></span><div><div class="xs mut imp15" >Email</div><div class="body" style="font-weight:600; color:var(--navy)"><a href="mailto:minhgroupst@mgst.com.vn" style="color: inherit; text-decoration: none">minhgroupst@mgst.com.vn</a></div></div></div>
+      <div class="row" style="margin-top:4.5mm; align-items:center"><span class="icb" style="background:var(--green-s); color:var(--green); width:11mm; height:11mm"><svg class="ic"><use href="#i-pin"></use></svg></span><div><div class="xs mut imp16" >Trụ sở chính</div><div class="body" style="font-weight:600; color:var(--navy)">323–325 Phú Lợi, phường Phú Lợi, TP Cần Thơ</div></div></div>
+    </div>
+    <div style="background: rgb(245, 245, 245); border-left: .25mm solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6mm; text-align: center"><a href="https://mgst.com.vn" target="_blank" rel="noopener"><img src="../assets/canvas/bro-website-qr.png" alt="Quét mã truy cập https://mgst.com.vn" style="width:42mm; height:42mm; display:block"></a><div class="h3" style="margin-top:4mm">Quét để kết nối</div><a href="https://mgst.com.vn" style="margin-top:2mm; font-size:9pt; color:#ca4d25; text-decoration:none">mgst.com.vn</a></div>
+  </div>
+
+  <div class="gx closing-slogan" style="--c: 1; --s: 12; top: 229mm; display: flex; justify-content: space-between; align-items: flex-end">
+    <div style="font-family: var(--head); font-weight: 800; font-size: 30pt; line-height: 1.12; letter-spacing: -0.025em; color: rgb(255, 255, 255)">Tiên phong số hóa –<br><span style="color: rgb(255, 255, 255)">Hiệu quả bứt phá</span></div>
+  </div>
+  <div class="gx xs" style="--c: 1; --s: 7; top: 274mm; color: rgb(119, 119, 119); font-size: 5.6pt; line-height: 1.5">Ảnh minh họa (Wikimedia Commons): P. van der Sluijs, Franzfoto (CC BY-SA 3.0); Vyacheslav Argenberg (CC BY 4.0). Logo PVI, PTI thuộc quyền sở hữu của từng đơn vị. Thông tin cập nhật 2026.</div>
+</div></section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":816,"height":1145}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>
