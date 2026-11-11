@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Brochure VBi · 02 · Tổng quan</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Lora:ital,wght@1,400;1,700&amp;display=swap">
+<style>
+body{margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--or:#ca4d25;--or2:#a63c1b;--ink:#201e1d;--tx:#3d3a38;--mut:#5c5c5c;--en:#5f5650;--ln:#dedede;--tint:#f5f5f5;--head:'Plus Jakarta Sans',sans-serif;--body:'Be Vietnam Pro',sans-serif;--enf:'Lora',serif}
+body{font-family:var(--body);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:216mm;height:303mm;position:relative;overflow:hidden;background:#fff;break-after:page;font-family:var(--body);color:var(--ink)}
+.in{position:absolute;left:18mm;right:18mm;top:15mm;bottom:13mm;display:flex;flex-direction:column}
+img{display:block}
+/* running head + foot */
+.rh{display:flex;justify-content:space-between;align-items:center;padding-bottom:4mm;border-bottom:.25mm solid var(--ln)}
+.rh img{height:7mm}
+.sec{font:700 6.4pt var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--or)}
+.sec i,.lbl i{font:italic 400 8.4pt var(--enf);letter-spacing:0;text-transform:none;color:var(--or2);margin-left:1.8mm;font-size:9.4pt}
+.ft{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:3.4mm;border-top:.25mm solid var(--ln);font-size:6.4pt;color:var(--mut)}
+.key{display:flex;align-items:center;gap:1.6mm}
+.key b{width:2.2mm;height:2.2mm;background:var(--ink)}.key b+span+b{background:var(--or);margin-left:2.4mm}
+.key i{font:italic 7.4pt var(--enf);color:var(--or2)}
+.pn{font:700 7pt var(--head);letter-spacing:.12em;color:var(--ink)}
+/* the two voices */
+h1{font:700 26pt/1.12 var(--head);letter-spacing:-.022em}
+h1 span{color:var(--or)}
+.eh{display:flex;align-items:center;gap:3mm;margin-top:3mm;font:italic 400 17pt/1.2 var(--enf);color:var(--or)}
+.eh::before{content:"";flex:0 0 9mm;height:.35mm;background:var(--or)}
+p{font:400 8.7pt/1.55 var(--body);color:var(--tx)}
+p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
+.lbl{font:700 6.2pt var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.t{font:700 10.4pt/1.25 var(--head);letter-spacing:-.01em}
+.te{font:italic 400 10pt/1.25 var(--enf);color:var(--or);margin-top:.7mm}
+.s{font:400 7.9pt/1.45 var(--body);color:var(--tx);margin-top:1.2mm}
+.se{font:italic 400 8.3pt/1.4 var(--enf);color:var(--en);margin-top:.6mm}
+.sq{width:3.2mm;height:3.2mm;background:var(--or);flex-shrink:0}
+.num{font:800 9pt var(--head);color:#fff;background:var(--or);width:8mm;height:8mm;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stat b{display:block;font:800 29pt/1 var(--head);letter-spacing:-.03em;color:var(--or)}
+.stat .t{font-size:8.8pt;margin-top:2mm}.stat .te{font-size:9.4pt}
+.row{display:flex;gap:4mm}
+.col{display:flex;flex-direction:column}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.card{background:var(--tint);padding:4mm}
+.line{border-top:.25mm solid var(--ln)}
+.ph{position:relative;overflow:hidden;background:#e7e2de}
+.ph img{width:100%;height:100%;object-fit:cover}
+.cap{font:400 6.2pt/1.4 var(--body);color:var(--mut);margin-top:1.4mm}
+.cap i{font:italic 6.8pt var(--enf);color:var(--en)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.pair>.e{padding-left:6mm;border-left:.35mm solid var(--or)}
+.band{background:var(--or);color:#fff;padding:4.5mm 6mm}
+.band .t{color:#fff}.band .te{color:#ffe1d3}.band .eh::before{background:#fff}
+.dk{background:var(--ink);color:#fff}
+.li{display:flex;gap:3.2mm;align-items:flex-start;padding:2.6mm 0;border-top:.25mm solid var(--ln)}
+.li .t{font-size:9pt}.li .te{font-size:9.2pt}
+.ck{width:4.2mm;height:4.2mm;border:.35mm solid var(--or);flex-shrink:0;position:relative;margin-top:.4mm}
+.ck::after{content:"";position:absolute;left:1.1mm;top:.35mm;width:1.2mm;height:2.2mm;border:solid var(--or);border-width:0 .4mm .4mm 0;transform:rotate(45deg)}
+</style>
+</helmet>
+<section class="page " data-n="02"><div class="in"><div class="rh"><img src="../assets/logo/mgst-logo.svg" alt="Minh Group ST"><span class="sec">02 · Tổng quan<i>Overview</i></span></div>
+<div style="margin-top:7mm"><h1>Sức mạnh tại chỗ.<br><span>Thấu hiểu địa bàn.</span></h1><div class="eh">Local strength. Local insight.</div></div>
+<div class="pair" style="margin-top:7mm">
+ <p>Thành lập tháng 03/2025 tại Cần Thơ, Công ty TNHH Minh Group ST đưa dịch vụ tài chính số, bảo hiểm và an sinh đến người dân Đồng bằng sông Cửu Long bằng lực lượng tại chỗ và quy trình quản trị khép kín.</p>
+ <p class="e" style="font-size:9.4pt">Founded in Cần Thơ in March 2025, Minh Group ST brings digital finance, insurance and social security to people across the Mekong Delta, through its own field force and an end-to-end operating process.</p>
+</div>
+<div class="row" style="margin-top:7mm">
+ <div style="flex:1"><div style="flex:1;min-width:0"><div class="ph" style="height:61mm"><img src="../assets/canvas/bro-partner-meeting.jpg" alt="" style="object-position:center"></div></div><div class="card"><div class="lbl" style="margin-top:0">Mô hình hoạt động<i>Operating model</i></div><p style="margin-top:2mm">Bảy lĩnh vực kết nối trong bốn khối hoạt động, cùng phục vụ nhu cầu của người dân và hộ kinh doanh.</p><p class="e" style="margin-top:1mm">Seven connected lines of business in four divisions, serving households and small traders.</p></div></div>
+ <div style="flex:1"><div style="flex:1;min-width:0"><div class="ph" style="height:61mm"><img src="../assets/canvas/bro-digital-team.jpg" alt="" style="object-position:center"></div></div><div class="card"><div class="lbl" style="margin-top:0">Giá trị cho đối tác<i>Value for partners</i></div><p style="margin-top:2mm">Mở rộng độ phủ, triển khai linh hoạt, theo sát chất lượng dịch vụ và báo cáo minh bạch.</p><p class="e" style="margin-top:1mm">Wider reach, flexible roll-out, close quality follow-up and transparent reporting.</p></div></div>
+</div>
+<div class="lbl" style="margin-top:8mm">Triết lý hành động<i>How we work</i></div>
+<div class="g3" style="margin-top:3mm">
+ <div class="card"><div class="num">01</div><div style="margin-top:4mm"><div class="t">Gần dân</div><div class="te">Close to the people</div><div class="s">Nhân sự bám sát địa bàn, hỗ trợ người dân tại cơ sở.</div><div class="se">Staff stay in the field and help people where they live.</div></div></div>
+ <div class="card"><div class="num">02</div><div style="margin-top:4mm"><div class="t">Minh bạch</div><div class="te">Transparent</div><div class="s">Dữ liệu chuẩn xác, đối soát rõ ràng với đối tác.</div><div class="se">Accurate data and clear reconciliation with partners.</div></div></div>
+ <div class="card"><div class="num">03</div><div style="margin-top:4mm"><div class="t">Trách nhiệm</div><div class="te">Responsible</div><div class="s">Gắn hiệu quả kinh doanh với lợi ích cộng đồng.</div><div class="se">Business results tied to community benefit.</div></div></div>
+</div>
+<div style="margin-top:7mm;display:flex;align-items:center;gap:5mm"><div class="sq"></div><div><div class="t" style="font-size:14pt">Tiên phong số hóa – <span style="color:var(--or)">Hiệu quả bứt phá</span></div><div class="te" style="font-size:11pt">Digital first. Breakthrough results.</div></div></div>
+<div class="ft"><span class="key"><b></b><span>Tiếng Việt</span><b></b><i>English</i></span><span>Minh Group ST · Hồ sơ năng lực 2026 <i class="e" style="font-size:7pt">/ Corporate Profile 2026</i></span><span class="pn">02</span></div></div></section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":816,"height":1145}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

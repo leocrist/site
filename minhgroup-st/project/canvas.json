@@ -56,6 +56,146 @@
       "x": 4560,
       "y": 0
     },
+    "ProfileV8-01.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 01 · Bìa",
+      "w": 816,
+      "x": 0,
+      "y": 6800
+    },
+    "ProfileV8-02.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 02 · Tổng quan",
+      "w": 816,
+      "x": 896,
+      "y": 6800
+    },
+    "ProfileV8-03.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 03 · Năng lực thực địa",
+      "w": 816,
+      "x": 1792,
+      "y": 6800
+    },
+    "ProfileV8-04.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 04 · Công nghệ & Tài chính",
+      "w": 816,
+      "x": 2688,
+      "y": 6800
+    },
+    "ProfileV8-05.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 05 · Bảo hiểm & An sinh",
+      "w": 816,
+      "x": 3584,
+      "y": 6800
+    },
+    "ProfileV8-06.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 06 · Hệ sinh thái",
+      "w": 816,
+      "x": 4480,
+      "y": 6800
+    },
+    "ProfileV8-07.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 07 · Dự án trọng điểm",
+      "w": 816,
+      "x": 5376,
+      "y": 6800
+    },
+    "ProfileV8-08.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 08 · Lộ trình & Điều hành",
+      "w": 816,
+      "x": 6272,
+      "y": 6800
+    },
+    "ProfileV8-09.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 09 · Thành tựu",
+      "w": 816,
+      "x": 7168,
+      "y": 6800
+    },
+    "ProfileV8-10.dc.html": {
+      "h": 1145,
+      "title": "Brochure V8 · 10 · Định hướng & Liên hệ",
+      "w": 816,
+      "x": 8064,
+      "y": 6800
+    },
+    "ProfileVFinal-01.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 01 · Bìa",
+      "w": 816,
+      "x": 0,
+      "y": 8420
+    },
+    "ProfileVFinal-02.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 02 · Tổng quan",
+      "w": 816,
+      "x": 896,
+      "y": 8420
+    },
+    "ProfileVFinal-03.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 03 · Năng lực & tổ chức",
+      "w": 816,
+      "x": 1792,
+      "y": 8420
+    },
+    "ProfileVFinal-04.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 04 · Chuyển đổi số & Tài chính",
+      "w": 816,
+      "x": 2688,
+      "y": 8420
+    },
+    "ProfileVFinal-05.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 05 · Bảo hiểm & An sinh",
+      "w": 816,
+      "x": 3584,
+      "y": 8420
+    },
+    "ProfileVFinal-06.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 06 · Hệ sinh thái",
+      "w": 816,
+      "x": 4480,
+      "y": 8420
+    },
+    "ProfileVFinal-07.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 07 · Dự án trọng điểm",
+      "w": 816,
+      "x": 5376,
+      "y": 8420
+    },
+    "ProfileVFinal-08.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 08 · Lộ trình & Lãnh đạo",
+      "w": 816,
+      "x": 6272,
+      "y": 8420
+    },
+    "ProfileVFinal-09.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 09 · Thành tựu",
+      "w": 816,
+      "x": 7168,
+      "y": 8420
+    },
+    "ProfileVFinal-10.dc.html": {
+      "h": 1145,
+      "title": "Brochure VFinal · 10 · Hợp tác & Liên hệ",
+      "w": 816,
+      "x": 8064,
+      "y": 8420
+    },
     "Projects.dc.html": {
       "expand": "fill",
       "h": 5020,
@@ -83,145 +223,75 @@
       "x": 12160,
       "y": 0
     },
-    "ProfileV8-01.dc.html": {
+    "ProfileVBi-01.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 0,
-      "y": 6800,
-      "title": "Brochure V8 · 01 · Bìa"
+      "y": 10040,
+      "title": "Brochure VBi · 01 · Bìa"
     },
-    "ProfileV8-02.dc.html": {
+    "ProfileVBi-02.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 896,
-      "y": 6800,
-      "title": "Brochure V8 · 02 · Tổng quan"
+      "y": 10040,
+      "title": "Brochure VBi · 02 · Tổng quan"
     },
-    "ProfileV8-03.dc.html": {
+    "ProfileVBi-03.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 1792,
-      "y": 6800,
-      "title": "Brochure V8 · 03 · Năng lực thực địa"
+      "y": 10040,
+      "title": "Brochure VBi · 03 · Năng lực & Tổ chức"
     },
-    "ProfileV8-04.dc.html": {
+    "ProfileVBi-04.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 2688,
-      "y": 6800,
-      "title": "Brochure V8 · 04 · Công nghệ & Tài chính"
+      "y": 10040,
+      "title": "Brochure VBi · 04 · Chuyển đổi số & Tài chính"
     },
-    "ProfileV8-05.dc.html": {
+    "ProfileVBi-05.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 3584,
-      "y": 6800,
-      "title": "Brochure V8 · 05 · Bảo hiểm & An sinh"
+      "y": 10040,
+      "title": "Brochure VBi · 05 · Bảo hiểm & An sinh"
     },
-    "ProfileV8-06.dc.html": {
+    "ProfileVBi-06.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 4480,
-      "y": 6800,
-      "title": "Brochure V8 · 06 · Hệ sinh thái"
+      "y": 10040,
+      "title": "Brochure VBi · 06 · Hệ sinh thái"
     },
-    "ProfileV8-07.dc.html": {
+    "ProfileVBi-07.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 5376,
-      "y": 6800,
-      "title": "Brochure V8 · 07 · Dự án trọng điểm"
+      "y": 10040,
+      "title": "Brochure VBi · 07 · Dự án trọng điểm"
     },
-    "ProfileV8-08.dc.html": {
+    "ProfileVBi-08.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 6272,
-      "y": 6800,
-      "title": "Brochure V8 · 08 · Lộ trình & Điều hành"
+      "y": 10040,
+      "title": "Brochure VBi · 08 · Lộ trình & Lãnh đạo"
     },
-    "ProfileV8-09.dc.html": {
+    "ProfileVBi-09.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 7168,
-      "y": 6800,
-      "title": "Brochure V8 · 09 · Thành tựu"
+      "y": 10040,
+      "title": "Brochure VBi · 09 · Thành tựu"
     },
-    "ProfileV8-10.dc.html": {
+    "ProfileVBi-10.dc.html": {
       "h": 1145,
       "w": 816,
       "x": 8064,
-      "y": 6800,
-      "title": "Brochure V8 · 10 · Định hướng & Liên hệ"
-    },
-    "ProfileVFinal-01.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 0,
-      "y": 8420,
-      "title": "Brochure VFinal · 01 · Bìa"
-    },
-    "ProfileVFinal-02.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 896,
-      "y": 8420,
-      "title": "Brochure VFinal · 02 · Tổng quan"
-    },
-    "ProfileVFinal-03.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 1792,
-      "y": 8420,
-      "title": "Brochure VFinal · 03 · Năng lực & tổ chức"
-    },
-    "ProfileVFinal-04.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 2688,
-      "y": 8420,
-      "title": "Brochure VFinal · 04 · Chuyển đổi số & Tài chính"
-    },
-    "ProfileVFinal-05.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 3584,
-      "y": 8420,
-      "title": "Brochure VFinal · 05 · Bảo hiểm & An sinh"
-    },
-    "ProfileVFinal-06.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 4480,
-      "y": 8420,
-      "title": "Brochure VFinal · 06 · Hệ sinh thái"
-    },
-    "ProfileVFinal-07.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 5376,
-      "y": 8420,
-      "title": "Brochure VFinal · 07 · Dự án trọng điểm"
-    },
-    "ProfileVFinal-08.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 6272,
-      "y": 8420,
-      "title": "Brochure VFinal · 08 · Lộ trình & Lãnh đạo"
-    },
-    "ProfileVFinal-09.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 7168,
-      "y": 8420,
-      "title": "Brochure VFinal · 09 · Thành tựu"
-    },
-    "ProfileVFinal-10.dc.html": {
-      "h": 1145,
-      "w": 816,
-      "x": 8064,
-      "y": 8420,
-      "title": "Brochure VFinal · 10 · Hợp tác & Liên hệ"
+      "y": 10040,
+      "title": "Brochure VBi · 10 · Hợp tác & Liên hệ"
     }
   },
   "createdOnFiles": {
@@ -234,18 +304,27 @@
   },
   "notes": {
     "bro-v8": {
-      "x": 0,
-      "y": 6500,
-      "text": "Brochure V8 · 10 trang",
       "kind": "title1",
-      "maxW": 8880
+      "maxW": 8000,
+      "text": "Brochure V8 · 10 trang",
+      "w": 240,
+      "x": 0,
+      "y": 6500
     },
     "bro-vfinal": {
-      "x": 0,
-      "y": 8120,
-      "text": "Brochure VFinal · 10 trang (ảnh thật)",
       "kind": "title1",
-      "maxW": 8880
+      "maxW": 8000,
+      "text": "Brochure VFinal · 10 trang (ảnh thật)",
+      "w": 240,
+      "x": 0,
+      "y": 8120
+    },
+    "bro-vbi": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "Brochure VBi · Song ngữ VI / EN · 10 trang",
+      "x": 0,
+      "y": 9740
     }
   },
   "order": [
@@ -277,7 +356,17 @@
     "ProfileVFinal-07.dc.html",
     "ProfileVFinal-08.dc.html",
     "ProfileVFinal-09.dc.html",
-    "ProfileVFinal-10.dc.html"
+    "ProfileVFinal-10.dc.html",
+    "ProfileVBi-01.dc.html",
+    "ProfileVBi-02.dc.html",
+    "ProfileVBi-03.dc.html",
+    "ProfileVBi-04.dc.html",
+    "ProfileVBi-05.dc.html",
+    "ProfileVBi-06.dc.html",
+    "ProfileVBi-07.dc.html",
+    "ProfileVBi-08.dc.html",
+    "ProfileVBi-09.dc.html",
+    "ProfileVBi-10.dc.html"
   ],
   "pages": [
     {

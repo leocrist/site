@@ -56,3 +56,12 @@ Bản 3 có `SPEC.md` (lưới, typography, tokens, layout từng trang) và `to
 
 `tools/brochure_to_canvas.py` chuyển DOM đã render của từng trang thành artboard (khổ 216 × 303 mm, gồm 3 mm bleed). `assets/canvas/` là bản ảnh nhẹ dùng cho canvas; ảnh gốc độ phân giải in nằm trong thư mục từng bản.
 
+### Brochure VBi: song ngữ VI / EN (10 trang)
+
+`brochure-vbi/`: nội dung của VFinal, mỗi khối chữ có hai giọng trên cùng trang. Tiếng Việt là giọng chính (không chân, đậm, mực đen); tiếng Anh là giọng thứ hai (Lora nghiêng, cam đất nung). Chân mỗi trang có chú giải hai ô vuông.
+
+- `build.py`: sinh `brochure-vbi.html`; thêm `--canvas <thư mục>` để ra artboard `ProfileVBi-01–10.dc.html`.
+- `MinhGroupST-Profile-VBi.pdf`: 10 trang, khổ 216 × 303 mm (A4 + 3 mm bleed).
+- `design-philosophy.md`: triết lý thiết kế "Twin Register".
+- Bản tiếng Anh do máy dịch từ nội dung VFinal, cần người bản ngữ rà lại trước khi in.
+

@@ -1,0 +1,11 @@
+# Twin Register
+
+**Triết lý / Philosophy.** Hai ngôn ngữ không phải là bản chính và bản dịch; chúng là hai giọng của cùng một bản nhạc. Twin Register đặt hai giọng ấy lên cùng một trang giấy như hai bè: một bè trầm, vuông vức, in bằng mực đen; một bè cao, nghiêng, in bằng mực đất nung. Người đọc không cần được chỉ dẫn nên nhìn vào đâu. Mắt tự tìm thấy bè của mình trong vòng một giây và đi theo nó đến hết cuốn sách.
+
+**Không gian và hình khối.** Trang giấy được chia bằng những đường kẻ tóc và những ô vuông nhỏ đặc màu, như các dấu neo của một bản đo vẽ. Mỗi khối nội dung là một cặp: dòng trên đứng thẳng, dòng dưới nghiêng, cách nhau đúng một nhịp thở. Khi đoạn văn dài, hai giọng tách thành hai cột song song có cùng đường chân, để không giọng nào phải đứng sau giọng nào. Khoảng trắng là phần được chăm chút nhiều nhất: từng lề, từng khe hở đã được cân lại hàng chục lần cho đến khi trang giấy trông như chưa từng chật.
+
+**Màu và chất liệu.** Ba màu, không hơn: trắng giấy, đen than, cam đất nung, cùng một lớp xám rất nhạt để đỡ các ô. Màu không dùng để trang trí mà để mã hoá: đen là giọng thứ nhất, cam nghiêng là giọng thứ hai, cam đặc là con số và điểm nhấn. Ảnh giữ nguyên màu thật, không lọc, được cắt theo bội số của lưới. Sự tiết chế này là kết quả của việc hiệu chỉnh tỉ mỉ, không phải của sự dè dặt.
+
+**Tỉ lệ và nhịp.** Chữ không chân đậm, chắc, mang trọng lượng của tiêu đề; chữ có chân nghiêng, mảnh, mang chuyển động của lời nói. Giọng thứ hai nhỏ hơn về cỡ nhưng không nhỏ hơn về hiện diện: nó có màu riêng, độ nghiêng riêng và một gạch dẫn riêng. Con số được phóng rất lớn vì con số không cần dịch. Nhịp trang đi từ ảnh sang số, từ số sang sơ đồ, để người đọc ở bất kỳ ngôn ngữ nào cũng hiểu được phần lớn trước khi đọc chữ.
+
+**Phân cấp thị giác.** Mọi trang đọc theo ba tầng: dấu neo và nhãn mục, cặp tiêu đề hai giọng, rồi các ô nội dung ngắn. Chữ luôn ít, luôn là nhãn chứ không là bài giảng. Một chú giải hai ô vuông ở chân mỗi trang nhắc lại quy ước màu, lặng lẽ như kí hiệu trên bản đồ. Từng căn lề, từng khoảng cách giữa hai giọng phải cho thấy bàn tay của một người thợ ở đỉnh cao tay nghề, đã bỏ ra rất nhiều giờ cho những chi tiết mà người xem chỉ cảm thấy chứ không gọi được tên.
