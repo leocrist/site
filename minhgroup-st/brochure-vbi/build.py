@@ -346,10 +346,10 @@ P.append(std(9, 'Thành tựu', 'Achievements', f'''
 <div style="display:grid;grid-template-columns:1fr 44mm;gap:5mm;margin-top:5mm">
  <div>{h1('Thành tựu<br>*&amp; cộng đồng.*', 'Achievements &amp; community', mt='0')}
   <div class="pair" style="margin-top:3mm;gap:5mm"><p>Sự ghi nhận từ những giá trị sẻ chia.</p><p class="e">Recognition earned by sharing value.</p></div>
-  <div style="margin-top:5mm">{tile('community-lighting', '75mm', 'Công trình “Thắp sáng đường quê”', '“Lighting Rural Roads” project')}</div>
-  <div style="position:relative;height:66mm;margin-top:4mm;background:var(--tint);overflow:hidden">
-   <img src="{src('thank-you-vinh-hoa')}" alt="" style="position:absolute;left:50%;top:7mm;height:58mm;margin-left:-41mm;transform:rotate(-8deg);transform-origin:50% 100%;border:.3mm solid #fff;box-shadow:0 1mm 3.5mm rgba(0,0,0,.22)">
-   <img src="{src('thank-you-thanh-thoi-an')}" alt="" style="position:absolute;left:50%;top:7mm;height:58mm;margin-left:-1mm;transform:rotate(7deg);transform-origin:50% 100%;border:.3mm solid #fff;box-shadow:0 1mm 3.5mm rgba(0,0,0,.26)">
+  <div style="margin-top:5mm">{tile('community-lighting', '70mm', 'Công trình “Thắp sáng đường quê”', '“Lighting Rural Roads” project')}</div>
+  <div style="display:flex;justify-content:space-around;align-items:center;margin-top:3mm;padding:5mm 2mm 4mm">
+   <img src="{src('thank-you-vinh-hoa')}" alt="" style="height:64mm;transform:rotate(-3deg);border:.3mm solid #bdbdbd;box-shadow:0 1.6mm 4mm rgba(0,0,0,.2)">
+   <img src="{src('thank-you-thanh-thoi-an')}" alt="" style="height:64mm;transform:rotate(3deg);border:.3mm solid #bdbdbd;box-shadow:0 1.6mm 4mm rgba(0,0,0,.2)">
   </div>
   <div class="cap">Thư cảm ơn từ địa phương, giữ nguyên nội dung gốc <i>/ Letters of thanks from local authorities, reproduced unaltered</i></div>
  </div>
