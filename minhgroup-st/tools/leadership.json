@@ -1,0 +1,39 @@
+[
+  {
+    "photo": "dinh-hoang-minh",
+    "name": "Ông Đinh Hoàng Minh",
+    "role": "Cố vấn Cao cấp"
+  },
+  {
+    "photo": "dinh-hoang-cong",
+    "name": "Ông Đinh Hoàng Công",
+    "role": "Giám đốc Công ty"
+  },
+  {
+    "photo": "lu-hong-huynh",
+    "name": "Ông Lư Hồng Huỳnh",
+    "role": "Phó Giám đốc"
+  },
+  {
+    "photo": "nguyen-thi-hong-hue",
+    "name": "Bà Nguyễn Thị Hồng Huệ",
+    "role": "Phó Giám đốc"
+  },
+  {
+    "photo": "phan-huu-linh",
+    "name": "Ông Phan Hữu Linh",
+    "role": "Phó Giám đốc"
+  },
+  {
+    "photo": "duong-minh-truong",
+    "name": "Ông Dương Minh Trường",
+    "role": "Phó Giám đốc"
+  },
+  {
+    "photo": "tran-thi-lam-thy",
+    "name": "Bà Trần Thị Lam Thy",
+    "role": "Phát triển kinh doanh",
+    "roleStatus": "provisional",
+    "roleSource": "User suggestion, 2026-11-10"
+  }
+]

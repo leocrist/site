@@ -121,10 +121,10 @@ NAV = [('About', 'Giới thiệu', 'About'), ('Organization', 'Tổ chức', 'Or
 def header(cur):
     home = 'MainEN.dc.html' if LANG == 'en' else 'Main.dc.html'
     def links():
-        return ''.join(f'<a href="{k}.dc.html"{" aria-current=" + chr(34) + "page" + chr(34) if k == cur else ""}>{T(vi, en)}</a>' for k, vi, en in NAV)
+        return ''.join(f'<a href="{k}.dc.html"{" aria-current=" + chr(34) + "page" + chr(34) if k == cur else ""}>{T(vi, en)}</a>' for k, vi, en in NAV) + '<a href="brochure-vfinal/brochure-vfinal.html">Brochure</a>'
     c_vi = ' aria-current="true"' if LANG == 'vi' else ''
     c_en = ' aria-current="true"' if LANG == 'en' else ''
-    vi_href = 'Main.dc.html' if cur == 'Main' else cur + '.dc.html'
+    vi_href = 'Main.dc.html' if cur in ('Main', '') else cur + '.dc.html'
     return f'''<header class="hd">
 <div class="box">
 <a class="brand" href="{home}"><img src="{blob('logo')}" alt="" width="40" height="40"><span>Minh Group ST</span></a>

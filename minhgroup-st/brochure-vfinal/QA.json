@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-10",
+  "revision": "image-polish-20261110",
+  "localUrlsChecked": 67,
+  "allHttp200": true,
+  "pages": 10,
+  "brokenImages": 0,
+  "javascriptErrors": 0,
+  "textOutsidePage": 0,
+  "pdfPages": 10,
+  "viewerWidthsChecked": [
+    1440,
+    390
+  ],
+  "horizontalOverflow": false,
+  "originalPhotographsCopied": 15,
+  "originalDocumentsCopied": 2,
+  "leadershipPortraitsMatchedByFilename": 7,
+  "sourceFileHashesVerified": true,
+  "usesStockOrAiPhotos": false,
+  "pdfVisualReview": "All 10 final PDF pages reviewed after image polish; source content, 7 leaders, banners, watermark and full letters retained.",
+  "slide9Layout": {
+    "source": "brochure-v8/page-09.html",
+    "topPhotos": 3,
+    "sidebarPhotos": 3,
+    "mainPhotoHeightMm": 79,
+    "letterHeightMm": 62,
+    "letterRotations": [
+      -4,
+      4
+    ],
+    "mechanicalLayoutFindings": []
+  },
+  "leadershipLayout": "2-2-2-1; centered final card; 4 rows of 32 mm with 3 mm gaps",
+  "provisionalRole": {
+    "name": "Bà Trần Thị Lam Thy",
+    "role": "Phát triển kinh doanh",
+    "source": "User suggestion"
+  },
+  "reviewedPhotoViewports": 23,
+  "imageDistortionErrors": 0,
+  "unfilledPhotoViewports": 0,
+  "captionAndCoverOverlapErrors": 0,
+  "fullDocumentThumbnails": 2,
+  "imageFramingVersion": "image-polish-20261110",
+  "visualReviewPasses": 2,
+  "pageTitlePlacement": "Upper right, plain section name; numbered content badges removed from pages02-05; header prefixes removed throughout.",
+  "organizationChart": {
+    "levels": 3,
+    "divisions": 4,
+    "units": 12,
+    "widthMm": 180,
+    "heightMm": 45,
+    "namesPreserved": true,
+    "connectors": "Vector SVG parent bus plus CSS unit stems",
+    "intentionalDetectorWarnings": "Print-page clipping and inherited compact grid padding"
+  },
+  "overviewAlignment": {
+    "titleTopPx": 149.25,
+    "introTopPx": 149.265625,
+    "differencePx": 0.015625
+  }
+}

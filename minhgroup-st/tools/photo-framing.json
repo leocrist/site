@@ -1,0 +1,213 @@
+{
+  "version": "image-polish-20261110",
+  "method": "Non-destructive CSS viewports. Regions are normalized x,y,width,height; source files remain unchanged.",
+  "frames": {
+    "cover": {
+      "region": [
+        0,
+        0.132,
+        1,
+        0.7804
+      ],
+      "protect": "All group faces, both end participants and event banners; crop ceiling and chair bottoms."
+    },
+    "overview-meeting": {
+      "region": [
+        0,
+        0.28,
+        1,
+        0.6222
+      ],
+      "protect": "Full table width and participant faces; remove excess ceiling and foreground desk."
+    },
+    "overview-team": {
+      "region": [
+        0,
+        0.22,
+        1,
+        0.7644
+      ],
+      "protect": "Both end participants, full blue banner and group; crop roof/sky only."
+    },
+    "field-team": {
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "protect": "Full field consultation."
+    },
+    "field-payment": {
+      "region": [
+        0,
+        0.09,
+        1,
+        0.742
+      ],
+      "protect": "Full photo width and the interaction with elderly participants."
+    },
+    "digital-launch": {
+      "region": [
+        0,
+        0.11,
+        1,
+        0.8867
+      ],
+      "protect": "All faces, event banners and both side participants."
+    },
+    "finance-meeting": {
+      "region": [
+        0,
+        0.25,
+        1,
+        0.652
+      ],
+      "protect": "Full table width, central speaker and participant faces."
+    },
+    "insurance-service": {
+      "region": [
+        0,
+        0.28,
+        1,
+        0.652
+      ],
+      "protect": "Staff and residents at the consultation table; crop ceiling and floor."
+    },
+    "social-payment": {
+      "region": [
+        0,
+        0.13,
+        1,
+        0.653
+      ],
+      "protect": "Staff and residents' faces across the full photo width."
+    },
+    "portrait-dinh-hoang-minh": {
+      "region": [
+        0.298,
+        0.125,
+        0.489,
+        0.423
+      ],
+      "protect": "Full hair, ears, face and upper chest."
+    },
+    "portrait-dinh-hoang-cong": {
+      "region": [
+        0,
+        0,
+        1,
+        0.975
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    "portrait-lu-hong-huynh": {
+      "region": [
+        0,
+        0,
+        1,
+        0.922
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    "portrait-nguyen-thi-hong-hue": {
+      "region": [
+        0,
+        0,
+        1,
+        0.946
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    "portrait-phan-huu-linh": {
+      "region": [
+        0.229,
+        0.1,
+        0.521,
+        0.508
+      ],
+      "protect": "Full hair, face and upper chest; remove excess waist/arms."
+    },
+    "portrait-duong-minh-truong": {
+      "region": [
+        0,
+        0,
+        1,
+        0.975
+      ],
+      "protect": "Full hair, ears and face."
+    },
+    "portrait-tran-thi-lam-thy": {
+      "region": [
+        0.315,
+        0.198,
+        0.454,
+        0.443
+      ],
+      "protect": "Full hair, face and upper chest; remove ceiling, dining table and chair."
+    },
+    "achievement-support": {
+      "region": [
+        0,
+        0.04,
+        1,
+        0.7273
+      ],
+      "protect": "Company name, donation banner and central participants; no amount altered."
+    },
+    "achievement-field": {
+      "region": [
+        0,
+        0.01,
+        1,
+        0.9697
+      ],
+      "protect": "Full outreach activity."
+    },
+    "achievement-team": {
+      "region": [
+        0,
+        0.1,
+        1,
+        0.8925
+      ],
+      "protect": "Full group width and full event banner."
+    },
+    "achievement-lighting": {
+      "region": [
+        0.0093,
+        0.16,
+        0.9814,
+        0.825
+      ],
+      "protect": "Both end participants, lighting banner, ribbon and Dong Thap watermark; crop only sky and outer screenshot border."
+    },
+    "achievement-payment-detail": {
+      "region": [
+        0.34,
+        0.1,
+        0.42,
+        0.66
+      ],
+      "protect": "Central staff/resident interaction and PVI shirt; no partial cut through the main subjects' heads."
+    },
+    "achievement-meeting-detail": {
+      "region": [
+        0.28,
+        0.14,
+        0.52,
+        0.82
+      ],
+      "protect": "Central speaker and surrounding discussion context."
+    },
+    "achievement-insurance-detail": {
+      "region": [
+        0.25,
+        0.16,
+        0.51,
+        0.804
+      ],
+      "protect": "Consultation staff, residents at the table and paperwork."
+    }
+  }
+}
