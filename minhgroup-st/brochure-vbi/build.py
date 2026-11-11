@@ -243,12 +243,27 @@ P.append(std(5, 'Bảo hiểm &amp; An sinh', 'Insurance &amp; social security',
 # 06 ecosystem --------------------------------------------------------
 ECO = [('01', 'Chuyển đổi số &amp; Tài chính', 'Digital &amp; finance', 'Ngân hàng · Dịch vụ số', 'Banking · Digital services'), ('02', 'Bảo hiểm &amp; An sinh', 'Insurance &amp; social security', 'BHXH · BHYT · Chi trả', 'Social insurance · Health insurance · Payments'),
        ('04', 'Dự án &amp; Nhân lực', 'Projects &amp; workforce', 'Lái xe · Máy bán hàng · Việc làm', 'Driver training · Vending · Jobs'), ('03', 'Quản lý vận hành', 'Operations', 'Nhân sự · Kế toán · Hậu cần', 'HR · Accounting · Logistics')]
-eco = ''.join(f'<div class="card" style="padding:6mm;display:flex;flex-direction:column;{"align-items:flex-end;text-align:right;" if i % 2 else ""}{"justify-content:flex-end;" if i > 1 else ""}"><div class="num" style="width:10mm;height:10mm;font-size:10pt;margin-bottom:3mm">{n}</div>{te(a, b, c, d)}</div>' for i, (n, a, b, c, d) in enumerate(ECO))
+def eco_svg():
+    # the VFinal ecosystem diagram, with each node labelled in both voices
+    pos = {'01': (53, 28, 'top'), '02': (127, 28, 'top'), '03': (127, 102, 'bot'), '04': (53, 102, 'bot')}
+    lab = ''
+    for n, a, b, c, d in ECO:
+        x, y, side = pos[n]
+        y0 = -1 if side == 'top' else 117
+        lab += (f'<circle cx="{x}" cy="{y}" r="6.5" fill="#ca4d25"/><text x="{x}" y="{y + 1.3}" text-anchor="middle" fill="#fff" font-family="Plus Jakarta Sans,sans-serif" font-size="3.7" font-weight="800">{n}</text>'
+                f'<text x="{x}" y="{y0}" text-anchor="middle" fill="#201e1d" font-family="Plus Jakarta Sans,sans-serif" font-size="3.5" font-weight="700">{a}</text>'
+                f'<text x="{x}" y="{y0 + 4.3}" text-anchor="middle" fill="#ca4d25" font-family="Lora,serif" font-style="italic" font-size="3.4">{b}</text>'
+                f'<text x="{x}" y="{y0 + 8.9}" text-anchor="middle" fill="#3d3a38" font-family="Be Vietnam Pro,sans-serif" font-size="2.6">{c}</text>'
+                f'<text x="{x}" y="{y0 + 12.4}" text-anchor="middle" fill="#5f5650" font-family="Lora,serif" font-style="italic" font-size="2.6">{d}</text>')
+    return (f'<svg viewBox="0 -6 180 138" role="img" aria-label="Bốn khối hoạt động / Four divisions" style="display:block;width:100%;height:auto">'
+            '<circle cx="90" cy="65" r="48" fill="#f5f5f5"/>'
+            '<g fill="none" stroke="#ca4d25" stroke-width=".5"><path d="M53 28L127 28L127 102L53 102Z"/><path d="M53 28L90 17L127 28L138 65L127 102L90 113L53 102L42 65Z" stroke-opacity=".35"/><path d="M53 28L127 102M127 28L53 102" stroke-opacity=".4"/></g>'
+            '<g fill="none" stroke="#bbbbbb" stroke-width=".25"><path d="M90 17L42 65L90 113L138 65Z"/><path d="M53 28L138 65L53 102M127 28L42 65L127 102"/></g>'
+            '<circle cx="90" cy="65" r="21" fill="#fff" stroke="#ca4d25" stroke-width=".45"/>' + lab + '</svg>')
 P.append(std(6, 'Hệ sinh thái', 'Ecosystem', f'''
 {h1('Bốn khối hoạt động.<br>*Bảy lĩnh vực kết nối.*', 'Four divisions. Seven connected lines of business.')}
-<div style="position:relative;margin-top:8mm"><div class="g2" style="grid-auto-rows:51mm;gap:3mm">{eco}</div>
- <div style="position:absolute;left:50%;top:50%;width:34mm;height:34mm;margin:-17mm 0 0 -17mm;border-radius:50%;background:#fff;border:.6mm solid var(--or);display:flex;align-items:center;justify-content:center"><img src="{src('mark')}" alt="Minh Group ST" style="width:21mm"></div></div>
-{lbl('Lợi thế cạnh tranh cốt lõi', 'Core competitive advantages', '9mm')}
+<div style="position:relative;width:146mm;margin:4mm auto 0">{eco_svg()}<img src="{src('mark')}" alt="Minh Group ST" style="position:absolute;left:50%;top:51.45%;width:13%;transform:translate(-50%,-50%)"></div>
+{lbl('Lợi thế cạnh tranh cốt lõi', 'Core competitive advantages', '4mm')}
 <div style="margin-top:3mm;display:flex;flex-direction:column;gap:2.5mm">''' + ''.join(
     f'<div class="card" style="padding:0;display:grid;grid-template-columns:16mm 1fr 34mm;align-items:stretch"><div style="background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font:800 13pt var(--head)">{n}</div><div style="padding:3.6mm 5mm">{te(a, b, c, d)}</div><div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding-right:5mm;text-align:right"><div class="t" style="color:var(--or);font-size:13pt">{k}</div><div class="te" style="font-size:8.6pt">{ke}</div></div></div>'
     for n, a, b, c, d, k, ke in [('01', 'Nguồn lực tại chỗ', 'Local resources', 'Khoảng 300 nhân sự, hơn 10 phòng kinh doanh tại ĐBSCL.', 'About 300 staff and more than 10 sales offices in the Mekong Delta.', '~300', 'staff'),
