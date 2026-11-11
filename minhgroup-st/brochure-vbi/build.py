@@ -50,8 +50,6 @@ img{display:block}
 .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:3.4mm;border-top:.25mm solid var(--ln);font-size:6.4pt;color:var(--mut)}
 .pn{font:700 7pt var(--head);letter-spacing:.12em;color:var(--ink)}
 /* page furniture, as in VFinal: margin hairlines, plus marks, squares */
-.in::before,.in::after{content:"";position:absolute;top:-15mm;bottom:-13mm;width:.25mm;background:#e9e9e9;pointer-events:none}
-.in::before{left:-4mm}.in::after{right:-4mm}
 .rh,.ft{position:relative;margin-left:-4mm;margin-right:-4mm;padding-left:4mm;padding-right:4mm}
 .rh::before,.rh::after,.ft::before,.ft::after,.pl{content:"";position:absolute;width:3.4mm;height:3.4mm;background:linear-gradient(var(--or),var(--or)) center/100% .3mm no-repeat,linear-gradient(var(--or),var(--or)) center/.3mm 100% no-repeat}
 .rh::before{left:-1.6mm;bottom:-1.8mm}.rh::after{right:-1.6mm;bottom:-1.8mm}
@@ -153,7 +151,7 @@ SQ = {2: (96, 212), 3: (58, 168), 4: (132, 246), 5: (70, 204), 6: (118, 232), 7:
 COVER_END = '<div class="pl" style="left:12.4mm;top:44.8mm"></div><div class="pl" style="right:12.4mm;top:44.8mm"></div><div class="pl" style="left:12.4mm;top:271.5mm"></div><div class="pl" style="right:12.4mm;top:271.5mm"></div>'
 def deco(n):
     if n == 1:
-        return '<div class="vl" style="left:14mm"></div><div class="vl" style="right:14mm"></div>'
+        return ''
     a, b = SQ[n]
     return f'<div class="dsq" style="left:5mm;top:{a}mm"></div><div class="dsq" style="right:5mm;top:{b}mm"></div>'
 def page(n, body, cls=''):
