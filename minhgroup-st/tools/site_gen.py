@@ -331,7 +331,7 @@ def home():
     cards = [card(T(k[2], names_en[i]), kd[i][0], icon=k[4], href=f'Services.dc.html#{k[0]}', num=T(k[1], f'Division 0{i + 1}'), items=kd[i][1], more=T('Xem chi tiết', 'Learn more')) for i, k in enumerate(KHOI)]
     fields = sec(head(T('Lĩnh vực hoạt động', 'What we do'), T('Một hệ sinh thái, *bốn khối bổ trợ lẫn nhau*', 'One ecosystem, *four divisions that reinforce each other*'),
                       T('Thay vì phát triển riêng lẻ từng mảng, MGST thiết lập mô hình đa tầng: mỗi lĩnh vực là điểm chạm đưa khách hàng đến lĩnh vực kế tiếp.', 'Rather than growing each line on its own, MGST runs a layered model in which every service is a touchpoint for the next.'))
-                 + grid(cards, 4), id='linh-vuc')
+                 + '<div class="eco-map"><div class="eco-hub"><img src="' + blob('logo') + '" alt="Minh Group ST"><span>' + T('4 khối kết nối', '4 connected divisions') + '</span></div>' + ''.join(cards) + '</div>', id='linh-vuc')
     pj_en = [('Vending machines', 'Essential-goods machines paid by QR in communes, paired with help opening bank accounts and cards.'),
              ('Driver training', 'Advice, enrolment and paperwork through our existing network; a training site in Sóc Trăng is under study.'),
              ('Workforce supply', 'Selection, vocational and language training, and placement in Europe and East Asia.')]

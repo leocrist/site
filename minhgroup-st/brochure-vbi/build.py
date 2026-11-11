@@ -75,7 +75,7 @@ img{display:block}
 .obus span:first-child::after{left:calc(50% - .25mm)}
 .obus span:last-child::after{right:calc(50% - .25mm)}
 .ocard{border:.25mm solid var(--ln);border-radius:2mm;overflow:hidden;background:#fff}
-.ocard header{position:relative;display:block;background:var(--tint);padding:3mm 3mm 2.6mm;min-height:20.5mm;border-bottom:.25mm solid var(--ln)}
+.ocard header{position:relative;display:block;background:var(--tint);padding:3mm 2mm 2.6mm;min-height:20.5mm;border-bottom:.25mm solid var(--ln)}
 .ocard header b{display:inline-flex;align-items:center;justify-content:center;width:6mm;height:6mm;border-radius:1.2mm;background:var(--or);color:#fff;font:700 7pt var(--head);margin-bottom:1.8mm}
 .ocard .t{font-size:8.2pt}.ocard .te{font-size:8.2pt}
 .ocard li{display:flex;gap:2.2mm;align-items:flex-start;padding:1.7mm 3mm;border-top:.25mm solid var(--ln);font:500 7.2pt/1.3 var(--body);list-style:none}
@@ -147,13 +147,11 @@ def ph(k, h, cap=None, flex='1', pos='center'):
     return f'<div style="flex:{flex};min-width:0"><div class="ph" style="height:{h}"><img src="{src(k)}" alt="" style="object-position:{pos}">{c}</div></div>'
 def stat(n, vi, en):
     return f'<div class="stat"><b>{n}</b><div class="t">{vi}</div><div class="te">{en}</div></div>'
-SQ = {2: (96, 212), 3: (58, 168), 4: (132, 246), 5: (70, 204), 6: (118, 232), 7: (64, 186), 8: (104, 250), 9: (84, 222), 10: (60, 176)}
 COVER_END = '<div class="pl" style="left:12.4mm;top:44.8mm"></div><div class="pl" style="right:12.4mm;top:44.8mm"></div><div class="pl" style="left:12.4mm;top:271.5mm"></div><div class="pl" style="right:12.4mm;top:271.5mm"></div>'
 def deco(n):
     if n == 1:
         return ''
-    a, b = SQ[n]
-    return f'<div class="dsq" style="left:5mm;top:{a}mm"></div><div class="dsq" style="right:5mm;top:{b}mm"></div>'
+    return '<div class="dsq" aria-hidden="true" style="left:5mm;top:5mm"></div><div class="dsq" aria-hidden="true" style="right:5mm;bottom:5mm"></div>'
 def page(n, body, cls=''):
     return f'<section class="page {cls}" data-n="{n:02d}">{deco(n)}{body}{COVER_END if n == 1 else ""}</section>'
 def std(n, sec_vi, sec_en, body):
@@ -224,8 +222,8 @@ USERS = '<svg width="4.6mm" height="4.6mm" viewBox="0 0 24 24" fill="none" strok
 orgchart = ('<div style="display:flex;justify-content:center;margin-top:3mm"><div style="display:flex;align-items:center;gap:3mm;background:var(--ink);color:#fff;padding:2mm 7mm 2mm 2mm;border-radius:2mm">'
             f'<span style="width:8.5mm;height:8.5mm;background:var(--or);border-radius:1.4mm;display:flex;align-items:center;justify-content:center">{USERS}</span>'
             '<div><div class="t" style="color:#fff;font-size:9.4pt">Ban lãnh đạo</div><div class="te" style="color:#f6c4ae;font-size:8.8pt;margin:0">Board of management</div></div></div></div>'
-            '<div class="obus"><span></span><span></span><span></span><span></span></div><div class="g4">'
-            + ''.join(f'<div class="ocard"><header><b>0{i}</b><div class="t">{a}</div><div class="te">{b}</div></header><ul>'
+            '<div class="obus"><span></span><span></span><span></span><span></span></div><div class="g4" style="gap:1.5mm">'
+            + ''.join(f'<div class="ocard"><header><b>0{i}</b><div class="t" style="font-size:{7.6 if i == 4 else 8.2}pt;white-space:nowrap">{a}</div><div class="te">{b}</div></header><ul>'
                       + ''.join(f'<li><i></i><span>{u}<em>{e}</em></span></li>' for u, e in us) + '</ul></div>' for i, (a, b, us) in enumerate(ORG, 1)) + '</div>')
 P.append(std(3, 'Năng lực &amp; Tổ chức', 'Capability &amp; organisation', f'''
 <div class="row" style="align-items:flex-end;gap:8mm">
@@ -254,7 +252,7 @@ def big(n, vi, en):
 STEPS = [('Tiếp nhận chính sách', 'Policy intake'), ('Đào tạo', 'Training'), ('Điều phối địa bàn', 'Field coordination'), ('Kiểm soát chất lượng', 'Quality control'), ('Đối soát', 'Reconciliation')]
 P.append(std(4, 'Chuyển đổi số &amp; Tài chính', 'Digital transformation &amp; finance', f'''
 {h1('Công nghệ *&amp;* Tài chính', 'Technology &amp; finance', size='28pt')}
-<div class="row" style="margin-top:7mm">{ph('digital-launch', '44mm', flex='1.35')}{ph('partner-meeting', '44mm')}</div>
+<div class="row" style="margin-top:7mm">{ph('digital-launch', '44mm')}{ph('partner-meeting', '44mm')}</div>
 <div class="g2" style="margin-top:8mm;gap:10mm">
  <div>{colhead('Chuyển đổi số &amp; Y tế số', 'Digital &amp; e-health', 'Đưa công nghệ', 'đến gần dân.', 'Bringing technology closer to people.')}
   <div style="margin-top:4mm">{rows([('Mở tài khoản &amp; thẻ', 'Accounts &amp; cards'), ('Hướng dẫn sử dụng', 'Hands-on guidance'), ('Thanh toán bằng mã QR', 'QR payment')])}</div></div>
@@ -324,7 +322,7 @@ P.append(std(7, 'Dự án trọng điểm', 'Flagship projects', f'''
 <div class="band" style="margin-top:7mm;display:grid;grid-template-columns:44mm 1fr;gap:6mm;align-items:center"><div>{te('Kết nối nguồn lực', 'Connecting resources')}</div>
  <div style="border-left:.3mm solid #f0a78d;padding-left:6mm"><div class="s" style="color:#fff;margin:0">Phòng Quản lý Dự án chủ trì. Tận dụng mạng lưới và điểm chạm sẵn có.</div><div class="se" style="color:#ffe1d3">Led by the Project Management Office, building on the existing network and touchpoints.</div></div></div>
 <div style="margin-top:5mm;display:flex;flex-direction:column;gap:3mm">''' + ''.join(
-    f'<div class="card" style="display:grid;grid-template-columns:20mm 1fr;gap:2mm;padding:5.5mm 7mm"><div style="font:700 24pt/1 var(--head);color:var(--or);letter-spacing:-.03em">{n}</div><div class="pair" style="gap:6mm"><div><div class="t" style="font-size:11pt">{a}</div><p style="font-size:8.2pt;margin-top:2.2mm">{c}</p></div><div><div class="te" style="font-size:11.4pt;margin-top:0;line-height:1.28">{b}</div><p class="e" style="font-size:8.6pt;margin-top:2.2mm">{d}</p></div></div></div>' for n, a, b, c, d in PJ) + f'''</div>
+    f'<div style="display:grid;grid-template-columns:17mm minmax(0,1fr) minmax(0,1fr);gap:1.6mm"><div style="background:var(--tint);padding:5.5mm 3mm;font:700 24pt/1 var(--head);color:var(--or);letter-spacing:-.03em">{n}</div><div style="background:var(--tint);padding:5.5mm 4mm"><div class="t" style="font-size:11pt">{a}</div><p style="font-size:8.2pt;margin-top:2.2mm">{c}</p></div><div style="background:var(--tint);padding:5.5mm 4mm"><div class="te" style="font-size:11.4pt;margin-top:0;line-height:1.28">{b}</div><p class="e" style="font-size:8.6pt;margin-top:2.2mm">{d}</p></div></div>' for n, a, b, c, d in PJ) + f'''</div>
 <div class="pair" style="margin-top:4mm;gap:5mm"><p style="font-size:6.8pt;color:var(--mut)">Đào tạo, sát hạch và đưa người lao động đi làm việc ở nước ngoài phải đáp ứng điều kiện của từng chương trình và đơn vị có thẩm quyền.</p><p class="e" style="font-size:7.2pt">Training, testing and overseas placement are subject to the conditions of each programme and of the competent authorities.</p></div>
 {lbl('Từ ý tưởng đến triển khai', 'From idea to delivery', '7mm')}
 <div class="g3" style="margin-top:3mm">
@@ -338,9 +336,11 @@ P.append(std(7, 'Dự án trọng điểm', 'Flagship projects', f'''
 TL = [('03/2025', 'Thành lập Minh Group ST', 'Company founded'), ('04/2025', 'PKD Tổng hợp, PKD Y &amp; hệ thống PKD địa bàn', 'General, healthcare &amp; area sales offices'), ('09–11/2025', 'PKD 8 &amp; PKD An sinh', 'Office 8 &amp; social security sales'),
       ('01–03/2026', 'Phòng Dự án &amp; PKD 9', 'Project office &amp; office 9'), ('06–07/2026', 'PKD 4 &amp; Phòng Chi trả BTXH', 'Office 4 &amp; welfare payments'), ('09/2026', 'Hoàn thiện 11 PKD địa bàn', '11 area offices completed')]
 tl = ''.join(f'<div style="position:relative;padding-top:8mm"><div style="position:absolute;left:0;top:0;width:4.4mm;height:4.4mm;border-radius:50%;background:{"var(--or)" if i in (0, 5) else "#fff"};border:.6mm solid var(--or)"></div><div class="t" style="font-size:8.4pt;color:var(--or)">{d}</div><div class="s" style="font-size:7pt;margin-top:.8mm;font-weight:500;color:var(--ink)">{a}</div><div class="se" style="font-size:7.2pt">{b}</div></div>' for i, (d, a, b) in enumerate(TL))
-LD = [('dinh-hoang-minh', 'Ông Đinh Hoàng Minh', 'Cố vấn Cao cấp', 'Senior Advisor'), ('dinh-hoang-cong', 'Ông Đinh Hoàng Công', 'Giám đốc Công ty', 'Director'), ('lu-hong-huynh', 'Ông Lư Hồng Huỳnh', 'Phó Giám đốc', 'Deputy Director'),
-      ('nguyen-thi-hong-hue', 'Bà Nguyễn Thị Hồng Huệ', 'Phó Giám đốc', 'Deputy Director'), ('phan-huu-linh', 'Ông Phan Hữu Linh', 'Phó Giám đốc', 'Deputy Director'), ('duong-minh-truong', 'Ông Dương Minh Trường', 'Phó Giám đốc', 'Deputy Director'),
-      ('tran-thi-lam-thy', 'Bà Trần Thị Lam Thy', 'Phát triển kinh doanh', 'Business Development')]
+LD = [(key, name, 'Chức vụ đang cập nhật', 'Title to be confirmed') for key, name in [
+      ('dinh-hoang-minh', 'Ông Đinh Hoàng Minh'), ('dinh-hoang-cong', 'Ông Đinh Hoàng Công'),
+      ('lu-hong-huynh', 'Ông Lư Hồng Huỳnh'), ('nguyen-thi-hong-hue', 'Bà Nguyễn Thị Hồng Huệ'),
+      ('phan-huu-linh', 'Ông Phan Hữu Linh'), ('duong-minh-truong', 'Ông Dương Minh Trường'),
+      ('tran-thi-lam-thy', 'Bà Trần Thị Lam Thy')]]
 def ld(k, n, r, e):
     return f'<div style="display:flex;gap:4mm;align-items:center;border-top:.6mm solid var(--or);background:var(--tint);padding:3mm"><div class="ph" style="width:22mm;height:28mm;flex-shrink:0"><img src="{src(k)}" alt="" style="object-position:center 18%"></div><div><div class="t" style="font-size:9.4pt">{n}</div><div class="s" style="font-weight:600;color:var(--or);margin-top:1.2mm">{r}</div><div class="se" style="font-size:8.2pt">{e}</div></div></div>'
 P.append(std(8, 'Lộ trình &amp; Lãnh đạo', 'Roadmap &amp; leadership', f'''
@@ -388,7 +388,7 @@ P.append(std(10, 'Hợp tác &amp; Liên hệ', 'Partnership &amp; contact', f''
  <div style="background:#fff;padding:5mm;text-align:center"><img src="{src('qr')}" alt="QR mgst.com.vn" style="width:36mm;height:36mm;image-rendering:pixelated"><div class="t" style="font-size:8.6pt;margin-top:3mm">Quét để kết nối</div><div class="te" style="font-size:8.4pt">Scan to connect</div><div class="s" style="color:var(--or);font-weight:600">mgst.com.vn</div></div>
 </div>
 {slogan('margin-top:5mm', '6mm 9mm 7mm', '25pt', '14pt')}
-<div class="pair" style="margin-top:5mm;gap:5mm"><p style="font-size:6.6pt;color:var(--mut)">Hồ sơ năng lực 2026 · Hình ảnh hoạt động, chân dung và thư cảm ơn do Minh Group ST cung cấp. Tên và chức danh lãnh đạo đối chiếu nội dung website.</p><p class="e" style="font-size:7pt">Corporate Profile 2026 · Activity photos, portraits and letters of thanks supplied by Minh Group ST. Names and titles checked against the company website.</p></div>
+<p style="margin-top:5mm;font-size:7pt;color:var(--mut);text-align:center">Hồ sơ năng lực 2026 · Công ty TNHH Minh Group ST <span style="color:var(--or)">/</span> <i>Corporate Profile 2026 · Minh Group ST Co., Ltd.</i></p>
 '''))
 
 if CANVAS:
