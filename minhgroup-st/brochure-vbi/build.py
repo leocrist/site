@@ -25,13 +25,11 @@ def src(k):
     if k.startswith('thank-you'): return f'../brochure-vfinal/assets/documents/{k}.png'
     return f'../brochure-vfinal/assets/photos/{k}.' + ('png' if k == 'nguyen-thi-hong-hue' else 'jpg')
 
-FACES = '''@font-face{font-family:'Plus Jakarta Sans';font-weight:500;src:url(../brochure-v3/fonts/PlusJakartaSans-Medium.ttf)}
-@font-face{font-family:'Plus Jakarta Sans';font-weight:600;src:url(../brochure-v3/fonts/PlusJakartaSans-SemiBold.ttf)}
-@font-face{font-family:'Plus Jakarta Sans';font-weight:700;src:url(../brochure-v3/fonts/PlusJakartaSans-Bold.ttf)}
-@font-face{font-family:'Plus Jakarta Sans';font-weight:800;src:url(../brochure-v3/fonts/PlusJakartaSans-ExtraBold.ttf)}
-@font-face{font-family:'Be Vietnam Pro';font-weight:400;src:url(../brochure-v3/fonts/BeVietnamPro-Regular.ttf)}
-@font-face{font-family:'Be Vietnam Pro';font-weight:500;src:url(../brochure-v3/fonts/BeVietnamPro-Medium.ttf)}
-@font-face{font-family:'Be Vietnam Pro';font-weight:600;src:url(../brochure-v3/fonts/BeVietnamPro-SemiBold.ttf)}
+FACES = '''@font-face{font-family:'Inter';font-weight:400;src:url(../brochure-v5/fonts/Inter-Regular.ttf)}
+@font-face{font-family:'Inter';font-weight:500;src:url(../brochure-v5/fonts/Inter-Medium.ttf)}
+@font-face{font-family:'Inter';font-weight:600;src:url(../brochure-v5/fonts/Inter-SemiBold.ttf)}
+@font-face{font-family:'Inter';font-weight:700;src:url(../brochure-v5/fonts/Inter-Bold.ttf)}
+@font-face{font-family:'Inter';font-weight:800;src:url(../brochure-v5/fonts/Inter-Bold.ttf)}
 @font-face{font-family:'Lora';font-style:italic;font-weight:400;src:url(fonts/Lora-Italic.ttf)}
 @font-face{font-family:'Lora';font-style:italic;font-weight:700;src:url(fonts/Lora-BoldItalic.ttf)}
 @page{size:216mm 303mm;margin:0}
@@ -39,7 +37,7 @@ html,body{background:#d9d9d9}
 @media screen{.page{margin:10mm auto;box-shadow:0 2mm 10mm rgba(32,30,29,.2)}}
 '''
 CSS = '''*{box-sizing:border-box;margin:0;padding:0}
-:root{--or:#ca4d25;--or2:#a63c1b;--ink:#201e1d;--tx:#3d3a38;--mut:#5c5c5c;--en:#5f5650;--ln:#dedede;--tint:#f5f5f5;--head:'Plus Jakarta Sans',sans-serif;--body:'Be Vietnam Pro',sans-serif;--enf:'Lora',serif}
+:root{--or:#ca4d25;--or2:#a63c1b;--ink:#201e1d;--tx:#3d3a38;--mut:#5c5c5c;--en:#5f5650;--ln:#dedede;--tint:#f5f5f5;--head:'Inter',sans-serif;--body:'Inter',sans-serif;--enf:'Lora',serif}
 body{font-family:var(--body);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .page{width:216mm;height:303mm;position:relative;overflow:hidden;background:#fff;break-after:page;font-family:var(--body);color:var(--ink)}
 .in{position:absolute;left:18mm;right:18mm;top:15mm;bottom:13mm;display:flex;flex-direction:column}
@@ -52,20 +50,20 @@ img{display:block}
 .ft{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:3.4mm;border-top:.25mm solid var(--ln);font-size:6.4pt;color:var(--mut)}
 .pn{font:700 7pt var(--head);letter-spacing:.12em;color:var(--ink)}
 /* the two voices */
-h1{font:700 26pt/1.12 var(--head);letter-spacing:-.022em}
+h1{font:600 25pt/1.14 var(--head);letter-spacing:-.02em}
 h1 span{color:var(--or)}
 .eh{display:flex;align-items:center;gap:3mm;margin-top:3mm;font:italic 400 17pt/1.2 var(--enf);color:var(--or)}
 .eh::before{content:"";flex:0 0 9mm;height:.35mm;background:var(--or)}
 p{font:400 8.7pt/1.55 var(--body);color:var(--tx)}
 p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .lbl{font:700 6.2pt var(--head);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
-.t{font:700 10.4pt/1.25 var(--head);letter-spacing:-.01em}
+.t{font:600 10.2pt/1.28 var(--head);letter-spacing:-.005em}
 .te{font:italic 400 10pt/1.25 var(--enf);color:var(--or);margin-top:.7mm}
 .s{font:400 7.9pt/1.45 var(--body);color:var(--tx);margin-top:1.2mm}
 .se{font:italic 400 8.3pt/1.4 var(--enf);color:var(--en);margin-top:.6mm}
 .sq{width:3.2mm;height:3.2mm;background:var(--or);flex-shrink:0}
-.num{font:800 9pt var(--head);color:#fff;background:var(--or);width:8mm;height:8mm;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.stat b{display:block;font:800 29pt/1 var(--head);letter-spacing:-.03em;color:var(--or)}
+.num{font:700 9pt var(--head);color:#fff;background:var(--or);width:8mm;height:8mm;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stat b{display:block;font:700 28pt/1 var(--head);letter-spacing:-.02em;color:var(--or)}
 .stat .t{font-size:8.8pt;margin-top:2mm}.stat .te{font-size:9.4pt}
 .row{display:flex;gap:4mm}
 .col{display:flex;flex-direction:column}
@@ -89,7 +87,7 @@ p.e,.e{font:italic 400 9.3pt/1.45 var(--enf);color:var(--en)}
 .ck::after{content:"";position:absolute;left:1.1mm;top:.35mm;width:1.2mm;height:2.2mm;border:solid var(--or);border-width:0 .4mm .4mm 0;transform:rotate(45deg)}
 '''
 GF = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-      'family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Lora:ital,wght@1,400;1,700&amp;display=swap">')
+      'family=Inter:wght@400;500;600;700&amp;family=Lora:ital,wght@1,400;1,700&amp;display=swap">')
 
 def head(n, vi, en):
     return f'<div class="rh"><img src="{src("logo")}" alt="Minh Group ST"><span class="sec">{n:02d} · {vi}<i>{en}</i></span></div>'
@@ -116,30 +114,34 @@ def std(n, sec_vi, sec_en, body):
     return page(n, f'<div class="in">{head(n, sec_vi, sec_en)}{body}{foot(n)}</div>')
 
 P = []
-# 01 cover ------------------------------------------------------------
+# 01 cover (VFinal layout, second voice added) ----------------------
+SPK = '<svg viewBox="0 0 24 24" width="4.2mm" height="4.2mm" fill="#fff" aria-hidden="true"><path d="M12 1.5c.7 5.6 4.9 9.8 10.5 10.5-5.6.7-9.8 4.9-10.5 10.5-.7-5.6-4.9-9.8-10.5-10.5C7.1 11.3 11.3 7.1 12 1.5z"></path></svg>'
+def cstat(n, vi, en):
+    return f'<div style="padding:7mm 6mm 0;border-left:.25mm solid var(--ln)"><div style="font:700 43pt/1 var(--head);letter-spacing:-.03em;color:var(--or)">{n}</div><div class="t" style="margin-top:4mm;font-size:9.6pt">{vi}</div><div class="te" style="font-size:10.4pt">{en}</div></div>'
+def cval(vi, en):
+    return f'<div style="text-align:center"><div style="font:600 14.5pt/1.2 var(--head);color:#fff">{vi}</div><div class="te" style="font-size:10.4pt;color:#ffe1d3;margin-top:1mm">{en}</div></div>'
 P.append(page(1, f'''
-<div style="position:absolute;left:18mm;right:18mm;top:14mm;height:14mm;display:flex;justify-content:space-between;align-items:center">
- <img src="{src('logo')}" alt="Minh Group ST" style="height:12mm">
- <div style="text-align:right"><div style="font:700 11pt var(--head);letter-spacing:-.01em">Hồ sơ năng lực 2026</div><div class="te" style="font-size:10.5pt">Corporate Profile 2026</div></div>
+<div style="position:absolute;left:21mm;right:21mm;top:23mm;height:15mm;display:flex;justify-content:space-between;align-items:center">
+ <img src="{src('logo')}" alt="Minh Group ST" style="height:14.5mm">
+ <div style="text-align:right"><div class="sec" style="font-size:6pt">Corporate Profile 2026</div><div style="font:600 13pt/1.25 var(--head);letter-spacing:-.01em;margin-top:1mm">Hồ sơ năng lực 2026</div></div>
 </div>
-<div class="sq" style="position:absolute;left:7mm;top:19.5mm"></div><div class="sq" style="position:absolute;right:7mm;top:19.5mm"></div>
-<div class="ph" style="position:absolute;left:0;right:0;top:36mm;height:119mm"><img src="{src('digital-launch')}" alt=""></div>
-<div class="dk" style="position:absolute;left:0;right:0;top:133mm;height:60mm;padding:9mm 18mm 0">
- <h1 style="font-size:31pt;color:#fff">Tiên phong số hóa –<br><span style="color:#ef7a52">Hiệu quả bứt phá</span></h1>
- <div class="eh" style="font-size:17pt;color:#f6c4ae;margin-top:4mm">Digital first. Breakthrough results.</div>
- <div class="cap" style="position:absolute;right:18mm;bottom:3mm;color:#a39d98;margin:0">Lễ ra quân chuyển đổi số <i style="color:#a39d98">/ Digital transformation launch</i> · Tư liệu Minh Group ST</div>
+<div class="sq" style="position:absolute;left:8mm;top:29mm;width:5mm;height:5mm"></div><div class="sq" style="position:absolute;right:8mm;top:29mm;width:5mm;height:5mm"></div>
+<div class="ph" style="position:absolute;left:0;right:0;top:46.5mm;height:93mm"><img src="{src('digital-launch')}" alt="" style="object-position:center 62%"></div>
+<div class="dk" style="position:absolute;left:0;right:0;top:139.5mm;height:48mm;padding:7.5mm 19mm 0">
+ <h1 style="font-size:27pt;color:#fff">Tiên phong số hóa –<br><span style="color:#ef7a52">Hiệu quả bứt phá</span></h1>
+ <div class="eh" style="font-size:15.5pt;color:#f6c4ae;margin-top:3mm">Digital first. Breakthrough results.</div>
+ <div class="cap" style="position:absolute;right:4mm;bottom:2mm;color:#d6d1cc;margin:0">Lễ ra quân chuyển đổi số <i style="color:#d6d1cc">/ Digital transformation launch</i> · Tư liệu Minh Group ST</div>
 </div>
-<div style="position:absolute;left:18mm;right:18mm;top:203mm;display:grid;grid-template-columns:repeat(3,1fr) 46mm;gap:6mm;align-items:start">
- {stat('~300', 'Nhân sự chuyên trách', 'Dedicated field staff')}{stat('10+', 'Phòng kinh doanh', 'Sales offices')}{stat('4', 'Khối hoạt động', 'Operating divisions')}
+<div style="position:absolute;left:18mm;right:18mm;top:187.5mm;height:54mm;border-top:.7mm solid var(--or);border-right:.25mm solid var(--ln);display:grid;grid-template-columns:1.15fr 1fr 1fr">
+ {cstat('~300', 'Nhân sự chuyên trách', 'Dedicated field staff')}{cstat('10+', 'Phòng kinh doanh', 'Sales offices')}{cstat('4', 'Khối hoạt động', 'Operating divisions')}
 </div>
-<div class="band" style="position:absolute;left:0;right:0;top:246mm;height:24mm;padding:0 18mm;display:grid;grid-template-columns:repeat(3,1fr);align-items:center">
- <div><div class="t" style="font-size:13pt">Gần dân</div><div class="te" style="font-size:10pt">Close to the people</div></div>
- <div><div class="t" style="font-size:13pt">Minh bạch</div><div class="te" style="font-size:10pt">Transparent</div></div>
- <div><div class="t" style="font-size:13pt">Trách nhiệm</div><div class="te" style="font-size:10pt">Responsible</div></div>
+<div class="sq" style="position:absolute;left:8mm;top:194mm;width:5mm;height:5mm"></div><div class="sq" style="position:absolute;right:8mm;top:224mm;width:5mm;height:5mm"></div>
+<div style="position:absolute;left:0;right:0;top:241.5mm;height:27mm;background:var(--or);padding:0 26mm;display:flex;align-items:center;justify-content:space-between">
+ {cval('Gần dân', 'Close to the people')}{SPK}{cval('Minh bạch', 'Transparent')}{SPK}{cval('Trách nhiệm', 'Responsible')}
 </div>
-<div style="position:absolute;left:18mm;right:18mm;top:277mm;display:flex;justify-content:space-between;align-items:baseline">
- <div><span style="font:800 7.6pt var(--head);letter-spacing:.08em">CÔNG TY TNHH MINH GROUP ST</span> <span class="e" style="font-size:8pt">/ Minh Group ST Co., Ltd.</span></div>
- <div style="text-align:right;font-size:6.6pt;color:var(--mut)">Tài chính số · Bảo hiểm &amp; An sinh · Dự án &amp; Nhân lực<br><span class="e" style="font-size:7.2pt">Digital finance · Insurance &amp; social security · Projects &amp; workforce</span></div>
+<div style="position:absolute;left:21mm;right:21mm;top:276mm;display:flex;justify-content:space-between;align-items:flex-start">
+ <div><div style="font:700 7.4pt var(--head);letter-spacing:.08em">CÔNG TY TNHH MINH GROUP ST</div><div class="e" style="font-size:8.4pt;margin-top:.8mm">Minh Group ST Co., Ltd.</div></div>
+ <div style="text-align:right;font-size:6.6pt;color:var(--mut)">Tài chính số · Bảo hiểm &amp; An sinh · Dự án &amp; Nhân lực<div class="e" style="font-size:7.6pt;margin-top:.8mm">Digital finance · Insurance &amp; social security · Projects &amp; workforce</div></div>
 </div>'''))
 
 # 02 overview ---------------------------------------------------------
@@ -250,10 +252,10 @@ def eco_svg():
     for n, a, b, c, d in ECO:
         x, y, side = pos[n]
         y0 = -1 if side == 'top' else 117
-        lab += (f'<circle cx="{x}" cy="{y}" r="6.5" fill="#ca4d25"/><text x="{x}" y="{y + 1.3}" text-anchor="middle" fill="#fff" font-family="Plus Jakarta Sans,sans-serif" font-size="3.7" font-weight="800">{n}</text>'
-                f'<text x="{x}" y="{y0}" text-anchor="middle" fill="#201e1d" font-family="Plus Jakarta Sans,sans-serif" font-size="3.5" font-weight="700">{a}</text>'
+        lab += (f'<circle cx="{x}" cy="{y}" r="6.5" fill="#ca4d25"/><text x="{x}" y="{y + 1.3}" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="3.7" font-weight="700">{n}</text>'
+                f'<text x="{x}" y="{y0}" text-anchor="middle" fill="#201e1d" font-family="Inter,sans-serif" font-size="3.5" font-weight="700">{a}</text>'
                 f'<text x="{x}" y="{y0 + 4.3}" text-anchor="middle" fill="#ca4d25" font-family="Lora,serif" font-style="italic" font-size="3.4">{b}</text>'
-                f'<text x="{x}" y="{y0 + 8.9}" text-anchor="middle" fill="#3d3a38" font-family="Be Vietnam Pro,sans-serif" font-size="2.6">{c}</text>'
+                f'<text x="{x}" y="{y0 + 8.9}" text-anchor="middle" fill="#3d3a38" font-family="Inter,sans-serif" font-size="2.6">{c}</text>'
                 f'<text x="{x}" y="{y0 + 12.4}" text-anchor="middle" fill="#5f5650" font-family="Lora,serif" font-style="italic" font-size="2.6">{d}</text>')
     return (f'<svg viewBox="0 -6 180 138" role="img" aria-label="Bốn khối hoạt động / Four divisions" style="display:block;width:100%;height:auto">'
             '<circle cx="90" cy="65" r="48" fill="#f5f5f5"/>'
@@ -265,7 +267,7 @@ P.append(std(6, 'Hệ sinh thái', 'Ecosystem', f'''
 <div style="position:relative;width:146mm;margin:4mm auto 0">{eco_svg()}<img src="{src('mark')}" alt="Minh Group ST" style="position:absolute;left:50%;top:51.45%;width:13%;transform:translate(-50%,-50%)"></div>
 {lbl('Lợi thế cạnh tranh cốt lõi', 'Core competitive advantages', '4mm')}
 <div style="margin-top:3mm;display:flex;flex-direction:column;gap:2.5mm">''' + ''.join(
-    f'<div class="card" style="padding:0;display:grid;grid-template-columns:16mm 1fr 34mm;align-items:stretch"><div style="background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font:800 13pt var(--head)">{n}</div><div style="padding:3.6mm 5mm">{te(a, b, c, d)}</div><div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding-right:5mm;text-align:right"><div class="t" style="color:var(--or);font-size:13pt">{k}</div><div class="te" style="font-size:8.6pt">{ke}</div></div></div>'
+    f'<div class="card" style="padding:0;display:grid;grid-template-columns:16mm 1fr 34mm;align-items:stretch"><div style="background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font:700 13pt var(--head)">{n}</div><div style="padding:3.6mm 5mm">{te(a, b, c, d)}</div><div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding-right:5mm;text-align:right"><div class="t" style="color:var(--or);font-size:13pt">{k}</div><div class="te" style="font-size:8.6pt">{ke}</div></div></div>'
     for n, a, b, c, d, k, ke in [('01', 'Nguồn lực tại chỗ', 'Local resources', 'Khoảng 300 nhân sự, hơn 10 phòng kinh doanh tại ĐBSCL.', 'About 300 staff and more than 10 sales offices in the Mekong Delta.', '~300', 'staff'),
                                  ('02', 'Bảy lĩnh vực bổ trợ', 'Seven reinforcing lines', 'Số hóa · Tài chính · Bảo hiểm · An sinh · Lái xe · Máy bán hàng · Việc làm.', 'Digital · Finance · Insurance · Social security · Driver training · Vending · Jobs.', '7 lĩnh vực', '7 lines'),
                                  ('03', 'Vận hành minh bạch', 'Transparent operations', 'KPI rõ ràng; kiểm soát ngân sách, dòng tiền và rủi ro.', 'Clear KPIs; control of budget, cash flow and risk.', 'Quản trị + Thực thi', 'Governance + delivery')]) + '''</div>
@@ -280,7 +282,7 @@ P.append(std(7, 'Dự án trọng điểm', 'Flagship projects', f'''
 <div class="band" style="margin-top:7mm;display:grid;grid-template-columns:44mm 1fr;gap:6mm;align-items:center"><div>{te('Kết nối nguồn lực', 'Connecting resources')}</div>
  <div style="border-left:.3mm solid #f0a78d;padding-left:6mm"><div class="s" style="color:#fff;margin:0">Phòng Quản lý Dự án chủ trì. Tận dụng mạng lưới và điểm chạm sẵn có.</div><div class="se" style="color:#ffe1d3">Led by the Project Management Office, building on the existing network and touchpoints.</div></div></div>
 <div style="margin-top:5mm;display:flex;flex-direction:column;gap:3mm">''' + ''.join(
-    f'<div class="card" style="display:grid;grid-template-columns:20mm 1fr;gap:2mm;padding:5mm 6mm"><div style="font:800 24pt/1 var(--head);color:var(--or);letter-spacing:-.03em">{n}</div><div>{te(a, b)}<div class="pair" style="margin-top:2.6mm;gap:5mm"><p style="font-size:7.8pt">{c}</p><p class="e" style="font-size:8pt;padding-left:5mm">{d}</p></div></div></div>' for n, a, b, c, d in PJ) + f'''</div>
+    f'<div class="card" style="display:grid;grid-template-columns:20mm 1fr;gap:2mm;padding:5mm 6mm"><div style="font:700 24pt/1 var(--head);color:var(--or);letter-spacing:-.03em">{n}</div><div>{te(a, b)}<div class="pair" style="margin-top:2.6mm;gap:5mm"><p style="font-size:7.8pt">{c}</p><p class="e" style="font-size:8pt;padding-left:5mm">{d}</p></div></div></div>' for n, a, b, c, d in PJ) + f'''</div>
 <div class="pair" style="margin-top:4mm;gap:5mm"><p style="font-size:6.8pt;color:var(--mut)">Đào tạo, sát hạch và đưa người lao động đi làm việc ở nước ngoài phải đáp ứng điều kiện của từng chương trình và đơn vị có thẩm quyền.</p><p class="e" style="font-size:7.2pt;padding-left:5mm">Training, testing and overseas placement are subject to the conditions of each programme and of the competent authorities.</p></div>
 {lbl('Từ ý tưởng đến triển khai', 'From idea to delivery', '7mm')}
 <div class="g3" style="margin-top:3mm">
